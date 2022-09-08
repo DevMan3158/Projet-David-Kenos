@@ -24,7 +24,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     #[ORM\Column]
-    private array $roles = [];
+    private array $roles = [''];
+
+    //private array $roles = ['ROLE_USER']; Permet d'ajouter que des utilisateurs
 
     /**
      * @var string The hashed password

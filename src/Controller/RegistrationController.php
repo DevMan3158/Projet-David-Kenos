@@ -17,7 +17,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RegistrationController extends AbstractController
 {
-    #[Route('/register', name: 'app_register', methods: ['GET'])]
+    #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
@@ -38,6 +38,8 @@ class RegistrationController extends AbstractController
             $user->setImageBandeau('https://via.placeholder.com/150');
             $user->setImageBandeauAlt('https://via.placeholder.com/150');
             $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setRoles(["ROLE_USER"]);
+
 
             $entityManager->persist($user);
             $entityManager->flush();

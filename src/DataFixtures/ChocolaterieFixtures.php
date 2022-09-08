@@ -16,7 +16,7 @@ class ChocolaterieFixtures extends Fixture
         $tableChocolateries=[
             ['nom' => 'Chocolaterie du ministral', 'lieu' => 'Marzy'],
             ['nom' => 'Chocolaterie du chocolat','lieu' => 'Nevers'],
-            ['nom' => 'Chocolaterie du fondant','lieu' => 'La Charité'],
+            ['nom' => 'Chocolaterie du fondant','lieu' => 'La CharitÃ©'],
             ['nom' => 'Chocolaterie du croustillant','lieu' => 'Pougues-les-eaux'],
             ['nom' => 'Chocolaterie du palpitant','lieu' => 'Sancerre'],
         ];
@@ -26,7 +26,7 @@ class ChocolaterieFixtures extends Fixture
             $chocolaterie = new Chocolaterie();
             $chocolaterie->setNom($tableChocolateries[$i]['nom']);
             $chocolaterie->setLieu($tableChocolateries[$i]['lieu']);
-            $this->addReference('user_'.$i, $chocolaterie);
+            $this->addReference('chocolaterie_'.$i, $chocolaterie);
             $manager->persist($chocolaterie);
 
         }

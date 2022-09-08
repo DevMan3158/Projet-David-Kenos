@@ -71,6 +71,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setImageBandeauAlt("https://via.placeholder.com/1080x460");
         $user->setCreatedAt(new \DatetimeImmutable());
         $user->setChocolaterie($this->getReference("chocolaterie_".$tableUser[$i]['chocolaterie']));
+        $this->addReference('user_'.$i, $user);
 
 
         

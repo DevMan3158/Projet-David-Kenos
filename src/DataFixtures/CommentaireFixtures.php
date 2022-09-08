@@ -3,9 +3,10 @@
 namespace App\DataFixtures;
 
 
-use App\Entity\Post;
+use App\Entity\Commentaire;
 use DatetimeImmutable;
-use App\DataFixtures\CatPostFixtures;
+use App\DataFixtures\PostFixtures;
+use App\DataFixtures\UserFixtures;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -13,7 +14,7 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 
 
-class PostFixtures extends Fixture implements DependentFixtureInterface
+class CommentaireFixtures extends Fixture implements DependentFixtureInterface
 {
     //Ajout d'une fonction pour le haché le mot de passe 
     //public const CHOCOLATERIE_REFERENCE = 'user-robin';
@@ -28,16 +29,13 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
 
         for ($i=0; $i < 5 ; $i++) { 
         
-        $Post = new Post();
-        $Post->setContenu("Ceci est le contenu du post");
-        $Post->setCreatedAt(new DatetimeImmutable());
-        $Post->setImagePost("https://via.placeholder.com/150");
-        $Post->setImagePostAlt("https://via.placeholder.com/150");
-        $Post->setCatPost($this->getReference('categorie_'.$i));
-        $this->addReference('post_'.$i, $Post);
+        $commentaire = new Commentaire();
+        $commentaire->setCreatedAt(new DatetimeImmutable());
+        $commentaire->setPost($this->getReference('post_'.$i));
+        $commentaire->setUser($this->getReference('user_'.$i));
 
 
-        $manager->persist($Post);
+        $manager->persist($commentaire);
         }
 
 
@@ -50,7 +48,8 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
         public function getDependencies()
         {
             return array(
-                CatPostFixtures::class,
+                PostFixtures::class,
+                UserFixtures::class,
             );
         }
 }

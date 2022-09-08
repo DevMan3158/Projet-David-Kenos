@@ -34,7 +34,7 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
         $Post->setImagePost("https://via.placeholder.com/150");
         $Post->setImagePostAlt("https://via.placeholder.com/150");
         $Post->setCatPost($this->getReference('categorie_'.$i));
-
+        $this->addReference('post_'.$i, $Post);
 
         $manager->persist($Post);
         }

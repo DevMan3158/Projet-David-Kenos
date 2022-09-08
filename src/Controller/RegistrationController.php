@@ -17,11 +17,21 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RegistrationController extends AbstractController
 {
-    #[Route('/register', name: 'app_register', methods: ['GET'])]
+    #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user/*, array('chocolaterie' => $chocolaterie->findAll())*/);
+
+        $tableChocolateries=[
+            ['nom' => 'Chocolaterie du ministral', 'lieu' => 'Marzy'],
+            ['nom' => 'Chocolaterie du chocolat','lieu' => 'Nevers'],
+            ['nom' => 'Chocolaterie du fondant','lieu' => 'La Charité'],
+            ['nom' => 'Chocolaterie du croustillant','lieu' => 'Pougues-les-eaux'],
+            ['nom' => 'Chocolaterie du palpitant','lieu' => 'Sancerre'],
+        ];
+
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -38,6 +48,7 @@ class RegistrationController extends AbstractController
             $user->setImageBandeau('https://via.placeholder.com/150');
             $user->setImageBandeauAlt('https://via.placeholder.com/150');
             $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setRoles(["ROLE_USER"]);
 
             $entityManager->persist($user);
             $entityManager->flush();
@@ -52,6 +63,7 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'tableChocolateries' => $tableChocolateries,
         ]);
     }
 }

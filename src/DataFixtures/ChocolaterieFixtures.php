@@ -9,6 +9,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class ChocolaterieFixtures extends Fixture
 {
+    public const CHOCOLATERIE_REFERENCE = 'user-robin';
     public function load(ObjectManager $manager): void
     {
 
@@ -25,6 +26,7 @@ class ChocolaterieFixtures extends Fixture
             $chocolaterie = new Chocolaterie();
             $chocolaterie->setNom($tableChocolateries[$i]['nom']);
             $chocolaterie->setLieu($tableChocolateries[$i]['lieu']);
+            $this->addReference('user_'.$i, $chocolaterie);
             $manager->persist($chocolaterie);
 
         }

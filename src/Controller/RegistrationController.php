@@ -22,6 +22,16 @@ class RegistrationController extends AbstractController
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user/*, array('chocolaterie' => $chocolaterie->findAll())*/);
+
+        $tableChocolateries=[
+            ['nom' => 'Chocolaterie du ministral', 'lieu' => 'Marzy'],
+            ['nom' => 'Chocolaterie du chocolat','lieu' => 'Nevers'],
+            ['nom' => 'Chocolaterie du fondant','lieu' => 'La Charité'],
+            ['nom' => 'Chocolaterie du croustillant','lieu' => 'Pougues-les-eaux'],
+            ['nom' => 'Chocolaterie du palpitant','lieu' => 'Sancerre'],
+        ];
+
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -54,6 +64,7 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'tableChocolateries' => $tableChocolateries,
         ]);
     }
 }

@@ -4,26 +4,32 @@ namespace App\DataFixtures;
 
 
 use App\Entity\User;
+
+use App\DataFixtures\UsersFixtures;
+use Doctrine\Persistence\ObjectManager;
 use App\DataFixtures\ChocolaterieFixtures;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use DatetimeImmutable;
+//Faire attention tutos,doc , pour les liens !!
 
 
 
-class UserFixtures extends Fixture
+
+class UserFixtures extends Fixture implements DependentFixtureInterface
+
 {
     //Ajout d'une fonction pour le haché le mot de passe 
     public function __construct(
     private UserPasswordHasherInterface $passwordEncoder,
     ){
-        
+     
     }
 
     /*public const USER_REFERENCE = 'user-gary';*/
     public function load(ObjectManager $manager)
     {
-
 
         //Tableau
 
@@ -38,52 +44,66 @@ class UserFixtures extends Fixture
         ['nom' => 'Espinosa', 'prenom' =>'Leslie' ,'poste' => 'Chocolatière','email' => 'leslie.espinosa@gmail.com', 'roles' => ['ROLE_USER'] ],
         ['nom' => 'Chevallier', 'prenom' =>'Louis' ,'poste' => 'Chocolatier','email' => 'louis.chevalier@gmail.com', 'roles' => ['ROLE_USER'] ],
         ['nom' => 'Riviere', 'prenom' =>'Anthony' ,'poste' => 'Gérant','email' => 'anthony.riviere@gmail.com', 'roles' => ['ROLE_ADMIN']],
-        
-        
         ];
 
         for ($i=0; $i < 10 ; $i++) { 
             
         $user = new User();
-
         $user->setNom($tableUser[$i]['nom']);
         $user->setPrenom($tableUser[$i]['prenom']);
         $user->setPoste($tableUser[$i]['poste']);
         $user->setEmail($tableUser[$i]['email']);
         $user->setRoles($tableUser[$i]['roles']);
-
-
-
-        $user->setPassword(
-            $this->passwordEncoder->hashPassword($user, 'secret'));
-            
-            
-        $user->setDescription(" ");   
-        $user->setLinkedin(" ");
-        $user->setFacebook(" ");    
-        $user->setInstagram(" ");     
-        $user->setTwitter(" ");      
-        $user->setLien(" ");   
+        $user->setDescription("");   
+        $user->setLinkedin("");
+        $user->setFacebook("");    
+        $user->setInstagram("");     
+        $user->setTwitter("");      
+        $user->setLien("");   
         $user->setImageProfil("https://via.placeholder.com/150");  
         $user->setImageProfilAlt("https://via.placeholder.com/150");  
         $user->setImageBandeau("https://via.placeholder.com/1080x460");  
         $user->setImageBandeauAlt("https://via.placeholder.com/1080x460");
-        $user->setCreatedAt(new \DatetimeImmutable());
-        $user->setChocolaterie('Chocolaterie du chocolat');
-
-
-        
-        //$this->addReference(self::USER_REFERENCE, $user);
-        
+        $user->setCreatedAt(new DatetimeImmutable());
+        $user->setPassword(
+            $this->passwordEncoder->hashPassword($user, 'secret'));
         $manager->persist($user);
+    
+        //$this->addReference(self::USER_REFERENCE, $user);       
     }
+       
         $manager->flush();
+    }
+
+
+    public function getDependencies()
+    {
+        return [
+            ChocolaterieFixtures::class,
+        ];
+    }
+
+
+}
+
+
+
+/*namespace App\DataFixtures;
+
+use App\DataFixtures\UserFixtures;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+
+class GroupFixtures extends Fixture implements DependentFixtureInterface
+{
+    public function load(ObjectManager $manager)
+    {
+        
     }
 
     public function getDependencies()
     {
-        return array(
+        return [
             ChocolaterieFixtures::class,
-        );
+        ];
     }
-}
+}*/

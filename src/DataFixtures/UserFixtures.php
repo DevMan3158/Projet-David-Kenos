@@ -4,31 +4,25 @@ namespace App\DataFixtures;
 
 
 use App\Entity\User;
-
-use App\DataFixtures\UsersFixtures;
+use App\Entity\Chocolaterie;
 use Doctrine\Persistence\ObjectManager;
 use App\DataFixtures\ChocolaterieFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use DatetimeImmutable;
-//Faire attention tutos,doc , pour les liens !!
-
 
 
 
 class UserFixtures extends Fixture implements DependentFixtureInterface
-
 {
     //Ajout d'une fonction pour le haché le mot de passe 
+    public const CHOCOLATERIE_REFERENCE = 'user-robin';
     public function __construct(
     private UserPasswordHasherInterface $passwordEncoder,
-    ){
-     
-    }
+    ){}
 
     /*public const USER_REFERENCE = 'user-gary';*/
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
 
         //Tableau
@@ -54,19 +48,30 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setPoste($tableUser[$i]['poste']);
         $user->setEmail($tableUser[$i]['email']);
         $user->setRoles($tableUser[$i]['roles']);
-        $user->setDescription("");   
-        $user->setLinkedin("");
-        $user->setFacebook("");    
-        $user->setInstagram("");     
-        $user->setTwitter("");      
-        $user->setLien("");   
+
+
+
+        $user->setPassword(
+            $this->passwordEncoder->hashPassword($user, 'secret'));
+            
+            
+        $user->setDescription('');   
+        $user->setLinkedin('');
+        $user->setFacebook('');    
+        $user->setInstagram('');     
+        $user->setTwitter('');      
+        $user->setLien('');   
         $user->setImageProfil("https://via.placeholder.com/150");  
         $user->setImageProfilAlt("https://via.placeholder.com/150");  
         $user->setImageBandeau("https://via.placeholder.com/1080x460");  
         $user->setImageBandeauAlt("https://via.placeholder.com/1080x460");
-        $user->setCreatedAt(new DatetimeImmutable());
-        $user->setPassword(
-            $this->passwordEncoder->hashPassword($user, 'secret'));
+        $user->setCreatedAt(new \DatetimeImmutable());
+        $user->setChocolaterie($this->getReference("user_".$i));
+
+
+        
+        //$this->addReference(self::USER_REFERENCE, $user);
+        
         $manager->persist($user);
     
         //$this->addReference(self::USER_REFERENCE, $user);       

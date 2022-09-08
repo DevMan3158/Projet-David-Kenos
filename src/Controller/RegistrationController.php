@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Entity\Chocolaterie;
+use App\Repository\ChocolaterieRepository;
 use App\Form\RegistrationFormType;
 use App\Security\UserAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -21,7 +21,7 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form = $this->createForm(RegistrationFormType::class, $user/*, array('chocolaterie' => $chocolaterie->findAll())*/);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

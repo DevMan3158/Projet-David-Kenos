@@ -73,6 +73,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setChocolaterie($this->getReference("chocolaterie_".$tableUser[$i]['chocolaterie']));
         $this->addReference('user_'.$i, $user);
 
+
         
         //$this->addReference(self::USER_REFERENCE, $user);
         

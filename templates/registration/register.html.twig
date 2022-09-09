@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register User{% endblock %}
 
 {% block body %}
+
+{% if app.request.get('_route') == 'app_register_admin' %}
+    <h1>Inscription admin</h1>
+
+    {% else %}
+ 
     <h1>Register</h1>
+
+{% endif %}
 
 
     {{ form_start(registrationForm) }}

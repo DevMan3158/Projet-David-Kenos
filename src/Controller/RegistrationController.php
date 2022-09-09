@@ -58,4 +58,49 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
+    //Route pour accéder au formulaire admin 
+
+    #[Route('/register/admin', name: 'app_register_admin')]
+    public function registerAdmin(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
+    {
+        $user = new User();
+        $form = $this->createForm(RegistrationFormType::class, $user/*, array('chocolaterie' => $chocolaterie->findAll())*/);
+
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // encode the plain password
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+            );
+
+            $user->setImageProfil('https://via.placeholder.com/150');
+            $user->setImageProfilAlt('https://via.placeholder.com/150');
+            $user->setImageBandeau('https://via.placeholder.com/150');
+            $user->setImageBandeauAlt('https://via.placeholder.com/150');
+            $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setRoles(["ROLE_ADMIN"]);
+
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+            // do anything else you need here, like send an email
+
+            return $userAuthenticator->authenticateUser(
+                $user,
+                $authenticator,
+                $request
+            );
+        }
+
+        return $this->render('registration/register.html.twig', [
+            'registrationForm' => $form->createView(),
+        ]);
+    }
+
 }

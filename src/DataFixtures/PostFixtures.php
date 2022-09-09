@@ -15,12 +15,11 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 class PostFixtures extends Fixture implements DependentFixtureInterface
 {
-    //Ajout d'une fonction pour le haché le mot de passe 
-    //public const CHOCOLATERIE_REFERENCE = 'user-robin';
+  
 
 
 
-    /*public const USER_REFERENCE = 'user-gary';*/
+
     public function load(ObjectManager $manager): void
     {
 
@@ -45,7 +44,7 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
     }
     
         
-        //$this->addReference(self::USER_REFERENCE, $user);
+       
 
         public function getDependencies()
         {

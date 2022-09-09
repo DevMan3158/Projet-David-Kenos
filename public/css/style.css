@@ -1,0 +1,7 @@
+.test {
+  width: 200px;
+  background-color: green !important;
+}
+.test div {
+  color: red;
+}

@@ -7,10 +7,18 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
+            <link rel="stylesheet/less" type="text/css" href="{{ asset('css/monStyle.less') }}">
         {% endblock %}
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            <script
+                src="https://kit.fontawesome.com/280516d329.js"
+                crossorigin="anonymous"
+            ></script>
+            <script src="https://cdn.jsdelivr.net/npm/less" ></script>
         {% endblock %}
     </head>
     <body>

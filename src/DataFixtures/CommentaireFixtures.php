@@ -27,6 +27,7 @@ class CommentaireFixtures extends Fixture implements DependentFixtureInterface
         
         $commentaire = new Commentaire();
         $commentaire->setCreatedAt(new DatetimeImmutable());
+        $commentaire->setContenu('Ceci est le contenu du commentaire');
         $commentaire->setPost($this->getReference('post_'.$i));
         $commentaire->setUser($this->getReference('user_'.$i));
 

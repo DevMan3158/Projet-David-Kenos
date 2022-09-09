@@ -18,10 +18,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class RegistrationController extends AbstractController
 {
     #[Route('/register', name: 'app_register')]
+    #[Route('/register/admin', name: 'app_register_admin')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
+        $routeName = $request->attributes->get('_route');
         $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user/*, array('chocolaterie' => $chocolaterie->findAll())*/);
+        $form = $this->createForm(RegistrationFormType::class, $user);
 
 
         $form->handleRequest($request);
@@ -40,7 +42,12 @@ class RegistrationController extends AbstractController
             $user->setImageBandeau('https://via.placeholder.com/150');
             $user->setImageBandeauAlt('https://via.placeholder.com/150');
             $user->setCreatedAt(new \DateTimeImmutable());
-            $user->setRoles(["ROLE_USER"]);
+
+            if($routeName == "app_register_admin"){
+                $user->setRoles(["ROLE_ADMIN"]);
+            } else if ($routeName == "app_register"){
+                $user->setRoles(["ROLE_USER"]);
+            }
 
 
             $entityManager->persist($user);
@@ -56,6 +63,7 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'request' => $routeName,
         ]);
     }
 

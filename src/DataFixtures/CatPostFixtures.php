@@ -12,12 +12,11 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class CatPostFixtures extends Fixture 
 {
-    //Ajout d'une fonction pour le haché le mot de passe 
-    //public const CHOCOLATERIE_REFERENCE = 'user-robin';
+ 
 
 
 
-    /*public const USER_REFERENCE = 'user-gary';*/
+
     public function load(ObjectManager $manager): void
     {
 
@@ -44,7 +43,7 @@ class CatPostFixtures extends Fixture
     }
     
         
-        //$this->addReference(self::USER_REFERENCE, $user);
+
 
 
 }

@@ -1,0 +1,191 @@
+/* ---------- */
+/* Responsive */
+/* ---------- */
+
+/* Ordinateur */
+@media (max-width: 3860px) {
+
+
+
+    h5 {
+        font-weight: 200;
+        font-size: 1.8rem;
+      }
+      h1 {
+        font-weight: 200;
+        font-size: 4.5rem;
+        line-height: 30px;
+      }
+
+
+    img {
+        width: 220px;
+        height: 220px;
+        margin: 15px 0px 41px 0px;
+        transition: all;
+      }
+      
+      .flexForm {
+        margin-top: 72px;
+      }
+
+      input {
+        width: 600px;
+        height: 72px;
+        margin-bottom: 17px;
+        font-size: x-large;
+      }
+      ::placeholder {
+        padding: 25px;
+      }
+
+
+      label {
+        font-size: 0.8rem;
+        margin-top: 0px;
+      }
+
+      .btn {
+        width: 350px;
+        height: 73px;
+        font-size: x-large;
+        font-weight: 500;
+        margin-top: 0px;
+      }
+
+
+
+}
+
+
+
+
+
+@media (max-width: 1600px) {
+
+
+  
+}
+@media (max-width: 1200px) {
+
+  
+
+
+}
+
+/* Tablette */
+
+@media (max-width: 1024px) {
+
+   
+}
+
+@media (max-width: 768px) {
+
+  
+
+}
+
+
+
+/* Mobile */
+
+@media (max-width: 656px) {
+
+    h5 {
+        font-weight: 200;
+        font-size: 0.9rem;
+      }
+      h1 {
+        font-weight: 200;
+        font-size: 2.25rem;
+        line-height: 10px;
+      }
+
+
+    img {
+        width: 110px;
+        height: 110px;
+        margin: 10px 0px 20px 0px;
+      }
+      
+      .flexForm {
+        margin-top: 72px;
+      }
+
+      input {
+        width: 300px;
+        height: 36px;
+        margin-bottom: 8px;
+        font-size: small;
+      }
+      ::placeholder {
+        padding: 12px;
+      }
+
+
+      label {
+        font-size: 0.7rem;
+        margin-top: 0px;
+      }
+
+      .btn {
+        width: 170px;
+        height: 36px;
+        font-size: large;
+        margin-top: 5px;
+      }
+
+
+}
+
+
+@media (max-width: 300px) {
+
+    h5 {
+        font-weight: 200;
+        font-size: 0.9rem;
+      }
+      h1 {
+        font-weight: 200;
+        font-size: 1.5rem;
+        line-height: 10px;
+      }
+
+
+    img {
+        width: 110px;
+        height: 110px;
+        margin: 7px 0px 20px 0px;
+      }
+      
+      .flexForm {
+        margin-top: 36px;
+      }
+
+      input {
+        width: 200px;
+        height: 36px;
+        margin-bottom: 8px;
+        font-size: small;
+      }
+      ::placeholder {
+        padding: 12px;
+      }
+
+
+      label {
+        font-size: 0.7rem;
+        margin-top: 0px;
+      }
+
+      .btn {
+        width: 100px;
+        height: 36px;
+        font-size: large;
+        margin-top: 0px;
+      }
+
+
+}
+

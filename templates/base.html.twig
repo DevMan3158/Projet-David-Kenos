@@ -12,8 +12,8 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-            <link rel="stylesheet" href="{{ asset('font/fonts.css') }}">
             <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/mediaqueries.css') }}">
             <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
             <link rel="stylesheet/less" type="text/css" href="{{ asset('css/styles.less') }}">
         {% endblock %}

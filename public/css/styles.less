@@ -96,6 +96,27 @@ h1>span {
   width: 100%;
   align-items:center;
   margin-top:30px;
+
+ // border: solid 1px red;
+}
+
+
+
+#sectionForm {
+  display:flex;
+  width: 100%;
+  border: solid 1px rgb(51, 0, 255);
+
+}
+
+
+.divForm {
+  display:flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top:30px;
+
+  //border: solid 1px red;
 }
 
 input {
@@ -157,4 +178,62 @@ label>input
   color: @clr-pol2;
   font-family:@font;
   font-size:0.8rem;
+}
+
+
+
+
+
+//Formulaire d'inscription
+
+
+#sectionForm {
+  display:flex;
+  width: 100%;
+  border: solid 1px rgb(51, 0, 255);
+
+}
+
+
+.inputRgt {
+  width:@btnwidth;
+  height:@btnheigth;
+  color:@clr-pol2;
+  background:@background3;
+  border:@bord2;
+  font-family:@font;
+  margin-bottom: 10px;
+}	&::placeholder{
+  color:@clr-pol2;
+  padding:15px;
+}
+
+.btnRgt {
+  width:@btn2width;
+  height:@btn2heigth;
+  background:@clr-btn1;
+  color:@clr-pol3;
+  border:@bord;
+  border-radius:@rad;
+  font-family:@font;
+  font-size:small;
+  font-weight:500;
+  margin-top:10px;
+} &:hover {
+  color:@clr-pol-hvr1;
+}
+
+
+label
+{
+  font-family:@font;
+  color:@clr-pol1;
+  font-size:0.8rem;
+  margin-top:10px;
+}
+
+label>input
+{
+  width:10px;
+  height: 10px ;
 }

@@ -41,6 +41,17 @@ h1 > span {
   align-items: center;
   margin-top: 30px;
 }
+#sectionForm {
+  display: flex;
+  width: 100%;
+  border: solid 1px #3300ff;
+}
+.divForm {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 30px;
+}
 input {
   width: 245px;
   height: 40px;
@@ -89,4 +100,47 @@ label > input {
   color: #D9D9D9;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.8rem;
+}
+#sectionForm {
+  display: flex;
+  width: 100%;
+  border: solid 1px #3300ff;
+}
+.inputRgt {
+  width: 245px;
+  height: 40px;
+  color: #D9D9D9;
+  background: #111425;
+  border: 1px solid #0BAA9F;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 10px;
+}
+::placeholder {
+  color: #D9D9D9;
+  padding: 15px;
+}
+.btnRgt {
+  width: 155px;
+  height: 40px;
+  background: #0BAA9F;
+  color: #000000;
+  border: 0.5px solid #211D1D;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: small;
+  font-weight: 500;
+  margin-top: 10px;
+}
+:hover {
+  color: #054a45;
+}
+label {
+  font-family: 'Montserrat', sans-serif;
+  color: #0BAA9F;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+label > input {
+  width: 10px;
+  height: 10px ;
 }

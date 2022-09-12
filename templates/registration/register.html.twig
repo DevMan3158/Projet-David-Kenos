@@ -1,27 +1,92 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register User{% endblock %}
+{% block title %}Inscription {% endblock %}
 
 {% block body %}
 
-{% if app.request.get('_route') == 'app_register_admin' %}
-    <h1>Inscription admin</h1>
+
+
+
+
+
+
+<section id="sectionForm">
+
+
+
+
+
+
+    <img title="logo david-kenos" src="../img/logos/logo-david-kenos-blanc.png" alt="Le logo de david kenos">
+            {% if app.request.get('_route') == 'app_register_admin' %}
+        <h5> Hâte de nous retrouver ?</h5>
+       <h1><span> Inscrit-toi en administrateur !</span></h1>
 
     {% else %}
+    <h5> Hâte de nous retrouver ?</h5>
+    <h1><span> Inscrit-toi !</span></h1>
+
+
+    {% endif %}
+
+
+            
  
-    <h1>Register</h1>
+
+        {{ form_start(registrationForm) }}
 
 
-{% endif %}
+
+        <div class="divForm">
+
+<input  value="" name="prenom" id="inputprenom" class="" autocomplete="prenom" placeholder="prenom" required autofocus>
+        {{ form_row(registrationForm.prenom) }}
+
+        {{ form_row(registrationForm.nom) }}
+
+        </div>
 
 
-    {{ form_start(registrationForm) }}
+        <div class="divForm">
+     
+        {{ form_row(registrationForm.poste) }}
+        </div>
+
+        <div class="divForm">
+        {{ form_row(registrationForm.chocolaterie) }}
+        </div>
+
+        <div class="divForm">
         {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        </div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+        <div class="divForm">
+        {{ form_row(registrationForm.plainPassword )}}
+        </div>
+
+        <div class="divForm">
+        {{ form_widget(registrationForm.agreeTerms) }}
+        </div>
+
+
+        <div class="divForm">
+
+        <button type="submit" class="btn">Inscription</button>
+
+        </div>
+
+        {{ form_end(registrationForm) }}
+        
+
+</section>
+
+    
+
+
+
+
+
+
 {% endblock %}
+
+

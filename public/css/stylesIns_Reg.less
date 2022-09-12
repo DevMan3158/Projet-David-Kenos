@@ -36,8 +36,8 @@
 
 //Bouton
 
-@btnwidth:245px;
-@btnheigth:40px;
+@btnwidth:250px;
+@btnheigth:50px;
 
 @btn2width:155px;
 @btn2heigth:40px;
@@ -50,7 +50,7 @@ body {
   background:url("@{fond_log}/connexion-fond.jpg");
   background-repeat:no-repeat;
   background-position:center;
-  background-size:cover;
+  background-size: cover;
 }
 
 img {
@@ -110,14 +110,7 @@ h1>span {
 }
 
 
-.divForm {
-  display:flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-top:30px;
 
-  //border: solid 1px red;
-}
 
 input {
   width:@btnwidth;
@@ -189,26 +182,54 @@ label>input
 
 #sectionForm {
   display:flex;
+  flex-direction: row;
+  justify-content: space-around;
   width: 100%;
   border: solid 1px rgb(51, 0, 255);
 
 }
 
 
-.inputRgt {
+form{
+
+  display:flex;
+  
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.divForm {
+  display:flex;
+justify-content: center;
+  flex-direction: column;
+align-items: center;
+  width: 100%;
+  margin-top:10px;
+
+ //border: solid 1px red;
+}
+
+.input_Reg_Form {
   width:@btnwidth;
   height:@btnheigth;
   color:@clr-pol2;
   background:@background3;
   border:@bord2;
   font-family:@font;
-  margin-bottom: 10px;
-}	&::placeholder{
+  
+  margin-bottom: 0px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  }	&::placeholder{
   color:@clr-pol2;
   padding:15px;
 }
 
-.btnRgt {
+
+
+.btn_Reg_Form {
   width:@btn2width;
   height:@btn2heigth;
   background:@clr-btn1;
@@ -224,16 +245,10 @@ label>input
 }
 
 
-label
+.inputteste
 {
-  font-family:@font;
-  color:@clr-pol1;
-  font-size:0.8rem;
-  margin-top:10px;
+  width:12px;
+  height:12px;
 }
 
-label>input
-{
-  width:10px;
-  height: 10px ;
-}
+

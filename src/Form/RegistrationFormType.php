@@ -28,41 +28,82 @@ class RegistrationFormType extends AbstractType
    
 
             ->add('nom', TextType::class, [
-                'label' => false,
-                'attr' => [
-                    'class' => 'form-control-plaintext',
-                ]
-            ])
+                'required' => true,
+                'label' => "Nom :",
+                'attr' => ['class' => 'input_Reg_Form'],
 
+                'constraints' =>
+                
+                [
+                    new NotBlank([
+                       'message' => 'Veuillez saisir un nom'
+                    ]),
+                ]
+                
+                ])
 
             ->add('prenom', TextType::class, [
-                'label' => false,
-                'attr' => [
-                    'class' => 'form-control-plaintext',
+                'required' => true,
+                'label' => "Prénom :",
+                'attr' => ['class' => 'input_Reg_Form'],
+                'constraints' =>
+                
+                [
+                    new NotBlank([
+                       'message' => 'Veuillez saisir un prénom'
+                    ]),
+
                 ]
+                
             ])
 
      
             ->add('poste', TextType::class, [
-                'label' => false,
-                'attr' => [
-                    'class' => 'form-control-plaintext',
+                'required' => true,
+                'label' => "Poste :",
+                'attr' => ['class' => 'input_Reg_Form'],
+
+                'constraints' =>
+                
+                [
+                    new NotBlank([
+                       'message' => 'Veuillez saisir un poste'
+                    ]),
+
                 ]
             ])
 
             // appel l'entity Chocolaterie afin de pouvoir afficher enregistrement de celle-ci
             ->add('chocolaterie', EntityType::class, [
+                'required' => true,
                 'class' => Chocolaterie::class,
                 'query_builder' => function (ChocolaterieRepository $er) {
                     return $er->createQueryBuilder('c');
                 },
                 'choice_label' => 'nom',
+                'attr' => ['class' => 'input_Reg_Form'],
+                'constraints' =>
+                
+                [
+                    new NotBlank([
+                       'message' => 'Veuillez saisir une chocolaterie'
+                    ]),
+
+                ]
             ])
            
             ->add('email', EmailType::class, [
-                   'label' => false,
-                   'attr' => [
-                       'class' => 'form-control-plaintext',
+                   'required' => true,
+                   'label' => "Email :",
+                   'attr' => ['class' => 'input_Reg_Form'],
+
+                   'constraints' =>
+                
+                   [
+                       new NotBlank([
+                          'message' => 'Veuillez saisir un nom'
+                       ]),
+   
                    ]
                ])
 
@@ -70,12 +111,19 @@ class RegistrationFormType extends AbstractType
 
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
+                'required' => true,
                 'first_options' => [
+                    'label' => "Mot de passe :",
+
                     'attr' => ['autocomplete' => 'Nouveau Mot de Passe '],
+                    'attr' => ['class' => 'input_Reg_Form'],
+
                     'constraints' => [
+
                         new NotBlank([
                             'message' => 'Répeter le Mot de Passe ',
                         ]),
+                        
                         new Length([
                             'min' => 6,
                             'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
@@ -85,8 +133,13 @@ class RegistrationFormType extends AbstractType
                     ],
                     
                 ],
+
+
                 'second_options' => [
+                    'required' => true,
+                    'label' => "Répeter le Mot de Passe :",
                     'attr' => ['autocomplete' => 'Nouveau Mot de Passe'],
+                    'attr' => ['class' => 'input_Reg_Form'],
                     
                 ],
                 'invalid_message' => 'Les champs du mot de passe doivent correspondre.',
@@ -96,11 +149,13 @@ class RegistrationFormType extends AbstractType
             ])
             
             
-                        ->add('agreeTerms', CheckboxType::class, [
+                ->add('AgreeTerms', CheckboxType::class, [   
                 'mapped' => false,
+                'label' => "Accepter les termes et conditions",
+                'attr' => ['class' => 'inputteste'],
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez accepter les conditions.',
                     ]),
                 ],
             ]);;

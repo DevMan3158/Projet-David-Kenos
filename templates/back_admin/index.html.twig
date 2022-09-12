@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur la partie admin!{% endblock %}
+
+{% block body %}
+<header id="head">
+
+    <div id="headFlex">
+        <div id="logo">
+            <img src="{{ asset('img/logos/logo-david-kenos.png') }}" alt="Logo David Kenos"/>
+        </div>
+
+        <div id="burger" onClick="openMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+
+    <h3 class="headTitle">
+        Bienvenue,
+    </h3>
+    <h4 class="headTitle">
+        dans votre administration
+    </h4>
+
+    <ul>
+        <li>
+            Chocolaterie Nevers
+        </li>
+
+        <li>
+            Accueil
+        </li>
+
+        <li>
+            Deconnexion <i class="fa-solid fa-power-off"></i>
+        </li>
+    </ul>
+
+    <ul>
+        <li>
+            Actualites
+        </li>
+
+        <li>
+            Categories
+        </li>
+
+        <li>
+            Posts
+        </li>
+
+        <li>
+            Utilisateurs
+        </li>
+
+        <li>
+            Chocolateries
+        </li>
+    </ul>
+
+    <i class="fa-solid fa-angles-up" id="hamb" onClick="closeMenu()"></i>
+
+</header>
+
+<section>
+
+    <article id="actualites">
+        <div class="count">
+        25
+        </div>
+        <h5>ACTUALITES<span>sont disponibles</span></h5>
+        <ul>
+
+            <li>
+                le 12/09/2021 - <span> Lorem ipsum dolor sit amet. </span>
+            </li>
+
+            <li>
+                le 12/09/2021 - <span> Lorem ipsum dolor sit amet. </span>
+            </li>
+
+            <li>
+                le 12/09/2021 - <span> Lorem ipsum dolor sit amet. </span>
+            </li>
+
+        </ul>
+        
+        <button>Gérer les actualités</button>
+    </article>
+
+    <article id="categories">
+        <div class="count">
+        8
+        </div>
+        <h5>CATEGORIES<span>de posts sont disponibles</span></h5>
+        <button>Gérer les catégories</button>
+    </article>
+
+    <article id="posts">
+        <div class="count">
+        12
+        </div>
+        <h5>POSTS<span>sont disponibles</span></h5>
+        <button>Gérer les posts</button>
+    </article>
+
+    <article id="utilisateurs">
+        <div class="count">
+        10
+        </div>
+        <h5>UTILISATEURS<span>sont incrits</span></h5>
+        <button>Gérer les utilisateurs</button>
+    </article>
+
+    <a id="ancre" href="#">
+        <i class="fa-sharp fa-solid fa-angle-up"></i>
+    </a>
+
+</section>
+{% endblock %}

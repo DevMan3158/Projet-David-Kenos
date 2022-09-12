@@ -50,8 +50,9 @@ a {
 /* Make images easier to work with */
 img,
 picture {
-    width: 100%;
-    height: 100%;
+    /*width: 100%;
+    height: 100%;*/
+
     max-width: 100%;
     display: block;
     object-fit: cover;
@@ -64,7 +65,7 @@ input,
 button,
 textarea,
 select {
-    font: inherit;
+    /*font: inherit;*/
     padding: 0;
 }
 

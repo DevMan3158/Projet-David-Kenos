@@ -129,6 +129,7 @@ article button {
   font-size: 0.9em;
   margin-top: 30px;
   transition: 0.2s;
+  border: none;
 }
 article button:hover {
   transform: scale(1.05);

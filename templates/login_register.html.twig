@@ -12,10 +12,9 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-            <link rel="stylesheet" href="{{ asset('css/stylesIns_Reg.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/mediaqueries.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
-            <link rel="stylesheet/less" type="text/css" href="{{ asset('css/styles.less') }}">
+            <link rel="stylesheet" href="{{ asset('style/Ins_Reg.css') }}">
+            <link rel="stylesheet" href="{{ asset('style/Ins_Reg_Media.css') }}">
+            <link rel="stylesheet" href="{{ asset('style/normalizer.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -24,10 +23,6 @@
     </head>
     <body>
         {% block body %}
-        
-        
-
-        <script src="https://cdn.jsdelivr.net/npm/less" ></script>
         {% endblock %}
     </body>
 </html>

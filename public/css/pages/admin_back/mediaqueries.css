@@ -1,0 +1,90 @@
+/* ---------- */
+/* Responsive */
+/* ---------- */
+
+/* Ordinateur */
+@media (min-width: 3860px) {
+
+}
+
+
+@media (min-width: 1600px) {
+
+  
+}
+@media (min-width: 1200px) {
+
+
+}
+
+/* Tablette */
+
+@media (min-width: 1024px) {
+
+    header ul:first-of-type{
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 30px 30px 0  0 ;
+    }
+
+    header ul:first-of-type li{
+        margin: 0 10px;
+    }
+
+    header #headFlex{
+        display: unset; 
+        width: unset; 
+        justify-content: unset; 
+        align-items: unset;
+}
+
+#burger{
+    display: none;
+}
+
+.headTitle{
+    margin: auto;
+}
+
+   
+}
+
+@media (min-width: 768px) {
+
+
+        .headTitle{
+            font-size: 1.6em;
+        }
+
+        header h3{
+            margin: -79px auto 0 auto;
+        }
+
+        header{
+            padding: 40px;
+        }
+
+
+
+        header #headFlex #logo{
+            width: 100px;
+            float: left;
+        }
+
+}
+
+
+
+/* Mobile */
+
+@media (min-width: 656px) {
+
+}
+
+
+@media (min-width: 300px) {
+
+}
+

@@ -1,6 +1,6 @@
 header {
   padding: 15px;
-  background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../img/admin/menu-admin-verticale.jpg") center / cover no-repeat;
+  background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../../../img/admin/menu-admin-verticale.jpg") center / cover no-repeat;
   height: 200px;
   transition: 0.3s;
 }
@@ -54,12 +54,12 @@ header #hamb {
   width: fit-content;
   font-family: 'Montserrat', sans-serif !important;
   font-size: 0.8em;
-  margin: 20px auto;
+  margin: auto;
   text-align: left;
   display: block !important;
 }
 .headerBurger ul:nth-of-type(2) {
-  margin: 35px auto;
+  margin: 20px auto;
   width: 200px;
   display: block !important;
 }

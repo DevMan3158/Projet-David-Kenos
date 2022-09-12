@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -16,14 +17,16 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
-            <script
-                src="https://kit.fontawesome.com/280516d329.js"
-                crossorigin="anonymous"
-            ></script>
+<script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/less" ></script>
+            <script src="{{ asset('js/main.js') }}"></script>
         {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
+        <footer>
+            Adminstration dévellopé par EILEA - 2021
+        </footer>
+        <script src="{{ asset('js/main.js') }}"></script>
     </body>
 </html>

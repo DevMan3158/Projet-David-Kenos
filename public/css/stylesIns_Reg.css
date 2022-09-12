@@ -46,15 +46,9 @@ h1 > span {
   width: 100%;
   border: solid 1px #3300ff;
 }
-.divForm {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-top: 30px;
-}
 input {
-  width: 245px;
-  height: 40px;
+  width: 250px;
+  height: 50px;
   color: #D9D9D9;
   background: #111425;
   border: 1px solid #0BAA9F;
@@ -103,23 +97,41 @@ label > input {
 }
 #sectionForm {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   width: 100%;
   border: solid 1px #3300ff;
 }
-.inputRgt {
-  width: 245px;
-  height: 40px;
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.divForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+.input_Reg_Form {
+  width: 250px;
+  height: 50px;
   color: #D9D9D9;
   background: #111425;
   border: 1px solid #0BAA9F;
   font-family: 'Montserrat', sans-serif;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 ::placeholder {
   color: #D9D9D9;
   padding: 15px;
 }
-.btnRgt {
+.btn_Reg_Form {
   width: 155px;
   height: 40px;
   background: #0BAA9F;
@@ -134,13 +146,7 @@ label > input {
 :hover {
   color: #054a45;
 }
-label {
-  font-family: 'Montserrat', sans-serif;
-  color: #0BAA9F;
-  font-size: 0.8rem;
-  margin-top: 10px;
-}
-label > input {
-  width: 10px;
-  height: 10px ;
+.inputteste {
+  width: 12px;
+  height: 12px;
 }

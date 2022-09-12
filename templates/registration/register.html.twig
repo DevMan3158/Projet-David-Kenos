@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'Log_Reg.html.twig' %}
 
 {% block title %}Inscription {% endblock %}
 
@@ -31,17 +31,19 @@
 
 
             
- 
+<div class="registrationForm">
 
         {{ form_start(registrationForm) }}
 
 
 
         <div class="divForm">
+        
 
-<input  value="" name="prenom" id="inputprenom" class="" autocomplete="prenom" placeholder="prenom" required autofocus>
+
         {{ form_row(registrationForm.prenom) }}
 
+        
         {{ form_row(registrationForm.nom) }}
 
         </div>
@@ -65,7 +67,7 @@
         </div>
 
         <div class="divForm">
-        {{ form_widget(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.AgreeTerms) }}
         </div>
 
 
@@ -75,8 +77,13 @@
 
         </div>
 
+
+ 
+
         {{ form_end(registrationForm) }}
-        
+
+     
+</div>        
 
 </section>
 

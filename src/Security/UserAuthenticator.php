@@ -65,7 +65,7 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
         menant à la même vue back_admin/index.html.twig */
         
         if ($this->security->isGranted("ROLE_SUPER_ADMIN")) {
-            return new RedirectResponse($this->urlGenerator->generate('app_back_admin'));
+            return new RedirectResponse($this->urlGenerator->generate('app_super_admin'));
         }
 
 

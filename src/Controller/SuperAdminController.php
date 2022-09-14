@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SuperAdminController extends AbstractController
 {
-    #[Route('superadmin/back', name: 'app_back_admin')]
+    #[Route('/superadmin', name: 'app_super_admin')]
     public function index(): Response
     {
         return $this->render('back_admin/index.html.twig', [

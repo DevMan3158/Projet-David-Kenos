@@ -1,21 +1,70 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TestAccueilController!{% endblock %}
+{% block title %}Bienvenue sur la partie admin!{% endblock %}
 
 {% block body %}
 
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<section>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <article id="actualites">
+        <div class="count">
+        25
+        </div>
+        <h5>ACTUALITES<span>sont disponibles</span></h5>
+        <ul>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Acs/Desktop/Projet-David-Kenos/src/Controller/TestAccueilController.php'|file_link(0) }}">src/Controller/TestAccueilController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Acs/Desktop/Projet-David-Kenos/templates/test_accueil/index.html.twig'|file_link(0) }}">templates/test_accueil/index.html.twig</a></code></li>
-    </ul>
-</div>
+            <li>
+                le 12/09/2021 - <span> Lorem ipsum dolor sit amet. </span>
+            </li>
+
+            <li>
+                le 12/09/2021 - <span> Lorem ipsum dolor sit amet. </span>
+            </li>
+
+            <li>
+                le 12/09/2021 - <span> Lorem ipsum dolor sit amet. </span>
+            </li>
+
+        </ul>
+        
+        <button>Gérer les actualités</button>
+    </article>
+
+    <article id="categories">
+        <div class="count">
+        8
+        </div>
+        <h5>CATEGORIES<span>de posts sont disponibles</span></h5>
+        <button>Gérer les catégories</button>
+    </article>
+
+    <article id="posts">
+        <div class="count">
+        12
+        </div>
+        <h5>POSTS<span>sont disponibles</span></h5>
+        <button>Gérer les posts</button>
+    </article>
+
+    <article id="utilisateurs">
+        <div class="count">
+        10
+        </div>
+        <h5>UTILISATEURS<span>sont incrits</span></h5>
+        <button>Gérer les utilisateurs</button>
+    </article>
+
+    <article id="chocolateries">
+        <div class="count">
+        5
+        </div>
+        <h5>CHOCOLATERIES<span>sont ouvertes</span></h5>
+        <button>Gérer les chocolateries</button>
+    </article>
+
+        <a href="#" id="ancre">
+            <i class="fa-sharp fa-solid fa-angle-up"></i>
+        </a>
+
+</section>
 {% endblock %}

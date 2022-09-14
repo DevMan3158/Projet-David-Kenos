@@ -1,0 +1,93 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+  }
+  header {
+    padding: 15px;
+    background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../../img/admin/bandeau-menu-admin-horizontale.jpg") 100% / cover no-repeat;
+    height: 200px;
+    transition: 0.3s;
+  }
+  header #headFlex {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header #headFlex #logo {
+    width: 50px;
+  }
+  header #headFlex #burger {
+    width: 50px;
+    width: fit-content;
+  }
+  header .headTitle {
+    width: fit-content;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 100;
+  }
+  header h3 {
+    margin: 25px auto 0 auto;
+  }
+  header h4 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-style: normal !important;
+    margin: 0 auto 25px auto;
+  }
+  header ul,
+  header #hamb {
+    display: none;
+  }
+  .headerBurger {
+    height: 100%;
+    text-align: center;
+    background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../../img/admin/menu-admin-verticale.jpg") 100% / cover no-repeat;
+  }
+  .headerBurger #logo {
+    margin: auto;
+    width: 110px !important;
+  }
+  .headerBurger #burger {
+    display: none;
+  }
+  .headerBurger #hamb {
+    display: block;
+  }
+  .headerBurger ul:first-of-type {
+    width: fit-content;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.8em;
+    margin: auto;
+    text-align: left;
+    display: block !important;
+  }
+  .headerBurger ul:nth-of-type(2) {
+    margin: 20px auto;
+    width: 200px;
+    display: block !important;
+  }
+  .headerBurger ul:nth-of-type(2) li {
+    background-color: #0BAA9F;
+    transition: 0.2s;
+    font-family: 'Montserrat', sans-serif !important;
+    margin: 2px 0;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .headerBurger ul:nth-of-type(2) li:hover {
+    background-color: #0D9088;
+  }
+
+  footer {
+    text-align: center;
+    background-color: #F2BF2C;
+    height: 70px;
+    font-family: 'Montserrat', sans-serif !important;
+    line-height: 70px;
+  }
+
+  i {
+    cursor: pointer;
+  }

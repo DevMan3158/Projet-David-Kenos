@@ -21,9 +21,11 @@
 
             <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
             {% if app.request.get('_route') == 'app_back_admin' %}
-                <link rel="stylesheet" href="{{ asset('css/pages/admin_back/style.css') }}">
-                <link rel="stylesheet" href="{{ asset('css/pages/admin_back/mediaqueries.css') }}">
-            {% elseif app.request.get('_route') == '' %}
+                <link rel="stylesheet" href="{{ asset('css/admin_back/style.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin_back/mediaqueries.css') }}">
+            {% elseif app.request.get('_route') == 'app_back_crud' %}
+                <link rel="stylesheet" href="{{ asset('css/admin_back/styleCrud.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin_back/mediaqueriesCrud.css') }}">
             {% elseif app.request.get('_route') == '' %}
 
             {% endif %}

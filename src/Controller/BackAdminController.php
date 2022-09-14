@@ -15,4 +15,12 @@ class BackAdminController extends AbstractController
             'controller_name' => 'BackAdminController',
         ]);
     }
+
+    #[Route('admin/crud', name: 'app_back_crud')]
+    public function crud(): Response
+    {
+        return $this->render('back_admin/crud.html.twig', [
+            'controller_name' => 'BackAdminController',
+        ]);
+    }
 }

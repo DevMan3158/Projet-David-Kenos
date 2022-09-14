@@ -2,11 +2,11 @@ var headdd = document.getElementById('head');
 
 function openMenu(){
     headdd.classList.add("headerBurger");
-    document.getElementById("actualites").style.marginTop = "unset";
+    document.querySelector('section').style.marginTop = "unset"
 }
 
 function closeMenu(){
     headdd.classList.remove("headerBurger");
-    document.getElementById("actualites").style.marginTop = "-25px"
+    document.querySelector('section').style.marginTop = "-25px"
 }
 

@@ -1,6 +1,6 @@
 {% extends 'login_register.html.twig' %}
 
-{% block title %}Inscription {% endblock %}
+{% block title %}Davil Kenos - Inscription {% endblock %}
 
 {% block body %}
 
@@ -12,8 +12,9 @@
 
 <section id="sectionForm">
 
+<div class="container">
 
-
+    <div class="misenforme">
 
 
 
@@ -29,9 +30,9 @@
 
     {% endif %}
 
-
+    </div>
             
-<div class="registrationForm">
+
 
         {{ form_start(registrationForm) }}
 
@@ -40,29 +41,31 @@
         <div class="divForm">
         
 
+        {{ form_widget(registrationForm.prenom, {'attr': {'placeholder': 'Prenom' }}) }}
+  
+        </div>
+        <div class="divForm">
+         {{ form_widget(registrationForm.nom, {'attr': {'placeholder': 'Nom de famille' }}) }}
 
-        {{ form_row(registrationForm.prenom) }}
+       </div> 
 
-        
-        {{ form_row(registrationForm.nom) }}
 
+        <div class="divForm">
+        {{ form_widget(registrationForm.poste, {'attr': {'placeholder': 'Poste' }}) }}
+        </div>
+
+        <div class="divForm">
+        {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'E-mail' }}) }}
         </div>
 
 
         <div class="divForm">
-     
-        {{ form_row(registrationForm.poste) }}
+        {{ form_row(registrationForm.chocolaterie,)}}
         </div>
 
-        <div class="divForm">
-        {{ form_row(registrationForm.chocolaterie) }}
-        </div>
 
         <div class="divForm">
-        {{ form_row(registrationForm.email) }}
-        </div>
 
-        <div class="divForm">
         {{ form_row(registrationForm.plainPassword )}}
         </div>
 
@@ -73,7 +76,7 @@
 
         <div class="divForm">
 
-        <button type="submit" class="btn">Inscription</button>
+        <button type="submit" class="btn_Reg_Form ">S'inscrire</button>
 
         </div>
 
@@ -83,8 +86,8 @@
         {{ form_end(registrationForm) }}
 
      
-</div>        
-
+              
+</div>
 </section>
 
     

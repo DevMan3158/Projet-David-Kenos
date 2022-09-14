@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Davil Kenos - Adminstration{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+         <link rel="shortcut icon" type="image/ico" href="img/favicon.ico">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -12,9 +13,9 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-            <link rel="stylesheet" href="{{ asset('style/Ins_Reg.css') }}">
-            <link rel="stylesheet" href="{{ asset('style/Ins_Reg_Media.css') }}">
-            <link rel="stylesheet" href="{{ asset('style/normalizer.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/users/Ins_Reg.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/users/Ins_Reg_Media.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
         {% endblock %}
 
         {% block javascripts %}

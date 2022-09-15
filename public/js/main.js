@@ -27,3 +27,16 @@ function closeMenu(){
 
 }
 
+
+// Need une solution pour choper ce qu'il y a apres admin
+queue_url = urlcourante.substring (urlcourante.lastIndexOf( "/" )+1 );
+
+// On récupère le titre des CRUD pour le modifier en fonction de la page
+var titleCrud = document.getElementById('titleCrud');
+
+console.log(queue_url);
+
+if (queue_url == 'user') {
+    titleCrud.innerHTML = 'Test';
+} 
+

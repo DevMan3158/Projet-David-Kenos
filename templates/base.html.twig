@@ -25,10 +25,12 @@
             {% if app.request.get('_route') == 'app_back_admin' %}
                 <link rel="stylesheet" href="{{ asset('css/admin/acc/styleAcc.css') }}">
                 <link rel="stylesheet" href="{{ asset('css/admin/acc/mediaqueriesAcc.css') }}">
-            {% elseif app.request.get('_route') == 'app_back_crud' %}
-                <link rel="stylesheet" href="{{ asset('css/admin/crud/styleCrud.css') }}">
-                <link rel="stylesheet" href="{{ asset('css/admin/crud/mediaqueriesCrud.css') }}">
-            {% elseif app.request.get('_route') == '' %}
+            {% elseif (app.request.get('_route') == 'app_user_show') or (app.request.get('_route') == 'app_back_crud') %}
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/show/styleShow.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/show/mediaqueriesShow.css') }}">
+            {% elseif app.request.get('_route') == 'app_user_index' %}
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/index/styleIndex.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/index/mediaqueriesIndex.css') }}">
 
             {% endif %}
 
@@ -38,7 +40,6 @@
 
             {{ encore_entry_script_tags('app') }}
             <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/less" ></script>
 
         {% endblock %}
 

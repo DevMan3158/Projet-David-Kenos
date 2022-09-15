@@ -1,0 +1,58 @@
+section {
+  text-align: center;
+  padding: 50px;
+}
+section h1 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-size: 2em;
+  font-weight: 300;
+}
+section table {
+  margin: 35px auto;
+  box-shadow: 0px 0px 50px silver;
+  border-collapse: collapse;
+  text-align: left;
+}
+section table thead {
+  background-color: #FFD867;
+}
+section table thead th {
+  padding: 30px 45px 11px 38px;
+}
+section table th,
+section table td {
+  padding: 25px 40px;
+}
+section table tr {
+  border-bottom: 1px solid #c0c0c054;
+}
+section table tr td:last-of-type {
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+}
+section table button {
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+section table button a {
+  padding: 10px;
+  width: 110px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  color: white;
+}
+section table button:hover {
+  transform: scale(0.95);
+}
+section table button:first-of-type {
+  background-color: #1F2547;
+}
+section table button:last-of-type {
+  background-color: red;
+}

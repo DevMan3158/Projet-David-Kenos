@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+<section>
+
+    <h1>Gérer les utilisateurs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Chocolaterie</th>
+                <th>Poste</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.poste }}</td>
+                <td>{{ user.chocolaterie.nom }}</td>
+                
+                <td>
+
+                    <button>
+                        <a  href="{{ path('app_user_edit', {'id': user.id}) }}">
+                            <i class="fa-solid fa-trash"></i>
+                            Modifier
+                        </a>
+                    </button>
+
+                    <button>
+                        <a href="#">
+                            <i class="fa-solid fa-trash"></i>
+                            Supprimer
+                        </a>
+                    </button>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>Pas d'utilisateurs trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</section>
+{% endblock %}

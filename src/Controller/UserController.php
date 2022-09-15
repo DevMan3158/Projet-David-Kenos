@@ -6,16 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SuperAdminController extends AbstractController
+class UserController extends AbstractController
 {
-    #[Route('/superadmin', name: 'app_super_admin')]
+    #[Route('utilisateur/mon-espace', name: 'app_user')]
     public function index(): Response
     {
-        return $this->render('back_admin/index.html.twig', [
-            'controller_name' => 'SuperAdminController',
+        return $this->render('user/index.html.twig', [
+            'controller_name' => 'UserController',
         ]);
     }
-
 }
-
-

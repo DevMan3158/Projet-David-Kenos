@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}base{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" type="image/ico" href="img/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">   
+
+
+        {% block stylesheets %} 
+            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
+                {% if app.request.get('_route') == 'app_register' %}
+                    <link rel="stylesheet" href="{{ asset('css/user/reg_log/style.css') }}">
+                    <link rel="stylesheet" href="{{ asset('css/user/reg_log/media_queries.css') }}">
+                {% elseif app.request.get('_route') == 'app_login' %}
+                    <link rel="stylesheet" href="{{ asset('css/user/reg_log/style.css') }}">
+                    <link rel="stylesheet" href="{{ asset('css/user/reg_log/media_queries.css') }}">            
+                {% elseif app.request.get('_route') == 'app_back_crud' %}
+                    <link rel="stylesheet" href="{{ asset('css/user/acc/style.css') }}">
+                    <link rel="stylesheet" href="{{ asset('css/user/acc/media_queries.css') }}">            
+                {% elseif app.request.get('_route') == '' %}            
+            {% endif %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/less" ></script>
+        {% endblock %}
+
+    </head>
+
+    <body>
+        {% block body %}
+        {% endblock %}
+    </body>
+
+</html>

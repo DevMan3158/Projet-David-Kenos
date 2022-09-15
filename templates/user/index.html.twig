@@ -1,0 +1,14 @@
+{% extends 'user_base.html.twig' %}
+
+{% block title %}Mon espace : {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
+
+{% block body %}
+
+
+    <h1>{{ app.user.prenom }} {{ app.user.nom }} </h1>
+    
+<pre>
+    {{ dump(app.user) }}
+</pre>
+
+{% endblock %}

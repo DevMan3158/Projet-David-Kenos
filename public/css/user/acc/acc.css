@@ -1,18 +1,24 @@
 * {
   font-family: 'Montserrat', sans-serif;
 }
-body {
-  background: url("/img/maquettes/Profil.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100vh;
-  opacity: 0.7;
+p {
+  color: #141414;
+  font-weight: 600;
 }
+/*body
+{
+    background:url("@{patron}/Profil.jpg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: 100vh;
+    opacity: 1;
+   
+}*/
 section {
   display: flex;
   justify-content: space-between;
   height: 100vh;
-  border: solid 2px black;
+  background-color: #DFDFDF;
 }
 header {
   display: flex;
@@ -22,11 +28,11 @@ header {
   text-align: center;
   width: 21%;
   height: 100vh;
-  border: solid 2px #e3ff0c;
 }
 header #containerTop {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   background-color: #1F2547;
   height: 39vh;
   overflow-y: hidden;
@@ -36,6 +42,7 @@ header #containerTop h1 {
   color: #D9D9D9;
   text-transform: uppercase;
   font-size: 2rem;
+  margin: 0px 0px 30px 0px;
 }
 header #containerTop h1 > span {
   font-family: 'Playfair Display', serif;
@@ -52,17 +59,19 @@ header #containerTop .btn {
   border-radius: 5px;
   font-weight: bold;
   color: #D9D9D9;
+  transition: 0.4s;
+}
+header #containerTop .btn:hover {
+  color: #16394D;
 }
 header #containerTop figure {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 53%;
-  border: 1px solid #0BAA9F;
   margin: 0px 0px 18px 0px;
 }
 header #containerTop img {
-  border: solid 1px black;
   border-radius: 50%;
   height: 100%;
 }
@@ -83,7 +92,6 @@ header #containerBottom navbar {
   justify-content: center;
   height: 65%;
   width: 100%;
-  border: solid 2px #ff0095;
 }
 header #containerBottom ul {
   width: 100%;
@@ -91,7 +99,6 @@ header #containerBottom ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: solid 2px #f6ff00;
 }
 header #containerBottom li {
   padding: 12px 0px 12px 38px;
@@ -112,7 +119,6 @@ header #containerBottom figure {
   justify-content: center;
   height: 35%;
   width: 100%;
-  border: 1px solid #0BAA9F;
 }
 header #containerBottom img {
   height: 100%;
@@ -123,30 +129,137 @@ header #containerBottom img {
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  border: solid 2px #ff0095;
 }
 #container1 #container2 {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
   width: 93%;
   height: 28%;
-  border: solid 2px #001eff;
+}
+#container1 #container2 figure {
+  display: flex;
+  justify-content: center;
+  height: 65%;
+  border-bottom: solid 5px #F2BF2C;
+  background-color: #ffffff;
+}
+#container1 #container2 figure img {
+  width: 100%;
+}
+#container1 #container2 .profil {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 65%;
+  border-style: inset;
+  border: solid 10px white;
+  right: 45%;
+  border-radius: 50%;
+  top: 123px;
+}
+#container1 #container2 .profil img {
+  height: 100%;
+  border-radius: 50%;
 }
 #container1 #container3 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 50px 0px 0px 0px;
   width: 93%;
   height: 100vh;
-  border: solid 2px black;
 }
 #container1 #container3 #container4 {
   width: 28%;
-  border: solid 2px #ff0000;
+}
+#container1 #container3 #container4 .Carte_Desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #ffffff;
+  margin: 10px 0px 0px 0px;
+  padding: 30px 35px 30px 35px;
+  width: 100%;
+  height: 50vh;
+}
+#container1 #container3 #container4 .Carte_Desc h1 {
+  font-weight: 200;
+  color: #333333;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+#container1 #container3 #container4 .Carte_Desc h1 > span {
+  font-family: 'Playfair Display', serif;
+  font-style: oblique;
+  text-transform: none;
+}
+#container1 #container3 #container4 .Carte_Desc p > span {
+  color: #0BAA9F;
+  font-weight: 600;
+}
+#container1 #container3 #container4 .Carte_Desc .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 35px 0px 35px 0px;
+  width: 100%;
+  height: 50px;
+}
+#container1 #container3 #container4 .Carte_Desc .logo img {
+  height: 100%;
+  border-radius: 50%;
+  border-style: inset;
+  border: solid 2px #F2BF2C;
+  margin: 0px 8px 0px 8px;
 }
 #container1 #container3 #container5 {
+  display: flex;
+  flex-direction: column;
   width: 50%;
-  border: solid 2px #26ff00;
+  justify-content: space-around;
+}
+#container1 #container3 #container5 .post {
+  background-color: #ffffff;
+  height: 170px;
+  filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
 }
 #container1 #container3 #container6 {
+  display: flex;
+  flex-direction: column;
   width: 17%;
-  border: solid 2px black;
+}
+#container1 #container3 span > li {
+  background-color: #0BAA9F;
+}
+#container1 #container3 li {
+  border-radius: 5px;
+  text-align: center;
+  list-style: none;
+  background-color: #1F2547;
+  margin: 10px 0px 7px 0px;
+  padding: 15px 0px;
+}
+#container1 #container3 .btn {
+  background-color: #1F2547;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #D9D9D9;
+  transition: 0.4s;
+}
+#container1 #container3 .btn:hover {
+  color: #F2BF2C;
+}
+#container1 #container3 .btn2 {
+  background-color: #0BAA9F;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #D9D9D9;
+  transition: 0.4s;
+}
+#container1 #container3 .btn2:hover {
+  color: #191E39;
 }

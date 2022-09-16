@@ -7,9 +7,9 @@
 
     <body>
 
-  {# {{ dump(app.user) }} #}  
+   {#{{ dump(app.user) }} 
 
-    
+    lighthouse navigateur ou gt metrix rapport d'optimisation #}
 
 
 <section>
@@ -63,25 +63,73 @@
 
 <div id="container1">
 
+
+
+
         <div id="container2">
-        Bandeau
+            <figure>
+                    <img titre ="bandeau utlisateur "src="{{ app.user.imagebandeau }}" alt="{{ app.user.imagebandeaualt }}">
+            </figure>
+
+             <figure class="profil">
+                    <img titre ="Logo utilisateur"src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+            </figure>
         </div>
 
         <div id="container3">
         
         <div id="container4">
-            Carte descriptive
+            <div class="Carte_Desc">
             
-        
 
+            <h1><span>{{ app.user.prenom }} </span> {{ app.user.nom }} </h1>
+
+            <p>Gérant - <span>{{ app.user.prenom}}</span></p>
+            <br>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+             Voluptatibus veritatis libero debitis ullam dignissimos
+              ea rerum perferendis explicabo saepe repudiandae molestiae 
+              iure aliquam beatae, soluta nihil nemo laborum quidem officia?</p>
+              
+
+        <div class="logo">
+            <img titre ="Logo utilisateur"src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+            <img titre ="Logo utilisateur"src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+            <img titre ="Logo utilisateur"src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+            <img titre ="Logo utilisateur"src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+        </div>
+
+            <li><a class="btn" href="#">Envoyer un mail</a></li>
+
+            </div>
+        
         </div>
 
         <div id="container5">
-            Posts
+
+                <h2>
+                Les derniers posts publiés 
+                </h2>
+
+                <div class="post">                
+                    POST               
+                </div>
+
+                <div class="post">                
+                    POST               
+                </div>
+
+                <div class="post">                
+                    POST               
+                </div>
+
         </div>
 
         <div id="container6">
-            Boutons
+
+        <li><a class="btn" href="#">Modifer mon profil</a></li>
+        <li><a class="btn" href="#">Publier un post</a></li>
+        <span><li><span><a class="btn2" href="#">Trombinoscope</a></span></li></span>
         </div>
         
         </div>

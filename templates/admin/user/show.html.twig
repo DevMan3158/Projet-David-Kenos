@@ -14,6 +14,27 @@
 
             <tr>
 
+                <th>ID</th>
+                <td>{{ users.id }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>email</th>
+                <td>{{ users.email }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Role</th>
+                <td>{{ users.roles ? users.roles|json_encode : '' }}</td>
+
+            </tr>
+
+            <tr>
+
                 <th>Nom</th>
                 <td>{{ users.nom }}</td>
 
@@ -77,21 +98,32 @@
 
             <tr>
 
-                <th>Role</th>
-                <td>{{ users.roles ? users.roles|json_encode : '' }}</td>
+                <th>Lien</th>
+                <td>{{ users.lien }}</td>
 
             </tr>
 
-                <th>Actions</th>
-                <td><button><i class="fa-solid fa-trash"></i>Suprimer</button></td>
-                <td><button><a href="{{ path('app_user_edit', {'id': users.id}) }}"><i class="fa-solid fa-trash"></i>Modifier</a></button></td>
+            <tr>
+
+                <th>Image de profil</th>
+                <td>{{ users.imageProfil }}</td>
 
             </tr>
 
+            <tr>
 
+                <th>Image de bandeau</th>
+                <td>{{ users.imageBandeau }}</td>
+
+            </tr>
 
 
     </table>
+
+
+        <a href="{{ path('app_user_index') }}">
+            Retour à la liste
+        </a>
 
 </section>
 

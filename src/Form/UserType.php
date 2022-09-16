@@ -28,20 +28,10 @@ class UserType extends AbstractType
                 },
                 'choice_label' => 'nom'
             ])
-            ->add('roles')          
+            ->add('roles')       
             ->add('nom')
             ->add('prenom')
             ->add('poste')
-            ->add('description')
-            ->add('linkedin')
-            ->add('facebook')
-            ->add('instagram')
-            ->add('twitter')
-            ->add('lien')
-            ->add('image_profil')
-            ->add('image_profil_alt')
-            ->add('image_bandeau')
-            ->add('image_bandeau_alt')
             ->get('roles')
             ->addModelTransformer(new CallbackTransformer(
                     fn ($rolesAsArray) => count($rolesAsArray) ? $rolesAsArray[0]: null,

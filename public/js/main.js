@@ -34,9 +34,15 @@ queue_url = urlcourante.substring (urlcourante.lastIndexOf( "/" )+1 );
 // On récupère le titre des CRUD pour le modifier en fonction de la page
 var titleCrud = document.getElementById('titleCrud');
 
-console.log(queue_url);
-
+// On modifie le titre des crud en fonction de la page
 if (queue_url == 'user') {
-    titleCrud.innerHTML = 'Test';
-} 
-
+    titleCrud.innerHTML = "Modification des utilisateurs";
+} else if (queue_url == 'choc') {
+    titleCrud.innerHTML = "Modification des chocolateries";
+} else if (queue_url == 'act') {
+    titleCrud.innerHTML = "Modification des actualités";
+} else if (queue_url == 'post') {
+    titleCrud.innerHTML = "Modification des posts";
+} else if (queue_url == 'cat') {
+    titleCrud.innerHTML = "Modification des catégories";
+}

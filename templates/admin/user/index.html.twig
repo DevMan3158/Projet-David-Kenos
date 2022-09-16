@@ -29,24 +29,21 @@
                 
                 <td>
 
+                        <a  href="{{ path('app_user_show', {'id': user.id}) }}">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+
                     <button>
                         <a  href="{{ path('app_user_edit', {'id': user.id}) }}">
-                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-solid fa-pen-to-square"></i>
                             Modifier
                         </a>
                     </button>
 
-                    <button>
-                    
-                        <a href="#">
-                            <i class="fa-solid fa-trash"></i>
-                            Supprimer
-                        </a>
-                    </button>
+                        {{ include('admin/user/_delete_form.html.twig') }}
 
                     
 
-                    <!-- {{ include('admin/user/_delete_form.html.twig') }} -->
                     
                 </td>
             </tr>

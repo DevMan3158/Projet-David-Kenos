@@ -31,7 +31,24 @@ section table tr {
 section table tr td:last-of-type {
   display: flex;
   justify-content: space-between;
-  width: 320px;
+  width: 350px;
+  align-items: center;
+}
+section table .btn {
+  padding: 10px;
+  color: white;
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #C5122D;
+}
+section table a:not(button a) {
+  font-size: 1.2em;
+  transition: 0.2s;
+}
+section table a:not(button a):hover {
+  transform: rotate(180deg);
+  color: #C5122D;
 }
 section table button {
   border: none;
@@ -50,9 +67,6 @@ section table button a {
 section table button:hover {
   transform: scale(0.95);
 }
-section table button:first-of-type {
+section table button:nth-of-type(1):not(.btn) {
   background-color: #1F2547;
-}
-section table button:last-of-type {
-  background-color: red;
 }

@@ -31,7 +31,9 @@
             {% elseif app.request.get('_route') == 'app_user_index' %}
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/index/styleIndex.css') }}">
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/index/mediaqueriesIndex.css') }}">
-
+            {% elseif app.request.get('_route') == 'app_user_edit' %}
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/styleEdit.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/mediaqueriesEdit.css') }}">
             {% endif %}
 
         {% endblock %}
@@ -89,7 +91,7 @@
 
                 <li>
                     <a href="#">
-                        <img src="" alt=""/>
+                        <img src="{{ app.user.imageProfil }}" alt="{{ app.user.imageProfilAlt }}"/>
                     </a>
                 </li>
 

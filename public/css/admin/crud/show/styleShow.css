@@ -12,10 +12,6 @@ section table tr {
   float: left;
   width: 100%;
 }
-section table tr:last-of-type td {
-  width: 50%;
-  float: left;
-}
 section table tr th {
   background-color: #f2bf2c;
   font-family: 'Playfair Display', serif;

@@ -15,6 +15,7 @@ class Actualite
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'actualites')]
+    #[ORM\JoinColumn(onDelete: 'CASCADE')]
     #[ORM\JoinColumn(nullable: false)]
     private ?chocolaterie $chocolaterie = null;
 

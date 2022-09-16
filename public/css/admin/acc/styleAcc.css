@@ -132,6 +132,9 @@ article button {
   transition: 0.2s;
   border: none;
 }
+article button a {
+  color: white;
+}
 article button:hover {
   transform: scale(1.05);
   cursor: pointer;

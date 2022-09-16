@@ -1,0 +1,152 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+body {
+  background: url("/img/maquettes/Profil.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100vh;
+  opacity: 0.7;
+}
+section {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  border: solid 2px black;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-align: center;
+  width: 21%;
+  height: 100vh;
+  border: solid 2px #e3ff0c;
+}
+header #containerTop {
+  display: flex;
+  flex-direction: column;
+  background-color: #1F2547;
+  height: 39vh;
+  overflow-y: hidden;
+}
+header #containerTop h1 {
+  font-weight: 200;
+  color: #D9D9D9;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+header #containerTop h1 > span {
+  font-family: 'Playfair Display', serif;
+  font-style: oblique;
+  text-transform: none;
+}
+header #containerTop li {
+  list-style: none;
+  margin: 11px 0px 20px 0px;
+}
+header #containerTop .btn {
+  background-color: #0BAA9F;
+  padding: 15px 55px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #D9D9D9;
+}
+header #containerTop figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 53%;
+  border: 1px solid #0BAA9F;
+  margin: 0px 0px 18px 0px;
+}
+header #containerTop img {
+  border: solid 1px black;
+  border-radius: 50%;
+  height: 100%;
+}
+header #containerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 61vh;
+  flex-direction: column;
+  font-weight: 200;
+  color: #D9D9D9;
+  text-align: left;
+  background-color: #191E39;
+}
+header #containerBottom navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 65%;
+  width: 100%;
+  border: solid 2px #ff0095;
+}
+header #containerBottom ul {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid 2px #f6ff00;
+}
+header #containerBottom li {
+  padding: 12px 0px 12px 38px;
+  margin-top: 2px;
+  width: 100%;
+}
+header #containerBottom li:hover {
+  background-color: #16394D;
+}
+header #containerBottom a {
+  font-weight: 200;
+  color: #D9D9D9;
+  font-size: 1.2rem;
+}
+header #containerBottom figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35%;
+  width: 100%;
+  border: 1px solid #0BAA9F;
+}
+header #containerBottom img {
+  height: 100%;
+}
+#container1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  border: solid 2px #ff0095;
+}
+#container1 #container2 {
+  width: 93%;
+  height: 28%;
+  border: solid 2px #001eff;
+}
+#container1 #container3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 93%;
+  height: 100vh;
+  border: solid 2px black;
+}
+#container1 #container3 #container4 {
+  width: 28%;
+  border: solid 2px #ff0000;
+}
+#container1 #container3 #container5 {
+  width: 50%;
+  border: solid 2px #26ff00;
+}
+#container1 #container3 #container6 {
+  width: 17%;
+  border: solid 2px black;
+}

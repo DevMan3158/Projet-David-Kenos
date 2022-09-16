@@ -1,14 +1,98 @@
 {% extends 'user_base.html.twig' %}
 
-{% block title %}Mon espace : {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
+{% block title %}Connecté : {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
 
 {% block body %}
 
 
-    <h1>{{ app.user.prenom }} {{ app.user.nom }} </h1>
+    <body>
+
+  {# {{ dump(app.user) }} #}  
+
     
-<pre>
-    {{ dump(app.user) }}
-</pre>
+
+
+<section>
+
+    <header>
+
+        <div id="containerTop">
+        
+        <figure>
+
+            <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+
+        </figure>
+
+
+        <h1><span>{{ app.user.prenom }} </span> {{ app.user.nom }} </h1>
+
+            <li><a class="btn" href="#"><i class="fa-regular fa-user"></i> Voir mon profil</a></li>
+
+        </div>
+
+
+        <div id="containerBottom">
+
+
+
+            <navbar>
+            <ul>
+
+                <li><a href="#">Accueil</a></li>
+
+                <li><a href="#">Actualités de l'entreprise</a></li>
+
+                <li><a href="#">Trombinoscope</a></li>
+
+                <li><a href="#">La vie des chocolateries</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-power-off"></i> Déconnexion</a></li>
+
+            </ul>
+            </navbar>
+
+            <figure>
+                 <img title="logo david-kenos" src="../img/logos/logo-david-kenos-blanc.png" alt="Le logo de david kenos">
+            </figure>           
+        </div>
+
+    </header>
+
+
+
+<div id="container1">
+
+        <div id="container2">
+        Bandeau
+        </div>
+
+        <div id="container3">
+        
+        <div id="container4">
+            Carte descriptive
+            
+        
+
+        </div>
+
+        <div id="container5">
+            Posts
+        </div>
+
+        <div id="container6">
+            Boutons
+        </div>
+        
+        </div>
+ 
+</div>
+
+      
+
+</section>
+
+
+
 
 {% endblock %}

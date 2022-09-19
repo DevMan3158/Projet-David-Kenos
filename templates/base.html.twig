@@ -31,7 +31,7 @@
             {% elseif ('index' in app.request.get('_route')) %}
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/index/styleIndex.css') }}">
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/index/mediaqueriesIndex.css') }}">
-            {% elseif ('edit' in app.request.get('_route')) %}
+            {% elseif ('edit' in app.request.get('_route')) or ('new' in app.request.get('_route'))  %}
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/styleEdit.css') }}">
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/mediaquerriesEdit.css') }}">
             {% endif %}

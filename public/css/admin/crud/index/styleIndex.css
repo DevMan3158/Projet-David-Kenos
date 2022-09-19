@@ -70,3 +70,12 @@ section table button:hover {
 section table button:nth-of-type(1):not(.btn) {
   background-color: #1F2547;
 }
+section .btn-add {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #FFD867;
+  transition: 0.2s;
+}
+section .btn-add:hover {
+  transform: scale(1.05);
+}

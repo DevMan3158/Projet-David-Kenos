@@ -67,13 +67,15 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setLien('');   
         $user->setImageProfil("https://via.placeholder.com/150");  
         $user->setImageProfilAlt("https://via.placeholder.com/150");  
-        $user->setImageBandeau("https://via.placeholder.com/1080x460");  
-        $user->setImageBandeauAlt("https://via.placeholder.com/1080x460");
+        $user->setImageBandeau("https://via.placeholder.com/728x90?text=728x90+Leaderboard");  
+        $user->setImageBandeauAlt("https://via.placeholder.com/728x90?text=728x90+Leaderboard");
         $user->setCreatedAt(new \DatetimeImmutable());
         $user->setChocolaterie($this->getReference("chocolaterie_".$tableUser[$i]['chocolaterie']));
         $this->addReference('user_'.$i, $user);
 
 
+
+      
         
         //$this->addReference(self::USER_REFERENCE, $user);
         

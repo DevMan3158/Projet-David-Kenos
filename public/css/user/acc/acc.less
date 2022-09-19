@@ -1,7 +1,13 @@
 // relativeUrls: true;
 @import '../../variable.less';
 
+
+
 // récupere les variables de variable.less puis compile vers acc.css
+//
+//
+//Mettre les deux classe ci-sessous dans le style générale de la deuxième base 
+
 
 * {
     font-family: @fontM;
@@ -10,191 +16,48 @@
 p {
     color: @clr-pol5;
     font-weight: 600;
+    font-size: clamp(0.3125rem, 1.0743rem, 3rem);
 }
 
-/*body
-{
-    background:url("@{patron}/Profil.jpg");
+body {
+    /* background:url("@{patron}/profil.jpg");
     background-repeat:no-repeat;
-    background-position:center;
-    background-size: 100vh;
-    opacity: 1;
-   
-}*/
-section {
-
+    opacity: 0.95;
+    background-position-x: center;
+    background-size: 100%;*/
     display: flex;
     justify-content: space-between;
     height: 100vh;
     // border: solid 2px black;
     background-color: @bgd_bgr;
-}
-
-header {
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    text-align: center;
-    width: 21%;
-    height: 100vh;
-    //background-color: @bgd_bgr1;
-    //border: solid 2px rgb(227, 255, 12);
-
-    #containerTop {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        background-color: @bgd_bgr1;
-        height: 39vh;
-        overflow-y: hidden;
-
-
-        h1 {
-            font-weight: 200;
-            color: #D9D9D9;
-            text-transform: uppercase;
-            font-size: 2rem;
-            margin: 0px 0px 30px 0px;
-
-        }
-
-        h1>span {
-            font-family: @fontP;
-            font-style: oblique;
-            text-transform: none;
-        }
-
-
-        li {
-            list-style: none;
-            margin: 11px 0px 20px 0px;
-
-        }
-
-        .btn {
-            background-color: @clr-btn1;
-            padding: 15px 55px;
-            border-radius: 5px;
-            font-weight: bold;
-            color: @clr-pol2;
-            transition: @trt;
-
-            &:hover {
-
-                color: (@bgd_bgr3);
-            }
-        }
-
-
-        figure {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 53%;
-            //border: @bord2;
-            margin: 0px 0px 18px 0px;
-        }
-
-        img {
-            //border: solid 1px black;
-            border-radius: 50%;
-
-            height: 100%;
-        }
-    }
-
-
-
-
-    #containerBottom {
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        //margin-top: 25px;
-        height: 61vh;
-        flex-direction: column;
-        font-weight: 200;
-        color: #D9D9D9;
-        text-align: left;
-        background-color: @bgd_bgr2;
-
-
-        navbar {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 65%;
-            width: 100%;
-            //border: solid 2px rgb(255, 0, 149);
-        }
-
-        ul {
-            width: 100%;
-            height: 90%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            //border: solid 2px rgb(246, 255, 0);
-        }
-
-
-        li {
-            padding: 12px 0px 12px 38px;
-            margin-top: 2px;
-            width: 100%;
-
-            &:hover {
-                background-color: @bgd_bgr1-hvr;
-            }
-        }
-
-        a {
-            font-weight: 200;
-            color: #D9D9D9;
-            font-size: 1.20rem;
-        }
-
-
-        figure {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 35%;
-            width: 100%;
-            // border: @bord2;
-        }
-
-        img {
-            //border: solid 1px black;
-
-            height: 100%;
-        }
-
-    }
 
 }
 
 
-//CONTAINER BANDEAU ,CARTE DESCRIPTIVE, POSTS, BOUTONS 
+/////////////////////CHARGE LE HEADER//////////////////////////
 
-#container1 {
+@import '../éléments/header.less';
+
+
+//CONTAINER BANDEAU TOP,CARTE DESCRIPTIVE, POSTS, BOUTONS 
+
+.container_command {
     display: flex;
     //justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
-    // border: solid 2px rgb(255, 0, 149);
+    border: solid 2px rgb(26, 255, 0);
 
-    #container2 {
+
+
+    #container_bandeau {
         position: relative;
         display: flex;
         justify-content: space-around;
         flex-direction: column;
         width: 93%;
-        height: 28%;
+        height: 33%;
         //background-color: @bgd_bgr_w;
         // border: solid 2px rgb(0, 30, 255);
 
@@ -221,12 +84,12 @@ header {
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 65%;
+            height: 60%;
             border-style: inset;
             border: solid 10px white;
-            right: 45%;
+            right: 43.5%;
             border-radius: 50%;
-            top: 123px;
+            top: 204px;
 
             img {
                 //border: solid 1px black;
@@ -244,13 +107,13 @@ header {
     //CONTAINER CARTE DESCRIPTIVE, POSTS, BOUTONS 
 
 
-    #container3 {
+    #container_general {
 
         display: flex;
         //justify-content: space-evenly;
         flex-direction: row;
         justify-content: space-between;
-        margin: 50px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
         width: 93%;
         height: 100vh;
         //border: solid 2px black;
@@ -258,27 +121,29 @@ header {
 
         //CARTE DESCRIPTIVE
 
-        #container4 {
+        #container_carte {
             width: 28%;
             //border: solid 2px rgb(255, 0, 0);
 
 
-            .Carte_Desc {
+            .carte {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
                 background-color: @bgd_bgr_w;
-                margin: 10px 0px 0px 0px;
-                padding: 30px 35px 30px 35px;
+                // margin: 10px 0px 10px 0px;
+                padding: 71px 35px 71px 35px;
                 width: 100%;
-                height: 50vh;
+                //height: 80%;
+                //height: 50vh;
                 // border: solid 2px rgb(38, 0, 255);
 
                 h1 {
                     font-weight: 200;
                     color: @clr-pol4;
                     text-transform: uppercase;
-                    font-size: 2rem;
+                    margin: 10px 0px 10px 0px;
+                    font-size: clamp(0.625rem, 2.4886rem, 3rem);
 
                 }
 
@@ -286,6 +151,7 @@ header {
                     font-family: @fontP;
                     font-style: oblique;
                     text-transform: none;
+
                 }
 
 
@@ -302,17 +168,31 @@ header {
                     justify-content: center;
                     margin: 35px 0px 35px 0px;
                     width: 100%;
-                    height: 50px;
+                    
 
 
-                    img {
-                        //border: solid 1px black;
-                        height: 100%;
+                    figure
+                    {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        border: solid 3px @bgd_btn3;
                         border-radius: 50%;
-                        border-style: inset;
-                        border: solid 2px @bgd_btn3;
-                        margin: 0px 8px 0px 8px;
+                        margin: 0px 10px 0px 10px;
+                        width: 53px;
+                        height: 50px;
+
+
+                        i{
+                           font-size: 1.7rem;
+                           
+                        }
+
                     }
+
+
+                
 
                 }
 
@@ -321,21 +201,105 @@ header {
 
         }
 
-        //POST
+
+        /////////////POSTS
 
 
-        #container5 {
+        #container_posts {
             display: flex;
             flex-direction: column;
             width: 50%;
-            //border: solid 2px rgb(38, 255, 0);
-            justify-content: space-around;
+            //border: solid 3px rgb(38, 255, 0);
+            justify-content: center;
+            padding: 25px 0px;
 
-            .post {
+
+            h1 {
+
+                font-size: clamp(0.625rem, 2.8586rem, 3rem);
+                letter-spacing: 1px;
+                margin: 39px 0px;
+            }
+
+            h1>span {
+
+                font-weight: 200;
+
+
+            }
+
+
+
+
+            .posts {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
                 background-color: @bgd_bgr_w;
                 //border: solid 2px rgb(255, 34, 0);
-                height: 170px;
+                height: 35%;
+                width: 98%;
                 filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+                margin: 16px 0px;
+                padding: 30px;
+
+                figure {
+                    width: 35%;
+
+
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                .contenues {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin-left: 35px;
+
+
+                    p>span {
+                        font-weight: 200;
+                    }
+
+                    h3 {
+
+                        letter-spacing: 2px;
+                        font-weight: 200;
+                        text-transform: uppercase;
+                        
+                    }
+
+                    h3>span {
+
+                        font-weight: 200;
+                        font-family: @fontP;
+                        font-style: italic;
+                        text-transform: none;
+                    }
+
+                    .colorP {
+                        color: @clr-btn1;
+                        font-size: 0.9rem;
+                        text-transform: none;
+                    }
+
+
+                    i{
+                        color : #314090;
+                        font-weight: 500;
+                    }
+
+                    a
+                    {
+                       margin: 0px 30px 0px 8px ;
+                       color : #314090;
+                       font-weight: 600;
+                    }
+
+              
+                }
 
             }
 
@@ -344,7 +308,7 @@ header {
 
         //BOUTONS
 
-        #container6 {
+        #container_btn {
             display: flex;
             flex-direction: column;
 
@@ -362,21 +326,21 @@ header {
 
 
         li {
-            border-radius: 5px;
+            border-radius: 9px;
             text-align: center;
             list-style: none;
             background-color: @bgd_bgr1;
             margin: 10px 0px 7px 0px;
-            padding: 15px 0px
+            padding: 20px 0px
         }
 
 
 
         .btn {
             background-color: @bgd_bgr1;
-            border-radius: 5px;
             font-weight: bold;
-            color: @clr-pol2;
+            font-size: 1.3rem;
+            color: #ffffff;
             transition: @trt;
 
             &:hover {
@@ -387,8 +351,8 @@ header {
 
         .btn2 {
             background-color: @bgd_btn1;
-            border-radius: 5px;
             font-weight: bold;
+            font-size: 1.3rem;
             color: @clr-pol2;
             transition: @trt;
 

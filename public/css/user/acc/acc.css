@@ -4,17 +4,14 @@
 p {
   color: #141414;
   font-weight: 600;
+  font-size: clamp(0.3125rem, 1.0743rem, 3rem);
 }
-/*body
-{
-    background:url("@{patron}/Profil.jpg");
+body {
+  /* background:url("@{patron}/profil.jpg");
     background-repeat:no-repeat;
-    background-position:center;
-    background-size: 100vh;
-    opacity: 1;
-   
-}*/
-section {
+    opacity: 0.95;
+    background-position-x: center;
+    background-size: 100%;*/
   display: flex;
   justify-content: space-between;
   height: 100vh;
@@ -23,26 +20,24 @@ section {
 header {
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  justify-content: space-between;
   text-align: center;
   width: 21%;
-  height: 100vh;
+  background-color: #1F2547;
 }
 header #containerTop {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   background-color: #1F2547;
-  height: 39vh;
-  overflow-y: hidden;
+  height: 40%;
 }
 header #containerTop h1 {
   font-weight: 200;
-  color: #D9D9D9;
+  letter-spacing: 1px;
+  color: #ffffff;
   text-transform: uppercase;
-  font-size: 2rem;
-  margin: 0px 0px 30px 0px;
+  font-size: clamp(0.625rem, 2.1rem, 3rem);
 }
 header #containerTop h1 > span {
   font-family: 'Playfair Display', serif;
@@ -51,14 +46,14 @@ header #containerTop h1 > span {
 }
 header #containerTop li {
   list-style: none;
-  margin: 11px 0px 20px 0px;
 }
 header #containerTop .btn {
   background-color: #0BAA9F;
-  padding: 15px 55px;
+  padding: 20px 75px;
   border-radius: 5px;
   font-weight: bold;
-  color: #D9D9D9;
+  font-size: 1.3rem;
+  color: #ffffff;
   transition: 0.4s;
 }
 header #containerTop .btn:hover {
@@ -68,21 +63,19 @@ header #containerTop figure {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 53%;
-  margin: 0px 0px 18px 0px;
 }
 header #containerTop img {
   border-radius: 50%;
-  height: 100%;
+  width: 60%;
 }
 header #containerBottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 61vh;
+  height: 60%;
   flex-direction: column;
   font-weight: 200;
-  color: #D9D9D9;
+  color: #ffffff;
   text-align: left;
   background-color: #191E39;
 }
@@ -95,14 +88,12 @@ header #containerBottom navbar {
 }
 header #containerBottom ul {
   width: 100%;
-  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 header #containerBottom li {
-  padding: 12px 0px 12px 38px;
-  margin-top: 2px;
+  padding: 20px 0px 20px 38px;
   width: 100%;
 }
 header #containerBottom li:hover {
@@ -110,156 +101,214 @@ header #containerBottom li:hover {
 }
 header #containerBottom a {
   font-weight: 200;
-  color: #D9D9D9;
-  font-size: 1.2rem;
+  color: #ffffff;
+  font-size: 1.4rem;
 }
 header #containerBottom figure {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 35%;
-  width: 100%;
 }
 header #containerBottom img {
-  height: 100%;
+  width: 60%;
 }
-#container1 {
+.container_command {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  border: solid 2px #1aff00;
 }
-#container1 #container2 {
+.container_command #container_bandeau {
   position: relative;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   width: 93%;
-  height: 28%;
+  height: 33%;
 }
-#container1 #container2 figure {
+.container_command #container_bandeau figure {
   display: flex;
   justify-content: center;
   height: 65%;
   border-bottom: solid 5px #F2BF2C;
   background-color: #ffffff;
 }
-#container1 #container2 figure img {
+.container_command #container_bandeau figure img {
   width: 100%;
 }
-#container1 #container2 .profil {
+.container_command #container_bandeau .profil {
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 65%;
+  height: 60%;
   border-style: inset;
   border: solid 10px white;
-  right: 45%;
+  right: 43.5%;
   border-radius: 50%;
-  top: 123px;
+  top: 204px;
 }
-#container1 #container2 .profil img {
+.container_command #container_bandeau .profil img {
   height: 100%;
   border-radius: 50%;
 }
-#container1 #container3 {
+.container_command #container_general {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 50px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
   width: 93%;
   height: 100vh;
 }
-#container1 #container3 #container4 {
+.container_command #container_general #container_carte {
   width: 28%;
 }
-#container1 #container3 #container4 .Carte_Desc {
+.container_command #container_general #container_carte .carte {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   background-color: #ffffff;
-  margin: 10px 0px 0px 0px;
-  padding: 30px 35px 30px 35px;
+  padding: 71px 35px 71px 35px;
   width: 100%;
-  height: 50vh;
 }
-#container1 #container3 #container4 .Carte_Desc h1 {
+.container_command #container_general #container_carte .carte h1 {
   font-weight: 200;
   color: #333333;
   text-transform: uppercase;
-  font-size: 2rem;
+  margin: 10px 0px 10px 0px;
+  font-size: clamp(0.625rem, 2.4886rem, 3rem);
 }
-#container1 #container3 #container4 .Carte_Desc h1 > span {
+.container_command #container_general #container_carte .carte h1 > span {
   font-family: 'Playfair Display', serif;
   font-style: oblique;
   text-transform: none;
 }
-#container1 #container3 #container4 .Carte_Desc p > span {
+.container_command #container_general #container_carte .carte p > span {
   color: #0BAA9F;
   font-weight: 600;
 }
-#container1 #container3 #container4 .Carte_Desc .logo {
+.container_command #container_general #container_carte .carte .logo {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   margin: 35px 0px 35px 0px;
   width: 100%;
+}
+.container_command #container_general #container_carte .carte .logo figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 3px #F2BF2C;
+  border-radius: 50%;
+  margin: 0px 10px 0px 10px;
+  width: 53px;
   height: 50px;
 }
-#container1 #container3 #container4 .Carte_Desc .logo img {
-  height: 100%;
-  border-radius: 50%;
-  border-style: inset;
-  border: solid 2px #F2BF2C;
-  margin: 0px 8px 0px 8px;
+.container_command #container_general #container_carte .carte .logo figure i {
+  font-size: 1.7rem;
 }
-#container1 #container3 #container5 {
+.container_command #container_general #container_posts {
   display: flex;
   flex-direction: column;
   width: 50%;
-  justify-content: space-around;
+  justify-content: center;
+  padding: 25px 0px;
 }
-#container1 #container3 #container5 .post {
+.container_command #container_general #container_posts h1 {
+  font-size: clamp(0.625rem, 2.8586rem, 3rem);
+  letter-spacing: 1px;
+  margin: 39px 0px;
+}
+.container_command #container_general #container_posts h1 > span {
+  font-weight: 200;
+}
+.container_command #container_general #container_posts .posts {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   background-color: #ffffff;
-  height: 170px;
+  height: 35%;
+  width: 98%;
   filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+  margin: 16px 0px;
+  padding: 30px;
 }
-#container1 #container3 #container6 {
+.container_command #container_general #container_posts .posts figure {
+  width: 35%;
+}
+.container_command #container_general #container_posts .posts figure img {
+  border-radius: 50%;
+}
+.container_command #container_general #container_posts .posts .contenues {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 35px;
+}
+.container_command #container_general #container_posts .posts .contenues p > span {
+  font-weight: 200;
+}
+.container_command #container_general #container_posts .posts .contenues h3 {
+  letter-spacing: 2px;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+.container_command #container_general #container_posts .posts .contenues h3 > span {
+  font-weight: 200;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  text-transform: none;
+}
+.container_command #container_general #container_posts .posts .contenues .colorP {
+  color: #0BAA9F;
+  font-size: 0.9rem;
+  text-transform: none;
+}
+.container_command #container_general #container_posts .posts .contenues i {
+  color: #314090;
+  font-weight: 500;
+}
+.container_command #container_general #container_posts .posts .contenues a {
+  margin: 0px 30px 0px 8px ;
+  color: #314090;
+  font-weight: 600;
+}
+.container_command #container_general #container_btn {
   display: flex;
   flex-direction: column;
   width: 17%;
 }
-#container1 #container3 span > li {
+.container_command #container_general span > li {
   background-color: #0BAA9F;
 }
-#container1 #container3 li {
-  border-radius: 5px;
+.container_command #container_general li {
+  border-radius: 9px;
   text-align: center;
   list-style: none;
   background-color: #1F2547;
   margin: 10px 0px 7px 0px;
-  padding: 15px 0px;
+  padding: 20px 0px;
 }
-#container1 #container3 .btn {
+.container_command #container_general .btn {
   background-color: #1F2547;
-  border-radius: 5px;
   font-weight: bold;
-  color: #D9D9D9;
+  font-size: 1.3rem;
+  color: #ffffff;
   transition: 0.4s;
 }
-#container1 #container3 .btn:hover {
+.container_command #container_general .btn:hover {
   color: #F2BF2C;
 }
-#container1 #container3 .btn2 {
+.container_command #container_general .btn2 {
   background-color: #0BAA9F;
-  border-radius: 5px;
   font-weight: bold;
+  font-size: 1.3rem;
   color: #D9D9D9;
   transition: 0.4s;
 }
-#container1 #container3 .btn2:hover {
+.container_command #container_general .btn2:hover {
   color: #191E39;
 }

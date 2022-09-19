@@ -1,0 +1,95 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  width: 21%;
+  background-color: #1F2547;
+}
+header #containerTop {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #1F2547;
+  height: 40%;
+}
+header #containerTop h1 {
+  font-weight: 200;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: clamp(0.625rem, 2.1rem, 3rem);
+}
+header #containerTop h1 > span {
+  font-family: 'Playfair Display', serif;
+  font-style: oblique;
+  text-transform: none;
+}
+header #containerTop li {
+  list-style: none;
+}
+header #containerTop .btn {
+  background-color: #0BAA9F;
+  padding: 20px 75px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #ffffff;
+  transition: 0.4s;
+}
+header #containerTop .btn:hover {
+  color: #16394D;
+}
+header #containerTop figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header #containerTop img {
+  border-radius: 50%;
+  width: 60%;
+}
+header #containerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60%;
+  flex-direction: column;
+  font-weight: 200;
+  color: #ffffff;
+  text-align: left;
+  background-color: #191E39;
+}
+header #containerBottom navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 65%;
+  width: 100%;
+}
+header #containerBottom ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header #containerBottom li {
+  padding: 20px 0px 20px 38px;
+  width: 100%;
+}
+header #containerBottom li:hover {
+  background-color: #16394D;
+}
+header #containerBottom a {
+  font-weight: 200;
+  color: #ffffff;
+  font-size: 1.4rem;
+}
+header #containerBottom figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header #containerBottom img {
+  width: 60%;
+}

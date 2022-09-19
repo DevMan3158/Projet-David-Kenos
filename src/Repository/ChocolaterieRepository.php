@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Chocolaterie;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Response;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Chocolaterie>
@@ -37,6 +38,13 @@ class ChocolaterieRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function countChoco(){
+        $qb = $this->createQueryBuilder('c')
+            ->select('count(c.id)');
+        
+        return $qb->getQuery()->getSingleScalarResult();
     }
 
 //    /**

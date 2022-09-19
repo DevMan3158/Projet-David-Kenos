@@ -2,25 +2,29 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\PostRepository;
+use App\Repository\UserRepository;
+use App\Repository\CatPostRepository;
+use App\Repository\ActualiteRepository;
+use App\Repository\ChocolaterieRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
 {
     #[Route('admin/acc', name: 'app_back_admin')]
-    public function index(): Response
+    public function index(ChocolaterieRepository $chocoRepo, UserRepository $userRepo, ActualiteRepository $actRepo,
+     CatPostRepository $catPostRepo, PostRepository $postRepo): Response
     {
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
-        ]);
-    }
-
-    #[Route('admin/crud', name: 'app_back_crud')]
-    public function crud(): Response
-    {
-        return $this->render('admin/crud.html.twig', [
-            'controller_name' => 'AdminController',
+            'countChoco' => $chocoRepo->countChoco(),
+            'countUser' => $userRepo->countUser(),
+            'countPost' => $postRepo->countPost(),
+            'countAct' => $actRepo->countAct(),
+            'countCat' => $catPostRepo->countCat(),
+            'accAct' => $actRepo->accAct(),
         ]);
     }
 }

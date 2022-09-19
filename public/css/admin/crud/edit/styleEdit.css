@@ -33,20 +33,24 @@ section form button {
 section form button:hover {
   transform: scale(0.95);
 }
-section form #user {
+section form #user,
+section form #chocolaterie {
   text-align: left;
 }
-section form #user div {
+section form #user div,
+section form #chocolaterie div {
   display: flex;
   flex-direction: column;
 }
-section form #user div label {
+section form #user div label,
+section form #chocolaterie div label {
   background-color: #f2bf2c;
   font-family: 'Playfair Display', serif;
   font-style: italic;
   padding: 15px;
 }
-section form #user div input {
+section form #user div input,
+section form #chocolaterie div input {
   padding: 10px;
   border-left: 1px solid;
   border-right: 1px solid;

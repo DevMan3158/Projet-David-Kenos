@@ -8,22 +8,18 @@
 
     <article id="actualites">
         <div class="count">
-        25
+        {{ countAct }}
         </div>
         <h5>ACTUALITES<span>sont disponibles</span></h5>
         <ul>
 
-            <li>
-                le 12/09/2021 - <span> Lorem ipsum dolor sit amet. </span>
-            </li>
+            {% for accActs in accAct %}
 
             <li>
-                le 12/09/2021 - <span> Lorem ipsum dolor sit amet. </span>
+                le {{ accActs.crated_at|date("d/m/Y", "Europe/Paris") }} - <span> {{ accActs.contenu }} </span>
             </li>
 
-            <li>
-                le 12/09/2021 - <span> Lorem ipsum dolor sit amet. </span>
-            </li>
+            {% endfor %}
 
         </ul>
         
@@ -32,7 +28,7 @@
 
     <article id="categories">
         <div class="count">
-        8
+        {{ countCat }}
         </div>
         <h5>CATEGORIES<span>de posts sont disponibles</span></h5>
         <button>Gérer les catégories</button>
@@ -40,7 +36,7 @@
 
     <article id="posts">
         <div class="count">
-        12
+        {{ countPost }}
         </div>
         <h5>POSTS<span>sont disponibles</span></h5>
         <button>Gérer les posts</button>
@@ -48,7 +44,7 @@
 
     <article id="utilisateurs">
         <div class="count">
-        10
+        {{ countUser }}
         </div>
         <h5>UTILISATEURS<span>sont incrits</span></h5>
         <button><a href="{{ path('app_user_index') }}">Gérer les utilisateurs<a></button>
@@ -56,11 +52,14 @@
 
     <article id="chocolateries">
         <div class="count">
-        5
+        {{ countChoco }}
         </div>
         <h5>CHOCOLATERIES<span>sont ouvertes</span></h5>
         <button>Gérer les chocolateries</button>
     </article>
+
+    {{ dump(accAct)}}
+
 
         <a href="#" id="ancre">
             <i class="fa-sharp fa-solid fa-angle-up"></i>

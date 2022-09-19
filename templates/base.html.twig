@@ -25,15 +25,15 @@
             {% if app.request.get('_route') == 'app_back_admin' %}
                 <link rel="stylesheet" href="{{ asset('css/admin/acc/styleAcc.css') }}">
                 <link rel="stylesheet" href="{{ asset('css/admin/acc/mediaqueriesAcc.css') }}">
-            {% elseif (app.request.get('_route') == 'app_user_show') or (app.request.get('_route') == 'app_back_crud') %}
+            {% elseif ('show' in app.request.get('_route')) %} 
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/show/styleShow.css') }}">
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/show/mediaqueriesShow.css') }}">
-            {% elseif app.request.get('_route') == 'app_user_index' %}
+            {% elseif ('index' in app.request.get('_route')) %}
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/index/styleIndex.css') }}">
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/index/mediaqueriesIndex.css') }}">
-            {% elseif app.request.get('_route') == 'app_user_edit' %}
+            {% elseif ('edit' in app.request.get('_route')) %}
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/styleEdit.css') }}">
-                <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/mediaqueriesEdit.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/mediaquerriesEdit.css') }}">
             {% endif %}
 
         {% endblock %}
@@ -71,13 +71,15 @@
 
 
                 <li>
-                    <a href="#">
+                    <a href="{{ path('app_back_admin') }}">
                         Accueil
                     </a>
                 </li>
 
+                {% if app.user %}
+
                 <li>
-                    <a href="#">
+                    <a href="{{ path('app_logout') }}">
                         Deconnexion <i class="fa-solid fa-power-off"></i>
                     </a>
                 </li>
@@ -85,7 +87,7 @@
 
                 <li>
                     <a href="#">
-                        Chocolaterie Nevers
+                        {{ app.user.chocolaterie.nom }}
                     </a>
                 </li>
 
@@ -95,8 +97,15 @@
                     </a>
                 </li>
 
+                {% else %}
 
+                <li>
+                    <a href="{{ path('app_login')}}">
+                        Connexion <i class="fa-solid fa-right-to-bracket"></i>
+                    </a>
+                </li>
 
+                {% endif %}
 
             </ul>
 
@@ -114,11 +123,15 @@
                 </li>
 
                 <li>
-                    Utilisateurs
+                    <a href="{{ path('app_user_index') }}">
+                        Utilisateurs
+                    </a>
                 </li>
 
                 <li>
-                    Chocolateries
+                    <a href="{{ path('app_chocolaterie_index') }}">
+                        Chocolateries
+                    </a>
                 </li>
             </ul>
 

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification des Chocolateries{% endblock %}
+
+{% block body %}
+
+<section>
+
+    <h1>Modification des Chocolateries</h1>
+
+    {{ include('admin/chocolaterie/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_chocolaterie_index') }}">Retour à la liste</a>
+
+    {{ include('admin/chocolaterie/_delete_form.html.twig') }}
+
+</section>
+{% endblock %}

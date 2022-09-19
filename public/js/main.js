@@ -21,15 +21,11 @@ function closeMenu(){
 
 
     // On conditionne le retour du margin top à la fermeture du menu burger
-    if (queue_url == 'acc') {
+    if (queue_url == 'admin') {
         document.querySelector('section').style.marginTop = "-25px";
-    } 
+    }
 
 }
-
-
-// Need une solution pour choper ce qu'il y a apres admin
-queue_url = urlcourante.substring (urlcourante.lastIndexOf( "/" )+1 );
 
 // On récupère le titre des CRUD pour le modifier en fonction de la page
 var titleCrud = document.getElementById('titleCrud');
@@ -45,4 +41,12 @@ if (queue_url == 'user') {
     titleCrud.innerHTML = "Modification des posts";
 } else if (queue_url == 'cat') {
     titleCrud.innerHTML = "Modification des catégories";
+}
+
+// On modifie le header de place selon si l'on est sur l'accueil ou sur les crud
+
+if(queue_url == 'admin'){
+    document.querySelector('body').removeAttribute('id');
+} else {
+    document.querySelector('header').classList.add("headerBurger");
 }

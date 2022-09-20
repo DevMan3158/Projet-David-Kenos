@@ -1,0 +1,307 @@
+{% extends 'user_base.html.twig' %}
+
+{% block title %}Connecté : {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
+
+{% block body %}
+
+
+<body>
+
+    {#lighthouse navigateur ou gt metrix rapport d'optimisation #}
+
+    <section class="container_command">
+
+        <div id="container_bandeau">
+
+            <figure>
+                <img titre="bandeau utlisateur " src="{{ app.user.imagebandeau }}" alt="{{ app.user.imagebandeaualt }}">
+            </figure>
+
+            <figure class="profil">
+                <img titre="Logo utilisateur" src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+            </figure>
+
+        </div>
+
+        <div id="container_general">
+
+            <div id="container_carte">
+
+                <div class="carte">
+
+                    <h1><span>{{ app.user.prenom }} </span> {{ app.user.nom }} </h1>
+
+                    <p>{{ app.user.poste}} - <span>{{ app.user.chocolaterie.lieu}}</span></p>
+                    <br>
+                    <p>{{ app.user.description }}</p>
+
+                    <div class="logo">
+                        <figure><i class="fa-brands fa-facebook-f"></i></figure>
+                        <figure><i class="fa-brands fa-instagram"></i></figure>
+                        <figure><i class="fa-brands fa-twitter"></i></figure>
+                        <figure><i class="fa-brands fa-linkedin-in"></i></figure>
+                        
+                        {#<img titre="Logo utilisateur" src="{{ app.user.imageprofil }}">
+                        <img titre="Logo utilisateur" src="{{ app.user.imageprofil }}">
+                        <img titre="Logo utilisateur" src="{{ app.user.imageprofil }}">
+                        <img titre="Logo utilisateur" src="{{ app.user.imageprofil }}">#}
+                    </div>
+
+                    <li><a class="btn" href="#">Envoyer un mail</a></li>
+
+                </div>
+
+            </div>
+
+            <div id="container_posts">
+
+                <h1>
+                    Les derniers <span>posts publiés</span>
+                </h1>
+
+                <div class="posts">
+
+                    <figure>
+
+                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+
+                    </figure>
+
+
+                    <div class="contenues">
+
+                        <h3><span>{{ app.user.prenom }} </span> {{ app.user.nom }}
+                            <p class="colorP">publiés le {{ app.user.createdAt|date('d/m/Y') }}</p>
+                        </h3>
+
+
+
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br><span>Aspernatur nostrum aut,
+                                voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius.
+                                Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus
+                                voluptate!</span></p>
+                        <div class="comments">
+
+                          <span>{{ app.user.id}}</span> <i class="fa-regular fa-comments"></i><a> Commenter </a>
+                            <span>{{ app.user.id}}</span> <i class="fa-regular fa-heart"></i><a> J'aime </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+{#Test#} 
+
+                <div class="posts">
+
+                    <figure>
+
+                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+
+                    </figure>
+
+
+                    <div class="contenues">
+
+                        <h3><span>{{ app.user.prenom }} </span> {{ app.user.nom }}
+                            <p class="colorP">publiés le {{ app.user.createdAt|date('d/m/Y') }}</p>
+                        </h3>
+
+
+
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br><span>Aspernatur nostrum aut,
+                                voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius.
+                                Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus
+                                voluptate!</span></p>
+                        <div class="comments">
+
+                          <span>{{ app.user.id}}</span> <i class="fa-regular fa-comments"></i><a> Commenter </a>
+                            <span>{{ app.user.id}}</span> <i class="fa-regular fa-heart"></i><a> J'aime </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="posts">
+
+                    <figure>
+
+                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+
+                    </figure>
+
+
+                    <div class="contenues">
+
+                        <h3><span>{{ app.user.prenom }} </span> {{ app.user.nom }}
+                            <p class="colorP">publiés le {{ app.user.createdAt|date('d/m/Y') }}</p>
+                        </h3>
+
+
+
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br><span>Aspernatur nostrum aut,
+                                voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius.
+                                Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus
+                                voluptate!</span></p>
+                        <div class="comments">
+
+                          <span>{{ app.user.id}}</span> <i class="fa-regular fa-comments"></i><a> Commenter </a>
+                            <span>{{ app.user.id}}</span> <i class="fa-regular fa-heart"></i><a> J'aime </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="posts">
+
+                    <figure>
+
+                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+
+                    </figure>
+
+
+                    <div class="contenues">
+
+                        <h3><span>{{ app.user.prenom }} </span> {{ app.user.nom }}
+                            <p class="colorP">publiés le {{ app.user.createdAt|date('d/m/Y') }}</p>
+                        </h3>
+
+
+
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br><span>Aspernatur nostrum aut,
+                                voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius.
+                                Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus
+                                voluptate!</span></p>
+                        <div class="comments">
+
+                          <span>{{ app.user.id}}</span> <i class="fa-regular fa-comments"></i><a> Commenter </a>
+                            <span>{{ app.user.id}}</span> <i class="fa-regular fa-heart"></i><a> J'aime </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="posts">
+
+                    <figure>
+
+                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+
+                    </figure>
+
+
+                    <div class="contenues">
+
+                        <h3><span>{{ app.user.prenom }} </span> {{ app.user.nom }}
+                            <p class="colorP">publiés le {{ app.user.createdAt|date('d/m/Y') }}</p>
+                        </h3>
+
+
+
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br><span>Aspernatur nostrum aut,
+                                voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius.
+                                Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus
+                                voluptate!</span></p>
+                        <div class="comments">
+
+                          <span>{{ app.user.id}}</span> <i class="fa-regular fa-comments"></i><a> Commenter </a>
+                            <span>{{ app.user.id}}</span> <i class="fa-regular fa-heart"></i><a> J'aime </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                                <div class="posts">
+
+                    <figure>
+
+                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+
+                    </figure>
+
+
+                    <div class="contenues">
+
+                        <h3><span>{{ app.user.prenom }} </span> {{ app.user.nom }}
+                            <p class="colorP">publiés le {{ app.user.createdAt|date('d/m/Y') }}</p>
+                        </h3>
+
+
+
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br><span>Aspernatur nostrum aut,
+                                voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius.
+                                Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus
+                                voluptate!</span></p>
+                        <div class="comments">
+
+                          <span>{{ app.user.id}}</span> <i class="fa-regular fa-comments"></i><a> Commenter </a>
+                            <span>{{ app.user.id}}</span> <i class="fa-regular fa-heart"></i><a> J'aime </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                                <div class="posts">
+
+                    <figure>
+
+                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+
+                    </figure>
+
+
+                    <div class="contenues">
+
+                        <h3><span>{{ app.user.prenom }} </span> {{ app.user.nom }}
+                            <p class="colorP">publiés le {{ app.user.createdAt|date('d/m/Y') }}</p>
+                        </h3>
+
+
+
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br><span>Aspernatur nostrum aut,
+                                voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius.
+                                Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus
+                                voluptate!</span></p>
+                        <div class="comments">
+
+                          <span>{{ app.user.id}}</span> <i class="fa-regular fa-comments"></i><a> Commenter </a>
+                            <span>{{ app.user.id}}</span> <i class="fa-regular fa-heart"></i><a> J'aime </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+{#Test#} 
+            
+            </div>
+
+
+
+            <div id="container_btn">
+
+                <li><a class="btn" href="#">Modifer mon profil</a></li>
+                <li><a class="btn" href="#">Publier un post</a></li>
+                <span>
+                    <li><span><a class="btn2" href="{{ path('app_trombinoscope') }}">Trombinoscope</a></span></li>
+                </span>
+
+                {#<pre>{{ dump(app.user) }}</pre>#}
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+{% endblock %}

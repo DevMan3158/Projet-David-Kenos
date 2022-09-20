@@ -1,0 +1,50 @@
+#container_carte {
+  width: 28%;
+}
+#container_carte .carte {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #ffffff;
+  padding: 71px 35px 71px 35px;
+  width: 100%;
+  height: 80%;
+}
+#container_carte .carte h1 {
+  font-weight: 200;
+  color: #333333;
+  text-transform: uppercase;
+  margin: 10px 0px 10px 0px;
+  font-size: clamp(0.625rem, 2.4886rem, 3rem);
+}
+#container_carte .carte h1 > span {
+  font-family: 'Playfair Display', serif;
+  font-style: oblique;
+  text-transform: none;
+}
+#container_carte .carte p > span {
+  color: #0BAA9F;
+  font-weight: 600;
+}
+#container_carte .carte .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 35px 0px 35px 0px;
+  width: 100%;
+}
+#container_carte .carte .logo figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 3px #F2BF2C;
+  border-radius: 50%;
+  margin: 0px 10px 0px 10px;
+  width: 53px;
+  height: 50px;
+}
+#container_carte .carte .logo figure i {
+  font-size: 1.7rem;
+}

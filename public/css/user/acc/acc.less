@@ -1,367 +1,299 @@
+/////////////////////CHARGE LE MODULE VARIABLES///////////////////////////
 // relativeUrls: true;
 @import '../../variable.less';
 
 
-
-// récupere les variables de variable.less puis compile vers acc.css
-//
-//
-//Mettre les deux classe ci-sessous dans le style générale de la deuxième base 
-
-
-* {
-    font-family: @fontM;
-}
-
-p {
-    color: @clr-pol5;
-    font-weight: 600;
-    font-size: clamp(0.3125rem, 1.0743rem, 3rem);
-}
-
-body {
-    /* background:url("@{patron}/profil.jpg");
-    background-repeat:no-repeat;
-    opacity: 0.95;
-    background-position-x: center;
-    background-size: 100%;*/
-    display: flex;
-    justify-content: space-between;
-    height: 100vh;
-    // border: solid 2px black;
-    background-color: @bgd_bgr;
-
-}
-
-
-/////////////////////CHARGE LE HEADER//////////////////////////
-
-@import '../éléments/header.less';
-
-
-//CONTAINER BANDEAU TOP,CARTE DESCRIPTIVE, POSTS, BOUTONS 
-
-.container_command {
-    display: flex;
-    //justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    border: solid 2px rgb(26, 255, 0);
-
-
-
-    #container_bandeau {
-        position: relative;
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
-        width: 93%;
-        height: 33%;
-        //background-color: @bgd_bgr_w;
-        // border: solid 2px rgb(0, 30, 255);
-
-
-        figure {
-            display: flex;
-            justify-content: center;
-            height: 65%;
-            //border: @bord2;
-            border-bottom: solid 5px @bgd_btn3;
-            background-color: @bgd_bgr_w;
-
-            img {
-                //border: solid 1px black;
-                width: 100%;
-            }
-
-
-        }
-
-
-        .profil {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 60%;
-            border-style: inset;
-            border: solid 10px white;
-            right: 43.5%;
-            border-radius: 50%;
-            top: 204px;
-
-            img {
-                //border: solid 1px black;
-                height: 100%;
-                border-radius: 50%;
-            }
-
-
-        }
-
-
-
-    }
-
-    //CONTAINER CARTE DESCRIPTIVE, POSTS, BOUTONS 
-
-
-    #container_general {
-
+    //CONTAINER BANDEAU TOP,CARTE DESCRIPTIVE, POSTS, BOUTONS// 
+    .container_command {
+        overflow-y: scroll;
         display: flex;
         //justify-content: space-evenly;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 0px 0px 0px 0px;
-        width: 93%;
-        height: 100vh;
-        //border: solid 2px black;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        border: solid 2px rgb(255, 0, 242);
 
-
-        //CARTE DESCRIPTIVE
-
-        #container_carte {
-            width: 28%;
-            //border: solid 2px rgb(255, 0, 0);
-
-
-            .carte {
+        /////////////////////CHARGE LE MODULE LEADERBOARD/////////////////////
+        //@import '../éléments/leaderboard.less';
+        #container_bandeau {
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            width: 93%;
+            height: 33%;
+            //background-color: @bgd_bgr_w;
+            // border: solid 2px rgb(0, 30, 255);
+        
+        
+            figure {
+                display: flex;
+                justify-content: center;
+                height: 65%;
+                //border: @bord2;
+                border-bottom: solid 5px @bgd_btn3;
+                background-color: @bgd_bgr_w;
+        
+                img {
+                    //border: solid 1px black;
+                    width: 100%;
+                }
+        
+        
+            }
+        
+        
+            .profil {
+                position: absolute;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-evenly;
-                background-color: @bgd_bgr_w;
-                // margin: 10px 0px 10px 0px;
-                padding: 71px 35px 71px 35px;
-                width: 100%;
-                //height: 80%;
-                //height: 50vh;
-                // border: solid 2px rgb(38, 0, 255);
-
-                h1 {
-                    font-weight: 200;
-                    color: @clr-pol4;
-                    text-transform: uppercase;
-                    margin: 10px 0px 10px 0px;
-                    font-size: clamp(0.625rem, 2.4886rem, 3rem);
-
+                align-items: center;
+                height: 60%;
+                border-style: inset;
+                border: solid 10px white;
+                right: 43.5%;
+                border-radius: 50%;
+                top: 204px;
+        
+                img {
+                    //border: solid 1px black;
+                    height: 100%;
+                    border-radius: 50%;
                 }
-
-                h1>span {
-                    font-family: @fontP;
-                    font-style: oblique;
-                    text-transform: none;
-
-                }
-
-
-                p>span {
-                    color: @bgd_btn1;
-                    font-weight: 600;
-
-                }
-
-                .logo {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: center;
-                    margin: 35px 0px 35px 0px;
-                    width: 100%;
-                    
-
-
-                    figure
-                    {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        border: solid 3px @bgd_btn3;
-                        border-radius: 50%;
-                        margin: 0px 10px 0px 10px;
-                        width: 53px;
-                        height: 50px;
-
-
-                        i{
-                           font-size: 1.7rem;
-                           
-                        }
-
-                    }
-
-
-                
-
-                }
-
+        
+        
             }
-
-
+        
+        
+        
         }
 
+        //CONTAINER CARTE DESCRIPTIVE, POSTS, BOUTONS// 
 
-        /////////////POSTS
+        #container_general {
 
-
-        #container_posts {
             display: flex;
-            flex-direction: column;
-            width: 50%;
-            //border: solid 3px rgb(38, 255, 0);
-            justify-content: center;
-            padding: 25px 0px;
+            //justify-content: space-evenly;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 0px 0px 0px 0px;
+            width: 93%;
+            //height: 100vh;
+            //border: solid 2px black;
 
-
-            h1 {
-
-                font-size: clamp(0.625rem, 2.8586rem, 3rem);
-                letter-spacing: 1px;
-                margin: 39px 0px;
-            }
-
-            h1>span {
-
-                font-weight: 200;
-
-
-            }
-
-
-
-
-            .posts {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                background-color: @bgd_bgr_w;
-                //border: solid 2px rgb(255, 34, 0);
-                height: 35%;
-                width: 98%;
-                filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
-                margin: 16px 0px;
-                padding: 30px;
-
-                figure {
-                    width: 35%;
-
-
-                    img {
-                        border-radius: 50%;
-                    }
-                }
-
-                .contenues {
+            /////////////////////CHARGE LE MODULE CARTE DESCRIPTIVE/////////////
+            //@import '../éléments/carte_desc.less';
+            #container_carte {
+                width: 28%;
+                height: 66vh;
+                //border: solid 2px rgb(255, 0, 0);
+            
+            
+                .carte {
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
-                    margin-left: 35px;
-
-
-                    p>span {
+                    justify-content: space-evenly;
+                    background-color: @bgd_bgr_w;
+                    // margin: 10px 0px 10px 0px;
+                    padding: 71px 35px 71px 35px;
+                    width: 100%;
+                    height: 80%;
+                    //height: 50vh;
+                    // border: solid 2px rgb(38, 0, 255);
+            
+                    h1 {
                         font-weight: 200;
-                    }
-
-                    h3 {
-
-                        letter-spacing: 2px;
-                        font-weight: 200;
+                        color: @clr-pol4;
                         text-transform: uppercase;
-                        
+                        margin: 10px 0px 10px 0px;
+                        font-size: clamp(0.625rem, 2.4886rem, 3rem);
+            
                     }
-
-                    h3>span {
-
-                        font-weight: 200;
+            
+                    h1>span {
                         font-family: @fontP;
-                        font-style: italic;
+                        font-style: oblique;
                         text-transform: none;
+            
                     }
-
-                    .colorP {
-                        color: @clr-btn1;
-                        font-size: 0.9rem;
-                        text-transform: none;
+            
+                    p>span {
+                        color: @bgd_btn1;
+                        font-weight: 600;
+            
                     }
-
-
-                    i{
-                        color : #314090;
-                        font-weight: 500;
+            
+                    .logo {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 35px 0px 35px 0px;
+                        width: 100%;
+            
+                        figure {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            border: solid 3px @bgd_btn3;
+                            border-radius: 50%;
+                            margin: 0px 10px 0px 10px;
+                            width: 53px;
+                            height: 50px;
+            
+            
+                            i {
+                                font-size: 1.7rem;
+            
+                            }
+                        }
                     }
-
-                    a
-                    {
-                       margin: 0px 30px 0px 8px ;
-                       color : #314090;
-                       font-weight: 600;
-                    }
-
-              
                 }
-
             }
-
-        }
-
-
-        //BOUTONS
-
-        #container_btn {
-            display: flex;
-            flex-direction: column;
-
-            width: 17%;
-            //border: solid 2px black;
-        }
-
-        span>li {
-            background-color: @bgd_btn1;
-
-        }
-
-
-
-
-
-        li {
-            border-radius: 9px;
-            text-align: center;
-            list-style: none;
-            background-color: @bgd_bgr1;
-            margin: 10px 0px 7px 0px;
-            padding: 20px 0px
-        }
-
-
-
-        .btn {
-            background-color: @bgd_bgr1;
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: #ffffff;
-            transition: @trt;
-
-            &:hover {
-                color: (@bgd_btn3);
+            /////////////////////CHARGE LE MODULE POST//////////////////////////
+            //@import '../éléments/post.less';
+            #container_posts {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                //border: solid 3px rgb(38, 255, 0);
+                justify-content: center;
+                padding: 25px 0px;
+            
+            
+                h1 {
+            
+                    font-size: clamp(0.625rem, 2.8586rem, 3rem);
+                    letter-spacing: 1px;
+                    margin: 39px 0px;
+                }
+            
+                h1>span {
+            
+                    font-weight: 200;
+            
+            
+                }
+            
+                .posts {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    background-color: @bgd_bgr_w;
+                    //border: solid 2px rgb(255, 34, 0);
+                    height: 35%;
+                    width: 98%;
+                    filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+                    margin: 16px 0px;
+                    padding: 30px;
+            
+                    figure {
+                        width: 35%;
+            
+            
+                        img {
+                            border-radius: 50%;
+                        }
+                    }
+            
+                    .contenues {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        margin-left: 35px;
+            
+            
+                        p>span {
+                            font-weight: 200;
+                        }
+            
+                        h3 {
+            
+                            letter-spacing: 2px;
+                            font-weight: 200;
+                            text-transform: uppercase;
+                            
+                        }
+            
+                        h3>span {
+            
+                            font-weight: 200;
+                            font-family: @fontP;
+                            font-style: italic;
+                            text-transform: none;
+                        }
+            
+                        .colorP {
+                            color: @clr-btn1;
+                            font-size: 0.9rem;
+                            text-transform: none;
+                        }
+            
+                        i{
+                            color : #314090;
+                            font-weight: 500;
+                        }
+            
+                        a
+                        {
+                           margin: 0px 30px 0px 8px ;
+                           color : #314090;
+                           font-weight: 600;
+                        }
+                    }
+                }
             }
-        }
+            
 
+            /////////////////////CHARGE LE MODULE BOUTONS///////////////////////
+            //@import '../éléments/btn.less';
 
-        .btn2 {
-            background-color: @bgd_btn1;
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: @clr-pol2;
-            transition: @trt;
-
-            &:hover {
-                color: (@bgd_btn2);
+            #container_btn {
+                display: flex;
+                flex-direction: column;
+            
+                width: 17%;
+                //border: solid 2px black;
             }
+            
+            span>li {
+                background-color: @bgd_btn1;
+            
+            }
+            
+            li {
+                border-radius: 9px;
+                text-align: center;
+                list-style: none;
+                background-color: @bgd_bgr1;
+                margin: 10px 0px 7px 0px;
+                padding: 20px 0px
+            }
+            
+            .btn {
+                background-color: @bgd_bgr1;
+                font-weight: bold;
+                font-size: 1.3rem;
+                color: #ffffff;
+                transition: @trt;
+            
+                &:hover {
+                    color: (@bgd_btn3);
+                }
+            }
+            
+            .btn2 {
+                background-color: @bgd_btn1;
+                font-weight: bold;
+                font-size: 1.3rem;
+                color: @clr-pol2;
+                transition: @trt;
+                &:hover {
+                    color: (@bgd_btn2);
+                }
+            }
+            
         }
-
     }
 
-
-}

@@ -1,9 +1,28 @@
-// relativeUrls: true;
-@import '../../variable.less';
+@import '../variable.less';
 
-// main: "user/éléments/header.less" 
+* {
+    font-family: @fontM;
+}
 
+p {
+    color: @clr-pol5;
+    font-weight: 600;
+    font-size: clamp(0.3125rem, 1.0743rem, 3rem);
+}
 
+body {
+    /* background:url("@{patron}/profil.jpg");
+    background-repeat:no-repeat;
+    opacity: 0.95;
+    background-position-x: center;
+    background-size: 100%;*/
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    border: solid 1px black;
+    background-color: @bgd_bgr;
+
+ } 
 
 /////////////////////HEADER//////////////////////////
 

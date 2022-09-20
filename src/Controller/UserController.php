@@ -13,10 +13,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UserController extends AbstractController
 {
-    #[Route('utilisateur/mon-espace', name: 'app_user', methods:['GET']) ]
+    #[Route('utilisateur/profil', name: 'app_user', methods:['GET']) ]
     public function index(Request $request, UserRepository $userRepository, PostRepository $postRepository  ): Response
     {
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/profil_view/index.html.twig', [
 
             'postRepository' => $postRepository->findAll(),
             'userRepository' => $userRepository->findAll(),

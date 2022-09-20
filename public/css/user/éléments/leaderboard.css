@@ -1,0 +1,34 @@
+#container_bandeau {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 93%;
+  height: 33%;
+}
+#container_bandeau figure {
+  display: flex;
+  justify-content: center;
+  height: 65%;
+  border-bottom: solid 5px #F2BF2C;
+  background-color: #ffffff;
+}
+#container_bandeau figure img {
+  width: 100%;
+}
+#container_bandeau .profil {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60%;
+  border-style: inset;
+  border: solid 10px white;
+  right: 43.5%;
+  border-radius: 50%;
+  top: 204px;
+}
+#container_bandeau .profil img {
+  height: 100%;
+  border-radius: 50%;
+}

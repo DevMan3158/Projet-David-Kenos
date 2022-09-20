@@ -75,7 +75,7 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
 
         //Sinon redirige le ROLE_USER vers la page test app_register
         
-        return new RedirectResponse($this->urlGenerator->generate('app_register'));
+        return new RedirectResponse($this->urlGenerator->generate('app_accueil'));
     }
 
         /* For example:

@@ -18,13 +18,8 @@
         {{ encore_entry_link_tags('app') }}
 
         <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
-    {% if app.request.get('_route') == 'app_register' %}
-        <link rel="stylesheet" href="{{ asset('css/user/reg_log/reg_log.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/reg_log/reg_log_media_queries.css') }}">
-    {% elseif app.request.get('_route') == 'app_login' %}
-        <link rel="stylesheet" href="{{ asset('css/user/reg_log/reg_log.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/reg_log/reg_log_media_queries.css') }}">
-    {% elseif app.request.get('_route') == 'app_user' %}
+        <link rel="stylesheet" href="{{ asset('css/user/styles.css') }}">
+    {% if app.request.get('_route') == 'app_user' %}
         <link rel="stylesheet" href="{{ asset('css/user/acc/acc.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user/acc/acc_media_queries.css') }}">
     {% elseif app.request.get('_route') == '' %}
@@ -36,15 +31,12 @@
     {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
     <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/less"></script>
     {% endblock %}
 
 </head>
 
 <body>
-
-    
-
+{% include 'user/templates/header.html.twig' %}
     {% block body %} {% endblock %}
 </body>
 

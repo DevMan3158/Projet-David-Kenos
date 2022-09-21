@@ -30,15 +30,8 @@
         align-items: center;
     }
 
-    header ul:first-of-type li:last-of-type{
-        background: black;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        overflow: hidden;
-    }
 
-    header ul:first-of-type li:not(:last-child) a{
+    header ul:first-of-type{
         padding: 10px;
     }
     

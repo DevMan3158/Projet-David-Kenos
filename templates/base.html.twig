@@ -63,28 +63,40 @@
                 dans votre administration
             </h4>
             <ul>
+
+
+            {% if app.user %}
+
+                <li>
+                    <a href="#">
+                        {{ app.user.chocolaterie.nom }}
+                    </a>
+
+                    <a href="#">
+                        <img src="{{ app.user.imageProfil }}" alt="{{ app.user.imageProfilAlt }}"/>
+                    </a>
+                </li>
+
                 <li>
                     <a href="{{ path('app_back_admin') }}">
                         Accueil
                     </a>
                 </li>
-                {% if app.user %}
+                
                 <li>
                     <a href="{{ path('app_logout') }}">
                         Deconnexion <i class="fa-solid fa-power-off"></i>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        {{ app.user.chocolaterie.nom }}
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="{{ app.user.imageProfil }}" alt="{{ app.user.imageProfilAlt }}"/>
-                    </a>
-                </li>
+
                 {% else %}
+
+                <li>
+                    <a href="{{ path('app_back_admin') }}">
+                        Accueil
+                    </a>
+                </li>
+
                 <li>
                     <a href="{{ path('app_login')}}">
                         Connexion <i class="fa-solid fa-right-to-bracket"></i>

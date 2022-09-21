@@ -6,7 +6,10 @@
 
 <section>
 
-    <h1 id="titleCrud">Gérer les chocolateries</h1>
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h1 id="titleCrud">Gérer les chocolateries</h1>
+    </div>
 
     <table class="table">
         <thead>
@@ -30,7 +33,7 @@
                         </a>
 
                     <button>
-                        <a  href="{{ path('app_chocolaterie_edit', {'id': chocolaterie.id}) }}">
+                        <a  href="{{ path('app_chocolaterie_edit', {'id': chocolaterie.id}) }}" class="editBtn">
                             <i class="fa-solid fa-pen-to-square"></i>
                             Modifier
                         </a>

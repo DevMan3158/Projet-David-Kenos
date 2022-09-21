@@ -30,7 +30,7 @@
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/show/mediaqueriesShow.css') }}">
             {% elseif ('index' in app.request.get('_route')) %}
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/index/styleIndex.css') }}">
-                <link rel="stylesheet" href="{{ asset('css/admin/crud/index/mediaqueriesIndex.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/index/mediaquerriesIndex.css') }}">
             {% elseif ('edit' in app.request.get('_route')) or ('new' in app.request.get('_route'))  %}
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/styleEdit.css') }}">
                 <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/mediaquerriesEdit.css') }}">
@@ -48,6 +48,9 @@
     </head>
     <body id="headerBody">
         <header id="head">
+            <div id="crossDiv">
+                <i id="cross" onClick="closeMenu2()" class="fa-solid fa-angles-left"></i>
+            </div>
             <div id="headFlex">
                 <div id="logo">
                     <img src="{{ asset('img/logos/logo-david-kenos.png') }}" alt="Logo David Kenos"/>
@@ -131,6 +134,7 @@
         
 
         {% block body %}{% endblock %}
+        
 
         <script src="{{ asset('js/main.js') }}"></script>
     </body>

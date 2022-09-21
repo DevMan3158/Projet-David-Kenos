@@ -27,6 +27,20 @@ function closeMenu(){
 
 }
 
+function openMenu2(){
+    headdd.classList.add("headerBurger2");
+    document.getElementById('crossDiv').style.display = "block"
+    document.getElementById('cross').style.display = "block"
+    document.querySelector('section').style.display = "none"
+}
+
+function closeMenu2(){
+    headdd.classList.remove("headerBurger2");
+    document.getElementById('crossDiv').style.display = "none"
+    document.getElementById('cross').style.display = "none"
+    document.querySelector('section').style.display = "block"
+}
+
 // On récupère le titre des CRUD pour le modifier en fonction de la page
 var titleCrud = document.getElementById('titleCrud');
 
@@ -49,4 +63,28 @@ if(queue_url == 'admin'){
     document.querySelector('body').removeAttribute('id');
 } else {
     document.querySelector('header').classList.add("headerBurger");
+}
+
+// Détermine la largeur de la fenetre 
+
+var largeur = window.innerWidth;
+
+// Modification des boutons pour responsive
+
+if(largeur <= 800){
+
+    var editBtn = document.querySelectorAll('.editBtn');
+
+    editBtn.forEach(element => {
+        element.innerHTML = "<i class='fa-solid fa-pen-to-square'></i>"
+        element.style.width = "unset"
+    });
+    
+    var deleteBtn = document.querySelectorAll('.btn');
+    
+    deleteBtn.forEach(element => {
+        element.innerHTML = "<i class='fa-solid fa-trash'></i>"
+        element.style.width = "unset"
+    });
+
 }

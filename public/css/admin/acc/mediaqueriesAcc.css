@@ -66,11 +66,20 @@
         align-items: center;
     }
 
-    header ul:first-of-type li:last-of-type{
-        background: black;
-        width: 35px;
+    header ul:first-of-type li:first-of-type{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
         height: 35px;
         border-radius: 50%;
+    }
+
+    header ul:first-of-type li:first-of-type a:last-of-type{
+        border-radius: 50%;
+        overflow: hidden;
+        width: 50px;
+        height: 50px;
+        padding: 0;
     }
 
     header ul:first-of-type li:not(:last-child) a{

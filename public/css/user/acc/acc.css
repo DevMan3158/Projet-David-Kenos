@@ -4,7 +4,6 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  border: solid 2px #ff00f2;
 }
 .container_command #container_bandeau {
   position: relative;
@@ -24,19 +23,19 @@
 .container_command #container_bandeau figure img {
   width: 100%;
 }
-.container_command #container_bandeau .profil {
+.container_command #container_bandeau #Conteneur_Logo_Usr {
   position: absolute;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   height: 60%;
   border-style: inset;
   border: solid 10px white;
   right: 43.5%;
+  top: 155px;
+  border: solid 1px black;
   border-radius: 50%;
-  top: 204px;
 }
-.container_command #container_bandeau .profil img {
+.container_command #container_bandeau #Conteneur_Logo_Usr img {
   height: 100%;
   border-radius: 50%;
 }
@@ -48,8 +47,9 @@
   width: 93%;
 }
 .container_command #container_general #container_carte {
+  display: flex;
+  flex-direction: column;
   width: 28%;
-  height: 66vh;
 }
 .container_command #container_general #container_carte .carte {
   display: flex;
@@ -58,7 +58,6 @@
   background-color: #ffffff;
   padding: 71px 35px 71px 35px;
   width: 100%;
-  height: 80%;
 }
 .container_command #container_general #container_carte .carte h1 {
   font-weight: 200;
@@ -108,7 +107,7 @@
 .container_command #container_general #container_posts h1 {
   font-size: clamp(0.625rem, 2.8586rem, 3rem);
   letter-spacing: 1px;
-  margin: 39px 0px;
+  margin: 35px 0px;
 }
 .container_command #container_general #container_posts h1 > span {
   font-weight: 200;
@@ -117,15 +116,14 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  background-color: #ffffff;
-  height: 35%;
   width: 98%;
-  filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+  padding: 35px;
   margin: 16px 0px;
-  padding: 30px;
+  background-color: #ffffff;
+  filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
 }
 .container_command #container_general #container_posts .posts figure {
-  width: 35%;
+  width: 38%;
 }
 .container_command #container_general #container_posts .posts figure img {
   border-radius: 50%;
@@ -136,6 +134,17 @@
   justify-content: space-between;
   margin-left: 35px;
 }
+.container_command #container_general #container_posts .posts .contenues #contenues_img {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 10px 0px;
+}
+.container_command #container_general #container_posts .posts .contenues #contenues_img img {
+  width: 25%;
+  margin: 5px 10px 5px 0px;
+}
 .container_command #container_general #container_posts .posts .contenues p > span {
   font-weight: 200;
 }
@@ -143,6 +152,7 @@
   letter-spacing: 2px;
   font-weight: 200;
   text-transform: uppercase;
+  margin: 12px 0px;
 }
 .container_command #container_general #container_posts .posts .contenues h3 > span {
   font-weight: 200;
@@ -155,11 +165,14 @@
   font-size: 0.9rem;
   text-transform: none;
 }
-.container_command #container_general #container_posts .posts .contenues i {
+.container_command #container_general #container_posts .posts .contenues .comments {
+  margin: 15px 0px 0px 0px;
+}
+.container_command #container_general #container_posts .posts .contenues .comments i {
   color: #314090;
   font-weight: 500;
 }
-.container_command #container_general #container_posts .posts .contenues a {
+.container_command #container_general #container_posts .posts .contenues .comments a {
   margin: 0px 30px 0px 8px ;
   color: #314090;
   font-weight: 600;

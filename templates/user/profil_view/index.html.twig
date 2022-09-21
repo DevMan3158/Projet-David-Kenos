@@ -17,7 +17,7 @@
                 <img titre="bandeau utlisateur " src="{{ app.user.imagebandeau }}" alt="{{ app.user.imagebandeaualt }}">
             </figure>
 
-            <figure class="profil">
+            <figure id="Conteneur_Logo_Usr">
                 <img titre="Logo utilisateur" src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
             </figure>
 
@@ -73,17 +73,22 @@
                         <h3><span>{{ app.user.prenom }} </span> {{ app.user.nom }}
                             <p class="colorP">publiés le {{ app.user.createdAt|date('d/m/Y') }}</p>
                         </h3>
-
-
-
+{#Test#} 
+                        <div id="contenues_img">
+                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                        </div
+{#Fin Test#} 
+                        
                         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.<br><span>Aspernatur nostrum aut,
                                 voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius.
                                 Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus
                                 voluptate!</span></p>
                         <div class="comments">
 
-                          <span>{{ app.user.id}}</span> <i class="fa-regular fa-comments"></i><a> Commenter </a>
-                            <span>{{ app.user.id}}</span> <i class="fa-regular fa-heart"></i><a> J'aime </a>
+                           0<i class="fa-regular fa-comments"><a> Commenter</a></i>
+                            0<i class="fa-regular fa-heart"><a> J'aime</a></i>
                         </div>
 
                     </div>
@@ -282,7 +287,7 @@
 
 
                 </div>
-{#Test#} 
+{# fin Test#} 
             
             </div>
 
@@ -296,7 +301,7 @@
                     <li><span><a class="btn2" href="{{ path('app_trombinoscope') }}">Trombinoscope</a></span></li>
                 </span>
 
-                {#<pre>{{ dump(app.user) }}</pre>#}
+                {##}<pre>{{ dump(app.user) }}</pre>
             </div>
 
         </div>

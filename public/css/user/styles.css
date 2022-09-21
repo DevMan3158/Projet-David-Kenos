@@ -7,33 +7,28 @@ p {
   font-size: clamp(0.3125rem, 1.0743rem, 3rem);
 }
 body {
-  /* background:url("@{patron}/profil.jpg");
-    background-repeat:no-repeat;
-    opacity: 0.95;
-    background-position-x: center;
-    background-size: 100%;*/
   display: flex;
-  justify-content: space-between;
-  height: 100vh;
-  border: solid 1px black;
+  flex-direction: row;
   background-color: #DFDFDF;
 }
 header {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   text-align: center;
   width: 21%;
-  background-color: #1F2547;
+  height: 100vh;
+  background-color: white;
 }
 header #containerTop {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   background-color: #1F2547;
-  height: 40%;
+  height: 40vh;
 }
 header #containerTop h1 {
+  width: 100%;
   font-weight: 200;
   letter-spacing: 1px;
   color: #ffffff;
@@ -45,10 +40,8 @@ header #containerTop h1 > span {
   font-style: oblique;
   text-transform: none;
 }
-header #containerTop li {
-  list-style: none;
-}
 header #containerTop .btn {
+  width: 85%;
   background-color: #0BAA9F;
   padding: 20px 75px;
   border-radius: 5px;
@@ -65,27 +58,19 @@ header #containerTop figure {
   justify-content: center;
   align-items: center;
 }
-header #containerTop img {
+header #containerTop figure img {
   border-radius: 50%;
-  width: 60%;
+  width: 100%;
 }
 header #containerBottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 60%;
+  height: 60vh;
   flex-direction: column;
   font-weight: 200;
   color: #ffffff;
   text-align: left;
   background-color: #191E39;
-}
-header #containerBottom navbar {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 65%;
-  width: 100%;
 }
 header #containerBottom ul {
   width: 100%;
@@ -93,23 +78,21 @@ header #containerBottom ul {
   flex-direction: column;
   justify-content: center;
 }
-header #containerBottom li {
+header #containerBottom ul a {
   padding: 20px 0px 20px 38px;
   width: 100%;
-}
-header #containerBottom li:hover {
-  background-color: #16394D;
-}
-header #containerBottom a {
   font-weight: 200;
   color: #ffffff;
   font-size: 1.4rem;
+}
+header #containerBottom ul a:hover {
+  background-color: #16394D;
 }
 header #containerBottom figure {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-header #containerBottom img {
+header #containerBottom figure img {
   width: 60%;
 }

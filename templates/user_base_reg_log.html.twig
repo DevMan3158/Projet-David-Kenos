@@ -16,17 +16,9 @@
     {% block stylesheets %}
 
         {{ encore_entry_link_tags('app') }}
-
         <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
-    {% if app.request.get('_route') == 'app_register' %}
         <link rel="stylesheet" href="{{ asset('css/user/reg_log/reg_log.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user/reg_log/reg_log_media_queries.css') }}">
-    {% elseif app.request.get('_route') == 'app_login' %}
-        <link rel="stylesheet" href="{{ asset('css/user/reg_log/reg_log.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/reg_log/reg_log_media_queries.css') }}">
-    {% elseif app.request.get('_route') == '' %}
-    
-    {% endif %}
 
     {% endblock %}
 

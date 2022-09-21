@@ -11,61 +11,48 @@
 
         <h1><span>{{ app.user.prenom }} </span> {{ app.user.nom }} </h1>
 
-        <li><a class="btn" href="{{ path('app_user') }}"><i class="fa-regular fa-user"></i> Voir mon profil</a></li>
+        <a class="btn" href="{{ path('app_user') }}"><i class="fa-regular fa-user"></i> Voir mon profil</a>
 
     </div>
 
 
     <div id="containerBottom">
 
-    {#Test de condition d'accées#}
 
-            {% if is_granted('ROLE_SUPER_ADMIN') %}
-            {# Si l'utilisateur est authentifié et qu'il est admin #}
-            <h1>SuperAdmin</h1>
-
-            {% elseif is_granted('ROLE_ADMIN') %}
-
-            {# Si l'utilisateur est authentifié et qu'il est admin #}
-            <h1>Admin</h1>
-
-            {% else %}
-
-            <h1>User</h1>
-            {% endif %}
-    {#Fin test de condition d'accées#}
-        <navbar>
+        
             <ul>
 
-                <li><a href="{{ path('app_accueil') }}">Accueil</a></li>
+                <a href="{{ path('app_accueil') }}">Accueil</a>
 
-                <li><a href="{{ path('app_actualit_') }}">Actualités de l'entreprise</a></li>
+                <a href="{{ path('app_actualit_') }}">Actualités de l'entreprise</a>
 
-                <li><a href="{{ path('app_trombinoscope') }}">Trombinoscope</a></li>
+                <a href="{{ path('app_trombinoscope') }}">Trombinoscope</a>
 
-                <li><a href="{{ path('app_vie_des_chocolateries') }}">La vie des chocolateries</a></li>              
+                <a href="{{ path('app_vie_des_chocolateries') }}">La vie des chocolateries</a>              
 
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
                 {# Si l'utilisateur est authentifié et qu'il est admin #}
-                <li><a href="{{ path('app_super_admin') }}">Gestion</a></li>
+                <a href="{{ path('app_super_admin') }}">Gestion</a>
 
                     {% elseif is_granted('ROLE_ADMIN') %}
     
                     {# Si l'utilisateur est authentifié et qu'il est superadmin #}
-                    <li><a href="{{ path('app_admin') }}">Gestion</a></li>
+                    <a href="{{ path('app_admin') }}">Gestion</a>
     
                     {% else %}
                     {# Si l'utilisateur est authentifié et qu'il est user = vide #}
              
                 {% endif %}
 
-                <li><a href="{{ path('app_logout') }}"><i class="fa-solid fa-power-off"></i> Déconnexion</a></li>
+                <a href="{{ path('app_logout') }}"><i class="fa-solid fa-power-off"></i> Déconnexion</a>
 
             </ul>
-        </navbar>
+        
 
-        <figure>
+        {##}<figure>
+
             <img title="logo david-kenos" src="../img/logos/logo-david-kenos-blanc.png" alt="Le logo de david kenos">
+        
         </figure>
 
     </div>

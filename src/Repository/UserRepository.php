@@ -56,21 +56,29 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->add($user, true);
     }
 
+
+
+
+    
+
+
+
+
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */
-
-    public function findBycommentaire($value): array
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u. = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+//
+//    public function findBycommentaire($value): array
+//    {
+//        return $this->createQueryBuilder('u')
+//            ->andWhere('u. = :val')
+//          ->setParameter('val', $value)
+//            ->orderBy('u.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
 
 
     

@@ -59,23 +59,21 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $this->passwordEncoder->hashPassword($user, 'secret'));
             
             
-        $user->setDescription('');   
-        $user->setLinkedin('');
-        $user->setFacebook('');    
-        $user->setInstagram('');     
-        $user->setTwitter('');      
+        $user->setDescription('Lorem ipsum dolor sit amet consectetur adipisicing elit.Aspernatur nostrum aut, voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius. Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus voluptate!');   
+        $user->setLinkedin('fa-brands fa-linkedin-in');
+        $user->setFacebook('fa-brands fa-facebook-f');    
+        $user->setInstagram('fa-brands fa-instagram');     
+        $user->setTwitter('fa-brands fa-twitter');      
         $user->setLien('');   
         $user->setImageProfil("https://via.placeholder.com/150");  
         $user->setImageProfilAlt("https://via.placeholder.com/150");  
-        $user->setImageBandeau("https://via.placeholder.com/728x90?text=728x90+Leaderboard");  
-        $user->setImageBandeauAlt("https://via.placeholder.com/728x90?text=728x90+Leaderboard");
+        $user->setImageBandeau("https://via.placeholder.com/1080x460");  
+        $user->setImageBandeauAlt("https://via.placeholder.com/1080x460");
         $user->setCreatedAt(new \DatetimeImmutable());
         $user->setChocolaterie($this->getReference("chocolaterie_".$tableUser[$i]['chocolaterie']));
         $this->addReference('user_'.$i, $user);
 
 
-
-      
         
         //$this->addReference(self::USER_REFERENCE, $user);
         

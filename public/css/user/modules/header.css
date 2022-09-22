@@ -83,25 +83,3 @@ header #containerBottom figure {
 header #containerBottom figure img {
   width: 55%;
 }
-* {
-  font-family: 'Montserrat', sans-serif;
-}
-p {
-  color: #141414;
-  font-weight: 600;
-  font-size: clamp(0.3125rem, 0.8743rem, 3rem);
-  width: inherit;
-}
-body {
-  display: flex;
-  flex-direction: row;
-  background-color: #DFDFDF;
-}
-.container_command {
-  overflow-y: scroll;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  border: solid 4px #ff00f2;
-}

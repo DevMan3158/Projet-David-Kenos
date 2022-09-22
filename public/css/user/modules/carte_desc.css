@@ -1,20 +1,23 @@
 #container_carte {
+  display: flex;
+  flex-direction: column;
   width: 28%;
 }
 #container_carte .carte {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
   background-color: #ffffff;
-  padding: 71px 35px 71px 35px;
+  padding: 20px 35px 20px 35px;
   width: 100%;
-  height: 80%;
 }
 #container_carte .carte h1 {
   font-weight: 200;
   color: #333333;
   text-transform: uppercase;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0px 0px 0px;
+  width: inherit;
   font-size: clamp(0.625rem, 2.4886rem, 3rem);
 }
 #container_carte .carte h1 > span {
@@ -25,6 +28,25 @@
 #container_carte .carte p > span {
   color: #0BAA9F;
   font-weight: 600;
+}
+#container_carte .carte a {
+  border-radius: 9px;
+  text-align: center;
+  list-style: none;
+  background-color: #1F2547;
+  margin: 10px 0px 7px 0px;
+  padding: 15px 0px;
+  width: 80%;
+}
+#container_carte .carte .btn {
+  background-color: #1F2547;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: 0.4s;
+}
+#container_carte .carte .btn:hover {
+  color: #F2BF2C;
 }
 #container_carte .carte .logo {
   display: flex;
@@ -39,11 +61,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid 3px #F2BF2C;
+  border: solid 2px #F2BF2C;
   border-radius: 50%;
   margin: 0px 10px 0px 10px;
-  width: 53px;
-  height: 50px;
+  width: 46px;
+  height: 45px;
 }
 #container_carte .carte .logo figure i {
   font-size: 1.7rem;

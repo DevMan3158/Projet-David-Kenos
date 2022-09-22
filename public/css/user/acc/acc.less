@@ -3,316 +3,34 @@
 @import '../../variable.less';
 
 
-    //CONTAINER BANDEAU TOP,CARTE DESCRIPTIVE, POSTS, BOUTONS// 
-    .container_command {
-        overflow-y: scroll;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-        //border: solid 4px rgb(255, 0, 242);
+/////////////////////CHARGE LE MODULE LEADERBOARD/////////////////////
+@import '../modules/leaderboard.less';
 
-        /////////////////////CHARGE LE MODULE LEADERBOARD/////////////////////
-        //@import '../éléments/leaderboard.less';
-        #container_bandeau {
-            position: relative;
-            display: flex;
-            justify-content: space-around;
-            flex-direction: column;
-            width: 93%;
-            height: 33%;
-            //border: solid 3px rgb(0, 30, 255);
-        
-        
-            figure {
-                display: flex;
-                justify-content: center;
-                height: 65%;
-                //border: @bord2;
-                border-bottom: solid 5px @bgd_btn3;
-                background-color: @bgd_bgr_w;
-        
-                img {
-                    //border: solid 1px black;
-                    width: 100%;
-                }
-        
-        
-            }
-        
-        
-            #Conteneur_Logo_Usr {
-                position: absolute;
-                display: flex;
-                justify-content: center;
-                height: 60%;
-                //width: 100%;
-                border-style: inset;
-                border: solid 10px white;
-                right: 43.5%;
-                border-radius: 50%;
-                top: 155px;
-                border: solid 1px black;
-                border-radius: 50%;
-        
-                img {
-                    //border: solid 1px black;
-                    height: 100%;
-                    border-radius: 50%;
-                }
-        
-        
-            }
-        
-        
-        
-        }
 
-        //CONTAINER CARTE DESCRIPTIVE, POSTS, BOUTONS// 
+//////CONTAINER CARTE DESCRIPTIVE, POSTS, BOUTONS///// 
 
-        #container_general {
+#container_general {
 
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin: 0px 0px 0px 0px;
-            width: 93%;
-            //border: solid 2px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 0px 0px 0px;
+    width: 93%;
+    //border: solid 2px black;
 
-            /////////////////////CHARGE LE MODULE CARTE DESCRIPTIVE/////////////
-            //@import '../éléments/carte_desc.less';
-            #container_carte {
+    /////////////////////CHARGE LE MODULE CARTE DESCRIPTIVE/////////////
+    @import '../modules/carte_desc.less';
 
-                display: flex;
-                flex-direction: column;
-                width: 28%;
-                //border: solid 2px rgb(255, 0, 0);
-            
-            
-                .carte {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-evenly;
-                    background-color: @bgd_bgr_w;
-                    padding: 71px 35px 71px 35px;
-                    width: 100%;
-                    // border: solid 2px rgb(38, 0, 255);
-            
-                    h1 {
-                        font-weight: 200;
-                        color: @clr-pol4;
-                        text-transform: uppercase;
-                        margin: 10px 0px 10px 0px;
-                        font-size: clamp(0.625rem, 2.4886rem, 3rem);
-            
-                    }
-            
-                    h1>span {
-                        font-family: @fontP;
-                        font-style: oblique;
-                        text-transform: none;
-            
-                    }
-            
-                    p>span {
-                        color: @bgd_btn1;
-                        font-weight: 600;
-            
-                    }
-            
-                    .logo {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: center;
-                        margin: 35px 0px 35px 0px;
-                        width: 100%;
-            
-                        figure {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-                            border: solid 3px @bgd_btn3;
-                            border-radius: 50%;
-                            margin: 0px 10px 0px 10px;
-                            width: 53px;
-                            height: 50px;
-            
-            
-                            i {
-                                font-size: 1.7rem;
-            
-                            }
-                        }
-                    }
-                }
-            }
-            /////////////////////CHARGE LE MODULE POST//////////////////////////
-            //@import '../éléments/post.less';
-            #container_posts {
-                display: flex;
-                flex-direction: column;
-                width: 50%;
-                //border: solid 3px rgb(38, 255, 0);
-                justify-content: center;
-                padding: 25px 0px;
-            
-            
-                h1 {
-            
-                    font-size: clamp(0.625rem, 2.8586rem, 3rem);
-                    letter-spacing: 1px;
-                    margin: 35px 0px;
-                }
-            
-                h1>span {
-            
-                    font-weight: 200;
-            
-            
-                }
-            
-                .posts {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: flex-start;
-                    width: 98%;
-                    padding: 35px;
-                    margin: 16px 0px;
-                    background-color: @bgd_bgr_w;
-                    //border: solid 2px rgb(255, 34, 0);
-                    filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
-            
-                    figure {
-                        width: 38%;
-                        img {
-                            border-radius: 50%;
-                        }
-                    }
-            
-                    .contenues {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        margin-left: 35px;
-            
-                        #contenues_img
-                        {
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: flex-start; 
-                            flex-wrap: wrap; 
-                            margin: 10px 0px;
-                      
 
-                        img
-                        {
-                            width: 25%;
-                            margin: 5px 10px 5px 0px;
-                        }
+    /////////////////////CHARGE LE MODULE POST//////////////////////////
+    @import '../modules/post.less';
 
-                        }
 
-                        
+    /////////////////////CHARGE LE MODULE BOUTONS///////////////////////
+    @import '../modules/btn.less';
 
-                        p>span {
-                            font-weight: 200;
-                        }
-            
-                        h3 {
-            
-                            letter-spacing: 2px;
-                            font-weight: 200;
-                            text-transform: uppercase;
-                            margin: 12px 0px;
-                            
-                        }
-            
-                        h3>span {
-            
-                            font-weight: 200;
-                            font-family: @fontP;
-                            font-style: italic;
-                            text-transform: none;
-                        }
-            
-                        .colorP {
-                            color: @clr-btn1;
-                            font-size: 0.9rem;
-                            text-transform: none;
-                        }
 
-                        .comments
-                        {
-                            margin: 15px 0px 0px 0px;
 
-                            i{
-                                color : #314090;
-                                font-weight: 500;
-                            }
-                        
-                            a
-                            {
-                               margin: 0px 30px 0px 8px ;
-                               color : #314090;
-                               font-weight: 600;
-                            }
-                        }
-                       
-                    }
-                }
-            }
-            
 
-            /////////////////////CHARGE LE MODULE BOUTONS///////////////////////
-            //@import '../éléments/btn.less';
 
-            #container_btn {
-                display: flex;
-                flex-direction: column;
-            
-                width: 17%;
-                //border: solid 2px black;
-            }
-            
-            span>li {
-                background-color: @bgd_btn1;
-            
-            }
-            
-            li {
-                border-radius: 9px;
-                text-align: center;
-                list-style: none;
-                background-color: @bgd_bgr1;
-                margin: 10px 0px 7px 0px;
-                padding: 20px 0px
-            }
-            
-            .btn {
-                background-color: @bgd_bgr1;
-                font-weight: bold;
-                font-size: 1.3rem;
-                color: #ffffff;
-                transition: @trt;
-            
-                &:hover {
-                    color: (@bgd_btn3);
-                }
-            }
-            
-            .btn2 {
-                background-color: @bgd_btn1;
-                font-weight: bold;
-                font-size: 1.3rem;
-                color: @clr-pol2;
-                transition: @trt;
-                &:hover {
-                    color: (@bgd_btn2);
-                }
-            }
-            
-        }
-    }
-
+}

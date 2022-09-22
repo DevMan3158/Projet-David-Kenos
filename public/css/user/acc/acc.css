@@ -1,11 +1,4 @@
-.container_command {
-  overflow-y: scroll;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-}
-.container_command #container_bandeau {
+#container_bandeau {
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -13,69 +6,90 @@
   width: 93%;
   height: 33%;
 }
-.container_command #container_bandeau figure {
+#container_bandeau figure {
   display: flex;
   justify-content: center;
-  height: 65%;
+  height: 70%;
   border-bottom: solid 5px #F2BF2C;
   background-color: #ffffff;
 }
-.container_command #container_bandeau figure img {
+#container_bandeau figure img {
   width: 100%;
 }
-.container_command #container_bandeau #Conteneur_Logo_Usr {
+#container_bandeau #Conteneur_Logo_Usr {
   position: absolute;
   display: flex;
   justify-content: center;
-  height: 60%;
+  height: 55%;
   border-style: inset;
   border: solid 10px white;
   right: 43.5%;
-  top: 155px;
-  border: solid 1px black;
+  top: 134px;
+  border: solid 10px #eee;
   border-radius: 50%;
 }
-.container_command #container_bandeau #Conteneur_Logo_Usr img {
+#container_bandeau #Conteneur_Logo_Usr img {
   height: 100%;
   border-radius: 50%;
 }
-.container_command #container_general {
+#container_general {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 0px 0px 0px 0px;
   width: 93%;
 }
-.container_command #container_general #container_carte {
+#container_general #container_carte {
   display: flex;
   flex-direction: column;
   width: 28%;
 }
-.container_command #container_general #container_carte .carte {
+#container_general #container_carte .carte {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
   background-color: #ffffff;
-  padding: 71px 35px 71px 35px;
+  padding: 20px 35px 20px 35px;
   width: 100%;
 }
-.container_command #container_general #container_carte .carte h1 {
+#container_general #container_carte .carte h1 {
   font-weight: 200;
   color: #333333;
   text-transform: uppercase;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0px 0px 0px;
+  width: inherit;
   font-size: clamp(0.625rem, 2.4886rem, 3rem);
 }
-.container_command #container_general #container_carte .carte h1 > span {
+#container_general #container_carte .carte h1 > span {
   font-family: 'Playfair Display', serif;
   font-style: oblique;
   text-transform: none;
 }
-.container_command #container_general #container_carte .carte p > span {
+#container_general #container_carte .carte p > span {
   color: #0BAA9F;
   font-weight: 600;
 }
-.container_command #container_general #container_carte .carte .logo {
+#container_general #container_carte .carte a {
+  border-radius: 9px;
+  text-align: center;
+  list-style: none;
+  background-color: #1F2547;
+  margin: 10px 0px 7px 0px;
+  padding: 15px 0px;
+  width: 80%;
+}
+#container_general #container_carte .carte .btn {
+  background-color: #1F2547;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: 0.4s;
+}
+#container_general #container_carte .carte .btn:hover {
+  color: #F2BF2C;
+}
+#container_general #container_carte .carte .logo {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -83,36 +97,38 @@
   margin: 35px 0px 35px 0px;
   width: 100%;
 }
-.container_command #container_general #container_carte .carte .logo figure {
+#container_general #container_carte .carte .logo figure {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid 3px #F2BF2C;
+  border: solid 2px #F2BF2C;
   border-radius: 50%;
   margin: 0px 10px 0px 10px;
-  width: 53px;
-  height: 50px;
+  width: 46px;
+  height: 45px;
 }
-.container_command #container_general #container_carte .carte .logo figure i {
+#container_general #container_carte .carte .logo figure i {
   font-size: 1.7rem;
 }
-.container_command #container_general #container_posts {
+#container_general #container_posts {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 50%;
   justify-content: center;
   padding: 25px 0px;
 }
-.container_command #container_general #container_posts h1 {
-  font-size: clamp(0.625rem, 2.8586rem, 3rem);
+#container_general #container_posts h1 {
+  font-size: clamp(0.625rem, 2.2rem, 3rem);
   letter-spacing: 1px;
-  margin: 35px 0px;
+  margin: 22px 0px;
+  width: -webkit-fill-available;
 }
-.container_command #container_general #container_posts h1 > span {
+#container_general #container_posts h1 > span {
   font-weight: 200;
 }
-.container_command #container_general #container_posts .posts {
+#container_general #container_posts .posts {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -122,94 +138,97 @@
   background-color: #ffffff;
   filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
 }
-.container_command #container_general #container_posts .posts figure {
-  width: 38%;
+#container_general #container_posts .posts figure {
+  width: 20%;
 }
-.container_command #container_general #container_posts .posts figure img {
+#container_general #container_posts .posts figure img {
   border-radius: 50%;
 }
-.container_command #container_general #container_posts .posts .contenues {
+#container_general #container_posts .posts .contenues {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: -webkit-fill-available;
   margin-left: 35px;
 }
-.container_command #container_general #container_posts .posts .contenues #contenues_img {
+#container_general #container_posts .posts .contenues #contenues_img {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
   margin: 10px 0px;
 }
-.container_command #container_general #container_posts .posts .contenues #contenues_img img {
-  width: 25%;
+#container_general #container_posts .posts .contenues #contenues_img img {
+  width: 30%;
   margin: 5px 10px 5px 0px;
 }
-.container_command #container_general #container_posts .posts .contenues p > span {
+#container_general #container_posts .posts .contenues p > span {
   font-weight: 200;
 }
-.container_command #container_general #container_posts .posts .contenues h3 {
+#container_general #container_posts .posts .contenues h3 {
   letter-spacing: 2px;
   font-weight: 200;
   text-transform: uppercase;
-  margin: 12px 0px;
+  margin: 0px 0px;
 }
-.container_command #container_general #container_posts .posts .contenues h3 > span {
+#container_general #container_posts .posts .contenues h3 > span {
   font-weight: 200;
   font-family: 'Playfair Display', serif;
   font-style: italic;
   text-transform: none;
 }
-.container_command #container_general #container_posts .posts .contenues .colorP {
+#container_general #container_posts .posts .contenues .colorP {
   color: #0BAA9F;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   text-transform: none;
 }
-.container_command #container_general #container_posts .posts .contenues .comments {
+#container_general #container_posts .posts .contenues .comments {
   margin: 15px 0px 0px 0px;
 }
-.container_command #container_general #container_posts .posts .contenues .comments i {
+#container_general #container_posts .posts .contenues .comments i {
   color: #314090;
   font-weight: 500;
 }
-.container_command #container_general #container_posts .posts .contenues .comments a {
-  margin: 0px 30px 0px 8px ;
+#container_general #container_posts .posts .contenues .comments a {
+  margin: 0px 30px 0px 8px;
   color: #314090;
   font-weight: 600;
+  font-size: small;
 }
-.container_command #container_general #container_btn {
+#container_general #container_btn {
   display: flex;
   flex-direction: column;
-  width: 17%;
+  align-items: flex-end;
 }
-.container_command #container_general span > li {
+#container_general #container_btn span > a {
   background-color: #0BAA9F;
 }
-.container_command #container_general li {
+#container_general #container_btn a {
   border-radius: 9px;
   text-align: center;
   list-style: none;
   background-color: #1F2547;
   margin: 10px 0px 7px 0px;
-  padding: 20px 0px;
+  padding: 15px 15px;
+  width: 100%;
 }
-.container_command #container_general .btn {
+#container_general #container_btn .btn {
   background-color: #1F2547;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #ffffff;
   transition: 0.4s;
 }
-.container_command #container_general .btn:hover {
+#container_general #container_btn .btn:hover {
   color: #F2BF2C;
 }
-.container_command #container_general .btn2 {
+#container_general #container_btn .btn2 {
   background-color: #0BAA9F;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #D9D9D9;
   transition: 0.4s;
 }
-.container_command #container_general .btn2:hover {
+#container_general #container_btn .btn2:hover {
   color: #191E39;
 }

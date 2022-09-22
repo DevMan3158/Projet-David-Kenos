@@ -9,7 +9,6 @@
 
     {#lighthouse navigateur ou gt metrix rapport d'optimisation #}
 
-    <section class="container_command">
 
         <div id="container_bandeau">
 
@@ -49,7 +48,7 @@
                         <img titre="Logo utilisateur" src="{{ app.user.imageprofil }}">#}
                     </div>
 
-                    <li><a class="btn" href="#">Envoyer un mail</a></li>
+                    <a class="btn" href="#"><li>Envoyer un mail</li></a>
 
                 </div>
 
@@ -61,11 +60,17 @@
                     Les derniers <span>posts publiés</span>
                 </h1>
 
+{% for posts in post %}
+
+
                 {#ecrire une condition de type "Aucun post n'a était publié"#}
 
 
 
                 {#Boucle sur post#}
+       
+
+    
 
 
                 <div class="posts">
@@ -79,18 +84,16 @@
 
                     <div class="contenues">
 
-                        <h3><span>{{ app.user.prenom }} </span> {{ app.user.nom }}
-                            <p class="colorP">publiés le {{ app.user.createdAt|date('d/m/Y') }}</p>
+                        <h3><span>{{ app.user.prenom}} </span> {{ app.user.nom }}
+                            <p class="colorP">publiés le {{ posts.createdAt|date('d/m/Y') }}</p>
                         </h3>
 
                         <div id="contenues_img">
-                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
-                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
-                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                        <img src="{{ posts.imagepost }}" alt="{{ posts.imagepostalt }}">
                         </div>
 
                         
-                        <p></span>{{ app.user.id }}</p>
+                        <p></span>{{ posts.contenu }}</p>
                         <div class="comments">
 
                            0 <i class="fa-regular fa-comments"><a href="#"> Commenter</a></i>
@@ -101,8 +104,13 @@
 
 
                 </div>
+     {% else %}
+          
+                <p>Vous n'avez pas de poste publiés</span></p>
+          
+        
 
-
+{% endfor %}
             
             </div>
 
@@ -110,21 +118,20 @@
 
             <div id="container_btn">
 
-                <li><a class="btn" href="#">Modifer mon profil</a></li>
-                <li><a class="btn" href="#">Publier un post</a></li>
-                <span>
-                    <li><span><a class="btn2" href="{{ path('app_trombinoscope') }}">Trombinoscope</a></span></li>
-                </span>
+                <a class="btn" href="#"><li>Modifer mon profil</li></a>
+                <a class="btn" href="#"><li>Publier un post</li></a>
+                <a class="btn2" href="{{ path('app_trombinoscope') }}"><li>Trombinoscope</li></a>
+                
 
-                {{ dump(app.user.commentaires.snapshot) }}
-                   {{ dump(app.user.commentaires) }}
-                   {{ dump(post) }}
-                     {#{{ dump(likeRepository) }}#} 
+                
             </div>
-
+                  
+                     {#{{ dump(likeRepository) }}#}
         </div>
-
-    </section>
+  <pre>{{ dump(app.user) }}</pre>
+                  
+                   <pre>{{ dump(post) }}</pre>
+  
 
 </body>
 {% endblock %}

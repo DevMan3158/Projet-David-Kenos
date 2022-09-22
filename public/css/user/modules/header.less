@@ -1,0 +1,120 @@
+// relativeUrls: true;
+@import '../../variable.less';
+
+
+header {
+    display: flex;
+    flex-direction: column;
+    //justify-content: space-between;
+    text-align: center;
+    width: 21%;
+    height: 100vh;
+    background-color: white;
+    //border: solid 2px rgb(26, 255, 0);
+
+    #containerTop {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: @bgd_bgr1;
+        height: 40vh;
+        
+
+        h1 {
+            width: 100%;
+            font-weight: 200;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: (clamp(0.625rem, 2.1rem, 3rem));
+        }
+
+        h1>span {
+            font-family: @fontP;
+            font-style: oblique;
+            text-transform: none;
+        }
+
+      
+
+            .btn {
+                width: 85%;
+                background-color: @clr-btn1;
+                padding: 15px 0px;
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 1rem;
+                color: #ffffff;
+                transition: @trt;
+                &:hover {
+                    color: (@bgd_bgr3);
+                }
+            }
+        
+
+        figure {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 55%;
+
+            img {
+                //border: solid 1px black;
+                border-radius: 50%;
+                //width: 100%;
+            }
+        }
+    }
+
+    #containerBottom {
+        display: flex;
+        align-items: center;
+        //justify-content: space-between;
+        height: 60vh;
+        flex-direction: column;
+        font-weight: 200;
+        color: #ffffff;
+        text-align: left;
+        background-color: @bgd_bgr2;
+    
+    
+
+            ul {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                //border: solid 2px rgb(246, 255, 0);
+
+               
+                
+                a {
+                    padding: 20px 0px 20px 38px;
+                    width: 100%;
+                    font-weight: 200;
+                    color: #ffffff;
+                    font-size: 1.15rem;
+                    &:hover {
+                        background-color: @bgd_bgr1-hvr;
+                    }
+                    }
+                
+            }
+    
+
+        figure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            //border: @bord2;
+
+            img {
+                //border: solid 1px black;
+                width: 55%;
+            }
+        }
+    }
+
+    
+}

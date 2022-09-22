@@ -36,9 +36,15 @@
 
 </head>
 
+
 <body>
+
 {% include 'user/templates/header.html.twig' %}
+
+{#Container command : permet la mis en place des élément à l'intérieur -> post,carte...#}
+<section class="container_command">
     {% block body %} {% endblock %}
+ </section>   
 </body>
 
 </html>

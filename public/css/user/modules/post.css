@@ -1,14 +1,16 @@
 #container_posts {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 50%;
   justify-content: center;
   padding: 25px 0px;
 }
 #container_posts h1 {
-  font-size: clamp(0.625rem, 2.8586rem, 3rem);
+  font-size: clamp(0.625rem, 2.2rem, 3rem);
   letter-spacing: 1px;
-  margin: 39px 0px;
+  margin: 22px 0px;
+  width: -webkit-fill-available;
 }
 #container_posts h1 > span {
   font-weight: 200;
@@ -17,15 +19,14 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  background-color: #ffffff;
-  height: 35%;
   width: 98%;
-  filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+  padding: 35px;
   margin: 16px 0px;
-  padding: 30px;
+  background-color: #ffffff;
+  filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
 }
 #container_posts .posts figure {
-  width: 35%;
+  width: 20%;
 }
 #container_posts .posts figure img {
   border-radius: 50%;
@@ -34,7 +35,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: -webkit-fill-available;
   margin-left: 35px;
+}
+#container_posts .posts .contenues #contenues_img {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 10px 0px;
+}
+#container_posts .posts .contenues #contenues_img img {
+  width: 30%;
+  margin: 5px 10px 5px 0px;
 }
 #container_posts .posts .contenues p > span {
   font-weight: 200;
@@ -43,6 +56,7 @@
   letter-spacing: 2px;
   font-weight: 200;
   text-transform: uppercase;
+  margin: 0px 0px;
 }
 #container_posts .posts .contenues h3 > span {
   font-weight: 200;
@@ -52,15 +66,19 @@
 }
 #container_posts .posts .contenues .colorP {
   color: #0BAA9F;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   text-transform: none;
 }
-#container_posts .posts .contenues i {
+#container_posts .posts .contenues .comments {
+  margin: 15px 0px 0px 0px;
+}
+#container_posts .posts .contenues .comments i {
   color: #314090;
   font-weight: 500;
 }
-#container_posts .posts .contenues a {
-  margin: 0px 30px 0px 8px ;
+#container_posts .posts .contenues .comments a {
+  margin: 0px 30px 0px 8px;
   color: #314090;
   font-weight: 600;
+  font-size: small;
 }

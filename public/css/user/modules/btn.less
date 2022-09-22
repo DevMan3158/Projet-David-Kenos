@@ -6,44 +6,55 @@
 #container_btn {
     display: flex;
     flex-direction: column;
-
-    width: 17%;
+    align-items: flex-end;
+    //width: 17%;
     //border: solid 2px black;
-}
 
-span>li {
-    background-color: @bgd_btn1;
+    //Modif indentation
 
-}
+    span>a {
+        background-color: @bgd_btn1;
 
-li {
-    border-radius: 9px;
-    text-align: center;
-    list-style: none;
-    background-color: @bgd_bgr1;
-    margin: 10px 0px 7px 0px;
-    padding: 20px 0px
-}
-
-.btn {
-    background-color: @bgd_bgr1;
-    font-weight: bold;
-    font-size: 1.3rem;
-    color: #ffffff;
-    transition: @trt;
-
-    &:hover {
-        color: (@bgd_btn3);
     }
-}
 
-.btn2 {
-    background-color: @bgd_btn1;
-    font-weight: bold;
-    font-size: 1.3rem;
-    color: @clr-pol2;
-    transition: @trt;
-    &:hover {
-        color: (@bgd_btn2);
+    //à faire en mixin
+    a {
+        border-radius: 9px;
+        text-align: center;
+        list-style: none;
+        background-color: @bgd_bgr1;
+        margin: 10px 0px 7px 0px;
+        padding: 15px 15px;
+        width: 100%;
     }
+
+    //à faire en mixin
+    .btn {
+        background-color: @bgd_bgr1;
+        font-weight: bold;
+        font-size: 1rem;
+        color: #ffffff;
+        transition: @trt;
+
+        &:hover {
+            color: (@bgd_btn3);
+        }
+    }
+
+    //à faire en mixin
+    .btn2 {
+        background-color: @bgd_btn1;
+        font-weight: bold;
+        font-size: 1rem;
+        color: @clr-pol2;
+        transition: @trt;
+
+        &:hover {
+            color: (@bgd_btn2);
+        }
+    }
+
+
+
+
 }

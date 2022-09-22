@@ -9,26 +9,26 @@
 #container_bandeau figure {
   display: flex;
   justify-content: center;
-  height: 65%;
+  height: 70%;
   border-bottom: solid 5px #F2BF2C;
   background-color: #ffffff;
 }
 #container_bandeau figure img {
   width: 100%;
 }
-#container_bandeau .profil {
+#container_bandeau #Conteneur_Logo_Usr {
   position: absolute;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 60%;
+  justify-content: center;
+  height: 55%;
   border-style: inset;
   border: solid 10px white;
   right: 43.5%;
+  top: 134px;
+  border: solid 10px #eee;
   border-radius: 50%;
-  top: 204px;
 }
-#container_bandeau .profil img {
+#container_bandeau #Conteneur_Logo_Usr img {
   height: 100%;
   border-radius: 50%;
 }

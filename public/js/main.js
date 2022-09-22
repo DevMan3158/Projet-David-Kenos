@@ -14,10 +14,12 @@ var headdd = document.getElementById('head');
 function openMenu(){
     headdd.classList.add("headerBurger");
     document.querySelector('section').style.marginTop = "unset";
+    document.getElementById('hamb').style.display = "block";
 }
 
 function closeMenu(){
     headdd.classList.remove("headerBurger");
+    document.getElementById('hamb').style.display = "none";
 
 
     // On conditionne le retour du margin top à la fermeture du menu burger

@@ -19,6 +19,26 @@ class UserController extends AbstractController
     public function index(UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository, Request $request): Response
     {
 
+        // On détermine sur quelle page on se trouve
+
+        if(isset($GET['pages']) && !empty($_GET['pages'])){
+            $currentPage = (int) strip_tags($_GET['pages']);
+        } else {
+            $currentPage = 1;
+        }
+
+        // On détermine le nombre d'users total
+
+        $nbUser = $userRepository->countUser();
+
+        // On détermine le nombre d'articles par page
+
+        $perPage = 5;
+
+        // On calcule le nombre de page total
+
+        $page = ceil($nbUser / $perPage);
+
         return $this->render('admin/user/index.html.twig', [
             'users' => $userRepository->findAllWithChoco(),
         ]);

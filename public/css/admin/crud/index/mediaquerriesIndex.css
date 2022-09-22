@@ -63,6 +63,18 @@
     .headerBurger2{
         width: 100% !important;
     }
+
+    section table {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+
+    section table {
+        font-size: 0.7em;
+    }
+
 }
 
 

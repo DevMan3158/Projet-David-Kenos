@@ -55,9 +55,6 @@ header {
 	#burger {
 		display: none;
 	}
-	#hamb {
-		display: block;
-	}
 	ul {
 		&:first-of-type {
 			width: 250px;
@@ -163,10 +160,6 @@ header {
 				width: 100%;
 			}
 		}
-
-		i:last-of-type{
-			display: none;
-		}
 		
 	}
 		
@@ -186,7 +179,19 @@ i {
 
 #crossDiv{
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
 	display: none;
+}
+
+.headerBurger2{
+	ul{
+		display: block !important;
+	}
+}
+
+.titleBurger{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 }

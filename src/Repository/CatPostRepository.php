@@ -39,6 +39,13 @@ class CatPostRepository extends ServiceEntityRepository
         }
     }
 
+    public function countCat(){
+        $qb = $this->createQueryBuilder('cat')
+            ->select('count(cat.id)');
+        
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
 //    /**
 //     * @return CatPost[] Returns an array of CatPost objects
 //     */

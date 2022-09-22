@@ -8,6 +8,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @extends ServiceEntityRepository<User>
@@ -55,6 +56,50 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
         $this->add($user, true);
     }
+
+    public function findAllWithChoco(){
+        $query = $this->createQueryBuilder('u')
+            ->innerJoin('u.chocolaterie', 'c')
+            ->select('u', 'c');
+        return $query->getQuery()->getResult();
+    }
+
+    public function countUser(){
+        $qb = $this->createQueryBuilder('u')
+            ->select('count(u.id)');
+        
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+
+    public function getAllUsers($query, $currentPage, $limit)
+    {
+        // Create our query
+        $query = $this->createQueryBuilder('u')
+            ->orderBy('u.id', 'ASC')
+            ->getQuery();
+
+        // No need to manually get get the result ($query->getResult())
+
+        $paginator = $this->paginate($query, $currentPage, $limit);
+
+        return $paginator;
+    }
+
+
+
+    public function paginate($dql, $page, $limit)
+    {
+        $paginator = new Paginator($dql);
+
+        $paginator->getQuery()
+            ->setFirstResult($limit * ($page - 1)) // Offset
+            ->setMaxResults($limit); // Limit
+
+        return $paginator;
+    }
+
+
 
 //    /**
 //     * @return User[] Returns an array of User objects

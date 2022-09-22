@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification des Chocolateries{% endblock %}
+
+{% block body %}
+
+<section>
+
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h1>Modification des Chocolateries</h1>
+    </div>
+
+    {{ include('admin/chocolaterie/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_chocolaterie_index') }}">Retour à la liste</a>
+
+
+</section>
+{% endblock %}

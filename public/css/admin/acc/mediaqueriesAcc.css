@@ -1,0 +1,185 @@
+/* ---------- */
+/* Responsive */
+/* ---------- */
+
+/* Ordinateur */
+@media (min-width: 3860px) {
+
+}
+
+
+@media (min-width: 1600px) {
+
+  
+}
+@media (min-width: 1200px) {
+
+    section{
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+        grid-template-areas: 
+        "art1 art2 art3"
+        "art1 art2 art3"
+        "art4 art2 art5"
+        "art4 . art5"
+        ". ancre .";
+    }
+
+    article{
+        margin: 0 !important;
+    }
+
+    section article:first-of-type{
+        grid-area: art1;
+    }
+
+    section article:nth-of-type(2){
+        grid-area: art2;
+    }
+
+    section article:nth-of-type(3){
+        grid-area: art3;
+    }
+
+    section article:nth-of-type(4){
+        grid-area: art4;
+    }
+
+    section article:last-of-type{
+        grid-area: art5;
+    }
+
+
+}
+
+/* Tablette */
+
+@media (min-width: 1024px) {
+
+    header ul:first-of-type{
+        display: flex;
+        position: absolute;
+        right: 10px;
+        top: 30px;
+        font-size: 0.8em;
+        align-items: center;
+    }
+
+    header ul:first-of-type li:first-of-type{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        height: 35px;
+        border-radius: 50%;
+    }
+
+    header ul:first-of-type li:first-of-type a:last-of-type{
+        border-radius: 50%;
+        overflow: hidden;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+    }
+
+    header ul:first-of-type li:not(:last-child) a{
+        padding: 10px;
+    }
+    
+
+    header #headFlex{
+        display: unset; 
+        width: unset; 
+        justify-content: unset; 
+        align-items: unset;
+}
+
+#burger{
+    display: none;
+}
+
+header h3 {
+    margin: 31px auto 0 auto !important;
+
+   
+}
+
+}
+
+@media (min-width: 768px) {
+
+
+        .headTitle{
+            font-size: 1.6em;
+        }
+
+        section{
+            padding: 35px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #ancre{
+            width: 100%;
+            grid-area: ancre;
+        }
+
+        article {
+            margin: 0 15px 30px 15px;
+        }
+
+        .headerBurger h3{
+            margin: 25px auto 0 auto;
+        }
+
+
+
+}
+
+
+
+/* Mobile */
+
+@media (min-width: 656px) {
+
+    header, section{
+        padding: 40px;
+    }
+
+    section{
+        padding: 0 40px 40px 40px;
+    }
+
+    header #headFlex #logo{
+        width: 100px;
+        float: left;
+    }
+
+    header h3{
+        margin: -50px auto 0 auto;
+    }
+
+    .headerBurger h3{
+        margin: 25px auto 0 auto;
+    }
+
+    #burger i{
+        font-size: 1.5em;
+    }
+}
+
+
+@media (min-width: 300px) and (max-width: 400px) {
+
+    header h3 {
+        margin: 10px auto 0 auto;
+    }
+
+    header h4 {
+        margin: 0 auto 15px auto;
+    }
+
+}
+

@@ -14,29 +14,128 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
+
         {% block stylesheets %}
+
             {{ encore_entry_link_tags('app') }}
 
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/admin/mediaqueries.css') }}">
             <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/mediaqueries.css') }}">
-
-
+            {% if app.request.get('_route') == 'app_back_admin' %}
+                <link rel="stylesheet" href="{{ asset('css/admin/acc/styleAcc.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin/acc/mediaqueriesAcc.css') }}">
+            {% elseif ('show' in app.request.get('_route')) %} 
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/show/styleShow.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/show/mediaquerriesShow.css') }}">
+            {% elseif ('index' in app.request.get('_route')) %}
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/index/styleIndex.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/index/mediaquerriesIndex.css') }}">
+            {% elseif ('edit' in app.request.get('_route')) or ('new' in app.request.get('_route'))  %}
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/styleEdit.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/admin/crud/edit/mediaquerriesEdit.css') }}">
+            {% endif %}
 
         {% endblock %}
 
         {% block javascripts %}
+
             {{ encore_entry_script_tags('app') }}
-<script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/less" ></script>
-            <script src="{{ asset('js/main.js') }}"></script>
+            <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
+
         {% endblock %}
+
     </head>
-    <body>
+    <body id="headerBody">
+        <header id="head">
+            <div id="crossDiv">
+                <i id="cross" onClick="closeMenu2()" class="fa-solid fa-angles-left"></i>
+            </div>
+            <div id="headFlex">
+                <div id="logo">
+                    <img src="{{ asset('img/logos/logo-david-kenos.png') }}" alt="Logo David Kenos"/>
+                </div>
+                <div id="burger" onClick="openMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <h3 class="headTitle">
+                Bienvenue,
+            </h3>
+            <h4 class="headTitle">
+                dans votre administration
+            </h4>
+            <ul>
+
+
+            {% if app.user %}
+
+                <li>
+                    <a href="#">
+                        {{ app.user.chocolaterie.nom }}
+                    </a>
+
+                    <a href="#">
+                        <img src="{{ app.user.imageProfil }}" alt="{{ app.user.imageProfilAlt }}"/>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ path('app_back_admin') }}">
+                        Accueil
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="{{ path('app_logout') }}">
+                        Deconnexion <i class="fa-solid fa-power-off"></i>
+                    </a>
+                </li>
+
+                {% else %}
+
+                <li>
+                    <a href="{{ path('app_back_admin') }}">
+                        Accueil
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ path('app_login')}}">
+                        Connexion <i class="fa-solid fa-right-to-bracket"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+            <ul>
+                <li>
+                    Actualites
+                </li>
+                <li>
+                    Categories
+                </li>
+                <li>
+                    Posts
+                </li>
+                <li>
+                    <a href="{{ path('app_user_index') }}">
+                        Utilisateurs
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_chocolaterie_index') }}">
+                        Chocolateries
+                    </a>
+                </li>
+            </ul>
+            <i class="fa-solid fa-angles-up" id="hamb" onClick="closeMenu()"></i>
+        </header>
+
+        
+
         {% block body %}{% endblock %}
-        <footer>
-            Adminstration dévellopé par EILEA - 2021
-        </footer>
+        
+
         <script src="{{ asset('js/main.js') }}"></script>
     </body>
 </html>

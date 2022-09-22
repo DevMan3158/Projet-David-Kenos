@@ -1,0 +1,115 @@
+section{
+    text-align: center;
+    padding: 50px;
+
+    h1{
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        letter-spacing: 1px;
+        font-size: 2em;
+        font-weight: 300;
+    }
+
+    table{
+        margin: 35px auto;
+        box-shadow: 0px 0px 50px silver;
+        border-collapse: collapse;
+        text-align: left;
+
+
+        thead{
+            background-color: #FFD867;
+            
+            th{
+                padding: 30px 45px 11px 38px;
+            }
+        }
+
+        th, td{
+            padding: 25px 40px;
+        }
+        
+        tr{
+            border-bottom: 1px solid #c0c0c054;
+
+            td{
+
+                &:last-of-type{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 350px;
+                    align-items: center;
+                }
+
+            }
+        }
+
+        .btn{
+            padding: 10px;
+            color: white;
+            width: 110px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #C5122D;
+        }
+
+        a:not(button a){
+            font-size: 1.2em;
+            transition: 0.2s;
+            &:hover{
+                transform: rotate(180deg);
+                color: #C5122D;
+            }
+        }
+
+        button{
+
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            border-radius: 5px;
+
+            a{
+            padding: 10px;
+            width: 110px;
+            display: flex;
+            justify-content: space-evenly;
+            margin: auto;
+            color: white;
+            }
+
+            &:hover{
+                transform: scale(0.95);
+            }
+
+            &:nth-of-type(1):not(.btn){
+                background-color: #1F2547;
+            }
+        }
+
+
+    }
+
+    .btn-add{
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #FFD867;
+        transition: 0.2s;
+
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+
+
+    #burger2{
+        display: none;
+    }
+
+
+}
+
+header{
+    position: relative;
+}
+

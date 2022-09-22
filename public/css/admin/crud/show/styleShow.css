@@ -1,0 +1,35 @@
+section {
+  text-align: center;
+  padding: 15px;
+}
+section table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px auto;
+}
+section table tr {
+  display: block;
+  float: left;
+  width: 100%;
+}
+section table tr th {
+  background-color: #f2bf2c;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+section table tr td {
+  border-left: 1px solid ;
+  border-right: 1px solid ;
+}
+section table tr button {
+  padding: 10px;
+  width: 105px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+section table th,
+section table td {
+  display: block;
+  padding: 15px;
+}

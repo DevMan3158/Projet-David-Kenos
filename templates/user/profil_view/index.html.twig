@@ -5,22 +5,8 @@
 {% block body %}
 
 
-<body>
-
-    {#lighthouse navigateur ou gt metrix rapport d'optimisation #}
-
-
-        <div id="container_bandeau">
-
-            <figure>
-                <img titre="bandeau utlisateur " src="{{ app.user.imagebandeau }}" alt="{{ app.user.imagebandeaualt }}">
-            </figure>
-
-            <figure id="Conteneur_Logo_Usr">
-                <img titre="Logo utilisateur" src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
-            </figure>
-
-        </div>
+        {% include 'user/templates/dashboard.html.twig' %}
+  
 
         <div id="container_general">
 
@@ -54,66 +40,8 @@
 
             </div>
 
-            <div id="container_posts">
 
-                <h1>
-                    Les derniers <span>posts publiés</span>
-                </h1>
-
-{% for posts in post %}
-
-
-                {#ecrire une condition de type "Aucun post n'a était publié"#}
-
-
-
-                {#Boucle sur post#}
-       
-
-    
-
-
-                <div class="posts">
-
-                    <figure>
-
-                        <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
-
-                    </figure>
-
-
-                    <div class="contenues">
-
-                        <h3><span>{{ app.user.prenom}} </span> {{ app.user.nom }}
-                            <p class="colorP">publiés le {{ posts.createdAt|date('d/m/Y') }}</p>
-                        </h3>
-
-                        <div id="contenues_img">
-                        <img src="{{ posts.imagepost }}" alt="{{ posts.imagepostalt }}">
-                        </div>
-
-                        
-                        <p></span>{{ posts.contenu }}</p>
-                        <div class="comments">
-
-                           0 <i class="fa-regular fa-comments"><a href="#"> Commenter</a></i>
-                            0 <i class="fa-regular fa-heart"><a href="#"> J'aime</a></i>
-                        </div>
-
-                    </div>
-
-
-                </div>
-     {% else %}
-          
-                <p>Vous n'avez pas de poste publiés</span></p>
-          
-        
-
-{% endfor %}
-            
-            </div>
-
+            {% include 'user/templates/posts.html.twig' %}
 
 
             <div id="container_btn">
@@ -122,16 +50,15 @@
                 <a class="btn" href="#"><li>Publier un post</li></a>
                 <a class="btn2" href="{{ path('app_trombinoscope') }}"><li>Trombinoscope</li></a>
                 
-
                 
             </div>
                   
                      {#{{ dump(likeRepository) }}#}
         </div>
-  <pre>{{ dump(app.user) }}</pre>
+
+        <pre>{{ dump(app.user) }}</pre>
                   
-                   <pre>{{ dump(post) }}</pre>
+        <pre>{{ dump(post) }}</pre>
   
 
-</body>
 {% endblock %}

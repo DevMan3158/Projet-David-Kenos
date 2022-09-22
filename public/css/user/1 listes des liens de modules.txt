@@ -1,0 +1,21 @@
+/////////////////////CHARGE LES VARIABLES///////////////////////
+@import './modules/header.less';
+
+/////////////////////CHARGE LE MODULE HEADER///////////////////////
+@import './modules/header.less';
+
+/////////////////////CHARGE LE MODULE LEADERBOARD/////////////////////
+@import '../modules/leaderboard.less';
+
+/////////////////////CHARGE LE MODULE CARTE DESCRIPTIVE/////////////
+@import '../modules/carte_desc.less';
+
+/////////////////////CHARGE LE MODULE POST//////////////////////////
+@import '../modules/post.less';
+
+/////////////////////CHARGE LE MODULE AMIS///////////////////////
+@import '../modules/amis.less';
+
+/////////////////////CHARGE LE MODULE MENU JAUNE///////////////////////
+@import '../modules/menu.less';
+

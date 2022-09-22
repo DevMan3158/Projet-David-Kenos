@@ -21,10 +21,22 @@
         <link rel="stylesheet" href="{{ asset('css/user/styles.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user/media_queries.css') }}">
     {% if app.request.get('_route') == 'app_user' %}
+        <link rel="stylesheet" href="{{ asset('css/user/mon_profil/mon_profil.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/user/mon_profil/mon_profil_media_queries.css') }}">
+    {% elseif app.request.get('_route') == 'app_accueil' %}
         <link rel="stylesheet" href="{{ asset('css/user/acc/acc.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user/acc/acc_media_queries.css') }}">
+    {% elseif app.request.get('_route') == 'app_actualit_ ' %}
+        <link rel="stylesheet" href="{{ asset('css/user/actu/actu.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/user/actu/actu_media_queries.css') }}">
+    {% elseif app.request.get('_route') == 'app_trombinoscope' %}
+        <link rel="stylesheet" href="{{ asset('css/user/tromb/tromb.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/user/tromb/tromb_media_queries.css') }}">
+    {% elseif app.request.get('_route') == 'app_vie_des_chocolateries' %}
+        <link rel="stylesheet" href="{{ asset('css/user/vie_des_choco/vie_des_choco.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/user/vie_des_choco/vie_des_choco_media_queries.css') }}">
     {% elseif app.request.get('_route') == '' %}
-    
+
     {% endif %}
 
     {% endblock %}
@@ -41,7 +53,7 @@
 
 {% include 'user/templates/header.html.twig' %}
 
-{#Container command : permet la mis en place des élément à l'intérieur -> post,carte...#}
+{#Container command : permet la mise en place des éléments à l'intérieur -> post,carte...#}
 <section class="container_command">
     {% block body %} {% endblock %}
  </section>   

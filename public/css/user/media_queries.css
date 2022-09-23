@@ -11,7 +11,30 @@
   p {
     color: #141414;
     font-weight: 600;
-    font-size: clamp(0.3125rem, 1.0743rem, 3rem);
+    font-size: clamp(0.3125rem, 0.8rem, 3rem);
+  }
+  #head {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #DFDFDF;
+  }
+  #head #mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: min-content;
+  }
+  #head #mobile figure {
+    width: 60px;
+  }
+  #head #mobile a {
+    text-decoration: none;
+  }
+  #head #mobile a i {
+    font-size: 30px;
+    color: #333333;
   }
   body {
     display: flex;
@@ -26,6 +49,9 @@
     width: 100%;
     height: 100vh;
     background-color: white;
+    /* .active {
+                left: 0;
+              }  */
   }
   body header #containerTop {
     display: flex;
@@ -33,6 +59,7 @@
     justify-content: space-evenly;
     align-items: center;
     background-color: #1F2547;
+    padding: 15px;
     height: 40vh;
   }
   body header #containerTop h1 {
@@ -49,9 +76,9 @@
     text-transform: none;
   }
   body header #containerTop .btn {
-    width: 49%;
+    width: 65%;
     background-color: #0BAA9F;
-    padding: 10px 20px;
+    padding: 10px 0px;
     border-radius: 5px;
     font-weight: bold;
     font-size: 0.8rem;
@@ -73,6 +100,7 @@
   body header #containerBottom {
     display: flex;
     align-items: center;
+    padding: 10px;
     height: 60vh;
     flex-direction: column;
     font-weight: 200;
@@ -88,7 +116,7 @@
     justify-content: center;
   }
   body header #containerBottom ul a {
-    padding: 10px 0px 10px 38px;
+    padding: 10px 0px 10px 29px;
     width: 70%;
     font-weight: 200;
     color: #ffffff;
@@ -97,13 +125,41 @@
   body header #containerBottom ul a:hover {
     background-color: #16394D;
   }
-  body header #containerBottom figure {
+  body header #containerBottom #test1 {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
   }
-  body header #containerBottom figure img {
-    border-radius: 50%;
-    width: 33%;
+  body header #containerBottom #test1 .icon_mod {
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: flex-end;
+    /* .close {
+                                   position: absolute;
+                                   top: 0;
+                                   right: 25px;
+                                   font-size: 36px;
+                                 }*/
+    /* Close btn */
+  }
+  body header #containerBottom #test1 .icon_mod i {
+    display: flex;
+    padding: 15px;
+    font-size: 1.9rem;
+    opacity: 0.58;
+    color: #ffffff;
+  }
+  body header #containerBottom #test1 .icon_mod i:hover {
+    opacity: 0.8;
+    scale: 1.05;
+  }
+  body header #containerBottom #test1 figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+  }
+  body header #containerBottom #test1 figure img {
+    width: 90%;
   }
 }

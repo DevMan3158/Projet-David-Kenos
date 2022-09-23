@@ -75,11 +75,24 @@ header #containerBottom ul a {
 header #containerBottom ul a:hover {
   background-color: #16394D;
 }
-header #containerBottom figure {
+header #containerBottom #test1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+header #containerBottom #test1 .icon_mod {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+header #containerBottom #test1 .icon_mod i {
+  display: none;
+}
+header #containerBottom #test1 figure {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-header #containerBottom figure img {
-  width: 55%;
+header #containerBottom #test1 figure img {
+  width: 50%;
 }

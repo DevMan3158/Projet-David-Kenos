@@ -75,13 +75,26 @@ header #containerBottom ul a {
 header #containerBottom ul a:hover {
   background-color: #16394D;
 }
-header #containerBottom figure {
+header #containerBottom #test1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+header #containerBottom #test1 .icon_mod {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+header #containerBottom #test1 .icon_mod i {
+  display: none;
+}
+header #containerBottom #test1 figure {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-header #containerBottom figure img {
-  width: 55%;
+header #containerBottom #test1 figure img {
+  width: 50%;
 }
 * {
   font-family: 'Montserrat', sans-serif;
@@ -97,11 +110,33 @@ body {
   flex-direction: row;
   background-color: #DFDFDF;
 }
+#head {
+  display: none;
+  width: 100%;
+  padding: 15px;
+  background-color: #DFDFDF;
+}
+#head #mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: min-content;
+}
+#head #mobile figure {
+  width: 60px;
+}
+#head #mobile a {
+  text-decoration: none;
+}
+#head #mobile a i {
+  font-size: 30px;
+  color: #333333;
+}
 .container_command {
   overflow-y: scroll;
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  border: solid 4px #ff00f2;
 }

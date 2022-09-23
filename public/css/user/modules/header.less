@@ -3,6 +3,11 @@
 
 //////////////////HEADER//////////////////
 
+
+
+
+
+
 header {
     display: flex;
     flex-direction: column;
@@ -20,7 +25,7 @@ header {
         align-items: center;
         background-color: @bgd_bgr1;
         height: 40vh;
-        
+
 
         h1 {
             width: 100%;
@@ -37,22 +42,23 @@ header {
             text-transform: none;
         }
 
-      
 
-            .btn {
-                width: 85%;
-                background-color: @clr-btn1;
-                padding: 15px 0px;
-                border-radius: 5px;
-                font-weight: bold;
-                font-size: 1rem;
-                color: #ffffff;
-                transition: @trt;
-                &:hover {
-                    color: (@bgd_bgr3);
-                }
+
+        .btn {
+            width: 85%;
+            background-color: @clr-btn1;
+            padding: 15px 0px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #ffffff;
+            transition: @trt;
+
+            &:hover {
+                color: (@bgd_bgr3);
             }
-        
+        }
+
 
         figure {
             display: flex;
@@ -78,44 +84,63 @@ header {
         color: #ffffff;
         text-align: left;
         background-color: @bgd_bgr2;
-    
-    
 
-            ul {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                //border: solid 2px rgb(246, 255, 0);
 
-               
-                
-                a {
-                    padding: 20px 0px 20px 38px;
-                    width: 100%;
-                    font-weight: 200;
-                    color: #ffffff;
-                    font-size: 1.15rem;
-                    &:hover {
-                        background-color: @bgd_bgr1-hvr;
-                    }
-                    }
-                
-            }
-    
 
-        figure {
+        ul {
+            width: 100%;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            //border: @bord2;
+            //border: solid 2px rgb(246, 255, 0);
 
-            img {
-                //border: solid 1px black;
-                width: 55%;
+
+
+            a {
+                padding: 20px 0px 20px 38px;
+                width: 100%;
+                font-weight: 200;
+                color: #ffffff;
+                font-size: 1.15rem;
+
+                &:hover {
+                    background-color: @bgd_bgr1-hvr;
+                }
+            }
+
+        }
+
+        #test1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .icon_mod
+            {
+                display: flex;
+               flex-direction: row;
+                justify-content: center; 
+    
+   
+                i
+                {
+                    display: none;
+                }
+            }
+
+            figure {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                //border: @bord2;
+                
+
+                img {
+                    //border: solid 1px black;
+                    width: 50%;
+                }
+                
             }
         }
     }
-
-    
 }

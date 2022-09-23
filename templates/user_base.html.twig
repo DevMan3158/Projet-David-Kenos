@@ -43,6 +43,7 @@
 
     {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
+    <script src="{{ asset('js/main_user.js') }}"></script>
     <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
     {% endblock %}
 
@@ -55,8 +56,27 @@
 
 {#Container command : permet la mise en place des éléments à l'intérieur -> post,carte...#}
 <section class="container_command">
+
+
+
+<div id="head">
+
+    <div id="mobile">
+
+        <figure id="logo">
+                    <img src="{{ asset('img/logos/logo-david-kenos.png') }}" alt="Logo David Kenos"/>
+        </figure>
+
+       
+        <a href="#" id="openBtn"> <i class="fa-solid fa-bars"></i></a>
+
+        <script src="{{ asset('js/main_user.js') }}"></script>               
+    </div>
+
+</div>
     {% block body %} {% endblock %}
  </section>   
+ 
 </body>
 
 </html>

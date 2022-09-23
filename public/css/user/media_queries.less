@@ -32,8 +32,51 @@
     p {
         color: @clr-pol5;
         font-weight: 600;
-        font-size: clamp(0.3125rem, 1.0743rem, 3rem);
+        font-size: clamp(0.3125rem, 0.8rem, 3rem);
     }
+
+
+    #head {
+
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background-color: @bgd_bgr;
+    
+        #mobile {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: min-content;
+    
+    
+            figure {
+                width: 60px;
+            }
+    
+    
+    
+            a {
+                text-decoration: none;
+    
+                i {
+                    font-size: 30px;
+                    color: @clr-pol4;
+                }
+            }
+    
+    
+    
+    
+    
+    
+    
+        }
+    
+    }
+
+
 
     body {
         display: flex;
@@ -44,8 +87,13 @@
         background-color: @bgd_bgr;
 
         header {
+            
             display: flex;
             flex-direction: column;
+            //position: fixed;
+            //z-index: 1;
+            //top: 0;
+            //left: -100vw;
             //justify-content: space-between;
             text-align: center;
             width: 100%;
@@ -53,12 +101,25 @@
             background-color: white;
             //border: solid 2px rgb(26, 255, 0);
 
+
+            
+               /* .active {
+                left: 0;
+              }  */
+            
+
+
+              
+             
+
+
             #containerTop {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
                 align-items: center;
                 background-color: @bgd_bgr1;
+                padding: 15px;
                 height: 40vh;
 
 
@@ -80,9 +141,9 @@
 
 
                 .btn {
-                    width: 49%;
+                    width: 65%;
                     background-color: @clr-btn1;
-                    padding: 10px 20px;
+                    padding: 10px 0px;
                     border-radius: 5px;
                     font-weight: bold;
                     font-size: 0.8rem;
@@ -111,6 +172,7 @@
             #containerBottom {
                 display: flex;
                 align-items: center;
+                padding: 10px;
                 //justify-content: space-between;
                 height: 60vh;
                 flex-direction: column;
@@ -132,7 +194,7 @@
 
 
                     a {
-                        padding: 10px 0px 10px 38px;
+                        padding: 10px 0px 10px 29px;
                         width: 70%;
                         font-weight: 200;
                         color: #ffffff;
@@ -146,15 +208,58 @@
                 }
 
 
-                figure {
+                #test1 {
                     display: flex;
+                    flex-direction: row;
                     justify-content: center;
-                    align-items: center;
 
-                    img {
-                        //border: solid 1px black;
-                        border-radius: 50%;
-                        width: 33%;
+                    .icon_mod {
+                        
+                        flex-direction: row-reverse;
+                        align-items: flex-end;
+                        justify-content: flex-end;
+
+
+                               /* .close {
+                                   position: absolute;
+                                   top: 0;
+                                   right: 25px;
+                                   font-size: 36px;
+                                 }*/
+
+                       
+                        /* Close btn */
+                                    
+                        i
+                        {
+                            display: flex;
+                            padding: 15px;
+                            font-size: 1.9rem;
+                            opacity: 0.58;
+                            color: #ffffff;
+                            &:hover{
+                                opacity: 0.8;
+                                scale: @sle;
+
+                            }
+
+                        }
+
+                    }
+
+                    figure {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 30%;
+                        //border: @bord2;
+
+
+                        img {
+                            //border: solid 1px black;
+                            width: 90%;
+                        }
+
                     }
                 }
             }

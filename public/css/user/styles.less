@@ -20,16 +20,52 @@ body {
     background-color: @bgd_bgr;
 }
 
-//Permet la mise en place de tout les modules 
-.container_command {
-    overflow-y: scroll;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+#head {
+
+    display: none;
     width: 100%;
-    border: solid 4px rgb(255, 0, 242);
+    padding: 15px;
+    background-color: @bgd_bgr;
+
+    #mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: min-content;
+
+
+        figure {
+            width: 60px;
+        }
+
+
+
+        a {
+            text-decoration: none;
+
+            i {
+                font-size: 30px;
+                color: @clr-pol4;
+            }
+        }
+
+
+
+
+
+
+
+    }
+
 }
 
-
-
-
+    //Permet la mise en place de tout les modules 
+    .container_command {
+        overflow-y: scroll;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        //border: solid 4px rgb(255, 0, 242);
+    }

@@ -33,6 +33,7 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
         $Post->setImagePost("https://via.placeholder.com/150");
         $Post->setImagePostAlt("https://via.placeholder.com/150");
         $Post->setCatPost($this->getReference('categorie_'.$i));
+        $Post->setUser($this->getReference('user_'.$i));
         $this->addReference('post_'.$i, $Post);
 
 
@@ -50,6 +51,7 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
         {
             return array(
                 CatPostFixtures::class,
+                UserFixtures::class,
             );
         }
 }

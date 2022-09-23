@@ -1,0 +1,52 @@
+<div id="container_posts">
+
+    <h1>
+        Les derniers <span>posts publiés.</span>
+    </h1>
+
+    {% for posts in post %}
+
+
+    <div class="posts">
+
+        <figure>
+
+            <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+
+        </figure>
+
+
+        <div class="contenues">
+
+            <h3><span>{{ app.user.prenom}} </span> {{ app.user.nom }}
+                <p class="colorP">publiés le {{ posts.createdAt|date('d/m/Y') }}</p>
+            </h3>
+
+            <div id="contenues_img">
+                <img src="{{ posts.imagepost }}" alt="{{ posts.imagepostalt }}">
+            </div>
+
+
+            <p></span>{{ posts.contenu }}</p>
+            <div class="comments">
+
+                0 <i class="fa-regular fa-comments"><a href="#"> Commenter</a></i>
+
+
+                
+                0 <i class="fa-regular fa-heart"><a href="#"> J'aime</a></i>
+            </div>
+
+        </div>
+
+
+    </div>
+    {% else %}
+
+    <p>Vous n'avez pas de poste publiés</span></p>
+
+
+
+    {% endfor %}
+
+</div>

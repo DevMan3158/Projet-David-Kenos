@@ -1,0 +1,119 @@
+// relativeUrls: true;
+@import '../../variable.less';
+
+/////////////////////POSTS//////////////////////////
+
+#container_posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    //border: solid 3px rgb(38, 255, 0);
+    justify-content: center;
+    padding: 25px 0px;
+
+
+    h1 {
+
+        font-size: clamp(0.625rem, 2.2rem, 3rem);
+        letter-spacing: 1px;
+        margin: 22px 0px;
+        width: -webkit-fill-available;
+    }
+
+    h1>span {
+
+        font-weight: 200;
+
+
+    }
+
+    .posts {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 98%;
+        padding: 35px;
+        margin: 16px 0px;
+        background-color: @bgd_bgr_w;
+        //border: solid 2px rgb(255, 34, 0);
+        filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+
+        figure {
+            width: 20%;
+
+            img {
+                border-radius: 50%;
+            }
+        }
+
+        .contenues {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: -webkit-fill-available;
+            margin-left: 35px;
+
+            #contenues_img {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                margin: 10px 0px;
+
+
+                img {
+                    width: 30%;
+                    margin: 5px 10px 5px 0px;
+                }
+
+            }
+
+
+
+            p>span {
+                font-weight: 200;
+            }
+
+            h3 {
+
+                letter-spacing: 2px;
+                font-weight: 200;
+                text-transform: uppercase;
+                margin: 0px 0px;
+
+            }
+
+            h3>span {
+
+                font-weight: 200;
+                font-family: @fontP;
+                font-style: italic;
+                text-transform: none;
+            }
+
+            .colorP {
+                color: @clr-btn1;
+                font-size: 0.75rem;
+                text-transform: none;
+            }
+
+            .comments {
+                margin: 15px 0px 0px 0px;
+
+                i {
+                    color: #314090;
+                    font-weight: 500;
+                }
+
+                a {
+                    margin: 0px 30px 0px 8px;
+                    color: #314090;
+                    font-weight: 600;
+                    font-size: small;
+                }
+            }
+
+        }
+    }
+}

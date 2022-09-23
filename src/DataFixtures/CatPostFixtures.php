@@ -23,7 +23,7 @@ class CatPostFixtures extends Fixture
       $TableCatPost =[
             ['nom' => 'Animations'],
             ['nom' => 'Divers'],
-            ['nom' => 'Vie de l\'\entreprise'],
+            ['nom' => 'Vie de l\'entreprise'],
             ['nom' => 'Améliorations'],
             ['nom' => 'Questions'],
 

@@ -32,6 +32,6 @@ final class Version20220916091728 extends AbstractMigration
         $this->addSql('ALTER TABLE actualite DROP FOREIGN KEY FK_54928197B81041DBB81041DB');
         $this->addSql('ALTER TABLE actualite CHANGE chocolaterie_id chocolaterie_id INT NOT NULL');
         $this->addSql('ALTER TABLE actualite ADD CONSTRAINT FK_54928197B81041DB FOREIGN KEY (chocolaterie_id) REFERENCES chocolaterie (id)');
-        $this->addSql('ALTER TABLE commentaire DROP contenu');
+        $this->addSql('ALTER TABLE commentaire DROP contenu LONGTEXT NOT NULL');
     }
 }

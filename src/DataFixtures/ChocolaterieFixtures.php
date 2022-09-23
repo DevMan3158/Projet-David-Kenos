@@ -16,7 +16,7 @@ class ChocolaterieFixtures extends Fixture
         $tableChocolateries=[
             ['nom' => 'Chocolaterie du ministral', 'lieu' => 'Marzy'],
             ['nom' => 'Chocolaterie du chocolat','lieu' => 'Nevers'],
-            ['nom' => 'Chocolaterie du fondant','lieu' => 'La CharitÃ©'],
+            ['nom' => 'Chocolaterie du fondant','lieu' => 'La Charité'],
             ['nom' => 'Chocolaterie du croustillant','lieu' => 'Pougues-les-eaux'],
             ['nom' => 'Chocolaterie du palpitant','lieu' => 'Sancerre'],
         ];

@@ -60,11 +60,11 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             
             
         $user->setDescription('Lorem ipsum dolor sit amet consectetur adipisicing elit.Aspernatur nostrum aut, voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius. Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus voluptate!');   
-        $user->setLinkedin('fa-brands fa-linkedin-in');
-        $user->setFacebook('fa-brands fa-facebook-f');    
-        $user->setInstagram('fa-brands fa-instagram');     
-        $user->setTwitter('fa-brands fa-twitter');      
-        $user->setLien('');   
+        $user->setFacebook('https://fr-fr.facebook.com/');    
+        $user->setInstagram('https://www.instagram.com/?hl=fr');     
+        $user->setTwitter('https://twitter.com/?lang=fr');      
+        $user->setLinkedin('https://fr.linkedin.com/');
+        $user->setLien('https://github.com/');   
         $user->setImageProfil("https://via.placeholder.com/150");  
         $user->setImageProfilAlt("https://via.placeholder.com/150");  
         $user->setImageBandeau("https://via.placeholder.com/1080x460");  

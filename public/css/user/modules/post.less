@@ -19,6 +19,7 @@
         letter-spacing: 1px;
         margin: 22px 0px;
         width: -webkit-fill-available;
+        color: @clr-pol4;
     }
 
     h1>span {
@@ -29,6 +30,7 @@
     }
 
     .posts {
+        position: relative;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -38,6 +40,20 @@
         background-color: @bgd_bgr_w;
         //border: solid 2px rgb(255, 34, 0);
         filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+
+
+        .etiquette
+        {
+            position: absolute;
+            top: 25px;
+            right: -1.5%;
+            background-color: @bgd_btn3;
+            padding: 2px 20px;
+            font-weight: 600;
+            color: @clr-pol4;
+            font-size: 0.9rem;
+        }
+
 
         figure {
             width: 20%;

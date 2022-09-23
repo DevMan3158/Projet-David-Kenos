@@ -19,7 +19,7 @@ class ActualiteFixtures extends Fixture implements DependentFixtureInterface
         
 
             $actualite = new Actualite();
-            $actualite->setContenu("Ceci est le contenu d'un article");
+            $actualite->setContenu("Lorem ipsum dolor sit amet consectetur adipisicing elit.Aspernatur nostrum aut, voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius. Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus voluptate!");
             $actualite->setCratedAt(new \DateTimeImmutable());
             $actualite->setImageActu('https://via.placeholder.com/150');
             $actualite->setImageActuAlt('https://via.placeholder.com/150');

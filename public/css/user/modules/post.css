@@ -11,11 +11,13 @@
   letter-spacing: 1px;
   margin: 22px 0px;
   width: -webkit-fill-available;
+  color: #333333;
 }
 #container_posts h1 > span {
   font-weight: 200;
 }
 #container_posts .posts {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -24,6 +26,16 @@
   margin: 16px 0px;
   background-color: #ffffff;
   filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+}
+#container_posts .posts .etiquette {
+  position: absolute;
+  top: 25px;
+  right: -1.5%;
+  background-color: #F2BF2C;
+  padding: 2px 20px;
+  font-weight: 600;
+  color: #333333;
+  font-size: 0.9rem;
 }
 #container_posts .posts figure {
   width: 20%;

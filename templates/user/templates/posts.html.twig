@@ -1,4 +1,4 @@
-<div id="container_posts">
+<section id="container_posts">
 
     <h1>
         Les derniers <span>posts publiés.</span>
@@ -7,7 +7,11 @@
     {% for posts in post %}
 
 
-    <div class="posts">
+    <article class="posts">
+
+    <div class="etiquette"> 
+     {{ posts.catpost.nom }}
+    </div>
 
         <figure>
 
@@ -40,7 +44,7 @@
         </div>
 
 
-    </div>
+    </article>
     {% else %}
 
     <p>Vous n'avez pas de poste publiés</span></p>
@@ -49,4 +53,4 @@
 
     {% endfor %}
 
-</div>
+</section>

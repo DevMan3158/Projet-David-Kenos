@@ -19,7 +19,7 @@
             <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
             <link rel="stylesheet" href="{{ asset('css/admin/mediaqueries.css') }}">
             <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
-            {% if app.request.get('_route') == 'app_back_admin' %}
+            {% if app.request.get('_route') == 'app_admin' %}
                 <link rel="stylesheet" href="{{ asset('css/admin/acc/styleAcc.css') }}">
                 <link rel="stylesheet" href="{{ asset('css/admin/acc/mediaqueriesAcc.css') }}">
             {% elseif ('show' in app.request.get('_route')) %} 
@@ -77,7 +77,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ path('app_back_admin') }}">
+                    <a href="{{ path('app_admin') }}">
                         Accueil
                     </a>
                 </li>

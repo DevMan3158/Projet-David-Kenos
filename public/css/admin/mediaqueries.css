@@ -1,0 +1,110 @@
+/* ---------- */
+/* Responsive */
+/* ---------- */
+
+/* Ordinateur */
+@media (min-width: 3860px) {
+
+}
+
+
+@media (min-width: 1600px) {
+
+  
+}
+@media (min-width: 1200px) {
+
+
+}
+
+/* Tablette */
+
+@media (min-width: 1024px) {
+
+    header ul:first-of-type{
+        display: flex;
+        position: absolute;
+        right: 10px;
+        top: 30px;
+        font-size: 0.8em;
+        align-items: center;
+    }
+
+
+    header ul:first-of-type{
+        padding: 10px;
+    }
+    
+
+    header #headFlex{
+        display: unset; 
+        width: unset; 
+        justify-content: unset; 
+        align-items: unset;
+}
+
+#burger{
+    display: none;
+}
+
+header h3 {
+    margin: 31px auto 0 auto !important;
+}
+
+}
+
+@media (min-width: 768px) {
+
+
+        .headTitle{
+            font-size: 1.6em;
+        }
+
+        .headerBurger h3{
+            margin: 25px auto 0 auto;
+        }
+
+
+
+}
+
+
+
+/* Mobile */
+
+@media (min-width: 656px) {
+
+    header{
+        padding: 40px;
+    }
+
+    header #headFlex #logo{
+        width: 100px;
+        float: left;
+    }
+
+    header h3{
+        margin: -50px auto 0 auto;
+    }
+
+    .headerBurger h3{
+        margin: 25px auto 0 auto;
+    }
+
+    #burger i{
+        font-size: 1.5em;
+    }
+}
+
+
+@media (min-width: 300px) and (max-width: 400px) {
+
+    header h3 {
+        margin: 10px auto 0 auto;
+    }
+
+    header h4 {
+        margin: 0 auto 15px auto;
+    }
+
+}

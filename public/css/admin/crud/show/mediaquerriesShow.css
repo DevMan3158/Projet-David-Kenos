@@ -1,0 +1,55 @@
+/* ---------- */
+/* Responsive */
+/* ---------- */
+
+/* Ordinateur */
+@media (min-width: 3860px) {
+
+}
+
+
+@media (min-width: 1600px) {
+
+  
+}
+@media (min-width: 1200px) {
+
+}
+
+/* Tablette */
+
+@media (min-width: 1024px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 656px) {
+
+    header{
+        width: 0%;
+    }
+
+    header ul{
+        display: none !important;
+    }
+
+    #burger2{
+        display: block !important;
+    }
+
+    .headerBurger2{
+        width: 100% !important;
+    }
+
+}
+
+@media (min-width: 300px) {
+
+}
+

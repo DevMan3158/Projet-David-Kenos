@@ -1,0 +1,50 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Bienvenue sur la partie admin!{% endblock %}
+
+{% block body %}
+
+<section>
+
+
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h4> 
+            Gérer les Chocolateries
+        </h4>
+    </div>
+
+
+    <table>
+
+            <tr>
+
+                <th>ID</th>
+                <td>{{ chocolaterie.id }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Nom</th>
+                <td>{{ chocolaterie.nom }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Lieu</th>
+                <td>{{ chocolaterie.lieu }}</td>
+
+            </tr>
+
+    </table>
+
+
+        <a href="{{ path('app_chocolaterie_index') }}">
+            Retour à la liste
+        </a>
+
+</section>
+
+{% endblock %}

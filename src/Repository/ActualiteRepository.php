@@ -39,20 +39,21 @@ class ActualiteRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Actualite[] Returns an array of Actualite objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('a.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function countAct(){
+        $qb = $this->createQueryBuilder('a')
+            ->select('count(a.id)');
+        
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    public function accAct(){
+        $qb = $this->createQueryBuilder('a')
+            ->select('a.contenu','a.crated_at')
+            ->setMaxResults(3);
+        
+        return $qb->getQuery()->getResult();
+    }
+
 
 //    public function findOneBySomeField($value): ?Actualite
 //    {

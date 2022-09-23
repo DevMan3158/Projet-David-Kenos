@@ -1,0 +1,63 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+<section>
+
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h1 id="titleCrud">Gérer les utilisateurs</h1>
+    </div>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Chocolaterie</th>
+                <th>Poste</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.poste }}</td>
+                <td>{{ user.chocolaterie.nom }}</td>
+                
+                <td>
+
+                        <a  href="{{ path('app_user_show', {'id': user.id}) }}">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+
+                    <button>
+                        <a  href="{{ path('app_user_edit', {'id': user.id}) }}" class="editBtn">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            Modifier
+                        </a>
+                    </button>
+
+                        {{ include('admin/user/_delete_form.html.twig') }}
+
+                    
+
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>Pas d'utilisateurs trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</section>
+{% endblock %}

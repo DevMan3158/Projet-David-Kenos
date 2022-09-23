@@ -1,6 +1,9 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
 header {
   padding: 15px;
-  background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../img/admin/menu-admin-verticale.jpg") center / cover no-repeat;
+  background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../../img/admin/bandeau-menu-admin-horizontale.jpg") 100% / cover no-repeat;
   height: 200px;
   transition: 0.3s;
 }
@@ -32,13 +35,16 @@ header h4 {
   font-style: normal !important;
   margin: 0 auto 25px auto;
 }
-header ul,
+header ul {
+  display: none;
+}
 header #hamb {
   display: none;
 }
 .headerBurger {
-  height: 100%;
+  height: 100vh;
   text-align: center;
+  background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../../img/admin/menu-admin-verticale.jpg") 100% / cover no-repeat;
 }
 .headerBurger #logo {
   margin: auto;
@@ -47,96 +53,83 @@ header #hamb {
 .headerBurger #burger {
   display: none;
 }
-.headerBurger #hamb {
-  display: block;
-}
 .headerBurger ul:first-of-type {
-  width: fit-content;
+  width: 250px;
   font-family: 'Montserrat', sans-serif !important;
   font-size: 0.8em;
-  margin: 20px auto;
+  margin: auto;
   text-align: left;
-  display: block !important;
+  display: block;
+}
+.headerBurger ul:first-of-type li:first-of-type {
+  display: flex;
+}
+.headerBurger ul:first-of-type li:nth-of-type(2) {
+  margin-bottom: 20px;
+}
+.headerBurger ul:first-of-type li a:last-of-type {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 30px;
+  margin: 5px auto;
 }
 .headerBurger ul:nth-of-type(2) {
-  margin: 35px auto;
+  margin: 20px auto;
   width: 200px;
-  display: block !important;
+  display: block;
+  text-align: left;
 }
 .headerBurger ul:nth-of-type(2) li {
   background-color: #0BAA9F;
   transition: 0.2s;
   font-family: 'Montserrat', sans-serif !important;
+  font-size: 1.2em;
   margin: 2px 0;
   color: white;
-  padding: 10px;
+  text-transform: uppercase;
+  padding: 20px;
   cursor: pointer;
+}
+.headerBurger ul:nth-of-type(2) li a {
+  color: white;
 }
 .headerBurger ul:nth-of-type(2) li:hover {
   background-color: #0D9088;
 }
-article {
-  padding: 25px;
-  box-shadow: 0px 5px 10px grey;
-  border-radius: 25px;
-  text-align: center;
-  margin-bottom: 25px;
-  background: white;
-}
-article .count {
-  width: 50px;
-  height: 50px;
-  line-height: 42px;
-  font-size: 1.5em;
-  border-radius: 50%;
-  background-color: #f2bf2c;
-  color: grey;
-  float: left;
-  text-align: center;
-  margin-right: 20px;
-  font-family: 'Playfair Display', serif;
-}
-article h5 {
+#headerBody {
   display: flex;
-  flex-direction: column;
-  font-size: 1.2em;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  align-items: flex-start;
-  margin-bottom: 15px;
 }
-article h5 span {
-  font-weight: normal;
-  font-size: 0.8em;
+#headerBody section,
+#headerBody header {
+  height: 100vh;
 }
-article li {
-  font-size: 0.9em;
-  font-family: 'Montserrat', sans-serif !important;
+#headerBody section {
+  width: 100%;
 }
-article li span {
-  font-weight: bold;
+#headerBody .headTitle {
+  display: none;
 }
-article:first-of-type {
-  margin-top: -25px;
+#headerBody .headerBurger {
+  padding: 30px 0;
 }
-article button {
-  background-color: #1F2547;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  width: 199px;
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 0.9em;
-  margin-top: 30px;
-  transition: 0.2s;
-  border: none;
+#headerBody .headerBurger #logo {
+  float: initial;
+  width: 155px !important;
 }
-article button:hover {
-  transform: scale(1.05);
-  cursor: pointer;
+#headerBody .headerBurger ul:first-of-type {
+  position: initial;
+  padding: 20px;
 }
-section {
-  text-align: center;
+#headerBody .headerBurger ul:first-of-type li:nth-of-type(1) {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#headerBody .headerBurger ul:first-of-type li:nth-of-type(2) {
+  margin-bottom: 13px;
+}
+#headerBody .headerBurger ul:last-of-type {
+  width: 100%;
 }
 footer {
   text-align: center;
@@ -147,4 +140,18 @@ footer {
 }
 i {
   cursor: pointer;
+}
+#crossDiv {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: none;
+}
+.headerBurger2 ul {
+  display: block !important;
+}
+.titleBurger {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

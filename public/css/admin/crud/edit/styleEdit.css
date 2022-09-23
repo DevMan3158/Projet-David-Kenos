@@ -1,0 +1,59 @@
+section {
+  text-align: center;
+  padding: 25px;
+}
+section h1 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-size: 2em;
+  font-weight: 300;
+  margin: 25px 0;
+}
+section form {
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+section form button {
+  padding: 10px;
+  width: 110px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px auto;
+  color: white;
+  background-color: #1F2547;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+section form button:hover {
+  transform: scale(0.95);
+}
+section form #user,
+section form #chocolaterie {
+  text-align: left;
+}
+section form #user div,
+section form #chocolaterie div {
+  display: flex;
+  flex-direction: column;
+}
+section form #user div label,
+section form #chocolaterie div label {
+  background-color: #f2bf2c;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  padding: 15px;
+}
+section form #user div input,
+section form #chocolaterie div input {
+  padding: 10px;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-top: none;
+  border-bottom: none;
+}

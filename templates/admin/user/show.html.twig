@@ -1,0 +1,133 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Bienvenue sur la partie admin!{% endblock %}
+
+{% block body %}
+
+<section>
+
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h4> 
+            Gérer les Utilisateurs
+        </h4>
+    </div>
+    
+    <table>
+
+            <tr>
+
+                <th>ID</th>
+                <td>{{ users.id }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>email</th>
+                <td>{{ users.email }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Role</th>
+                <td>{{ users.roles ? users.roles|json_encode : '' }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Nom</th>
+                <td>{{ users.nom }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Prenom</th>
+                <td>{{ users.prenom }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Poste</th>
+                <td>{{ users.poste }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Chocolaterie</th>
+                <td>{{ users.chocolaterie.nom }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Description</th>
+                <td>{{ users.description }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Linkedin</th>
+                <td>{{ users.linkedin }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Facebook</th>
+                <td>{{ users.facebook }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Instagram</th>
+                <td>{{ users.instagram }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Twitter</th>
+                <td>{{ users.twitter }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Lien</th>
+                <td>{{ users.lien }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Image de profil</th>
+                <td>{{ users.imageProfil }}</td>
+
+            </tr>
+
+            <tr>
+
+                <th>Image de bandeau</th>
+                <td>{{ users.imageBandeau }}</td>
+
+            </tr>
+
+
+    </table>
+
+
+        <a href="{{ path('app_user_index') }}">
+            Retour à la liste
+        </a>
+
+</section>
+
+{% endblock %}

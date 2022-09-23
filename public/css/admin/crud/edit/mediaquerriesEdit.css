@@ -1,0 +1,18 @@
+@media (max-width: 656px) {
+
+    header{
+        width: 0%;
+    }
+
+    header ul{
+        display: none !important;
+    }
+
+    #burger2{
+        display: block !important;
+    }
+
+    .headerBurger2{
+        width: 100% !important;
+    }
+}

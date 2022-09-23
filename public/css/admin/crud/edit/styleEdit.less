@@ -1,0 +1,68 @@
+section{
+    text-align: center;
+    padding: 25px;
+
+    h1{
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        letter-spacing: 1px;
+        font-size: 2em;
+        font-weight: 300;
+        margin: 25px 0;
+    }
+
+    form{
+        text-align: center;
+        width: fit-content;
+        margin: auto;
+        width: 100%;
+        border-collapse: collapse;
+
+        button{
+            padding: 10px;
+            width: 110px;
+            display: flex;
+            justify-content: space-evenly;
+            margin: 20px auto;
+            color: white;
+            background-color: #1F2547;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            border-radius: 5px;
+
+
+            &:hover{
+                transform: scale(0.95);
+            }
+
+        }
+
+        #user, #chocolaterie{
+
+            text-align: left;
+
+            div{
+                display: flex;
+                flex-direction: column;
+                
+
+                label{
+                    background-color: #f2bf2c;
+                    font-family: 'Playfair Display', serif;
+                    font-style: italic;
+                    padding: 15px;
+                }
+
+                input{
+                    padding: 10px;
+                    border-left: 1px solid;
+                    border-right: 1px solid;
+                    border-top: none;
+                    border-bottom: none;
+                }
+            }
+
+        }
+    }
+}

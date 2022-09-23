@@ -1,0 +1,84 @@
+/* ---------- */
+/* Responsive */
+/* ---------- */
+
+/* Ordinateur */
+@media (min-width: 3860px) {
+
+}
+
+
+@media (min-width: 1600px) {
+
+  
+}
+@media (max-width: 1200px) {
+ section{
+    padding: 15px 0;
+ }
+}
+
+/* Tablette */
+
+@media (max-width: 1024px) {
+
+    section table th, section table td {
+        padding: 25px 10px;
+
+    }
+
+    section table tr td:last-of-type {
+        width: 270px;
+
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    tbody tr td:last-of-type{
+        width: unset !important;
+    }
+
+}
+
+
+
+/* Mobile */
+
+@media (max-width: 656px) {
+
+    header{
+        width: 0%;
+    }
+
+    header ul{
+        display: none !important;
+    }
+
+    #burger2{
+        display: block !important;
+    }
+
+    .headerBurger2{
+        width: 100% !important;
+    }
+
+    section table {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+
+    section table {
+        font-size: 0.7em;
+    }
+
+}
+
+
+@media (min-width: 300px) {
+
+}
+

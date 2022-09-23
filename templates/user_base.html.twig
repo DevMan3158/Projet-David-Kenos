@@ -17,10 +17,10 @@
 
         {{ encore_entry_link_tags('app') }}
 
-        <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/user/normalizer.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user/styles.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user/media_queries.css') }}">
-    {% if app.request.get('_route') == 'app_user' %}
+    {% if app.request.get('_route') == 'app_mon_profil' %}
         <link rel="stylesheet" href="{{ asset('css/user/mon_profil/mon_profil.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user/mon_profil/mon_profil_media_queries.css') }}">
     {% elseif app.request.get('_route') == 'app_accueil' %}

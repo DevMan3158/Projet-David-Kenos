@@ -3,14 +3,18 @@
 {% block title %}Connecté : {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
 
 {% block body %}
-
+{#{{ dump(likeRepository) }}
                 {{ dump(app.user) }}
                   
-                {{ dump(post) }} 
+                {{ dump(post) }} #}
         {% include 'user/templates/dashboard.html.twig' %}
   
+   {#<h1>
+        Les derniers <span>posts publiés.</span>
+    </h1>#}
 
         <section id="container_general">
+
 
             <article id="container_carte">
 
@@ -22,21 +26,66 @@
                     <br>
 
                     {#ecrire une condition de type "Vous n'avez pas de description, écriver une courte description  vous"#}
-                    <p>{{ app.user.description }}</p>
+
+                        {% if app.user.description is empty %}
+                             
+                             <p>Vous n'avez pas de description.</p>
+
+                        {% else %}
+                        
+                         <p>{{ app.user.description}}</p>
+
+                        {% endif %}
+
 
                     <div class="logo">
-                        <figure><i class="fa-brands fa-facebook-f"></i></figure>
-                        <figure><i class="fa-brands fa-instagram"></i></figure>
-                        <figure><i class="fa-brands fa-twitter"></i></figure>
-                        <figure><i class="fa-brands fa-linkedin-in"></i></figure>
-                         <figure><i class="fa-brands fa-github"></i></figure>
-                        {#<img titre="Logo utilisateur" src="{{ app.user.imageprofil }}">
-                        <img titre="Logo utilisateur" src="{{ app.user.imageprofil }}">
-                        <img titre="Logo utilisateur" src="{{ app.user.imageprofil }}">
-                        <img titre="Logo utilisateur" src="{{ app.user.imageprofil }}">#}
+
+
+                        {% if app.user.facebook is empty %}
+                             
+                        {% else %}
+                        
+                          
+                          <figure>
+                                <a class="mod" href="{{ app.user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
+                          </figure>                         
+                        {% endif %}
+
+
+
+                        {% if app.user.instagram is empty %}
+                             
+                        {% else %}
+                        
+                            <figure>
+                                <a class="mod" href="{{ app.user.instagram}}"><i class="fa-brands fa-instagram"></i></a>
+                            </figure>
+                        {% endif %}
+
+
+                        {% if app.user.twitter is empty %}
+                                                
+                        {% else %}
+
+                            <figure>  
+                                <a class="mod" href="{{ app.user.twitter}}"><i class="fa-brands fa-twitter"></i></a>            
+                            </figure>                       
+                        {% endif %}
+
+
+                        {% if app.user.linkedin is empty %}
+
+                        {% else %}
+
+                            <figure>
+                                <a class="mod" href="{{ app.user.linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </figure>
+                        {% endif %}
+
+
                     </div>
 
-                    <a class="btn" href="#"><li>Envoyer un mail</li></a>
+                    <a class="btn" href="mailto:{{ app.user.email}}"><li>Envoyer un mail</li></a>
 
                 </div>
 
@@ -56,7 +105,7 @@
             </section>
 
               
-                     {#{{ dump(likeRepository) }}#}</div>
+                     
                 
         </section>
 

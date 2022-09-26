@@ -16,8 +16,37 @@ class ChocolaterieController extends AbstractController
     #[Route('/', name: 'app_chocolaterie_index', methods: ['GET'])]
     public function index(ChocolaterieRepository $chocolaterieRepository): Response
     {
+
+                // On détermine sur quelle page on se trouve
+
+                if(!empty($_GET['pg'])){
+                    $currentPage = (int) strip_tags($_GET['pg']);
+                } else {
+                    $currentPage = 1;
+                }
+        
+                // On détermine le nombre d'users total
+        
+                $nbChoc = $chocolaterieRepository->countChoco();
+        
+                // On détermine le nombre d'articles par page
+        
+                $perPage = 5;
+        
+                // On calcule le nombre de page total
+        
+                $page = ceil($nbChoc / $perPage);
+        
+                // Calcul du premier article de la page
+        
+                $firstObj = ($currentPage * $perPage) - $perPage;
+        
+                $chocPerPage = $chocolaterieRepository->findAllChoco($perPage, $firstObj);
+        
         return $this->render('admin/chocolaterie/index.html.twig', [
-            'chocolateries' => $chocolaterieRepository->findAll(),
+            'chocolateries' => $chocPerPage,
+            'pages' => $page,
+            'currentPage' => $currentPage,
         ]);
     }
 

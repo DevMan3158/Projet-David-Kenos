@@ -190,8 +190,43 @@ i {
 	}
 }
 
+#burger2{
+	display: none;
+}
+
 .titleBurger{
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+}
+
+.uk-pagination{
+
+	display: flex;
+	justify-content: space-between;
+	width: fit-content;
+	margin: auto;
+	font-weight: bold;
+
+
+	li{
+
+		transition: 0.2s;
+		margin: auto 10px;
+
+		&:hover{
+
+		color: #0BAA9F;
+		transform: scale(1.05);
+		cursor: pointer;
+		}
+
+		a{
+			color: unset;
+			
+		}
+
+	}
+
+
 }

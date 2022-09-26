@@ -1,17 +1,15 @@
 <section id="container_posts">
-
-    <h1>
+    {##}<h1>
         Les derniers <span>posts publiés.</span>
     </h1>
-
     {% for posts in post %}
 
 
     <article class="posts">
 
-    <div class="etiquette"> 
-     {{ posts.catpost.nom }}
-    </div>
+        <div class="etiquette">
+            {{ posts.catpost.nom }}
+        </div>
 
         <figure>
 
@@ -37,14 +35,66 @@
                 0 <i class="fa-regular fa-comments"><a href="#"> Commenter</a></i>
 
 
-                
-                0 <i class="fa-regular fa-heart"><a href="#"> J'aime</a></i>
+
+                0 <i class="fa-regular fa-heart"><a id="commentaire" onClick="openMenu()" href="#"> J'aime</a></i>
             </div>
 
         </div>
 
 
     </article>
+
+{#Condition Soyer le premier à commenter ! commentaire différent suivant user, nom d'user dans com? et heure date#}
+
+
+
+
+{#///////////////////////Templates-Commentaires////////////////////#}
+    <div id="comm" class="container_com">
+
+        <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
+
+        <button onClick="closeMenu()">Publier</button>
+
+
+        <h3>Les commentaires existants</h3>
+
+        <div class="com_box">
+
+
+            <div class="commentaire">
+                <figure>
+                <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                <figure>
+
+            
+                <p>Gauche, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ab aspernatur ipsa vitae, totam
+                consectetur eligendi debitis!.</p>
+               
+
+            </div>
+
+        </div>
+
+        <div class="com_box_droite">
+
+              <div class="commentaire2">
+              
+                <figure>
+                  <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                <figure>
+
+                    <p>Droite, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ab aspernatur ipsa vitae, totam
+                    consectetur eligendi debitis!.</p>
+             </div>
+
+        </div>
+
+        
+
+    </div>
+
+
     {% else %}
 
     <p>Vous n'avez pas de poste publiés</span></p>
@@ -52,5 +102,7 @@
 
 
     {% endfor %}
+
+   <script src="{{ asset('js/com.js') }}"></script>
 
 </section>

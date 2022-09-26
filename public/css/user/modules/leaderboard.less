@@ -6,10 +6,11 @@
 #container_bandeau {
     position: relative;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
+    align-items: center;
     width: 93%;
-    height: 33%;
+    height: 35%;
     //border: solid 3px rgb(0, 30, 255);
 
 
@@ -17,37 +18,31 @@
         display: flex;
         justify-content: center;
         height: 70%;
-        //border: @bord2;
         border-bottom: solid 5px @bgd_btn3;
-        background-color: @bgd_bgr_w;
-
         img {
             //border: solid 1px black;
             width: 100%;
         }
-
-
     }
 
 
     #Conteneur_Logo_Usr {
         position: absolute;
         display: flex;
-        justify-content: center;
-        height: 55%;
-        //width: 100%;
-        border-style: inset;
-        border: solid 10px white;
-        right: 43.5%;
-        border-radius: 50%;
-        top: 134px;
-        border: solid 10px #eee;
-        border-radius: 50%;
-
+        /* justify-content: center; */
+        /* right: 40.5%; */
+        /* border-radius: 50%; */
+        top: 120px;
+        border-bottom: solid #dfdfdf00;
+        align-items: center;
+        flex-direction: column;
         img {
             //border: solid 1px black;
-            height: 100%;
+            width: 70%;
+            height: 80%;
             border-radius: 50%;
+            border: solid 10px white;
+            
         }
 
 

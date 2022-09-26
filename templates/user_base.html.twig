@@ -32,10 +32,10 @@
     {% elseif app.request.get('_route') == 'app_trombinoscope' %}
         <link rel="stylesheet" href="{{ asset('css/user/tromb/tromb.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user/tromb/tromb_media_queries.css') }}">
-    {% elseif app.request.get('_route') == 'app_vie_des_chocolateries' %}
-        <link rel="stylesheet" href="{{ asset('css/user/vie_des_choco/vie_des_choco.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/vie_des_choco/vie_des_choco_media_queries.css') }}">
-    {% elseif app.request.get('_route') == '' %}
+    {% elseif app.request.get('_route') == 'app_chocolateries' %}
+        <link rel="stylesheet" href="{{ asset('css/user/vieChoco/vieChoco.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/user/vieChoco/vieChoco_media_queries.css') }}">
+    
 
     {% endif %}
 
@@ -70,13 +70,13 @@
        
         <a href="#" id="openBtn"> <i class="fa-solid fa-bars"></i></a>
 
-        <script src="{{ asset('js/main_user.js') }}"></script>               
     </div>
 
 </div>
     {% block body %} {% endblock %}
  </section>   
  
+        <script src="{{ asset('js/main_user.js') }}"></script>               
 </body>
 
 </html>

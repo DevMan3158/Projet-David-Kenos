@@ -4,9 +4,35 @@
 
 {% block body %}
 
-<body>
+<section class="container_general">
 
-    
+{#
+{% for posts in post %}
 
-</body>
+<h1>La vie des chocolaterie {{ posts.catpost.nom }}</h1>
+
+{% endfor %}#}
+<article class="container_amis">
+<h2>Les derniers inscrits</h2>
+</article>
+{% include "user/templates/posts.html.twig" %}
+
+
+
+
+<nav class="menu_cat">
+
+    <ul>
+
+    {% for posts in post %}
+
+        <li>{{ posts.catpost.nom }}</li>
+        
+    {% endfor %}
+
+    </ul>
+
+</nav>
+
+</section>
 {% endblock %}

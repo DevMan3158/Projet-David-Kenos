@@ -28,11 +28,12 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
         for ($i=0; $i < 5 ; $i++) { 
         
         $Post = new Post();
-        $Post->setContenu("Ceci est le contenu du post");
+        $Post->setContenu("Lorem ipsum dolor sit amet consectetur adipisicing elit.Aspernatur nostrum aut, voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius. Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus voluptate!");
         $Post->setCreatedAt(new DatetimeImmutable());
         $Post->setImagePost("https://via.placeholder.com/150");
         $Post->setImagePostAlt("https://via.placeholder.com/150");
         $Post->setCatPost($this->getReference('categorie_'.$i));
+        $Post->setUser($this->getReference('user_'.$i));
         $this->addReference('post_'.$i, $Post);
 
 
@@ -50,6 +51,7 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
         {
             return array(
                 CatPostFixtures::class,
+                UserFixtures::class,
             );
         }
 }

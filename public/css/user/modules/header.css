@@ -1,0 +1,98 @@
+header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 21%;
+  height: 100vh;
+  background-color: white;
+}
+header #containerTop {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #1F2547;
+  height: 40vh;
+}
+header #containerTop h1 {
+  width: 100%;
+  font-weight: 200;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: clamp(0.625rem, 2.1rem, 3rem);
+}
+header #containerTop h1 > span {
+  font-family: 'Playfair Display', serif;
+  font-style: oblique;
+  text-transform: none;
+}
+header #containerTop .btn {
+  width: 85%;
+  background-color: #0BAA9F;
+  padding: 15px 0px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: 0.4s;
+}
+header #containerTop .btn:hover {
+  color: #16394D;
+}
+header #containerTop figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55%;
+}
+header #containerTop figure img {
+  border-radius: 50%;
+}
+header #containerBottom {
+  display: flex;
+  align-items: center;
+  height: 60vh;
+  flex-direction: column;
+  font-weight: 200;
+  color: #ffffff;
+  text-align: left;
+  background-color: #191E39;
+}
+header #containerBottom ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header #containerBottom ul a {
+  padding: 20px 0px 20px 38px;
+  width: 100%;
+  font-weight: 200;
+  color: #ffffff;
+  font-size: 1.15rem;
+}
+header #containerBottom ul a:hover {
+  background-color: #16394D;
+}
+header #containerBottom #test1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+header #containerBottom #test1 .icon_mod {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+header #containerBottom #test1 .icon_mod i {
+  display: none;
+}
+header #containerBottom #test1 figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header #containerBottom #test1 figure img {
+  width: 50%;
+}

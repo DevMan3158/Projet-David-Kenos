@@ -9,12 +9,6 @@ img {
   height: 125px;
   margin: 28px 0px;
 }
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-}
 h5 {
   text-align: center;
   color: #0BAA9F;
@@ -33,24 +27,22 @@ h1 > span {
   font-style: oblique;
   font-family: 'Playfair Display', serif;
 }
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
 .flexForm {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
   align-items: center;
-  margin-top: 30px;
-}
-#sectionForm {
-  display: flex;
   width: 100%;
-  border: solid 1px #3300ff;
 }
 input {
   width: 250px;
   height: 50px;
   color: #D9D9D9;
-  background: #111425;
+  background: #211D1D;
   border: 1px solid #0BAA9F;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 10px;
@@ -60,19 +52,21 @@ input {
   padding: 15px;
 }
 .btn {
-  width: 155px;
-  height: 40px;
+  width: 220px;
+  height: 50px;
   background: #0BAA9F;
   color: #000000;
-  border: 0.5px solid #211D1D;
+  border: 0.5px solid #0BAA9F;
   border-radius: 4px;
   font-family: 'Montserrat', sans-serif;
   font-size: small;
   font-weight: 500;
   margin-top: 10px;
+  transition: 0.4s;
 }
-:hover {
-  color: #054a45;
+.btn:hover {
+  background: #087a72;
+  scale: 1.05;
 }
 label {
   font-family: 'Montserrat', sans-serif;
@@ -98,53 +92,63 @@ label > input {
 #sectionForm {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  border: solid 1px #3300ff;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.misenforme {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px 50px;
 }
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  margin: 15px 50px 0px 50px;
 }
 .divForm {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 .input_Reg_Form {
   width: 250px;
   height: 50px;
   color: #D9D9D9;
-  background: #111425;
+  background: #211D1D;
   border: 1px solid #0BAA9F;
   font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
   margin-bottom: 0px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
 }
 ::placeholder {
   color: #D9D9D9;
-  padding: 15px;
+  padding: 10px;
 }
 .btn_Reg_Form {
-  width: 155px;
-  height: 40px;
+  width: 220px;
+  height: 50px;
   background: #0BAA9F;
   color: #000000;
-  border: 0.5px solid #211D1D;
+  border: 0.5px solid #0BAA9F;
   border-radius: 4px;
   font-family: 'Montserrat', sans-serif;
-  font-size: small;
+  font-size: 1.3rem;
   font-weight: 500;
-  margin-top: 10px;
+  transition: 0.4s;
 }
-:hover {
-  color: #054a45;
+.btn_Reg_Form:hover {
+  background: #087a72;
+  scale: 1.05;
 }
 .inputteste {
   width: 12px;

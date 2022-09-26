@@ -1,0 +1,222 @@
+@import '../../variable.less';
+
+// Variables
+
+
+
+body {
+  
+  background:url("@{fond_log}/connexion-fond.jpg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size: cover;
+}
+
+img {
+  width:125px;
+  height:125px;
+  margin:28px 0px;
+}
+
+
+
+h5 {
+  text-align:center;
+  color:@clr-btn1;
+  font-family:@fontM;
+  font-weight:200;
+}
+
+h1 {
+  text-align:center;
+  color:@clr-btn1;
+  font-family:@fontM;
+  font-weight:200;
+  font-size:2.1rem;
+  line-height:30px;
+}
+
+h1>span {
+  font-style:oblique;
+  font-family:@fontP;
+}
+
+//FORMULAIRE DE CONNEXION
+
+
+section {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  height:100vh;
+}
+
+.flexForm {
+  display:flex;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+input {
+  width:@btnwidth;
+  height:@btnheigth;
+  color:@clr-pol2;
+  background:@bgd_ipt1;
+  border:@bord2;
+  font-family:@fontM;
+  margin-bottom: 10px;
+}	&::placeholder{
+  color:@clr-pol2;
+  padding:15px;
+}
+
+.btn {
+  width:@btn2width;
+  height:@btn2heigth;
+  background:@clr-btn1;
+  color:@clr-pol3;
+  border:@bord;
+  border-radius:@rad;
+  font-family:@fontM;
+  font-size:small;
+  font-weight:500;
+  margin-top:10px;
+  transition: @trt;
+ &:hover {
+  background:@clr-btn1-hvr;
+  scale: @sle;
+}}
+
+
+label
+{
+  font-family:@fontM;
+  color:@clr-pol1;
+  font-size:0.8rem;
+  margin-top:10px;
+}
+
+label>input
+{
+  width:10px;
+  height: 10px ;
+}
+
+
+
+.error
+{
+  color: #ff2323;
+  margin-top:30px;
+  font-family:@fontM;
+  font-size:0.8rem;
+}
+
+
+.bjr
+{
+  color: @clr-pol2;
+  font-family:@fontM;
+  font-size:0.8rem;
+}
+
+
+
+
+
+//Formulaire d'inscription
+
+
+#sectionForm {
+display:flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+width: 100%;
+  //border: solid 1px rgb(21, 255, 0);
+
+
+}
+
+
+.container
+{
+  display:flex;
+  justify-content: center;
+  flex-direction: row
+}
+
+.misenforme{
+
+display:flex;
+align-items: center;
+flex-direction: column;
+margin: 0px 50px;
+
+}
+
+form{
+
+  display:flex;
+  flex-direction: column;
+  margin: 15px 50px 0px 50px;
+
+
+//border: solid 1px red;
+  
+}
+
+.divForm {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+
+// border: solid 1px red;
+}
+
+.input_Reg_Form {
+  width:@btnwidth;
+  height:@btnheigth;
+  color:@clr-pol2;
+  background:@bgd_ipt1;
+  border:@bord2;
+  font-family:@fontM;
+  font-size: 1rem;
+  margin-bottom: 0px;  
+  display: flex;
+  justify-content: space-between;
+  }&::placeholder{
+  color:@clr-pol2;
+  padding:10px;
+}
+
+
+
+.btn_Reg_Form {
+  width:@btn2width;
+  height:@btn2heigth;
+  background:@clr-btn1;
+  color:@clr-pol3;
+  border:@bord;
+  border-radius:@rad;
+  font-family:@fontM;
+  font-size: 1.3rem;
+  font-weight:500;
+  transition: @trt;
+ // margin-top:10px;
+&:hover {
+    background:@clr-btn1-hvr;
+    scale: @sle;
+}}
+
+
+.inputteste
+{
+  width:12px;
+  height:12px;
+}
+
+

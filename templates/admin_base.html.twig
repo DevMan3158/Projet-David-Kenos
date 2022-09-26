@@ -3,15 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Adminstration{% endblock %}</title>
+        <link rel="shortcut icon" href"img/favicon.ico">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">   
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
 
@@ -22,7 +19,7 @@
             <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
             <link rel="stylesheet" href="{{ asset('css/admin/mediaqueries.css') }}">
             <link rel="stylesheet" href="{{ asset('css/normalizer.css') }}">
-            {% if app.request.get('_route') == 'app_back_admin' %}
+            {% if app.request.get('_route') == 'app_admin' %}
                 <link rel="stylesheet" href="{{ asset('css/admin/acc/styleAcc.css') }}">
                 <link rel="stylesheet" href="{{ asset('css/admin/acc/mediaqueriesAcc.css') }}">
             {% elseif ('show' in app.request.get('_route')) %} 
@@ -42,7 +39,6 @@
 
             {{ encore_entry_script_tags('app') }}
             <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
-
         {% endblock %}
 
     </head>
@@ -71,17 +67,17 @@
             {% if app.user %}
 
                 <li>
-                    <a href="#">
+                    <a href="{{ path('app_actualit_') }}">
                         {{ app.user.chocolaterie.nom }}
                     </a>
 
-                    <a href="#">
+                    <a href="{{ path('app_mon_profil') }}">
                         <img src="{{ app.user.imageProfil }}" alt="{{ app.user.imageProfilAlt }}"/>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ path('app_back_admin') }}">
+                    <a href="{{ path('app_admin') }}">
                         Accueil
                     </a>
                 </li>

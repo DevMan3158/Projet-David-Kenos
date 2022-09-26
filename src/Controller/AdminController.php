@@ -13,7 +13,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
 {
-    #[Route('admin/', name: 'app_back_admin')]
+
+    #[Route('superadmin/', name: 'app_super_admin')]
+    #[Route('admin/', name: 'app_admin')]
     public function index(ChocolaterieRepository $chocoRepo, UserRepository $userRepo, ActualiteRepository $actRepo,
      CatPostRepository $catPostRepo, PostRepository $postRepo): Response
     {

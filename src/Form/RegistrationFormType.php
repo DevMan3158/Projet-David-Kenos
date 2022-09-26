@@ -31,6 +31,7 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'label' => "Nom :",
                 'attr' => ['class' => 'input_Reg_Form'],
+                
 
                 'constraints' =>
                 

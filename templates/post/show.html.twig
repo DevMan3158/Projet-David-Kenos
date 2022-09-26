@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<title>Post</title>
+
+{% block body %}
+    <h1>Post</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ post.id }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ post.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Image_post</th>
+                <td>{{ post.imagePost }}</td>
+            </tr>
+            <tr>
+                <th>Image_post_alt</th>
+                <td>{{ post.imagePostAlt }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_post_index') }}">back to list</a>
+
+    <a href="{{ path('app_post_edit', {'id': post.id}) }}">edit</a>
+
+    {{ include('post/_delete_form.html.twig') }}
+{% endblock %}

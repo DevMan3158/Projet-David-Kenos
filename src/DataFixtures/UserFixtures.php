@@ -59,12 +59,12 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $this->passwordEncoder->hashPassword($user, 'secret'));
             
             
-        $user->setDescription('');   
-        $user->setLinkedin('');
-        $user->setFacebook('');    
-        $user->setInstagram('');     
-        $user->setTwitter('');      
-        $user->setLien('');   
+        $user->setDescription('Lorem ipsum dolor sit amet consectetur adipisicing elit.Aspernatur nostrum aut, voluptates laudantium minima voluptas dolor pariatur unde veritatis, similique eius. Laboriosam molestiae consequuntur facere. Dolorum maiores odio repellendus voluptate!');   
+        $user->setFacebook('https://fr-fr.facebook.com/');    
+        $user->setInstagram('https://www.instagram.com/?hl=fr');     
+        $user->setTwitter('https://twitter.com/?lang=fr');      
+        $user->setLinkedin('https://fr.linkedin.com/');
+        $user->setLien('https://github.com/');   
         $user->setImageProfil("https://via.placeholder.com/150");  
         $user->setImageProfilAlt("https://via.placeholder.com/150");  
         $user->setImageBandeau("https://via.placeholder.com/1080x460");  

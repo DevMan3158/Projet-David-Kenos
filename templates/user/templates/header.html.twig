@@ -1,0 +1,84 @@
+
+  
+ 
+
+
+<header>
+
+
+    <div id="containerTop">
+
+    
+       
+        <figure>
+
+            <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+
+        </figure>
+
+
+        <h1><span>{{ app.user.prenom }} </span> {{ app.user.nom }} </h1>
+
+        <a class="btn" href="{{ path('app_mon_profil') }}"><i class="fa-regular fa-user"></i> Voir mon profil</a>
+
+    </div>
+
+
+    <div id="containerBottom">
+
+
+        
+            <ul>
+
+                <a href="{{ path('app_accueil') }}">Accueil</a>
+
+                <a href="{{ path('app_actualit_') }}">Actualités de l'entreprise</a>
+
+                <a href="{{ path('app_trombinoscope') }}">Trombinoscope</a>
+
+                <a href="{{ path('app_vie_des_chocolateries') }}">La vie des chocolateries</a>              
+
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                {# Si l'utilisateur est authentifié et qu'il est admin #}
+                <a href="{{ path('app_admin') }}">Gestion</a>
+
+                    {% elseif is_granted('ROLE_ADMIN') %}
+    
+                    {# Si l'utilisateur est authentifié et qu'il est superadmin #}
+                    <a href="{{ path('app_admin') }}">Gestion</a>
+    
+                    {% else %}
+                    {# Si l'utilisateur est authentifié et qu'il est user = vide #}
+             
+                {% endif %}
+
+                <a href="{{ path('app_logout') }}"><i class="fa-solid fa-power-off"></i> Déconnexion</a>
+
+            </ul>
+
+
+    <div id="test1">
+
+            <figure class="icon_mod">
+            
+            <i class="fa-sharp fa-solid fa-xmark"></i>
+            
+            </figure>
+
+        {##}<figure>     
+
+            <img title="logo david-kenos" src="{{ asset('img/logos/logo-david-kenos-blanc.png') }}" alt="Le logo de david kenos blanc">
+
+           </figure>
+
+        <figure></figure>
+         
+        
+    </div>
+
+
+ </div>
+</header>
+
+
+

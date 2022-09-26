@@ -1,17 +1,17 @@
 #container_bandeau {
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
   width: 93%;
-  height: 33%;
+  height: 35%;
 }
 #container_bandeau figure {
   display: flex;
   justify-content: center;
   height: 70%;
   border-bottom: solid 5px #F2BF2C;
-  background-color: #ffffff;
 }
 #container_bandeau figure img {
   width: 100%;
@@ -19,16 +19,17 @@
 #container_bandeau #Conteneur_Logo_Usr {
   position: absolute;
   display: flex;
-  justify-content: center;
-  height: 55%;
-  border-style: inset;
-  border: solid 10px white;
-  right: 43.5%;
-  top: 134px;
-  border: solid 10px #eee;
-  border-radius: 50%;
+  /* justify-content: center; */
+  /* right: 40.5%; */
+  /* border-radius: 50%; */
+  top: 120px;
+  border-bottom: solid #dfdfdf00;
+  align-items: center;
+  flex-direction: column;
 }
 #container_bandeau #Conteneur_Logo_Usr img {
-  height: 100%;
+  width: 70%;
+  height: 80%;
   border-radius: 50%;
+  border: solid 10px white;
 }

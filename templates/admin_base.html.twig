@@ -43,7 +43,7 @@
 
     </head>
     <body id="headerBody">
-        <header id="head">
+        <header id="head"> {#var headdd = document.getElementById('head')#}{##}{##}
             <div id="crossDiv">
                 <i id="cross" onClick="closeMenu2()" class="fa-solid fa-angles-left"></i>
             </div>
@@ -51,7 +51,7 @@
                 <div id="logo">
                     <img src="{{ asset('img/logos/logo-david-kenos.png') }}" alt="Logo David Kenos"/>
                 </div>
-                <div id="burger" onClick="openMenu()">
+                <div id="burger" onClick="openMenu()"> {#headdd.classList.add("headerBurger");#}
                     <i class="fa-solid fa-bars"></i>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                     </a>
                 </li>
             </ul>
-            <i class="fa-solid fa-angles-up" id="hamb" onClick="closeMenu()"></i>
+            <i class="fa-solid fa-angles-up" id="hamb" onClick="closeMenu()"></i>{#document.getElementById('hamb').style.display = "block";#}
         </header>
 
         

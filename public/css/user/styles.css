@@ -20,7 +20,7 @@ header #containerTop h1 {
   letter-spacing: 1px;
   color: #ffffff;
   text-transform: uppercase;
-  font-size: clamp(0.625rem, 2.1rem, 3rem);
+  font-size: clamp(0.625rem, 2rem, 3rem);
 }
 header #containerTop h1 > span {
   font-family: 'Playfair Display', serif;
@@ -43,8 +43,8 @@ header #containerTop .btn:hover {
 header #containerTop figure {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 55%;
+  width: 150px;
+  height: 150px;
 }
 header #containerTop figure img {
   border-radius: 50%;

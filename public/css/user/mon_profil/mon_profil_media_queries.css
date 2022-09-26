@@ -25,7 +25,6 @@
     justify-content: center;
     height: 81%;
     border-bottom: solid 5px #F2BF2C;
-    background-color: #ffffff;
   }
   .container_command #container_bandeau figure img {
     width: 100%;
@@ -42,7 +41,8 @@
     border: solid 5px white;
   }
   .container_command #container_bandeau #Conteneur_Logo_Usr img {
-    height: 100%;
+    width: 95%;
+    height: 33%;
     border-radius: 50%;
   }
   .container_command #container_general {

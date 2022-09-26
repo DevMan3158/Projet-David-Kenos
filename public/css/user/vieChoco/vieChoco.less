@@ -1,0 +1,49 @@
+/////////////////////CHARGE LE MODULE VARIABLES///////////////////////////
+// relativeUrls: true;
+@import '../../variable.less';
+
+/////////////////////CHARGE LE MODULE POST//////////////////////////
+
+.container_general {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 0px 0px 0px 0px;
+    width: 93%;
+    justify-content: space-around;
+    //border: solid 2px black;
+
+    .menu_cat
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+
+        li
+        {
+            padding: 15px 50px;
+            background-color: @bgd_btn3;
+            font-weight: 600;
+            &:hover{
+                background-color: @bgd;
+            }
+        }
+    }
+
+    .container_amis
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        background-color: @bgd_bgr_w;
+        border-top: solid 5px @bgd_btn3;
+        filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+        height: 400px;
+    }
+
+ @import '../modules/post.less';   
+}   
+
+
+

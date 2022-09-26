@@ -177,3 +177,9 @@ i {
 .uk-pagination li a {
   color: unset;
 }
+.uk-pagination li .st-color-red {
+  color: red;
+}
+.uk-pagination .st-color-red {
+  color: #0BAA9F;
+}

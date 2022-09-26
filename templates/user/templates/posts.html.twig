@@ -32,11 +32,11 @@
             <p></span>{{ posts.contenu }}</p>
             <div class="comments">
 
-                0 <i class="fa-regular fa-comments"><a href="#"> Commenter</a></i>
+                0 <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
 
 
 
-                0 <i class="fa-regular fa-heart"><a id="commentaire" onClick="openMenu()" href="#"> J'aime</a></i>
+                0 <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
             </div>
 
         </div>
@@ -50,11 +50,11 @@
 
 
 {#///////////////////////Templates-Commentaires////////////////////#}
-    <div id="comm" class="container_com">
+    <div id="container_com"> {#var headdd = document.getElementById('head')#}
 
         <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
 
-        <button onClick="closeMenu()">Publier</button>
+        <button id="CloseCom" onClick="closeMenu()">Publier</button>{#document.getElementById('hamb').style.display = "block";#}
 
 
         <h3>Les commentaires existants</h3>

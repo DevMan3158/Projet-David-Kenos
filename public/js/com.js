@@ -1,14 +1,29 @@
-// Ces deux fonctions permettent d'ouvrir et fermer le menu burger
-var div = document.getElementById('comm');
+// Ces deux fonctions permettent d'ouvrir et fermer la box commentaire commentaires
+/*var div = document.getElementById('container_com');
 
 function openMenu(){
-    div.classList.add("headerBurger");
-    document.querySelector('article').style.marginTop = "unset";
-    document.getElementById('commentaire').style.display = "block";
+    div.classList.add("divcontainer_com");
+    document.getElementById('container_com').style.display = "flex";
 }
 
 function closeMenu(){
-    div.classList.remove("headerBurger");
-    document.getElementById('hamb').style.display = "none";
+    div.classList.remove("container_com");
+    document.getElementById('container_com').style.display = "none";
 
-}
+}*/
+
+
+
+var div = document.querySelectorAll('container_com');
+
+
+
+divcontainer_com.forEach(function openMenu() => {
+
+    div.classList.add("divcontainer_com");
+    document.getElementById('container_com').style.display = "flex";
+    
+});
+
+
+

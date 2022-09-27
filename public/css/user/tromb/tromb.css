@@ -163,8 +163,12 @@ article .logo figure {
   width: 30px;
   height: 30px;
 }
+article .logo figure:hover i {
+  transform: scale(0.8) rotate(360deg);
+}
 article .logo figure i {
   font-size: 0.9rem;
+  transition: 0.5s;
 }
 article .seeProfil {
   background-color: #191E39;
@@ -173,9 +177,20 @@ article .seeProfil {
   padding: 10px 35px;
   font-size: 0.7em;
   border-radius: 5px;
+  transition: 0.2s;
+}
+article .seeProfil:hover {
+  padding: 10px 15px;
+  background-color: white;
+  color: #191E39;
+  border: 1px solid #191E39;
+}
+article .seeProfil:hover i {
+  transform: rotate(360deg);
 }
 article .seeProfil i {
   margin-right: 5px;
+  transition: 1s;
 }
 #cardSection {
   width: 100%;

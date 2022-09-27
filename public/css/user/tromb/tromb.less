@@ -167,10 +167,16 @@ article{
             margin: 0px 10px 0px 10px;
             width: 30px;
             height: 30px;
+            
+
+            &:hover i{
+                transform: scale(0.8) rotate(360deg);
+            }
 
 
             i {
                 font-size: 0.9rem;
+                transition: 0.5s;
 
             }
         }
@@ -184,9 +190,22 @@ article{
         padding: 10px 35px;
         font-size: 0.7em;
         border-radius: 5px;
+        transition: 0.2s;
+
+        &:hover{
+           padding: 10px 15px;
+           background-color: white;
+           color:@bgd_btn2;
+           border: 1px solid @bgd_btn2;
+        }
+
+        &:hover i{
+            transform: rotate(360deg);
+        }
 
         i{
             margin-right: 5px;
+            transition: 1s;
         }
 
     }

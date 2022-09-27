@@ -1,0 +1,96 @@
+.container_command {
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container_command #post {
+  background-color: white;
+  border-top: 5px solid #F2BF2C;
+  padding: 50px 35px;
+  width: 65%;
+  height: 90vh;
+  box-shadow: 0px 1px 10px silver;
+}
+.container_command #post h2 span {
+  font-weight: normal;
+  margin: -5px auto 35px auto;
+  display: block;
+  font-size: 0.8em;
+}
+.container_command #post #gridPost {
+  display: grid;
+  grid-template-areas: "post1 post2 post3" "post1 post5 post3" "post4 post5 .";
+  grid-gap: 20px;
+  height: 90%;
+}
+.container_command #post #gridPost a {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  color: white;
+  transition: 0.2s;
+}
+.container_command #post #gridPost a:hover {
+  transform: scale(1.05);
+}
+.container_command #post #gridPost #post1 {
+  grid-area: post1;
+}
+.container_command #post #gridPost #post2 {
+  grid-area: post2;
+}
+.container_command #post #gridPost #post3 {
+  grid-area: post3;
+}
+.container_command #post #gridPost #post4 {
+  grid-area: post4;
+}
+.container_command #post #gridPost #post5 {
+  grid-area: post5;
+}
+.container_command #post #gridPost p {
+  font-size: 0.8em;
+  font-weight: normal;
+  color: white;
+}
+.container_command #act {
+  background-color: white;
+  border-top: 5px solid #F2BF2C;
+  padding: 50px 35px;
+  width: 30%;
+  height: 90vh;
+  box-shadow: 0px 1px 10px silver;
+}
+.container_command #act img {
+  height: 100%;
+}
+.container_command #act article {
+  margin: 50px 0;
+  transition: 0.2s;
+}
+.container_command #act article:hover {
+  transform: scale(1.05);
+}
+.container_command #act article .chocolaterie {
+  height: 200px;
+  position: relative;
+}
+.container_command #act article .chocolaterie span {
+  position: absolute;
+  background-color: #F2BF2C;
+  padding: 2px 20px;
+  font-size: 0.7em;
+  font-weight: bold;
+  top: 10px;
+  right: -15px;
+}
+.container_command #act article h4 {
+  margin-top: 25px;
+  color: #0BAA9F;
+}
+.container_command #act article p {
+  font-weight: lighter;
+  font-size: 0.8em;
+}

@@ -17,7 +17,7 @@ class Actualite
     #[ORM\ManyToOne(inversedBy: 'actualites')]
     #[ORM\JoinColumn(onDelete: 'CASCADE')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?chocolaterie $chocolaterie = null;
+    private ?Chocolaterie $chocolaterie = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $contenu = null;
@@ -36,12 +36,12 @@ class Actualite
         return $this->id;
     }
 
-    public function getChocolaterie(): ?chocolaterie
+    public function getChocolaterie(): ?Chocolaterie
     {
         return $this->chocolaterie;
     }
 
-    public function setChocolaterie(?chocolaterie $chocolaterie): self
+    public function setChocolaterie(?Chocolaterie $chocolaterie): self
     {
         $this->chocolaterie = $chocolaterie;
 

@@ -35,6 +35,8 @@
         height: 100%;
         justify-content: center;
         align-items: center;
+        position: relative;
+        z-index: 1;
 
         i{
             font-size: 1em;
@@ -52,34 +54,40 @@
             width: 125px;
             height: 100%;
             transition: 0.7s;
+            
+        }
+
+        &::after{
+            
+            content: "";
+            background-color: black;
+            height: 2px;
+            width: calc(50% - 115px);
             position: relative;
+            right: 25px;
+            margin-left: 60px;
+            z-index: -1;
+
         }
 
-        #searchBar::after{
+        &::before{
             
             content: "";
             background-color: black;
             height: 2px;
-            width: 100%;
-            position: absolute;
-            right: 0;
-
-        }
-
-        #searchBar::before{
-            
-            content: "";
-            background-color: black;
-            height: 2px;
-            width: 100%;
-            position: absolute;
-            left: 0;
+            width: calc(50% - 115px);
+            position: relative;
+            left: 25px;
+            margin-right: 60px;
+            z-index: -1;
 
         }
 
         #searchBar:focus{
-            width:30%;
+            width:40%;
+
         }
+
     }
 
 }
@@ -91,6 +99,8 @@ article{
     text-align: center;
     margin: 30px 20px;
     padding-bottom: 40px;
+    list-style-type: none;
+
 
     .headArticle{
 
@@ -187,4 +197,6 @@ article{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+
+
 }

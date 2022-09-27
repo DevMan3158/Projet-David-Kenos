@@ -12,7 +12,7 @@
 
     <div id="searchLoopBar">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input id="searchBar"  type="text" name="search" placeholder="Rechercher...">
+        <input id="searchBar" onkeyup="search()"  type="text" name="search" placeholder="Rechercher...">
     </div>
 
 </div>
@@ -20,7 +20,7 @@
 <section id="cardSection">
 
     {% for user in findAll %}
-        <article>
+        <article class="card">
 
             <div class="headArticle">
                 <div class="imgB">

@@ -17,6 +17,67 @@
 
 </div>
 
-{% for i in 0..nbUser %}
+<section id="cardSection">
+
+    {% for user in findAll %}
+        <article>
+
+            <div class="headArticle">
+                <div class="imgB">
+                    <image src="{{ user.imageBandeau }}" alt="{{ user.imageBandeauAlt }}"/>
+                </div>
+
+                <span>
+                    {{ user.chocolaterie.lieu }}
+                </span>
+
+                <div class="imgP">
+                    <image src="{{ user.imageProfil }}" alt="{{ user.imageProfilAlt }}"/>
+                </div>
+            </div>
+
+            <h3>
+                {{user.prenom}} {{user.nom}}
+            </h3>
+
+            <h6>
+                {{user.poste}}
+            </h6>
+
+
+           <div class="logo">
+                {% if app.user.facebook is not null %}
+                  <figure>
+                        <a class="mod" href="{{ app.user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
+                  </figure>                         
+                {% endif %}
+                {% if app.user.instagram is not null %}
+                    <figure>
+                        <a class="mod" href="{{ app.user.instagram}}"><i class="fa-brands fa-instagram"></i></a>
+                    </figure>
+                {% endif %}
+                {% if app.user.twitter is not null %}
+                    <figure>  
+                        <a class="mod" href="{{ app.user.twitter}}"><i class="fa-brands fa-twitter"></i></a>            
+                    </figure>                       
+                {% endif %}
+                {% if app.user.linkedin is not null %}
+                    <figure>
+                        <a class="mod" href="{{ app.user.linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </figure>
+                {% endif %}
+           </div>
+
+                <a href="{{ path('app_mon_profil') }}" class="seeProfil">
+                    <i class="fa-solid fa-eye"></i>
+                        Voir le profil
+                </a>
+
+        </article>
+
+
+    {% endfor %}
+
+</section>
 
 {% endblock %}

@@ -5,12 +5,26 @@
 /////////////////////CHARGE LE MODULE LEADERBOARD/////////////////////
 @import '../modules/leaderboard.less';
 
+.container_command{
+    padding: 50px;
+}
+
+#container_bandeau{
+    width: 100%;
+    justify-content: initial;
+}
+
+#Conteneur_Logo_Usr {
+    top: 100px !important;
+}
+
+
 #searchContainer{
 
     width: 100%;
     background: white;
     box-shadow: 5px 5px 5px silver;
-    width: 93%;
+    width: 100%;
     height: 50px;
     padding: 7px;
     text-align: right;
@@ -19,7 +33,7 @@
     #searchLoopBar{
         display: flex;
         height: 100%;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
 
         i{
@@ -35,9 +49,142 @@
             
             border: 1px solid @bgd_btn3;
             padding: 5px 15px;
-            width: 300px;
+            width: 125px;
             height: 100%;
+            transition: 0.7s;
+            position: relative;
+        }
+
+        #searchBar::after{
+            
+            content: "";
+            background-color: black;
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            right: 0;
+
+        }
+
+        #searchBar::before{
+            
+            content: "";
+            background-color: black;
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            left: 0;
+
+        }
+
+        #searchBar:focus{
+            width:30%;
         }
     }
 
+}
+
+article{
+    height: 340px;
+    width: 260px;
+    background-color: white;
+    text-align: center;
+    margin: 30px 20px;
+    padding-bottom: 40px;
+
+    .headArticle{
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+
+        img{
+            height: 100%;
+        }
+     
+        .imgB{
+            width: 100%;
+            height: 100px;
+        }
+     
+        .imgP{
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            margin: -40px auto auto auto;
+            overflow: hidden;
+            border: 5px white solid;
+        }
+
+        span{
+            position: absolute;
+            background-color: #F2BF2C;
+            padding: 2px 20px;
+            font-size: 0.7em;
+            font-weight: bold;
+            top: 10px;
+            right: -15px;
+        }
+
+    }
+
+    h3{
+        font-family: @fontP;
+        font-style: italic;
+        font-weight: normal
+    }
+
+    h6{
+        color: @bgd_btn1;
+    }
+
+    .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 35px 0px 35px 0px;
+        width: 100%;
+
+        figure {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: solid 2px @bgd_btn3;
+            border-radius: 50%;
+            margin: 0px 10px 0px 10px;
+            width: 30px;
+            height: 30px;
+
+
+            i {
+                font-size: 0.9rem;
+
+            }
+        }
+    }
+
+    .seeProfil{
+
+        background-color: @bgd_btn2;
+        color: white;
+        border: none;
+        padding: 10px 35px;
+        font-size: 0.7em;
+        border-radius: 5px;
+
+        i{
+            margin-right: 5px;
+        }
+
+    }
+}
+
+#cardSection{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }

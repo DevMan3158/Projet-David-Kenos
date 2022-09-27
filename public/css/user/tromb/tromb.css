@@ -33,11 +33,20 @@
   border-radius: 50%;
   border: solid 10px white;
 }
-#searchContainer {
+.container_command {
+  padding: 50px;
+}
+#container_bandeau {
   width: 100%;
+  justify-content: initial;
+}
+#Conteneur_Logo_Usr {
+  top: 100px !important;
+}
+#searchContainer {
   background: white;
   box-shadow: 5px 5px 5px silver;
-  width: 93%;
+  width: 100%;
   height: 50px;
   padding: 7px;
   text-align: right;
@@ -46,7 +55,7 @@
 #searchContainer #searchLoopBar {
   display: flex;
   height: 100%;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 #searchContainer #searchLoopBar i {
@@ -59,6 +68,112 @@
 #searchContainer #searchLoopBar #searchBar {
   border: 1px solid #F2BF2C;
   padding: 5px 15px;
-  width: 300px;
+  width: 125px;
   height: 100%;
+  transition: 0.7s;
+  position: relative;
+}
+#searchContainer #searchLoopBar #searchBar::after {
+  content: "";
+  background-color: black;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  right: 0;
+}
+#searchContainer #searchLoopBar #searchBar::before {
+  content: "";
+  background-color: black;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+#searchContainer #searchLoopBar #searchBar:focus {
+  width: 30%;
+}
+article {
+  height: 340px;
+  width: 260px;
+  background-color: white;
+  text-align: center;
+  margin: 30px 20px;
+  padding-bottom: 40px;
+}
+article .headArticle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+article .headArticle img {
+  height: 100%;
+}
+article .headArticle .imgB {
+  width: 100%;
+  height: 100px;
+}
+article .headArticle .imgP {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin: -40px auto auto auto;
+  overflow: hidden;
+  border: 5px white solid;
+}
+article .headArticle span {
+  position: absolute;
+  background-color: #F2BF2C;
+  padding: 2px 20px;
+  font-size: 0.7em;
+  font-weight: bold;
+  top: 10px;
+  right: -15px;
+}
+article h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: normal;
+}
+article h6 {
+  color: #0BAA9F;
+}
+article .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 35px 0px 35px 0px;
+  width: 100%;
+}
+article .logo figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px #F2BF2C;
+  border-radius: 50%;
+  margin: 0px 10px 0px 10px;
+  width: 30px;
+  height: 30px;
+}
+article .logo figure i {
+  font-size: 0.9rem;
+}
+article .seeProfil {
+  background-color: #191E39;
+  color: white;
+  border: none;
+  padding: 10px 35px;
+  font-size: 0.7em;
+  border-radius: 5px;
+}
+article .seeProfil i {
+  margin-right: 5px;
+}
+#cardSection {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

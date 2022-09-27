@@ -16,6 +16,7 @@ class TrombinoscopeController extends AbstractController
         return $this->render('user/trombinoscope/index.html.twig', [
             'controller_name' => 'TrombinoscopeController',
             'nbUser' => $userRepository->countUser(),
+            'findAll' => $userRepository->findAll(),
         ]);
     }
 }

@@ -2,17 +2,22 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\ActualiteRepository;
+use App\Repository\ChocolaterieRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 
 class ActualitéController extends AbstractController
 {
-    #[Route('/actualit/', name: 'app_actualit_')]
-    public function index(): Response
+    #[Route('/actualite', name: 'app_actualite')]
+    public function index(ActualiteRepository $actRepo, ChocolaterieRepository $chocRepo): Response
     {
         return $this->render('user/actualité/index.html.twig', [
             'controller_name' => 'ActualitéController',
+            'findAllAct' => $actRepo->findAll(),
+            'allLieux' => $chocRepo->actLieux(),
         ]);
     }
 }

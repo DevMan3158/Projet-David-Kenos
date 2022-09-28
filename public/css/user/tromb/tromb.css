@@ -106,6 +106,9 @@ article {
   padding-bottom: 40px;
   list-style-type: none;
 }
+article:hover .imgP {
+  transform: scale(1.2) rotate(360deg);
+}
 article .headArticle {
   display: flex;
   align-items: center;
@@ -126,6 +129,7 @@ article .headArticle .imgP {
   margin: -40px auto auto auto;
   overflow: hidden;
   border: 5px white solid;
+  transition: 0.5s;
 }
 article .headArticle span {
   position: absolute;

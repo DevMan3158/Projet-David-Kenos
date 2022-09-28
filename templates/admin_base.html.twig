@@ -61,70 +61,73 @@
             <h4 class="headTitle">
                 dans votre administration
             </h4>
-            <ul>
+
+            <div id="flexUl">
+                <ul>
 
 
-            {% if app.user %}
+                {% if app.user %}
 
-                <li>
-                    <a href="{{ path('app_actualit_') }}">
-                        {{ app.user.chocolaterie.nom }}
-                    </a>
+                    <li>
+                        <a href="{{ path('app_actualit_') }}">
+                            {{ app.user.chocolaterie.nom }}
+                        </a>
 
-                    <a href="{{ path('app_mon_profil') }}">
-                        <img src="{{ app.user.imageProfil }}" alt="{{ app.user.imageProfilAlt }}"/>
-                    </a>
-                </li>
+                        <a href="{{ path('app_mon_profil') }}">
+                            <img src="../{{ app.user.imageProfil }}" alt="{{ app.user.imageProfilAlt }}"/>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="{{ path('app_admin') }}">
-                        Accueil
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="{{ path('app_logout') }}">
-                        Deconnexion <i class="fa-solid fa-power-off"></i>
-                    </a>
-                </li>
+                    <li>
+                        <a href="{{ path('app_admin') }}">
+                            Accueil
+                        </a>
+                    </li>
 
-                {% else %}
+                    <li>
+                        <a href="{{ path('app_logout') }}">
+                            Deconnexion <i class="fa-solid fa-power-off"></i>
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="{{ path('app_back_admin') }}">
-                        Accueil
-                    </a>
-                </li>
+                    {% else %}
 
-                <li>
-                    <a href="{{ path('app_login')}}">
-                        Connexion <i class="fa-solid fa-right-to-bracket"></i>
-                    </a>
-                </li>
-                {% endif %}
-            </ul>
-            <ul>
-                <li>
-                    Actualites
-                </li>
-                <li>
-                    Categories
-                </li>
-                <li>
-                    Posts
-                </li>
-                <li>
-                    <a href="{{ path('app_user_index') }}">
-                        Utilisateurs
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ path('app_chocolaterie_index') }}">
-                        Chocolateries
-                    </a>
-                </li>
-            </ul>
-            <i class="fa-solid fa-angles-up" id="hamb" onClick="closeMenu()"></i>{#document.getElementById('hamb').style.display = "block";#}
+                    <li>
+                        <a href="{{ path('app_back_admin') }}">
+                            Accueil
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('app_login')}}">
+                            Connexion <i class="fa-solid fa-right-to-bracket"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <ul>
+                    <li>
+                        Actualites
+                    </li>
+                    <li>
+                        Categories
+                    </li>
+                    <li>
+                        Posts
+                    </li>
+                    <li>
+                        <a href="{{ path('app_user_index') }}">
+                            Utilisateurs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_chocolaterie_index') }}">
+                            Chocolateries
+                        </a>
+                    </li>
+                </ul>
+                <i class="fa-solid fa-angles-up" id="hamb" onClick="closeMenu()"></i>{#document.getElementById('hamb').style.display = "block";#}
+            </div>
         </header>
 
         

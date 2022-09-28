@@ -160,7 +160,7 @@ header h3 {
     }
 
     .headerBurger h3{
-        margin: 25px auto 0 auto;
+        margin: 15px auto 0 auto;
     }
 
     #burger i{
@@ -171,13 +171,7 @@ header h3 {
 
 @media (min-width: 300px) and (max-width: 400px) {
 
-    header h3 {
-        margin: 10px auto 0 auto;
-    }
 
-    header h4 {
-        margin: 0 auto 15px auto;
-    }
 
 }
 

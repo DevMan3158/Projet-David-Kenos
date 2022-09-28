@@ -8,9 +8,11 @@
   background-color: white;
   border-top: 5px solid #F2BF2C;
   padding: 50px 35px;
-  width: 65%;
-  height: 90vh;
+  width: 60%;
+  height: 100%;
   box-shadow: 0px 1px 10px silver;
+  display: flex;
+  flex-direction: column;
 }
 .container_command #post h2 span {
   font-weight: normal;
@@ -22,7 +24,7 @@
   display: grid;
   grid-template-areas: "post1 post2 post3" "post1 post5 post3" "post4 post5 .";
   grid-gap: 20px;
-  height: 90%;
+  height: 85%;
 }
 .container_command #post #gridPost a {
   display: flex;
@@ -56,25 +58,41 @@
   color: white;
 }
 .container_command #act {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-top: 5px solid #F2BF2C;
   padding: 50px 35px;
-  width: 30%;
-  height: 90vh;
+  width: 35%;
+  height: 100%;
   box-shadow: 0px 1px 10px silver;
+}
+.container_command #act h2 {
+  font-size: 1.2em;
+}
+.container_command #act h2 span {
+  font-weight: normal;
+  margin: -5px auto 10px auto;
+  display: block;
+  font-size: 0.8em;
 }
 .container_command #act img {
   height: 100%;
 }
+.container_command #act #gridAct {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
 .container_command #act article {
-  margin: 50px 0;
   transition: 0.2s;
+  margin: 5px auto;
 }
 .container_command #act article:hover {
   transform: scale(1.05);
 }
 .container_command #act article .chocolaterie {
-  height: 200px;
   position: relative;
 }
 .container_command #act article .chocolaterie span {

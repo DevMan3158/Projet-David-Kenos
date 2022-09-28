@@ -16,7 +16,7 @@
             {% for accActs in accAct %}
 
             <li>
-                le {{ accActs.crated_at|date("d/m/Y", "Europe/Paris") }} - <span> {{ accActs.contenu }} </span>
+                le {{ accActs.crated_at|date("d/m/Y", "Europe/Paris") }} - <p> {{ accActs.contenu |length > 50 ? accActs.contenu |slice(0, 50) ~ '...' : accActs.contenu  }} </p>
             </li>
 
             {% endfor %}

@@ -1,0 +1,96 @@
+#container_bandeau {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 93%;
+  height: 35%;
+}
+#container_bandeau figure {
+  display: flex;
+  justify-content: center;
+  height: 70%;
+  border-bottom: solid 5px #F2BF2C;
+}
+#container_bandeau figure img {
+  width: 100%;
+}
+#container_bandeau #Conteneur_Logo_Usr {
+  position: absolute;
+  display: flex;
+  /* justify-content: center; */
+  /* right: 40.5%; */
+  /* border-radius: 50%; */
+  top: 120px;
+  border-bottom: solid #dfdfdf00;
+  align-items: center;
+  flex-direction: column;
+}
+#container_bandeau #Conteneur_Logo_Usr img {
+  width: 70%;
+  height: 80%;
+  border-radius: 50%;
+  border: solid 10px white;
+}
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.containerForm h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-size: 2em;
+  font-weight: 300;
+  margin: 25px 0;
+}
+.containerForm form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25%;
+}
+.containerForm form button {
+  padding: 10px;
+  width: 110px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px auto;
+  color: white;
+  background-color: #1F2547;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+.containerForm form button:hover {
+  transform: scale(0.95);
+  color: #F2BF2C;
+}
+.containerForm form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.containerForm form div label {
+  width: 100%;
+  text-align: left;
+  color: #333333;
+  font-family: 'Montserrat', sans-serif;
+  padding: 15px;
+  font-weight: 600;
+}
+.containerForm form div input {
+  padding: 10px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+}
+.containerForm form div select {
+  padding: 10px;
+}

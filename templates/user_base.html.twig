@@ -23,6 +23,9 @@
     {% if app.request.get('_route') == 'app_mon_profil' %}
         <link rel="stylesheet" href="{{ asset('css/user/mon_profil/mon_profil.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user/mon_profil/mon_profil_media_queries.css') }}">
+    {% elseif app.request.get('_route') == 'app_user_profil_edit' %}
+        <link rel="stylesheet" href="{{ asset('css/user/edit_prof/edit_prof.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/user/edit_prof/edit_prof_media_queries.css') }}">
     {% elseif app.request.get('_route') == 'app_accueil' %}
         <link rel="stylesheet" href="{{ asset('css/user/acc/acc.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user/acc/acc_media_queries.css') }}">
@@ -68,7 +71,7 @@
         </figure>
 
        
-        <a href="#" id="openBtn"> <i class="fa-solid fa-bars"></i></a>
+        <a href="#" id="openBtn" onClick="openMenu()" > <i class="fa-solid fa-bars"></i></a>
 
     </div>
 

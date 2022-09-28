@@ -1,0 +1,89 @@
+/////////////////////CHARGE LE MODULE VARIABLES///////////////////////////
+// relativeUrls: true;
+@import '../../variable.less';
+
+/////////////////////CHARGE LE MODULE LEADERBOARD/////////////////////
+@import '../modules/leaderboard.less';
+
+
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    //border:solid 1px red;
+
+
+    h1 {
+        font-family: @fontM;
+        font-style: italic;
+        letter-spacing: 1px;
+        font-size: 2em;
+        font-weight: 300;
+        margin: 25px 0;
+    }
+
+    form {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25%;
+
+        button {
+            padding: 10px;
+            width: 110px;
+            display: flex;
+            justify-content: space-evenly;
+            margin: 20px auto;
+            color: white;
+            background-color: #1F2547;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            border-radius: 5px;
+
+
+            &:hover {
+                transform: scale(0.95);
+                color: @bgd_btn3;
+            }
+
+        }
+
+
+        div {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            label {
+                width: 100%;
+                text-align: left;
+                color: @clr-pol4;
+                font-family: @fontM;
+                padding: 15px;
+                font-weight: 600;
+            }
+
+            input {
+                padding: 10px;
+                border-left: none;
+                border-right: none;
+                border-top: none;
+                border-bottom: none;
+            }
+
+
+            select
+            {
+                padding: 10px;
+            }
+
+        }
+
+
+
+    }
+}

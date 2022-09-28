@@ -104,6 +104,10 @@ header h3 {
    
 }
 
+header div:nth-of-type(3){
+    margin-top: -80px;
+}
+
 }
 
 @media (min-width: 768px) {
@@ -171,7 +175,13 @@ header h3 {
 
 @media (min-width: 300px) and (max-width: 400px) {
 
+    header h3 {
+        margin: 5px auto 0 auto;
+    }
 
+    header h4 {
+        margin: 0 auto 5px auto;
+    }
 
 }
 

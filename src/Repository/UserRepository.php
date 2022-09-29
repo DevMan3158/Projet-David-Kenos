@@ -75,7 +75,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
 
-
     public function findAllOrderedUser()
     {
         $qb = $this->createQueryBuilder('u')

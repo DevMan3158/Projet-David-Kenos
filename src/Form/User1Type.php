@@ -10,10 +10,13 @@ use App\Repository\ChocolaterieRepository;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class User1Type extends AbstractType
 {
@@ -38,6 +41,13 @@ class User1Type extends AbstractType
                 
                 ])
 
+          
+            ->add('facebook')
+            ->add('instagram')
+            ->add('twitter')
+            ->add('linkedin')
+            ->add('lien')
+            ->add('description')
             ->add('email')
             ->add('nom')
             ->add('prenom')
@@ -50,7 +60,42 @@ class User1Type extends AbstractType
                 },
                 'choice_label' => 'nom'
             ])
-            ;
+            
+              ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'required' => false,
+                'first_options' => [
+                    'label' => "Mot de passe :",
+
+                    'attr' => ['autocomplete' => 'Nouveau Mot de Passe '],
+                    'constraints' => [
+
+                        new NotBlank([
+                            'message' => 'Répeter le Mot de Passe ',
+                        ]),
+                        
+                        new Length([
+                            'min' => 6,
+                            'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
+                            // max length allowed by Symfony for security reasons
+                            'max' => 4096,
+                        ]),
+                    ],
+                    
+                ],
+
+                'second_options' => [
+                    'required' => false,
+                    'label' => "Répeter le Mot de Passe :",
+                    'attr' => ['autocomplete' => 'Nouveau Mot de Passe'],
+                    'attr' => ['class' => 'input_Reg_Form'],
+                    
+                ],
+                'invalid_message' => 'Les champs du mot de passe doivent correspondre.',
+                // Instead of being set onto the object directly,
+                // this is read and encoded in the controller
+                'mapped' => false,
+            ]);
 
     }
 
@@ -62,30 +107,3 @@ class User1Type extends AbstractType
     }
 }
 
-
-/*$ImageFile = $form->get('image')->getData();
-
-// this condition is needed because the 'brochure' field is not required
-// so the PDF file must be processed only when a file is uploaded
-if ($ImageFile) {
-    $ImageFileNom = $fileUploader->upload($ImageFile);
-    $property->setimage($ImageFileNom);
-
-    // Move the file to the directory where brochures are stored
- /*   try {
-        $brochureFile->move(
-            $this->getParameter('image_prof'),
-            $newFilename
-        );
-    } catch (FileException $e) {
-        // ... handle exception if something happens during file upload
-    }
-    // updates the 'brochureFilename' property to store the PDF file name
-    // instead of its contents
-    $property->setImage($newFilename);
-}
-
-
-
-$this->em->flush();
-$this->addFlash('success', 'Profils modifiés');*/

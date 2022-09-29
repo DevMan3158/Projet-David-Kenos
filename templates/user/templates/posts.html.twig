@@ -1,7 +1,17 @@
 <section id="container_posts">
-    {##}<h1>
+    {##}
+
+    
+    {% if app.request.get('_route') == 'app_mon_profil' %}
+    <h1>
         Les derniers <span>posts publiés.</span>
     </h1>
+    {% elseif app.request.get('_route') == 'app_chocolateries'%} 
+
+    {% endif %}
+
+
+    
      {% for posts in post  %} 
 
 
@@ -32,11 +42,24 @@
             <p></span>{{ posts.contenu }}</p>
             <div class="comments">
 
-                0 <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
+{% if app.request.get('_route') == 'app_mon_profil' %}
+
+    {{ nbCom }} <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
+
+    {{ nbLike }} <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
+
+
+    {% elseif app.request.get('_route') == 'app_chocolateries'%} 
+    
+    <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
+    
+    <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
+
+    {% endif %}
 
 
 
-                0 <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
+                 
             </div>
 
         </div>

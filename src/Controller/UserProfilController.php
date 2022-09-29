@@ -15,7 +15,7 @@ class UserProfilController extends AbstractController
 {
 
 
-    #[Route('/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
+    #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, Int $id, UserRepository $userRepository): Response
     {
         $form = $this->createForm(User1Type::class, $user);

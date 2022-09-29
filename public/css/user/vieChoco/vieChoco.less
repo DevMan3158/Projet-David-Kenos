@@ -3,47 +3,100 @@
 @import '../../variable.less';
 
 /////////////////////CHARGE LE MODULE POST//////////////////////////
+.Top {
+    width: 100%;
+    padding: 50px 50px 15px 50px;
+
+
+    h1 {
+        color: @clr-pol4;
+        text-align: left;
+        margin-left: 60px;
+        font-weight: 100;
+        span {
+            color: @clr-btn1;
+            font-weight: 600;
+        }
+
+    }
+
+}
+
+
+
 
 .container_general {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
     margin: 0px 0px 0px 0px;
     width: 93%;
     justify-content: space-around;
+    align-items: flex-start;
     //border: solid 2px black;
 
-    .menu_cat
-    {
+
+
+    .menu_cat {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+        margin: 41px 0px;
 
-        li
-        {
+        li {
             padding: 15px 50px;
             background-color: @bgd_btn3;
             font-weight: 600;
-            &:hover{
+
+            &:hover {
                 background-color: @bgd;
             }
         }
     }
 
-    .container_amis
-    {
+    .container_amis {
         display: flex;
         flex-direction: column;
-        align-items: center; 
+        align-items: flex-start;
         background-color: @bgd_bgr_w;
         border-top: solid 5px @bgd_btn3;
         filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
-        height: 400px;
+        padding: 30px;
+        margin: 41px 0px;
+
+
+        h3 {
+            margin: 0px 0px 50px 0px;
+
+        }
+
+        figure {
+            display: flex;
+            height: 50px;
+            width: 50px;
+            flex-direction: row;
+            //justify-content: center;
+            margin: 20px 0px;
+
+            img {
+                border-radius: 50%;
+            }
+
+
+
+            figcaption {
+                margin: 0px 0px 0px 15px;
+                line-height: 20px;
+
+                span {
+                    font-family: @fontP;
+                    font-style: italic;
+
+                }
+
+            }
+        }
+
     }
 
- @import '../modules/post.less';   
-}   
-
-
-
+    @import '../modules/post.less';
+}

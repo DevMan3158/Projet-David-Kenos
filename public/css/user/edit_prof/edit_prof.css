@@ -35,9 +35,10 @@
 }
 .containerForm {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  width: 93%;
+  border-bottom: solid 2px #F2BF2C;
 }
 .containerForm h1 {
   font-family: 'Montserrat', sans-serif;
@@ -50,9 +51,15 @@
 .containerForm form {
   text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25%;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  align-items: flex-start;
+  background-color: #EFEFEF;
+  filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+}
+.containerForm form .row_flex {
+  width: 18%;
 }
 .containerForm form button {
   padding: 10px;

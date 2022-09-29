@@ -1,4 +1,32 @@
+
+
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+
+<div class="row_flex">
+
+{{ form_row(form.facebook) }}
+{{ form_row(form.instagram) }}
+{{ form_row(form.twitter) }}
+{{ form_row(form.linkedin) }}
+{{ form_row(form.lien) }}
+</div>
+
+<div class="row_flex">
+{{ form_row(form.prenom) }}
+{{ form_row(form.nom) }}
+{{ form_row(form.email) }}
+{{ form_row(form.poste) }}
+{{ form_row(form.chocolaterie) }}
+<button class="btn">{{ button_label|default('Save') }}</button>
+</div>
+
+<div class="row_flex">
+{{ form_row(form.ImageBandeau, {'attr': {'value': 'Choisir une image' }}) }}
+{{ form_row(form.ImageProfil, {'attr': {'value': 'Choisir une image' }}) }}
+{{ form_row(form.description) }}
+{{ form_row(form.plainPassword) }}
+</div>
+
+    
 {{ form_end(form) }}

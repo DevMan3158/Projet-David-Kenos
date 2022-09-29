@@ -71,31 +71,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $qb->getQuery()->getSingleScalarResult();
     }
 
-/*    public function findAllWithChoco()
-{
-    $rawSql = "SELECT * FROM user INNER JOIN chocolaterie on user.chocolaterie_id = chocolaterie.id LIMIT 0,5";
-
-    $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
-    $stmt->executeQuery([]);
-
-    $stmt->fetchAllAssociative();
-}*/
-
-/*public function findAllWithChoco()
-    {
-
-    $query = $this->createQuery(
-        "SELECT *
-         FROM user
-         INNER JOIN chocolaterie
-         ON user.chocolaterie_id = chocolaterie.id
-         LIMIT 0,5");
- 
-    // returns an array of Product objects
-    return $query->getQuery()
-                ->getResult();
-         
-    }*/
 
 //    /**
 //     * @return User[] Returns an array of User objects

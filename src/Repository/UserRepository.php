@@ -64,6 +64,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $query->getQuery()->getResult();
     }
 
+
+ 
+
     public function countUser(){
         $qb = $this->createQueryBuilder('u')
             ->select('count(u.id)');
@@ -71,6 +74,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+
+    public function findAllOrderedUser()
+    {
+        $qb = $this->createQueryBuilder('u')
+        ->setMaxResults(5)
+        ->OrderBy('u.id', 'ASC');
+        $query = $qb->getQuery();
+        return $query->execute();
+    }
 
 //    /**
 //     * @return User[] Returns an array of User objects

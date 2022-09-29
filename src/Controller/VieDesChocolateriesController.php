@@ -17,18 +17,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class VieDesChocolateriesController extends AbstractController
 {
     #[Route('/chocolateries', name: 'app_chocolateries', methods:['GET'])]
-    public function index(Request $request,ManagerRegistry $doctrine, UserRepository $userRepository, PostRepository $postRepository ): Response
+    public function index(Request $request,ManagerRegistry $doctrine, UserRepository $userRepository, PostRepository $postRepository): Response
     {
 
-        $user = $this->getUser()->getUserIdentifier();
+        $user = $this->getUser();
+        //$last = $userRepository->findLastUser($value);
         $post = $postRepository->findAll($user);
         
         return $this->render('user/vie_des_chocolateries/index.html.twig', [
             'controller_name' => 'VieDesChocolateriesController',
+            'users' => $userRepository->findAllOrderedUser(),
             "post"=> $post,
         ]);
-
-        
     }
 }
 

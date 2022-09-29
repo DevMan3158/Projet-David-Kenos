@@ -4,17 +4,36 @@
 
 {% block body %}
 
+
+
+
+
+<div class="Top">
+<h1><strong>La vie</strong> des chocolateries, <span>Catègories</span></h1>
+</div>
+
 <section class="container_general">
 
-{#
-{% for posts in post %}
 
-<h1>La vie des chocolaterie {{ posts.catpost.nom }}</h1>
 
-{% endfor %}#}
 <article class="container_amis">
-<h2>Les derniers inscrits</h2>
+<h3>Les derniers inscrits</h3>
+
+{% for user in users %}
+        
+<figure>
+<img src="{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
+<figcaption><span>{{ user.prenom}}</span><br>{{ user.nom}}</figcaption>
+</figure>
+        
+        
+    {% endfor %}
+
+
+
 </article>
+
+
 {% include "user/templates/posts.html.twig" %}
 
 
@@ -23,9 +42,9 @@
 <nav class="menu_cat">
 
     <ul>
-
+        <li>Tout les posts</li>
     {% for posts in post %}
-
+        
         <li>{{ posts.catpost.nom }}</li>
         
     {% endfor %}

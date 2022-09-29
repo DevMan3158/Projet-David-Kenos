@@ -1,11 +1,20 @@
 {% extends 'admin_base.html.twig' %}
 
-{% block title %}Nouveaux Post{% endblock %}
+{% block title %}Nouvelle Post{% endblock %}
 
 {% block body %}
-    <h1>Créer un nouveaux post</h1>
 
-    {{ include('post/_form.html.twig') }}
+<section>
 
-    <a href="{{ path('app_post_index') }}">back to list</a>
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h1>Ajouter une nouveaux post</h1>
+    </div>
+
+    {{ include('admin/post/_form.html.twig') }}
+
+   
+   
+    <a href="{{ path('app_post_index') }}">Retour à la liste</a>
+</section>
 {% endblock %}

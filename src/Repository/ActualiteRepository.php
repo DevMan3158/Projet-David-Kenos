@@ -49,7 +49,19 @@ class ActualiteRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
-    
+    /**
+     * @Route("Route", name="RouteName")
+     */
+
+    public function findAllAct($perPage, $firstObj){
+        $query = $this->createQueryBuilder('a')
+        ->setMaxResults($perPage)
+        ->setFirstResult($firstObj);
+        return $query->getQuery()->getResult();
+    }
+
+
+
 
     public function accAct(){
         $qb = $this->createQueryBuilder('a')

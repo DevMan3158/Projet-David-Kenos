@@ -14,6 +14,7 @@
     <table class="table">
         <thead>
             <tr>
+                {#<th>Catégorie</th>#}
                 <th>Contenu</th>
                 <th>Image post</th>
                 <th>Image post alt</th>
@@ -24,6 +25,7 @@
         <tbody>
         {% for post in posts %}
             <tr>
+                {#<td>{{ post.catpost }}</td>#}
                 <td>{{ post.contenu }}</td>
                 <td>{{ post.imagePost }}</td>
                 <td>{{ post.imagePostAlt }}</td>

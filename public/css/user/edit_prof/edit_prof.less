@@ -1,0 +1,102 @@
+/////////////////////CHARGE LE MODULE VARIABLES///////////////////////////
+// relativeUrls: true;
+@import '../../variable.less';
+
+/////////////////////CHARGE LE MODULE LEADERBOARD/////////////////////
+@import '../modules/leaderboard.less';
+
+
+.containerForm {
+    display: flex;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    width: 93%;
+    border-bottom:solid 2px @bgd_btn3;
+   // border:solid 1px red;
+
+
+    h1 {
+        font-family: @fontM;
+        font-style: italic;
+        letter-spacing: 1px;
+        font-size: 2em;
+        font-weight: 300;
+        margin: 25px 0;
+    }
+
+    form {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        align-items: flex-start;
+        background-color:  #EFEFEF;
+        filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
+
+        .row_flex
+        {
+      
+            //border: solid 1px red;
+            //border-bottom:solid 2px @bgd_btn3;
+            //border-top:solid 2px @bgd_btn3;
+            width: 18%;
+        }
+
+        button {
+            padding: 10px;
+            width: 110px;
+            display: flex;
+            justify-content: space-evenly;
+            margin: 20px auto;
+            color: white;
+            background-color: #1F2547;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            border-radius: 5px;
+
+
+            &:hover {
+                transform: scale(0.95);
+                color: @bgd_btn3;
+            }
+
+        }
+
+
+        div {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            label {
+                width: 100%;
+                text-align: left;
+                color: @clr-pol4;
+                font-family: @fontM;
+                padding: 15px;
+                font-weight: 600;
+            }
+
+            input {
+                padding: 10px;
+                border-left: none;
+                border-right: none;
+                border-top: none;
+                border-bottom: none;
+            }
+
+
+            select
+            {
+                padding: 10px;
+            }
+
+        }
+
+
+
+    }
+}

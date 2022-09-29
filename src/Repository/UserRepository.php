@@ -64,6 +64,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $query->getQuery()->getResult();
     }
 
+
+ 
+
     public function countUser(){
         $qb = $this->createQueryBuilder('u')
             ->select('count(u.id)');
@@ -71,31 +74,16 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $qb->getQuery()->getSingleScalarResult();
     }
 
-/*    public function findAllWithChoco()
-{
-    $rawSql = "SELECT * FROM user INNER JOIN chocolaterie on user.chocolaterie_id = chocolaterie.id LIMIT 0,5";
 
-    $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
-    $stmt->executeQuery([]);
 
-    $stmt->fetchAllAssociative();
-}*/
-
-/*public function findAllWithChoco()
+    public function findAllOrderedUser()
     {
-
-    $query = $this->createQuery(
-        "SELECT *
-         FROM user
-         INNER JOIN chocolaterie
-         ON user.chocolaterie_id = chocolaterie.id
-         LIMIT 0,5");
- 
-    // returns an array of Product objects
-    return $query->getQuery()
-                ->getResult();
-         
-    }*/
+        $qb = $this->createQueryBuilder('u')
+        ->setMaxResults(5)
+        ->OrderBy('u.id', 'ASC');
+        $query = $qb->getQuery();
+        return $query->execute();
+    }
 
 //    /**
 //     * @return User[] Returns an array of User objects

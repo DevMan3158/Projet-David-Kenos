@@ -1,8 +1,18 @@
 <section id="container_posts">
-    {##}<h1>
+    {##}
+
+    
+    {% if app.request.get('_route') == 'app_mon_profil' %}
+    <h1>
         Les derniers <span>posts publiés.</span>
     </h1>
-    {% for posts in post %}
+    {% elseif app.request.get('_route') == 'app_chocolateries'%} 
+
+    {% endif %}
+
+
+    
+     {% for posts in post  %} 
 
 
     <article class="posts">
@@ -32,11 +42,24 @@
             <p></span>{{ posts.contenu }}</p>
             <div class="comments">
 
-                0 <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
+{% if app.request.get('_route') == 'app_mon_profil' %}
+
+    {{ nbCom }} <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
+
+    {{ nbLike }} <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
+
+
+    {% elseif app.request.get('_route') == 'app_chocolateries'%} 
+    
+    <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
+    
+    <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
+
+    {% endif %}
 
 
 
-                0 <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
+                 
             </div>
 
         </div>
@@ -48,9 +71,8 @@
 
 
 
-
 {#///////////////////////Templates-Commentaires////////////////////#}
-    <div id="container_com"> {#var headdd = document.getElementById('head')#}
+    <div id="container_com" > {#var headdd = document.getElementById('head')#}
 
         <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
 

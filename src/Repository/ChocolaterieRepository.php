@@ -47,6 +47,20 @@ class ChocolaterieRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    public function findAllChoco($perPage, $firstObj){
+        $query = $this->createQueryBuilder('c')
+            ->setMaxResults($perPage)
+            ->setFirstResult($firstObj);
+        return $query->getQuery()->getResult();
+    }
+
+    public function actLieux(){
+        $qb = $this->createQueryBuilder('c')
+            ->select('c.lieu');
+        
+        return $qb->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Chocolaterie[] Returns an array of Chocolaterie objects
 //     */

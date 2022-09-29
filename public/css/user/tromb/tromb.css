@@ -1,8 +1,9 @@
 #container_bandeau {
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
   width: 93%;
   height: 35%;
 }
@@ -18,15 +19,186 @@
 #container_bandeau #Conteneur_Logo_Usr {
   position: absolute;
   display: flex;
-  justify-content: center;
-  right: 43.5%;
-  border-radius: 50%;
-  top: 134px;
-  border-bottom: solid #DFDFDF;
+  /* justify-content: center; */
+  /* right: 40.5%; */
+  /* border-radius: 50%; */
+  top: 120px;
+  border-bottom: solid #dfdfdf00;
+  align-items: center;
+  flex-direction: column;
 }
 #container_bandeau #Conteneur_Logo_Usr img {
   width: 70%;
   height: 80%;
   border-radius: 50%;
   border: solid 10px white;
+}
+.container_command {
+  padding: 50px;
+}
+#container_bandeau {
+  width: 100%;
+  justify-content: initial;
+}
+#Conteneur_Logo_Usr {
+  top: 100px !important;
+}
+#searchContainer {
+  background: white;
+  box-shadow: 5px 5px 5px silver;
+  width: 100%;
+  height: 50px;
+  padding: 7px;
+  text-align: right;
+  margin: 28px auto;
+}
+#searchContainer #searchLoopBar {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+#searchContainer #searchLoopBar i {
+  font-size: 1em;
+  padding: 10px;
+  background-color: #F2BF2C;
+  height: 100%;
+  cursor: pointer;
+}
+#searchContainer #searchLoopBar #searchBar {
+  border: 1px solid #F2BF2C;
+  padding: 5px 15px;
+  width: 125px;
+  height: 100%;
+  transition: 0.7s;
+}
+#searchContainer #searchLoopBar::after {
+  content: "";
+  background-color: black;
+  height: 1px;
+  width: calc(50% - 115px);
+  position: relative;
+  right: 25px;
+  margin-left: 60px;
+  z-index: -1;
+}
+#searchContainer #searchLoopBar::before {
+  content: "";
+  background-color: black;
+  height: 1px;
+  width: calc(50% - 115px);
+  position: relative;
+  left: 25px;
+  margin-right: 60px;
+  z-index: -1;
+}
+#searchContainer #searchLoopBar #searchBar:focus {
+  width: 40%;
+}
+article {
+  height: 340px;
+  width: 260px;
+  background-color: white;
+  text-align: center;
+  margin: 30px 20px;
+  padding-bottom: 40px;
+  list-style-type: none;
+}
+article:hover .imgP {
+  transform: scale(1.2) rotate(360deg);
+}
+article .headArticle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+article .headArticle img {
+  height: 100%;
+}
+article .headArticle .imgB {
+  width: 100%;
+  height: 100px;
+}
+article .headArticle .imgP {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin: -40px auto auto auto;
+  overflow: hidden;
+  border: 5px white solid;
+  transition: 0.5s;
+}
+article .headArticle span {
+  position: absolute;
+  background-color: #F2BF2C;
+  padding: 2px 20px;
+  font-size: 0.7em;
+  font-weight: bold;
+  top: 10px;
+  right: -15px;
+}
+article h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: normal;
+}
+article h6 {
+  color: #0BAA9F;
+}
+article .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 35px 0px 35px 0px;
+  width: 100%;
+}
+article .logo figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px #F2BF2C;
+  border-radius: 50%;
+  margin: 0px 10px 0px 10px;
+  width: 30px;
+  height: 30px;
+}
+article .logo figure:hover i {
+  transform: scale(0.8) rotate(360deg);
+}
+article .logo figure i {
+  font-size: 0.9rem;
+  transition: 0.5s;
+}
+article .seeProfil {
+  background-color: #191E39;
+  color: white;
+  border: none;
+  padding: 10px 35px;
+  font-size: 0.7em;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+article .seeProfil:hover {
+  padding: 10px 15px;
+  background-color: white;
+  color: #191E39;
+  border: 1px solid #191E39;
+}
+article .seeProfil:hover i {
+  transform: rotate(360deg);
+}
+article .seeProfil i {
+  margin-right: 5px;
+  transition: 1s;
+}
+#cardSection {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

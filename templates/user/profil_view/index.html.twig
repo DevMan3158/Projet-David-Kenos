@@ -41,11 +41,7 @@
                     <div class="logo">
 
 
-                        {% if app.user.facebook is empty %}
-                             
-                        {% else %}
-                        
-                          
+                        {% if app.user.facebook is not null %}
                           <figure>
                                 <a class="mod" href="{{ app.user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
                           </figure>                         
@@ -53,30 +49,21 @@
 
 
 
-                        {% if app.user.instagram is empty %}
-                             
-                        {% else %}
-                        
+                        {% if app.user.instagram is not null %}
                             <figure>
                                 <a class="mod" href="{{ app.user.instagram}}"><i class="fa-brands fa-instagram"></i></a>
                             </figure>
                         {% endif %}
 
 
-                        {% if app.user.twitter is empty %}
-                                                
-                        {% else %}
-
+                        {% if app.user.twitter is not null %}
                             <figure>  
                                 <a class="mod" href="{{ app.user.twitter}}"><i class="fa-brands fa-twitter"></i></a>            
                             </figure>                       
                         {% endif %}
 
 
-                        {% if app.user.linkedin is empty %}
-
-                        {% else %}
-
+                        {% if app.user.linkedin is not null %}
                             <figure>
                                 <a class="mod" href="{{ app.user.linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a>
                             </figure>

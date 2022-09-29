@@ -57,15 +57,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->add($user, true);
     }
 
-    public function findAllWithChoco(){
+    public function findAllWithChoco($perPage, $firstObj){
         $query = $this->createQueryBuilder('u')
-            ->innerJoin('u.chocolaterie', 'c')
-            ->select('u', 'c');
+            ->setMaxResults($perPage)
+            ->setFirstResult($firstObj);
         return $query->getQuery()->getResult();
     }
 
 
-  
+ 
 
     public function countUser(){
         $qb = $this->createQueryBuilder('u')
@@ -74,33 +74,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $qb->getQuery()->getSingleScalarResult();
     }
 
-
-    public function getAllUsers($query, $currentPage, $limit)
-    {
-        // Create our query
-        $query = $this->createQueryBuilder('u')
-            ->orderBy('u.id', 'ASC')
-            ->getQuery();
-
-        // No need to manually get get the result ($query->getResult())
-
-        $paginator = $this->paginate($query, $currentPage, $limit);
-
-        return $paginator;
-    }
-
-
-
-    public function paginate($dql, $page, $limit)
-    {
-        $paginator = new Paginator($dql);
-
-        $paginator->getQuery()
-            ->setFirstResult($limit * ($page - 1)) // Offset
-            ->setMaxResults($limit); // Limit
-
-        return $paginator;
-    }
 
 
     public function findAllOrderedUser()

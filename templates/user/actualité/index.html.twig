@@ -4,9 +4,49 @@
 
 {% block body %}
 
-<body>
+<h1>
 
-    
+    Les actualités, <span> des chocolateries </span>
 
-</body>
+</h1>
+
+<div id="searchContainer">
+
+    <ul>
+        {% for lieu in allLieux %}
+            <a href="#">
+                <li onclick="getId(this)" id="{{ loop.index }}">
+                    {{ lieu.lieu }}
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+
+    <div id="searchLoopBar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="searchBar" onkeyup="search()"  type="text" name="search" placeholder="Rechercher...">
+    </div>
+
+</div>
+
+<section id="gridAct">
+    {% for act in findAllAct %}
+        <a href="#" class="card">
+            <article >
+                <div class="chocolaterie">
+                    <img src="{{ act.imageActu }}" alt="{{ act.imageActuAlt}}"/>
+                    <span>
+                        {{ act.chocolaterie.lieu }}
+                    </span>
+                </div>
+                <h4>
+                    {{ act.chocolaterie.nom }}
+                </h4>
+                <p>
+                    {{ act.contenu |length > 50 ? act.contenu |slice(0, 50) ~ '...' : act.contenu  }}
+                </p>
+            </article>
+        </a>
+    {% endfor %}
+</section>
 {% endblock %}

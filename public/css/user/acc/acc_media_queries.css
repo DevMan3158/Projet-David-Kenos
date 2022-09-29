@@ -2,5 +2,21 @@
 /* Responsive */
 /* ---------- */
 /* Ordinateur */
+@media (max-width: 1250px) {
+  .container_command {
+    flex-direction: column;
+  }
+  #act,
+  #post {
+    width: 100% !important;
+    margin: 20px auto;
+  }
+  #gridAct {
+    flex-direction: row !important;
+  }
+  #gridAct a {
+    width: 48%;
+  }
+}
 /* Tablette */
 /* Mobile */

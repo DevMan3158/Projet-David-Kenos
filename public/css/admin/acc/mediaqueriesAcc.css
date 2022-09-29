@@ -77,8 +77,8 @@
     header ul:first-of-type li:first-of-type a:last-of-type{
         border-radius: 50%;
         overflow: hidden;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         padding: 0;
     }
 
@@ -102,6 +102,10 @@ header h3 {
     margin: 31px auto 0 auto !important;
 
    
+}
+
+header div:nth-of-type(3){
+    margin-top: -80px;
 }
 
 }
@@ -134,8 +138,6 @@ header h3 {
             margin: 25px auto 0 auto;
         }
 
-
-
 }
 
 
@@ -162,7 +164,7 @@ header h3 {
     }
 
     .headerBurger h3{
-        margin: 25px auto 0 auto;
+        margin: 15px auto 0 auto;
     }
 
     #burger i{
@@ -174,11 +176,11 @@ header h3 {
 @media (min-width: 300px) and (max-width: 400px) {
 
     header h3 {
-        margin: 10px auto 0 auto;
+        margin: 5px auto 0 auto;
     }
 
     header h4 {
-        margin: 0 auto 15px auto;
+        margin: 0 auto 5px auto;
     }
 
 }

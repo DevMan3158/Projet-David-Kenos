@@ -52,6 +52,7 @@ function getId(obj){
           x[i].style.display="list-item";                 
       }
   }
+}
   
 
 /*function openMenu(){

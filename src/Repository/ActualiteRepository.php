@@ -39,12 +39,17 @@ class ActualiteRepository extends ServiceEntityRepository
         }
     }
 
+    //Permet de compter le nombre d'actu avec l'id 
+
+
     public function countAct(){
         $qb = $this->createQueryBuilder('a')
             ->select('count(a.id)');
         
         return $qb->getQuery()->getSingleScalarResult();
     }
+
+    
 
     public function accAct(){
         $qb = $this->createQueryBuilder('a')

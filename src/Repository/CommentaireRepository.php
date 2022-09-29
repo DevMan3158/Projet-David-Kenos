@@ -40,17 +40,14 @@ class CommentaireRepository extends ServiceEntityRepository
     }
 
 
+    //Permet de compter le nombre de commentaires avec l'id 
+
     public function findAllWithCom(){
         $query = $this->createQueryBuilder('u')
             ->select('count(u.id)');
             return $query->getQuery()->getSingleScalarResult();
     }
 
-    public function findByIdWithCom(){
-        $query = $this->createQueryBuilder('u')
-            ->select('u)');
-            return $query->getQuery()->getResult();
-    }
 
 
 

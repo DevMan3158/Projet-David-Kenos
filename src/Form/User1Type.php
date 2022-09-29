@@ -23,7 +23,7 @@ class User1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('ImageBandeau',FileType::class, 
+            /*->add('ImageBandeau',FileType::class, 
             [
                 "mapped"=>false,
                 'data_class'=>null,
@@ -39,7 +39,7 @@ class User1Type extends AbstractType
                 'label'=> 'Image de profil', 
                 'required' => false
                 
-                ])
+                ])*/
 
           
             ->add('facebook')
@@ -59,9 +59,9 @@ class User1Type extends AbstractType
                     return $er->createQueryBuilder('c');
                 },
                 'choice_label' => 'nom'
-            ])
+            ]);
             
-              ->add('plainPassword', RepeatedType::class, [
+             /* ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'required' => false,
                 'first_options' => [
@@ -95,7 +95,7 @@ class User1Type extends AbstractType
                 // Instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-            ]);
+            ]);*/
 
     }
 

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\User1Type;
 use App\Repository\UserRepository;
+use App\Repository\ChocolaterieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ class UserProfilController extends AbstractController
 
 
     #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, Int $id, UserRepository $userRepository): Response
+    public function edit(Request $request, User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
     {
         $form = $this->createForm(User1Type::class, $user);
         $form->handleRequest($request);
@@ -25,11 +26,12 @@ class UserProfilController extends AbstractController
         
             $userRepository->add($user, true);
             //Permet de raffraichir la même page 
-            $user = $userRepository->find($id);
+           // $user = $userRepository->find($id);
+
 
             //Récupère l'id dans id et l'intègre à la route 
-            return $this->redirectToRoute('app_user_profil_edit', ['id' => $id], Response::HTTP_SEE_OTHER);
-            
+           // return $this->redirectToRoute('app_mon_profil', ['id' => $id], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_mon_profil', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('user_profil/edit.html.twig', [

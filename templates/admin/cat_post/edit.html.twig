@@ -1,0 +1,13 @@
+{% extends 'admin_base.html.twig' %}
+
+<title>Edit CatPost</title>
+
+{% block body %}
+    <h1>Edit CatPost</h1>
+
+    {{ include('cat_post/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_cat_post_index') }}">back to list</a>
+
+    {{ include('cat_post/_delete_form.html.twig') }}
+{% endblock %}

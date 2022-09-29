@@ -1,0 +1,26 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Bienvenue sur la partie admin!{% endblock %}
+
+{% block body %}
+    <h1>CatPost</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cat_post.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ cat_post.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cat_post_index') }}">back to list</a>
+
+    <a href="{{ path('app_cat_post_edit', {'id': cat_post.id}) }}">edit</a>
+
+    {{ include('cat_post/_delete_form.html.twig') }}
+{% endblock %}

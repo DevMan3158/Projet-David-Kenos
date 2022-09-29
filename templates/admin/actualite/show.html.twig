@@ -1,0 +1,38 @@
+{% extends 'admin_base.html.twig' %}
+
+<title>Actualite</title>
+
+{% block body %}
+    <h1>Actualite</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ actualite.id }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ actualite.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Image_actu</th>
+                <td>{{ actualite.imageActu }}</td>
+            </tr>
+            <tr>
+                <th>Image_actu_alt</th>
+                <td>{{ actualite.imageActuAlt }}</td>
+            </tr>
+            <tr>
+                <th>Crated_at</th>
+                <td>{{ actualite.cratedAt ? actualite.cratedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_actualite_index') }}">back to list</a>
+
+    <a href="{{ path('app_actualite_edit', {'id': actualite.id}) }}">edit</a>
+
+    {{ include('actualite/_delete_form.html.twig') }}
+{% endblock %}

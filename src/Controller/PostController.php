@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Entity\CatPost;
 use App\Form\PostType;
 use App\Repository\PostRepository;
+use App\Repository\CatPostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PostController extends AbstractController
 {
     #[Route('/', name: 'app_post_index', methods: ['GET'])]
-    public function index(PostRepository $postRepository, Request $request): Response
+    public function index(PostRepository $postRepository, CatPostRepository  $catPostRepository, Request $request): Response
     {
      // On détermine sur quelle page on se trouve
 
@@ -45,6 +47,7 @@ class PostController extends AbstractController
     return $this->render('admin/post/index.html.twig', [
         
 
+        //$post = $postRepository->find(),
         'posts' => $postPerPage,
         'pages' => $page,
         'currentPage' => $currentPage,

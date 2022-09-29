@@ -14,7 +14,8 @@
     <table class="table">
         <thead>
             <tr>
-                {#<th>Catégorie</th>#}
+                <th>Utilisateurs</th>
+                <th>Catégorie</th>
                 <th>Contenu</th>
                 <th>Image post</th>
                 <th>Image post alt</th>
@@ -25,10 +26,10 @@
         <tbody>
         {% for post in posts %}
             <tr>
-                {#<td>{{ post.catpost }}</td>#}
+                <td>{{ post.user.prenom}} {{ post.user.nom}}</td>
+                <td>{{ post.catpost.nom }}</td>
                 <td>{{ post.contenu }}</td>
                 <td>{{ post.imagePost }}</td>
-                <td>{{ post.imagePostAlt }}</td>
                 <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_post_show', {'id': post.id}) }}"><i class="fa-solid fa-eye"></i></a>

@@ -22,13 +22,13 @@ class ActualiteType extends AbstractType
             ->add('image_actu')
             ->add('image_actu_alt')
             ->add('chocolaterie')
-            ->add('nom', EntityType::class, [
+            ->add('chocolaterie', EntityType::class, [
                 'required' => true,
                 'class' => Chocolaterie::class,
                 'query_builder' => function (ChocolaterieRepository $er) {
                     return $er->createQueryBuilder('c');
                 },
-                'choice_label' => 'nom'
+                'choice_label' => 'lieu'
                 ])
             
         ;

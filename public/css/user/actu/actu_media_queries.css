@@ -2,5 +2,15 @@
 /* Responsive */
 /* ---------- */
 /* Ordinateur */
+@media (max-width: 1450px) {
+  #searchContainer ul {
+    font-size: 0.7em !important;
+  }
+}
+@media (max-width: 1200px) {
+  #searchBar:focus {
+    width: unset;
+  }
+}
 /* Tablette */
 /* Mobile */

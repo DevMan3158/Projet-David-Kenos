@@ -2,104 +2,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-header{
-
-    padding: 15px;
-    background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../../../../img/admin/bandeau-menu-admin-horizontale.jpg") 100% / cover no-repeat;
-    height: 200px;
-    transition: 0.3s;
-
-    #headFlex{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-
-        #logo{
-            width: 50px;
-        }
-
-        #burger{
-            width: 50px;
-            width: fit-content;
-        }
-
-    }
-
-    .headTitle{
-        width: fit-content;
-        color: white;
-        font-family: 'Playfair Display', serif;
-        font-style: italic;
-        font-weight: 100;
-    }
-
-    h3{
-        margin: 25px auto 0 auto;
-    }
-
-    h4{
-        font-family: 'Montserrat', sans-serif !important;
-        font-style: normal !important;
-        margin: 0 auto 25px auto;
-    }
-
-    ul, #hamb{
-        display: none;
-    }
-}
-
-.headerBurger{
-    height: 100%;
-    text-align: center;
-    background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../../img/admin/menu-admin-verticale.jpg") 100% / cover no-repeat;
-
-    #logo{
-        margin: auto;
-        width: 110px !important;
-    }
-
-    #burger{
-        display: none;
-    }
-
-    #hamb{
-        display: block;
-    }
-
-    ul{
-        &:first-of-type{
-            width: fit-content;
-            font-family: 'Montserrat', sans-serif !important;
-            font-size: 0.8em;
-            margin: auto;
-            text-align: left;
-            display: block !important;
-        }
-
-        &:nth-of-type(2){
-            margin: 20px auto;
-            width: 200px;
-            display: block !important;
-            li{
-                background-color: #0BAA9F;
-                transition: 0.2s;
-                font-family: 'Montserrat', sans-serif !important;
-                margin: 2px 0;
-                color: white;
-                padding: 10px;
-                cursor: pointer;
-
-                &:hover{
-                    background-color: #0D9088;
-                }
-            }
-
-
-        }
-    }
-}
-
 
 article{
     padding: 25px;
@@ -143,7 +45,9 @@ article{
 
         font-size: 0.8em;
         font-family: 'Montserrat', sans-serif !important;
-        span{
+        p
+        {
+            display: inline;
             font-weight: bold;
         }
     }

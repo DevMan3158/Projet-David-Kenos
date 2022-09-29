@@ -21,8 +21,8 @@ class UserController extends AbstractController
 
         // On détermine sur quelle page on se trouve
 
-        if(isset($GET['pages']) && !empty($_GET['pages'])){
-            $currentPage = (int) strip_tags($_GET['pages']);
+        if(!empty($_GET['pg'])){
+            $currentPage = (int) strip_tags($_GET['pg']);
         } else {
             $currentPage = 1;
         }
@@ -39,8 +39,16 @@ class UserController extends AbstractController
 
         $page = ceil($nbUser / $perPage);
 
+        // Calcul du premier article de la page
+
+        $firstObj = ($currentPage * $perPage) - $perPage;
+
+        $userPerPage = $userRepository->findAllWithChoco($perPage, $firstObj);
+
         return $this->render('admin/user/index.html.twig', [
-            'users' => $userRepository->findAllWithChoco(),
+            'users' => $userPerPage,
+            'pages' => $page,
+            'currentPage' => $currentPage,
         ]);
     }
 

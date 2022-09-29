@@ -57,10 +57,10 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->add($user, true);
     }
 
-    public function findAllWithChoco(){
+    public function findAllWithChoco($perPage, $firstObj){
         $query = $this->createQueryBuilder('u')
-            ->innerJoin('u.chocolaterie', 'c')
-            ->select('u', 'c');
+            ->setMaxResults($perPage)
+            ->setFirstResult($firstObj);
         return $query->getQuery()->getResult();
     }
 
@@ -71,35 +71,31 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+/*    public function findAllWithChoco()
+{
+    $rawSql = "SELECT * FROM user INNER JOIN chocolaterie on user.chocolaterie_id = chocolaterie.id LIMIT 0,5";
 
-    public function getAllUsers($query, $currentPage, $limit)
+    $stmt = $this->getEntityManager()->getConnection()->prepare($rawSql);
+    $stmt->executeQuery([]);
+
+    $stmt->fetchAllAssociative();
+}*/
+
+/*public function findAllWithChoco()
     {
-        // Create our query
-        $query = $this->createQueryBuilder('u')
-            ->orderBy('u.id', 'ASC')
-            ->getQuery();
 
-        // No need to manually get get the result ($query->getResult())
-
-        $paginator = $this->paginate($query, $currentPage, $limit);
-
-        return $paginator;
-    }
-
-
-
-    public function paginate($dql, $page, $limit)
-    {
-        $paginator = new Paginator($dql);
-
-        $paginator->getQuery()
-            ->setFirstResult($limit * ($page - 1)) // Offset
-            ->setMaxResults($limit); // Limit
-
-        return $paginator;
-    }
-
-
+    $query = $this->createQuery(
+        "SELECT *
+         FROM user
+         INNER JOIN chocolaterie
+         ON user.chocolaterie_id = chocolaterie.id
+         LIMIT 0,5");
+ 
+    // returns an array of Product objects
+    return $query->getQuery()
+                ->getResult();
+         
+    }*/
 
 //    /**
 //     * @return User[] Returns an array of User objects

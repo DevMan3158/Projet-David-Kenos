@@ -1,0 +1,123 @@
+img {
+  height: 100%;
+}
+.container_command {
+  width: 100%;
+  overflow-y: initial;
+  align-items: initial;
+  padding: 50px;
+}
+.container_command h1 {
+  margin: 0 0 30px 30px;
+}
+.container_command h1 span {
+  font-weight: normal;
+}
+.container_command #searchContainer {
+  background: white;
+  box-shadow: 5px 5px 5px silver;
+  width: 100%;
+  height: 50px;
+  padding: 7px;
+  text-align: right;
+  margin: 28px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.container_command #searchContainer ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.9em;
+}
+.container_command #searchContainer ul a {
+  padding: 0 20px ;
+  width: 100%;
+  display: flex;
+  white-space: nowrap;
+}
+.container_command #searchContainer ul a:not(:last-of-type) {
+  border-right: 1px solid black;
+}
+.container_command #searchContainer #searchLoopBar {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.container_command #searchContainer #searchLoopBar i {
+  font-size: 1em;
+  padding: 10px;
+  background-color: #F2BF2C;
+  height: 100%;
+  cursor: pointer;
+}
+.container_command #searchContainer #searchLoopBar #searchBar {
+  border: 1px solid #F2BF2C;
+  padding: 5px 15px;
+  width: 125px;
+  height: 100%;
+  transition: 0.7s;
+}
+.container_command #searchContainer #searchLoopBar::before {
+  content: "";
+  background-color: black;
+  height: 1px;
+  width: 75%;
+  position: relative;
+  left: 0;
+  margin-right: 30px;
+  z-index: -1;
+}
+.container_command #searchContainer #searchLoopBar #searchBar:focus {
+  width: 100%;
+}
+.container_command section {
+  background-color: white;
+  border-top: 5px solid #F2BF2C;
+  padding: 50px 35px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 1px 10px silver;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.container_command section a {
+  width: 30%;
+  list-style-type: none;
+}
+.container_command section article {
+  transition: 0.2s;
+  margin: 5px auto;
+}
+.container_command section article:hover {
+  transform: scale(1.05);
+}
+.container_command section article .chocolaterie {
+  position: relative;
+  height: 150px;
+}
+.container_command section article .chocolaterie span {
+  position: absolute;
+  background-color: #F2BF2C;
+  padding: 2px 20px;
+  font-size: 0.7em;
+  font-weight: bold;
+  top: 10px;
+  right: -15px;
+}
+.container_command section article h4 {
+  margin-top: 25px;
+  color: #0BAA9F;
+}
+.container_command section article p {
+  font-weight: lighter;
+  font-size: 0.8em;
+}

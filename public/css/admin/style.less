@@ -9,6 +9,9 @@ header {
 	background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../../img/admin/bandeau-menu-admin-horizontale.jpg") 100% / cover no-repeat;
 	height: 200px;
 	transition: 0.3s;
+	display: flex;
+    flex-direction: column;
+    
 	#headFlex {
 		display: flex;
 		width: 100%;
@@ -45,9 +48,18 @@ header {
 	}
 }
 .headerBurger {
+	padding: 15px 0;
 	height: 100vh;
 	text-align: center;
 	background: linear-gradient(to bottom, #0baa9fe3, #0baa9fe3), url("../../img/admin/menu-admin-verticale.jpg") 100% / cover no-repeat;
+	justify-content: space-evenly;
+
+	#flexUl{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
+
 	#logo {
 		margin: auto;
 		width: 110px !important;
@@ -64,14 +76,16 @@ header {
 			text-align: left;
 			display: block;
 
+
             li{
 
 				&:first-of-type{
 					display: flex;
+					align-items: center;
 				}
 
 				&:nth-of-type(2){
-					margin-bottom: 20px;
+					margin-bottom: 12px;
 				}
 
                 a:last-of-type{
@@ -79,6 +93,7 @@ header {
                     border-radius: 50%;
                     overflow: hidden;
                     width: 30px;
+					height: 30px;
                     margin: 5px auto;
 
                 }
@@ -88,7 +103,7 @@ header {
 		}
 		&:nth-of-type(2) {
 			margin: 20px auto;
-			width: 200px;
+			width: 100%;
 			display: block;
 			text-align: left;
 			li {
@@ -102,7 +117,7 @@ header {
 				a{
 					color: white;
 				}
-				padding: 20px;
+				padding: 10px;
 				cursor: pointer;
 				&:hover {
 					background-color: #0D9088;
@@ -190,8 +205,51 @@ i {
 	}
 }
 
+#burger2{
+	display: none;
+}
+
 .titleBurger{
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+}
+
+.uk-pagination{
+
+	display: flex;
+	justify-content: space-between;
+	width: fit-content;
+	margin: auto;
+	font-weight: bold;
+
+
+	li{
+
+		transition: 0.2s;
+		margin: auto 10px;
+
+		&:hover{
+
+		color: #0BAA9F;
+		transform: scale(1.05);
+		cursor: pointer;
+		}
+
+		a{
+			color: unset;
+			
+		}
+
+		.st-color-red{
+			color: red;
+		}
+
+	}
+
+	.st-color-red{
+		color: #0BAA9F;
+	}
+
+
 }

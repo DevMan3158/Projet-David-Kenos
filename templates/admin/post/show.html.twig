@@ -8,9 +8,7 @@
 
     <div class="titleBurger">
         <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
-        <h4> 
-            Gérer les posts
-        </h4>
+        <h4>Gérer les posts</h4>
     </div>
 
     <table>      
@@ -34,10 +32,6 @@
     </table>
 
     <a href="{{ path('app_post_index') }}">Retour à la liste</a>
-
-    {#<a href="{{ path('app_post_edit', {'id': post.id}) }}">edit</a>
-
-    {{ include('post/_delete_form.html.twig') }}#}
 
     </section>
 {% endblock %}

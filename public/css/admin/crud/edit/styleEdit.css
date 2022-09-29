@@ -36,23 +36,23 @@ section form button:hover {
 section form #user,
 section form #chocolaterie,
 section form #post,
-section form #catpost,
-section form #actualite {
+section form #cat_post,
+section form #act {
   text-align: left;
 }
 section form #user div,
 section form #chocolaterie div,
 section form #post div,
-section form #catpost div,
-section form #actualite div {
+section form #cat_post div,
+section form #act div {
   display: flex;
   flex-direction: column;
 }
 section form #user div label,
 section form #chocolaterie div label,
 section form #post div label,
-section form #catpost div label,
-section form #actualite div label {
+section form #cat_post div label,
+section form #act div label {
   background-color: #f2bf2c;
   font-family: 'Playfair Display', serif;
   font-style: italic;
@@ -61,8 +61,8 @@ section form #actualite div label {
 section form #user div input,
 section form #chocolaterie div input,
 section form #post div input,
-section form #catpost div input,
-section form #actualite div input {
+section form #cat_post div input,
+section form #act div input {
   padding: 10px;
   border-left: 1px solid;
   border-right: 1px solid;

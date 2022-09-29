@@ -1,11 +1,18 @@
 {% extends 'admin_base.html.twig' %}
 
-{% block title %}Nouvelle catègories de post{% endblock %}
+{% block title %}Ajout catégorie{% endblock %}
 
 {% block body %}
-    <h1>Create new CatPost</h1>
+<section>
 
-    {{ include('cat_post/_form.html.twig') }}
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h1>Ajouter une nouvelle catégories</h1>
+    </div>
 
-    <a href="{{ path('app_cat_post_index') }}">back to list</a>
+    {{ include('admin/cat_post/_form.html.twig') }}
+
+    <a href="{{ path('app_cat_post_index') }}">Retour à la liste</a>
+    
+    </section>
 {% endblock %}

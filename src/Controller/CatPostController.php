@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('admin/cat/post')]
+#[Route('admin/categories')]
 class CatPostController extends AbstractController
 {
     #[Route('/', name: 'app_cat_post_index', methods: ['GET'])]

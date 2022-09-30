@@ -27,26 +27,14 @@ class User1Type extends AbstractType
             ->add('ImageBandeau',FileType::class, 
             [
                 'label' => 'Photo du bandeau',
-
                 // unmapped means that this field is not associated to any entity property
                 'mapped' => false,
-
                 // make it optional so you don't have to re-upload the PDF file
                 // every time you edit the Product details
                 'required' => false,
-
                 // unmapped fields can't define their validation using annotations
                 // in the associated entity, so you can use the PHP constraint classes
-                'constraints' => [
-                    new File([
-                        'maxSize' => '8192m',
-                        'mimeTypes' => [
-                            'application/png',
-                            'application/jpeg',
-                        ],
-                        'mimeTypesMessage' => 'Fichier accepter : Png, Jpeg , Taille max 8mo',
-                    ])
-                ],
+                
 
             ])
 

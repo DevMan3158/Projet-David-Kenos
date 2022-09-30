@@ -10,6 +10,7 @@ use App\Repository\ChocolaterieRepository;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,23 +24,40 @@ class User1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            /*->add('ImageBandeau',FileType::class, 
+            ->add('ImageBandeau',FileType::class, 
             [
-                "mapped"=>false,
-                'data_class'=>null,
-                'label'=> 'Image de bandeau',
-                 'required' => false
+                'label' => 'Photo du bandeau',
 
-                 ])
+                // unmapped means that this field is not associated to any entity property
+                'mapped' => false,
+
+                // make it optional so you don't have to re-upload the PDF file
+                // every time you edit the Product details
+                'required' => false,
+
+                // unmapped fields can't define their validation using annotations
+                // in the associated entity, so you can use the PHP constraint classes
+                'constraints' => [
+                    new File([
+                        'maxSize' => '8192m',
+                        'mimeTypes' => [
+                            'application/png',
+                            'application/jpeg',
+                        ],
+                        'mimeTypesMessage' => 'Fichier accepter : Png, Jpeg , Taille max 8mo',
+                    ])
+                ],
+
+            ])
 
             ->add('ImageProfil',FileType::class, 
             [
                 "mapped"=>false,
                 'data_class'=>null,
-                'label'=> 'Image de profil', 
+                'label'=> 'Photo de profil', 
                 'required' => false
                 
-                ])*/
+                ])/**/
 
           
             ->add('facebook')
@@ -49,9 +67,40 @@ class User1Type extends AbstractType
             ->add('lien')
             ->add('description')
             ->add('email')
-            ->add('nom')
-            ->add('prenom')
-            ->add('poste')
+            ->add('nom', TextType::class, [
+            
+            'constraints' =>
+                
+            [
+                new NotBlank([
+                   'message' => 'Veuillez saisir un nom'
+                ]),
+            ]
+            
+            ])
+            
+            ->add('prenom', TextType::class, [
+            
+                'constraints' =>
+                    
+                [
+                    new NotBlank([
+                       'message' => 'Veuillez saisir un nom'
+                    ]),
+                ]
+                
+                ])
+            ->add('poste', TextType::class, [
+            
+                'constraints' =>
+                    
+                [
+                    new NotBlank([
+                       'message' => 'Veuillez saisir un nom'
+                    ]),
+                ]
+                
+                ])
              ->add('chocolaterie', EntityType::class, [
                 'required' => true,
                 'class' => Chocolaterie::class,

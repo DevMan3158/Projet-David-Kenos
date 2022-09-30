@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>Contenu</th>
-                <td>{{ actualite.contenu }}</td>
+                <td>{{ actualite.contenu |length > 50 ? actualite.contenu |slice(0, 50) ~ '...' : actualite.contenu  }}</td>
             </tr>
             <tr>
                 <th>Image actu</th>

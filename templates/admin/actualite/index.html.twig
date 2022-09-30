@@ -23,7 +23,7 @@
         <tbody>
         {% for actualite in actualites %}
             <tr>
-                <td>{{ actualite.contenu }}</td>
+                <td>{{ actualite.contenu |length > 100 ? actualite.contenu |slice(0, 100) ~ '...' : actualite.contenu  }}</td>
                 <td>{{ actualite.imageActu }}</td>
                 <td>{{ actualite.imageActuAlt }}</td>
                 <td>{{ actualite.cratedAt ? actualite.cratedAt|date('Y-m-d H:i:s') : '' }}</td>

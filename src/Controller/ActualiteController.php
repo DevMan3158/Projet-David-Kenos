@@ -33,7 +33,7 @@ class ActualiteController extends AbstractController
         
                 // On détermine le nombre d'articles par page
         
-                $perPage = 2;
+                $perPage = 5;
         
                 // On calcule le nombre de page total
         

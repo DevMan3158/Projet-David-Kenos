@@ -40,6 +40,8 @@ class ChocolaterieRepository extends ServiceEntityRepository
         }
     }
 
+    //Permet de compter le nombre de cholateries avec l'id 
+
     public function countChoco(){
         $qb = $this->createQueryBuilder('c')
             ->select('count(c.id)');
@@ -53,6 +55,8 @@ class ChocolaterieRepository extends ServiceEntityRepository
             ->setFirstResult($firstObj);
         return $query->getQuery()->getResult();
     }
+
+    //Permet d'afficher les actualité du lieux 
 
     public function actLieux(){
         $qb = $this->createQueryBuilder('c')

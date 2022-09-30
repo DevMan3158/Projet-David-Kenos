@@ -57,6 +57,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->add($user, true);
     }
 
+
+    //Requête servant à la pagination
+
     public function findAllWithChoco($perPage, $firstObj){
         $query = $this->createQueryBuilder('u')
             ->setMaxResults($perPage)
@@ -65,7 +68,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
 
- 
+    //Permet de compter le nombre d'users avec l'id 
 
     public function countUser(){
         $qb = $this->createQueryBuilder('u')
@@ -74,6 +77,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    //Permet d'afficher les users par trie ascendant par id avec un résultat maximum de 5
+    // Utiliser dans la vie des chocolateries
 
     public function findAllOrderedUser()
     {

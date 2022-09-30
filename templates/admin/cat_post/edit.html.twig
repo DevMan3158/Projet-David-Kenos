@@ -1,0 +1,19 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Modification Catégories{% endblock %}
+
+{% block body %}
+    <section>
+
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h1>Modification Catégories</h1>
+    </div>
+
+
+    {{ include('admin/cat_post/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_cat_post_index') }}">Retour à la liste</a>
+
+  </section>
+{% endblock %}

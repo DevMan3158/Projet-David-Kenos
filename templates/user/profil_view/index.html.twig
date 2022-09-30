@@ -29,7 +29,7 @@
 
                         {% if app.user.description is empty %}
                              
-                             <p>Vous n'avez pas de description.</p>
+                             <p>Aucune description connu.</p>
 
                         {% else %}
                         
@@ -40,36 +40,41 @@
 
                     <div class="logo">
 
+                    {% if app.user and app.user.facebook or app.user.twitter or app.user.instagram or app.user.linkedin  is not null %}
+                             
+                              {% if app.user.facebook is not null %}
+                              <figure>
+                                    <a class="mod" href="{{ app.user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
+                              </figure>                         
+                            {% endif %}
 
-                        {% if app.user.facebook is not null %}
-                          <figure>
-                                <a class="mod" href="{{ app.user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
-                          </figure>                         
+
+
+                            {% if app.user.instagram is not null %}
+                                <figure>
+                                    <a class="mod" href="{{ app.user.instagram}}"><i class="fa-brands fa-instagram"></i></a>
+                                </figure>
+                            {% endif %}
+
+
+                            {% if app.user.twitter is not null %}
+                                <figure>  
+                                    <a class="mod" href="{{ app.user.twitter}}"><i class="fa-brands fa-twitter"></i></a>            
+                                </figure>                       
+                            {% endif %}
+
+
+                            {% if app.user.linkedin is not null %}
+                                <figure>
+                                    <a class="mod" href="{{ app.user.linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a>
+                                </figure>
+                            {% endif %}
+
+                        {% else %}
+    
+                        <p>Aucuns réseaux connu.</p>
+
                         {% endif %}
-
-
-
-                        {% if app.user.instagram is not null %}
-                            <figure>
-                                <a class="mod" href="{{ app.user.instagram}}"><i class="fa-brands fa-instagram"></i></a>
-                            </figure>
-                        {% endif %}
-
-
-                        {% if app.user.twitter is not null %}
-                            <figure>  
-                                <a class="mod" href="{{ app.user.twitter}}"><i class="fa-brands fa-twitter"></i></a>            
-                            </figure>                       
-                        {% endif %}
-
-
-                        {% if app.user.linkedin is not null %}
-                            <figure>
-                                <a class="mod" href="{{ app.user.linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </figure>
-                        {% endif %}
-
-
                     </div>
 
                     <a class="btn" href="mailto:{{ app.user.email}}"><li>Envoyer un mail</li></a>

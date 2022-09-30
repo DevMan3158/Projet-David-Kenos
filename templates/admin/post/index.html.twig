@@ -1,0 +1,55 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Post index{% endblock %}
+
+
+{% block body %}
+<section>
+
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h1 id="titleCrud">Gérer les posts</h1>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Utilisateurs</th>
+                <th>Catégorie</th>
+                <th>Contenu</th>
+                <th>Image post</th>
+                <th>Créer</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.user.prenom}} {{ post.user.nom}}</td>
+                <td>{{ post.catpost.nom }}</td>
+                <td>{{ post.contenu |length > 50 ? post.contenu |slice(0, 50) ~ '...' : post.contenu  }}</td>
+                <td>{{ post.imagePost }}</td>
+                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_post_show', {'id': post.id}) }}"><i class="fa-solid fa-eye"></i></a>
+                   <button><a href="{{ path('app_post_edit', {'id': post.id}) }}"><i class="fa-solid fa-pen-to-square"></i>Modifier</a><button>
+
+                   {{ include('admin/post/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun post trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include 'admin/pagination.html.twig' %}
+
+     <button class="btn-add"><a href="{{ path('app_post_new') }}">Ajouter un nouveaux post</a></button>
+
+
+
+</section>
+{% endblock %}

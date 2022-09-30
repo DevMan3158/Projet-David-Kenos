@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Service\Pagination;
+use App\Entity\Actualite;
 use App\Repository\ActualiteRepository;
 use App\Repository\ChocolaterieRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,34 +14,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ActualitéController extends AbstractController
 {
     #[Route('/actualite', name: 'app_actualite')]
-    public function index(ActualiteRepository $actRepo, ChocolaterieRepository $chocRepo): Response
+    public function index(ChocolaterieRepository $chocRepo, $page, $currentPage, Pagination $paginationService): Response
     {
 
-                // On détermine sur quelle page on se trouve
 
-                if(!empty($_GET['pg'])){
-                    $currentPage = (int) strip_tags($_GET['pg']);
-                } else {
-                    $currentPage = 1;
-                }
-        
-                // On détermine le nombre d'users total
-        
-                $nbAct = $actRepo->countAct();
-        
                 // On détermine le nombre d'articles par page
         
                 $perPage = 4;
-        
-                // On calcule le nombre de page total
-        
-                $page = ceil($nbAct / $perPage);
-        
-                // Calcul du premier article de la page
-        
-                $firstObj = ($currentPage * $perPage) - $perPage;
 
-                $actPerPage = $actRepo->findAllAct($perPage, $firstObj);
+                // On détermine le nombre d'users total
+
+                $nbAct = $actRepo->countAct();
+
+                // On récupère les éléments
+
+                $elements = $this->getDoctrine()->getRepository(Actualite::class)->findAll();
+
+                // On récupère le service pagination
+
+                $arrayPagination = $paginationService->pagination($elements, $perPage);
+
+                // On définis les articles à afficher en fonction de la page
+
+                $actPerPage = $this->getDoctrine()->getRepository(Actualite::class)->findBy([], ['id' => 'DESC'], $perPage, $firstObj);
 
 
         return $this->render('user/actualité/index.html.twig', [

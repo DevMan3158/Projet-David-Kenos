@@ -140,3 +140,28 @@ body {
   flex-direction: column;
   width: 100%;
 }
+.uk-pagination {
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+  margin: 30px auto;
+  font-weight: bold;
+}
+.uk-pagination li {
+  transition: 0.2s;
+  margin: auto 10px;
+}
+.uk-pagination li:hover {
+  color: #0BAA9F;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.uk-pagination li a {
+  color: unset;
+}
+.uk-pagination li .st-color-red {
+  color: red;
+}
+.uk-pagination .st-color-red {
+  color: #0BAA9F;
+}

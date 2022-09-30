@@ -4,10 +4,16 @@
     {% if pages > 1 %}
         <!-- Pagination -->
         {# On adapte notre route 'path' en fonction de la page sur la quelle on est #}
-        {% if ('user' in app.request.get('_route')) %}
-            {% set routePath = "app_user_index" %}
-        {% elseif ('chocolaterie' in app.request.get('_route')) %}
-            {% set routePath = "app_chocolaterie_index" %}
+        {% if ('admin' in app.request.get('_route')) %}
+            {% if ('user' in app.request.get('_route')) %}
+                {% set routePath = "app_user_index" %}
+            {% elseif ('chocolaterie' in app.request.get('_route')) %}
+                {% set routePath = "app_chocolaterie_index" %}
+            {% endif %}
+        {% else %}
+            {% if ('actualite' in app.request.get('_route')) %}
+                {% set routePath = "app_actualite" %}
+            {% endif %}
         {% endif %}
         {# Le nombre de page à afficher autours de la page actuelle est 2 ou une valeur minimale calculée #}
         {% set defaultPageQuantityAround = 2 %}

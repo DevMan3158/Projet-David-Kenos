@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
-use App\Service\Pagination;
 use App\Entity\Actualite;
+use App\Service\Pagination;
 use App\Repository\ActualiteRepository;
 use App\Repository\ChocolaterieRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ActualitéController extends AbstractController
 {
     #[Route('/actualite', name: 'app_actualite')]
-    public function index(ChocolaterieRepository $chocRepo, $page, $currentPage, Pagination $paginationService): Response
+    public function index(ChocolaterieRepository $chocRepo, ActualiteRepository $actRepo, Pagination $paginationService): Response
     {
 
 
@@ -22,21 +23,19 @@ class ActualitéController extends AbstractController
         
                 $perPage = 4;
 
-                // On détermine le nombre d'users total
-
-                $nbAct = $actRepo->countAct();
-
                 // On récupère les éléments
 
-                $elements = $this->getDoctrine()->getRepository(Actualite::class)->findAll();
+                $elements = $this->$actRepo->findAll();
 
                 // On récupère le service pagination
 
                 $arrayPagination = $paginationService->pagination($elements, $perPage);
 
+                $page = ceil((count($elements)) / $perPage);
+
                 // On définis les articles à afficher en fonction de la page
 
-                $actPerPage = $this->getDoctrine()->getRepository(Actualite::class)->findBy([], ['id' => 'DESC'], $perPage, $firstObj);
+                $actPerPage = $this->$actRepo->findAllAct($perPage, $firstObj);
 
 
         return $this->render('user/actualité/index.html.twig', [

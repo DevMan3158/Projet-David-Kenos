@@ -22,7 +22,6 @@ class Pagination {
 
         $firstObj = ($currentPage * $perPage) - $perPage;
 
-
     }
 
 }

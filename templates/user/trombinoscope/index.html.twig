@@ -46,24 +46,24 @@
 
 
            <div class="logo">
-                {% if app.user.facebook is not null %}
+                {% if user.facebook is not null %}
                   <figure>
-                        <a class="mod" href="{{ app.user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a class="mod" href="{{ user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
                   </figure>                         
                 {% endif %}
-                {% if app.user.instagram is not null %}
+                {% if user.instagram is not null %}
                     <figure>
-                        <a class="mod" href="{{ app.user.instagram}}"><i class="fa-brands fa-instagram"></i></a>
+                        <a class="mod" href="{{ user.instagram}}"><i class="fa-brands fa-instagram"></i></a>
                     </figure>
                 {% endif %}
-                {% if app.user.twitter is not null %}
+                {% if user.twitter is not null %}
                     <figure>  
-                        <a class="mod" href="{{ app.user.twitter}}"><i class="fa-brands fa-twitter"></i></a>            
+                        <a class="mod" href="{{ user.twitter}}"><i class="fa-brands fa-twitter"></i></a>            
                     </figure>                       
                 {% endif %}
-                {% if app.user.linkedin is not null %}
+                {% if user.linkedin is not null %}
                     <figure>
-                        <a class="mod" href="{{ app.user.linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a class="mod" href="{{ user.linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a>
                     </figure>
                 {% endif %}
            </div>

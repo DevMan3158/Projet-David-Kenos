@@ -12,14 +12,14 @@
        
         <figure>
 
-            <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+            <img src="../{{ user.imageprofil }}" alt="../{{ user.imageprofilalt }}">
 
         </figure>
 
 
-        <h1><span>{{ app.user.prenom }} </span> {{ app.user.nom }} </h1>
+        <h1><span>{{ user.prenom }} </span> {{ user.nom }} </h1>
 
-        <a class="btn" href="{{ path('app_mon_profil') }}"><i class="fa-regular fa-user"></i> Voir mon profil</a>
+        <a class="btn" href="{{ path('app_profil', { 'id':app.user.id }) }}"><i class="fa-regular fa-user"></i> Voir mon profil</a>
 
     </div>
 

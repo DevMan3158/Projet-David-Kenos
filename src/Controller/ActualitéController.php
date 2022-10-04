@@ -15,27 +15,31 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ActualitéController extends AbstractController
 {
     #[Route('/actualite', name: 'app_actualite')]
-    public function index(ChocolaterieRepository $chocRepo, ActualiteRepository $actRepo, Pagination $paginationService): Response
+    public function index(ChocolaterieRepository $chocRepo, ActualiteRepository $actRepo): Response
     {
 
 
-                // On détermine le nombre d'articles par page
-        
-                $perPage = 4;
+        if(!empty($_GET['pg'])){
+            $currentPage = (int) strip_tags($_GET['pg']);
+        } else {
+            $currentPage = 1;
+        }
 
-                // On récupère les éléments
+        // On détermine le nombre d'articles par page
 
-                $elements = $this->$actRepo->findAll();
+        $perPage = 5;
 
-                // On récupère le service pagination
+        // Calcul du premier article de la page
 
-                $arrayPagination = $paginationService->pagination($elements, $perPage);
+        $firstObj = ($currentPage * $perPage) - $perPage;
+                
+        // On récupère le nombre d'articles et on compte le nombre de pages et on arrondi à l'entier suppérieur
 
-                $page = ceil((count($elements)) / $perPage);
+        $page = ceil((count($actRepo->findAll())) / $perPage);
 
-                // On définis les articles à afficher en fonction de la page
+        // On définis les articles à afficher en fonction de la page
 
-                $actPerPage = $this->$actRepo->findAllAct($perPage, $firstObj);
+        $actPerPage = $actRepo->findAllAct($perPage, $firstObj);
 
 
         return $this->render('user/actualité/index.html.twig', [

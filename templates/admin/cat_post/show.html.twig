@@ -1,0 +1,34 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Bienvenue sur la partie admin!{% endblock %}
+
+{% block body %}
+
+<section>
+
+        <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h4> 
+            Gérer les catégories
+        </h4>
+    </div>
+
+    <table>
+      
+            <tr>
+                <th>Id</th>
+                <td>{{ cat_post.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ cat_post.nom }}</td>
+            </tr>
+      
+    </table>
+
+    <a href="{{ path('app_cat_post_index') }}"> Retour à la liste</a>
+
+   
+
+
+{% endblock %}

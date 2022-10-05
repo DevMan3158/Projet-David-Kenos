@@ -71,6 +71,13 @@ class ActualiteRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function findAllAct($perPage, $firstObj){
+        $query = $this->createQueryBuilder('a')
+            ->setMaxResults($perPage)
+            ->setFirstResult($firstObj);
+        return $query->getQuery()->getResult();
+    }
+
 
 
 //    public function findOneBySomeField($value): ?Actualite

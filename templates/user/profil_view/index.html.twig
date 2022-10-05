@@ -1,6 +1,6 @@
 {% extends 'user_base.html.twig' %}
 
-{% block title %}Connecté : {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
+{% block title %}{{ user.prenom }} {{ user.nom }}{% endblock %}
 
 {% block body %}
 {#{{ dump(likeRepository) }}
@@ -15,69 +15,77 @@
 
         <section id="container_general">
 
-
             <article id="container_carte">
 
                 <div class="carte">
 
-                    <h1><span>{{ app.user.prenom }} </span> {{ app.user.nom }} </h1>
+                    <h1><span>{{ user.prenom }} </span> {{ user.nom }} </h1>
 
-                    <p>{{ app.user.poste}} - <span>{{ app.user.chocolaterie.lieu}}</span></p>
+                    <p>{{ user.poste }} - <span>{{ user.chocolaterie.lieu }}</span></p>
                     <br>
 
                     {#ecrire une condition de type "Vous n'avez pas de description, écriver une courte description  vous"#}
 
-                        {% if app.user.description is empty %}
+                        {% if user.description is empty %}
                              
-                             <p>Aucune description connu.</p>
+
+                             <p>Aucune description.</p>
+
 
                         {% else %}
                         
-                         <p>{{ app.user.description}}</p>
+                         <p>{{ user.description}}</p>
 
                         {% endif %}
 
 
                     <div class="logo">
+                    
+                    
 
-                    {% if app.user and app.user.facebook or app.user.twitter or app.user.instagram or app.user.linkedin  is not null %}
+                    {#{% if app.user and app.user.facebook or app.user.twitter or app.user.instagram or app.user.linkedin  is not null %}
                              
-                              {% if app.user.facebook is not null %}
-                              <figure>
-                                    <a class="mod" href="{{ app.user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
-                              </figure>                         
-                            {% endif %}
-
-
-
-                            {% if app.user.instagram is not null %}
-                                <figure>
-                                    <a class="mod" href="{{ app.user.instagram}}"><i class="fa-brands fa-instagram"></i></a>
-                                </figure>
-                            {% endif %}
-
-
-                            {% if app.user.twitter is not null %}
-                                <figure>  
-                                    <a class="mod" href="{{ app.user.twitter}}"><i class="fa-brands fa-twitter"></i></a>            
-                                </figure>                       
-                            {% endif %}
-
-
-                            {% if app.user.linkedin is not null %}
-                                <figure>
-                                    <a class="mod" href="{{ app.user.linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a>
-                                </figure>
-                            {% endif %}
-
                         {% else %}
     
                         <p>Aucuns réseaux connu.</p>
 
+                        {% endif %}#}
+                        
+
+                        {% if user.facebook is not null %}
+                          <figure>
+                                <a class="mod" href="{{ user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
+                          </figure>                         
                         {% endif %}
+
+
+
+                        {% if user.instagram is not null %}
+                            <figure>
+                                <a class="mod" href="{{ user.instagram }}"><i class="fa-brands fa-instagram"></i></a>
+                            </figure>
+                        {% endif %}
+
+
+                        {% if user.twitter is not null %}
+                            <figure>  
+                                <a class="mod" href="{{ user.twitter }}"><i class="fa-brands fa-twitter"></i></a>            
+                            </figure>                       
+                        {% endif %}
+
+
+                        {% if user.linkedin is not null %}
+                            <figure>
+                                <a class="mod" href="{{ user.linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </figure>
+                        {% endif %}
+
+
+                  
+
                     </div>
 
-                    <a class="btn" href="mailto:{{ app.user.email}}"><li>Envoyer un mail</li></a>
+                    <a class="btn" href="mailto:{{ user.email }}"><li>Envoyer un mail</li></a>
 
                 </div>
 
@@ -86,6 +94,7 @@
 
             {% include 'user/templates/posts.html.twig' %}
 
+            {% if (app.user.id in app.request.attributes.get('_route_params')) %}
 
             <section id="container_btn">
 
@@ -95,6 +104,8 @@
                 
 
             </section>
+
+            {% endif %}
 
               
                      

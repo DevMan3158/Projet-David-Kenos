@@ -36,14 +36,13 @@
         </div>
     </section>
 
-    <aside id="act">
+    <section id="act">
 
         <h2>
             Les dernières actualités,<br/>
             <span>de l'entreprise.</span>
         </h2>
 
-        <div id="gridAct">
 
             {% for act in findAllAct|slice(0, 2) %}
 
@@ -71,8 +70,7 @@
 
             {% endfor %}
 
-        </div>
-    </aside>
+    </section>
 
 </body>
 {% endblock %}

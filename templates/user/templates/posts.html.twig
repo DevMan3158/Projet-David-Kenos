@@ -2,7 +2,7 @@
     {##}
 
     
-    {% if app.request.get('_route') == 'app_mon_profil' %}
+    {% if app.request.get('_route') == 'app_profil' %}
     <h1>
         Les derniers <span>posts publiés.</span>
     </h1>
@@ -23,14 +23,14 @@
 
         <figure>
 
-            <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+            <img src="{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
 
         </figure>
 
 
         <div class="contenues">
 
-            <h3><span>{{ app.user.prenom}} </span> {{ app.user.nom }}
+            <h3><span>{{ user.prenom}} </span> {{ user.nom }}
                 <p class="colorP">publiés le {{ posts.createdAt|date('d/m/Y') }}</p>
             </h3>
 
@@ -42,7 +42,7 @@
             <p></span>{{ posts.contenu }}</p>
             <div class="comments">
 
-{% if app.request.get('_route') == 'app_mon_profil' %}
+{% if app.request.get('_route') == 'app_profil' %}
 
     {{ nbCom }} <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
 
@@ -86,7 +86,7 @@
 
             <div class="commentaire">
                 <figure>
-                <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                <img src="{{ nbCom.user.imageprofil }}" alt="{{ nbCom.user.imageprofilalt }}">
                 <figure>
 
             
@@ -123,7 +123,7 @@
 
 
 
-    {% endfor %}
+{% endfor %}
 
    <script src="{{ asset('js/com.js') }}"></script>
 

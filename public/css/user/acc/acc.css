@@ -66,6 +66,7 @@
   width: 35%;
   height: 100%;
   box-shadow: 0px 1px 10px silver;
+  justify-content: space-around;
 }
 .container_command #act h2 {
   font-size: 1.2em;
@@ -77,12 +78,6 @@
   font-size: 0.8em;
 }
 .container_command #act img {
-  height: 100%;
-}
-.container_command #act #gridAct {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   height: 100%;
 }
 .container_command #act article {

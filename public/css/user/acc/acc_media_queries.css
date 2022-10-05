@@ -11,10 +11,14 @@
     width: 100% !important;
     margin: 20px auto;
   }
-  #gridAct {
+  #act {
     flex-direction: row !important;
+    flex-wrap: wrap;
   }
-  #gridAct a {
+  #act h2 {
+    width: 100%;
+  }
+  #act a {
     width: 48%;
   }
 }

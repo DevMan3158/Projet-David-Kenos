@@ -58,6 +58,17 @@ class PostRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    public function allPostByUser($user){
+
+        $query = $this->createQueryBuilder('p')
+            ->where('p.user = :user')
+            ->setParameter(':user', $user)
+            ->join('p', 'c.post')
+            ->andWhere('p = :post')
+            ->setParameter(':post', $post);
+        return $query->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Post[] Returns an array of Post objects
 //     */

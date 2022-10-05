@@ -39,6 +39,8 @@ class CatPostRepository extends ServiceEntityRepository
         }
     }
 
+    // Requete qui compte les catégories de post
+
     public function countCat(){
         $qb = $this->createQueryBuilder('cat')
             ->select('count(cat.id)');

@@ -1,130 +1,152 @@
 <section id="container_posts">
-    {##}
 
-    
+    {# On conditionne la route pour afficher le H1 sur les profils #}
+
     {% if app.request.get('_route') == 'app_profil' %}
+
     <h1>
         Les derniers <span>posts publiés.</span>
     </h1>
-    {% elseif app.request.get('_route') == 'app_chocolateries'%} 
 
     {% endif %}
 
+    {% if post is not empty %}
 
-    
-     {% for posts in post  %} 
+        {# On Boucle les posts liés à l'utilisateur recherché OU de tous les utilisateurs si vous êtes sur la vie des chocolaterie #}
+
+        {% for posts in post  %} 
+
+            <article class="posts">
+
+                <div class="etiquette">
+                    {{ posts.catpost.nom }}
+                </div>
+
+                <figure>
+
+                    <img src="../{{ posts.user.imageprofil }}" alt="{{ posts.user.imageprofilalt }}">
+
+                </figure>
 
 
-    <article class="posts">
+                <div class="contenues">
 
-        <div class="etiquette">
-            {{ posts.catpost.nom }}
-        </div>
+                    <h3>
+                        <span>
+                            {{ posts.user.prenom}}
+                        </span>
 
-        <figure>
+                        {{ posts.user.nom }}
 
-            <img src="{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
+                        <p class="colorP">
+                            publiés le {{ posts.createdAt|date('d/m/Y') }}
+                        </p>
+                    </h3>
 
-        </figure>
+                    <div id="contenues_img">
+                        <img src="../{{ posts.imagepost }}" alt="{{ posts.imagepostalt }}">
+                    </div>
 
 
-        <div class="contenues">
+                    <p>
+                        {{ posts.contenu }}
+                    </p>
 
-            <h3><span>{{ user.prenom}} </span> {{ user.nom }}
-                <p class="colorP">publiés le {{ posts.createdAt|date('d/m/Y') }}</p>
-            </h3>
+                    <div class="comments">
 
-            <div id="contenues_img">
-                <img src="{{ posts.imagepost }}" alt="{{ posts.imagepostalt }}">
+                        {{ posts.commentaires|length }} 
+
+                        <i class="fa-regular fa-comments">
+                            <a href="#" id="commentaire" onClick="openMenu()"> 
+                                Commenter
+                            </a>
+                        </i>
+
+                        {{ posts.likes|length }} 
+
+                        <i class="fa-regular fa-heart">
+                            <a  href="#"> 
+                                J'aime
+                            </a>
+                        </i>
+
+
+                    </div>
+
+                </div>
+
+
+            </article>
+
+            {#Condition Soyer le premier à commenter ! commentaire différent suivant user, nom d'user dans com? et heure date#}
+
+
+
+            {#///////////////////////Templates-Commentaires////////////////////#}
+
+
+            <div id="container_com" > {#var headdd = document.getElementById('head')#}
+
+                <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
+
+                <button id="CloseCom" onClick="closeMenu()">Publier</button>    {#document.getElementById('hamb').style.display = "block";#}
+
+
+                <h3>Les commentaires existants</h3>
+
+                {# Ici on boucle les commentaires du post en question #}
+
+                {% for comment in posts.commentaires %}
+
+                    {# Ici on conditionne nos commentaires afin de les placer à droite s'ils ont été postés par l'utilisateur connecté #}
+
+                    {% if comment.user.id == app.user.id %}
+
+                        <div class="com_box_droite">
+
+                              <div class="commentaire2">
+
+                                <figure>
+                                  <img src="../../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                                <figure>
+
+                                    <p>{{ comment.contenu }}</p>
+                             </div>
+
+                        </div>
+
+                    {# Ou à gauche s'ils ont été postés par n'importe quel autre utilisateur.  #}
+
+                    {% else %}
+
+                        <div class="com_box">
+
+                            <div class="commentaire">
+                                <figure>
+                                <img src="../../{{ comment.user.imageprofil }}" alt="{{ comment.user.imageprofilalt }}">
+                                <figure>
+
+                                <p>{{ comment.contenu }}</p>
+
+                            </div>
+
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
             </div>
 
-
-            <p></span>{{ posts.contenu }}</p>
-            <div class="comments">
-
-{% if app.request.get('_route') == 'app_profil' %}
-
-    {{ nbCom }} <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
-
-    {{ nbLike }} <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
-
-
-    {% elseif app.request.get('_route') == 'app_chocolateries'%} 
-    
-    <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
-    
-    <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
-
-    {% endif %}
-
-
-
-                 
-            </div>
-
-        </div>
-
-
-    </article>
-
-{#Condition Soyer le premier à commenter ! commentaire différent suivant user, nom d'user dans com? et heure date#}
-
-
-
-{#///////////////////////Templates-Commentaires////////////////////#}
-    <div id="container_com" > {#var headdd = document.getElementById('head')#}
-
-        <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
-
-        <button id="CloseCom" onClick="closeMenu()">Publier</button>{#document.getElementById('hamb').style.display = "block";#}
-
-
-        <h3>Les commentaires existants</h3>
-
-        <div class="com_box">
-
-
-            <div class="commentaire">
-                <figure>
-                <img src="{{ nbCom.user.imageprofil }}" alt="{{ nbCom.user.imageprofilalt }}">
-                <figure>
-
-            
-                <p>Gauche, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ab aspernatur ipsa vitae, totam
-                consectetur eligendi debitis!.</p>
-               
-
-            </div>
-
-        </div>
-
-        <div class="com_box_droite">
-
-              <div class="commentaire2">
-              
-                <figure>
-                  <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
-                <figure>
-
-                    <p>Droite, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ab aspernatur ipsa vitae, totam
-                    consectetur eligendi debitis!.</p>
-             </div>
-
-        </div>
-
-        
-
-    </div>
-
+        {% endfor %}
 
     {% else %}
 
     <p>Vous n'avez pas de poste publiés</span></p>
 
-
-
-{% endfor %}
-
-   <script src="{{ asset('js/com.js') }}"></script>
+    {% endif %}
 
 </section>
+
+<script src="{{ asset('js/com.js') }}"></script>
+

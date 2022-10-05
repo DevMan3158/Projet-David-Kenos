@@ -40,12 +40,6 @@ class LikeRepository extends ServiceEntityRepository
     }
 
 
-    public function findAllWithLike(){
-        $query = $this->createQueryBuilder('u')
-            ->select('count(u.id)');
-            return $query->getQuery()->getSingleScalarResult();
-    }
-
 //    /**
 //     * @return Like[] Returns an array of Like objects
 //     */

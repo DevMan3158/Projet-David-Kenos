@@ -39,21 +39,6 @@ class CommentaireRepository extends ServiceEntityRepository
         }
     }
 
-
-    public function findAllWithCom(){
-        $query = $this->createQueryBuilder('u')
-            ->select('count(u.id)');
-            return $query->getQuery()->getSingleScalarResult();
-    }
-
-    public function findByIdWithCom(){
-        $query = $this->createQueryBuilder('u')
-            ->select('u)');
-            return $query->getQuery()->getResult();
-    }
-
-
-
 //    /**
 //     * @return Commentaire[] Returns an array of Commentaire objects
 //     */

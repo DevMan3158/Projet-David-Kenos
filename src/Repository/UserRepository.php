@@ -57,6 +57,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->add($user, true);
     }
 
+    // Requete qui recherche les utilisateurs avec pagination
+
     public function findAllWithChoco($perPage, $firstObj){
         $query = $this->createQueryBuilder('u')
             ->setMaxResults($perPage)
@@ -65,15 +67,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
 
- 
+    // Requete qui compte les utilisateur
 
     public function countUser(){
         $qb = $this->createQueryBuilder('u')
             ->select('count(u.id)');
-        
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    // Requete qui va chercher les 5 derniers utilisateurs inscrits
 
     public function findAllOrderedUser()
     {
@@ -83,23 +85,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $query = $qb->getQuery();
         return $query->execute();
     }
-
-    public function findAllUser($perPage, $firstObj){
-        $query = $this->createQueryBuilder('u')
-            ->setMaxResults($perPage)
-            ->setFirstResult($firstObj);
-        return $query->getQuery()->getResult();
-    }
-
-    // Requete pour afficher les données utilisateur via ID
-
-    public function findUserById($user){
-        $query = $this->createQueryBuilder('u')
-        ->where('u = :user')
-        ->setParameter(':user', $user);
-        return $query->getQuery()->getResult();
-    }
-
 
 //    /**
 //     * @return User[] Returns an array of User objects

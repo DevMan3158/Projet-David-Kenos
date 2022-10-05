@@ -39,12 +39,16 @@ class ActualiteRepository extends ServiceEntityRepository
         }
     }
 
+    // Requete qui compte les actualitées
+
     public function countAct(){
         $qb = $this->createQueryBuilder('a')
             ->select('count(a.id)');
         
         return $qb->getQuery()->getSingleScalarResult();
     }
+
+    // Requête qui va chercher 3 actualitées pour l'accueil
 
     public function accAct(){
         $qb = $this->createQueryBuilder('a')
@@ -53,6 +57,8 @@ class ActualiteRepository extends ServiceEntityRepository
         
         return $qb->getQuery()->getResult();
     }
+
+    // Reqête qui va chercher toutes les actualitées avec la pagination
 
     public function findAllAct($perPage, $firstObj){
         $query = $this->createQueryBuilder('a')

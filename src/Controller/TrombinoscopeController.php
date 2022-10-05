@@ -34,7 +34,7 @@ class TrombinoscopeController extends AbstractController
 
         // On définis les articles à afficher en fonction de la page
 
-        $userPerPage = $userRepository->findAllUser($perPage, $firstObj);
+        $userPerPage = $userRepository->findAllWithChoco($perPage, $firstObj);
 
         return $this->render('user/trombinoscope/index.html.twig', [
             'controller_name' => 'TrombinoscopeController',

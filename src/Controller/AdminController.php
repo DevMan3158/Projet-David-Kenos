@@ -27,6 +27,12 @@ class AdminController extends AbstractController
             'countAct' => $actRepo->countAct(),
             'countCat' => $catPostRepo->countCat(),
             'accAct' => $actRepo->accAct(),
+            /* 
+                Pour les count, 3 possibilitées : 
+                    - Faire une requete count dans les repo comme si dessus.
+                    - Ecrire simplement : $chocoRepo->findAll()->count() peux etre meme $chocoEntity->count() ( à tester )
+                    - Envoyer simplement l'intégralité de l'entité à la view dans une variable, puis sur twig écrire "votreVariable"|lenght
+            */
         ]);
     }
 }

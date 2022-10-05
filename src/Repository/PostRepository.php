@@ -39,17 +39,7 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
-    //Requête permettent le calcul dans le controller 
-
-    public function findAllPost($perPage, $firstObj){
-        $query = $this->createQueryBuilder('p')
-            ->setMaxResults($perPage)
-            ->setFirstResult($firstObj);
-        return $query->getQuery()->getResult();
-    }
-
-
-    //Permet de compter le nombre de post avec l'id 
+    // Requete qui compte le nombre de posts
 
     public function countPost(){
         $qb = $this->createQueryBuilder('p')
@@ -58,16 +48,6 @@ class PostRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
-    public function allPostByUser($user){
-
-        $query = $this->createQueryBuilder('p')
-            ->where('p.user = :user')
-            ->setParameter(':user', $user)
-            ->join('p', 'c.post')
-            ->andWhere('p = :post')
-            ->setParameter(':post', $post);
-        return $query->getQuery()->getResult();
-    }
 
 
 

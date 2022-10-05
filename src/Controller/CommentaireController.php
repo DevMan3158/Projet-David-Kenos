@@ -27,10 +27,11 @@ class CommentaireController extends AbstractController
         $commentaire = new Commentaire();
         $form = $this->createForm(CommentaireType::class, $commentaire);
         $form->handleRequest($request);
+        $commentaire->setCreatedAt(new \DateTimeImmutable());
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $commentaireRepository->add($commentaire, true);
-
             return $this->redirectToRoute('app_commentaire_index', [], Response::HTTP_SEE_OTHER);
         }
 

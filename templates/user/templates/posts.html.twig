@@ -1,5 +1,5 @@
 <section id="container_posts">
-    {##}
+    
 
     
     {% if app.request.get('_route') == 'app_profil' %}
@@ -10,7 +10,7 @@
 
     {% endif %}
 
-
+    
     
      {% for posts in post  %} 
 
@@ -23,7 +23,7 @@
 
         <figure>
 
-            <img src="{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
+            <img src="../{{ user.imageprofil }}" alt="../{{ user.imageprofilalt }}">
 
         </figure>
 
@@ -35,27 +35,17 @@
             </h3>
 
             <div id="contenues_img">
-                <img src="{{ posts.imagepost }}" alt="{{ posts.imagepostalt }}">
+                <img src="../{{ posts.imagepost }}" alt="../{{ posts.imagepostalt }}">
             </div>
 
 
             <p></span>{{ posts.contenu }}</p>
             <div class="comments">
 
-{% if app.request.get('_route') == 'app_profil' %}
+   <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
 
-    {{ nbCom }} <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
+     <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
 
-    {{ nbLike }} <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
-
-
-    {% elseif app.request.get('_route') == 'app_chocolateries'%} 
-    
-    <i class="fa-regular fa-comments"><a href="#" id="commentaire" onClick="openMenu()"> Commenter</a></i>
-    
-    <i class="fa-regular fa-heart"><a  href="#"> J'aime</a></i>
-
-    {% endif %}
 
 
 
@@ -72,39 +62,42 @@
 
 
 {#///////////////////////Templates-Commentaires////////////////////#}
-    <div id="container_com" > {#var headdd = document.getElementById('head')#}
+    <div id="container_com" > 
 
         <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
 
-        <button id="CloseCom" onClick="closeMenu()">Publier</button>{#document.getElementById('hamb').style.display = "block";#}
+        <button id="CloseCom" onClick="closeMenu()">Publier</button>
 
 
         <h3>Les commentaires existants</h3>
 
-        <div class="com_box">
+    {% for comment in posts.commentaires %} 
 
+       
+
+        <div class="com_box">
 
             <div class="commentaire">
                 <figure>
-                <img src="{{ nbCom.user.imageprofil }}" alt="{{ nbCom.user.imageprofilalt }}">
-                <figure>
+                <img src="../{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
+                </figure>
 
             
-                <p>Gauche, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ab aspernatur ipsa vitae, totam
-                consectetur eligendi debitis!.</p>
+                <p>{{ comment.contenu }}</p>
                
 
             </div>
 
         </div>
+        
 
         <div class="com_box_droite">
 
               <div class="commentaire2">
               
                 <figure>
-                  <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
-                <figure>
+                  <img src="../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                </figure>
 
                     <p>Droite, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ab aspernatur ipsa vitae, totam
                     consectetur eligendi debitis!.</p>
@@ -112,9 +105,11 @@
 
         </div>
 
-        
+    {% endfor %}
 
     </div>
+
+
 
 
     {% else %}
@@ -125,6 +120,6 @@
 
 {% endfor %}
 
-   <script src="{{ asset('js/com.js') }}"></script>
+  {# <script src="{{ asset('js/com.js') }}"></script>#}
 
 </section>

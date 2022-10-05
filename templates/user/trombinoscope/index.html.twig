@@ -71,7 +71,7 @@
                 {% endif %}
            </div>
 
-                <a href="{{ path('app_mon_profil') }}" class="seeProfil">
+                <a href="{{ path('app_profil', { 'id':user.id }) }}" class="seeProfil">
                     <i class="fa-solid fa-eye"></i>
                         Voir le profil
                 </a>

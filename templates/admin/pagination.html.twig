@@ -7,19 +7,7 @@
 
 
                 {% set routePath = app.request.get('_route') %}
-
-
-        {% if ('user' in app.request.get('_route')) %}
-            {% set routePath = "app_user_index" %}
-        {% elseif ('chocolaterie' in app.request.get('_route')) %}
-            {% set routePath = "app_chocolaterie_index" %}
-        {% elseif ('post' in app.request.get('_route')) %}
-            {% set routePath = "app_post_index" %}
-        {% elseif ('actualite' in app.request.get('_route')) %}
-            {% set routePath = "app_actualite_index" %}
-        {% elseif ('cat_post' in app.request.get('_route')) %}
-            {% set routePath = "app_cat_post_index" %}
-        {% endif %}
+                
 
         {# Le nombre de page à afficher autours de la page actuelle est 2 ou une valeur minimale calculée #}
         {% set defaultPageQuantityAround = 2 %}

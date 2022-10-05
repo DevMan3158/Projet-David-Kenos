@@ -4,17 +4,9 @@
     {% if pages > 1 %}
         <!-- Pagination -->
         {# On adapte notre route 'path' en fonction de la page sur la quelle on est #}
-        {% if ('user' in app.request.get('_route')) %}
-            {% set routePath = "app_accueil" %}
-        {% elseif ('accueil' in app.request.get('_route')) %}
-            {% set routePath = "app_actualite" %}
-        {% elseif ('actualite' in app.request.get('_route')) %}
-            {% set routePath = "app_trombinoscope" %}
-        {% elseif ('trombinoscope' in app.request.get('_route')) %}
-            {% set routePath = "app_chocolateries" %}
-        {% elseif ('profil_view' in app.request.get('_route')) %}
-            {% set routePath = "app_mon_profil" %}
-        {% endif %}
+
+            {% set routePath = app.request.get('_route') %}
+
         {# Le nombre de page à afficher autours de la page actuelle est 2 ou une valeur minimale calculée #}
         {% set defaultPageQuantityAround = 2 %}
         {# Valeur minimum #}

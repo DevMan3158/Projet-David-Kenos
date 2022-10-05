@@ -39,13 +39,15 @@
 
 
 
+
+
 <nav class="menu_cat">
 
     <ul>
         <li>Tout les posts</li>
-    {% for posts in post %}
+    {% for cat in catPost %}
         
-        <li>{{ posts.catpost.nom }}</li>
+        <li>{{ cat.nom }}</li>
         
     {% endfor %}
 
@@ -54,4 +56,6 @@
 </nav>
 
 </section>
+
+{% include 'admin/pagination.html.twig' %}
 {% endblock %}

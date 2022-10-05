@@ -48,6 +48,15 @@ class PostRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    // Requete qui va chercher les posts avec la pagination
+
+    public function postPaginate($perPage, $firstObj){
+        $query = $this->createQueryBuilder('p')
+            ->setMaxResults($perPage)
+            ->setFirstResult($firstObj);
+        return $query->getQuery()->getResult();
+    }
+
 
 //    /**
 //     * @return Post[] Returns an array of Post objects

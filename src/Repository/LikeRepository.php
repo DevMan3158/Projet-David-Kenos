@@ -39,6 +39,7 @@ class LikeRepository extends ServiceEntityRepository
         }
     }
 
+    //Permet de compter le nombre de like avec l'id 
 
 //    /**
 //     * @return Like[] Returns an array of Like objects

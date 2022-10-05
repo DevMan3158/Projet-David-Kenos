@@ -28,7 +28,9 @@
 
                         {% if user.description is empty %}
                              
+
                              <p>Aucune description.</p>
+
 
                         {% else %}
                         
@@ -38,7 +40,17 @@
 
 
                     <div class="logo">
+                    
+                    
 
+                    {#{% if app.user and app.user.facebook or app.user.twitter or app.user.instagram or app.user.linkedin  is not null %}
+                             
+                        {% else %}
+    
+                        <p>Aucuns réseaux connu.</p>
+
+                        {% endif %}#}
+                        
 
                         {% if user.facebook is not null %}
                           <figure>
@@ -68,6 +80,8 @@
                             </figure>
                         {% endif %}
 
+
+                  
 
                     </div>
 

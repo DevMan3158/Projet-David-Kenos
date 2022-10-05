@@ -92,9 +92,7 @@ header #containerBottom #test1 figure {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-header #containerBottom #test1 figure img {
-  width: 50%;
+  width: 150px;
 }
 * {
   font-family: 'Montserrat', sans-serif;
@@ -102,8 +100,8 @@ header #containerBottom #test1 figure img {
 p {
   color: #141414;
   font-weight: 600;
+  width: 100%;
   font-size: clamp(0.3125rem, 0.8743rem, 3rem);
-  width: inherit;
 }
 body {
   display: flex;
@@ -124,13 +122,13 @@ body {
   height: min-content;
 }
 #head #mobile figure {
-  width: 60px;
+  width: 50px;
 }
 #head #mobile a {
   text-decoration: none;
 }
 #head #mobile a i {
-  font-size: 30px;
+  font-size: 20px;
   color: #333333;
 }
 .container_command {

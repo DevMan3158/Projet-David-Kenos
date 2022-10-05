@@ -19,7 +19,6 @@
 #container_posts .posts {
   position: relative;
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   width: 98%;
   padding: 35px;
@@ -38,29 +37,31 @@
   font-size: 0.9rem;
 }
 #container_posts .posts figure {
+  display: flex;
   width: 20%;
+  align-items: flex-start;
+  justify-content: center;
 }
 #container_posts .posts figure img {
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  width: 90px;
+  height: 90px;
 }
 #container_posts .posts .contenues {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: -webkit-fill-available;
-  margin-left: 35px;
+  width: 70%;
 }
 #container_posts .posts .contenues #contenues_img {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  margin: 10px 0px;
+  margin: 10px 0px 20px 2px;
 }
 #container_posts .posts .contenues #contenues_img img {
-  width: 30%;
+  width: 60%;
   margin: 5px 10px 5px 0px;
 }
 #container_posts .posts .contenues p > span {
@@ -99,7 +100,7 @@
 #container_posts #container_com {
   background-color: #EFEFEF;
   flex-direction: column;
-  display: none;
+  display: flex;
   align-items: flex-start;
   width: 98%;
   padding: 25px 40px;
@@ -141,12 +142,11 @@
 #container_posts .commentaire {
   background-color: #C4D4D3;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 0.5rem;
   border-radius: 10px;
   width: 65%;
   /* height: 80px; */
-  justify-content: center;
   padding: 15px;
   margin: 10px 0px 15px 0px;
   text-align: left;
@@ -156,12 +156,14 @@
 }
 #container_posts .commentaire figure {
   display: flex;
-}
-#container_posts .commentaire figure img {
+  width: 50px;
+  height: 40px;
+  /* height: 30px; */
+  align-items: flex-start;
+  justify-content: center;
   border-radius: 50%;
   margin: 0px 10px 0px 0px;
-  width: 70px;
-  height: 30px;
+  overflow: hidden;
 }
 #container_posts .com_box_droite {
   display: flex;
@@ -171,12 +173,11 @@
 #container_posts .com_box_droite .commentaire2 {
   background-color: #8EB0AF;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 0.5rem;
   border-radius: 10px;
   width: 65%;
   /* height: 80px; */
-  justify-content: center;
   padding: 15px;
   text-align: left;
 }
@@ -185,10 +186,12 @@
 }
 #container_posts .com_box_droite .commentaire2 figure {
   display: flex;
-}
-#container_posts .com_box_droite .commentaire2 figure img {
-  width: 70px;
-  height: 30px;
+  width: 50px;
+  height: 40px;
+  /* height: 30px; */
+  align-items: flex-start;
+  justify-content: center;
   border-radius: 50%;
   margin: 0px 10px 0px 0px;
+  overflow: hidden;
 }

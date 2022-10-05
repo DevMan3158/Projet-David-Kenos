@@ -20,15 +20,7 @@ class CommentaireType extends AbstractType
     {
         $builder
           
-        ->add('user', EntityType::class, [
-            'required' => true,
-            'class' => User::class,
-            'query_builder' => function (UserRepository $er) {
-                return $er->createQueryBuilder('c');
-            },
-            'choice_label' => 'nom',
-            'label' => 'Utlisateur',
-            ])
+
             ->add('contenu', TextType::class, [
                 'required' => true,
                 'label' => "Commentaire ",
@@ -43,20 +35,7 @@ class CommentaireType extends AbstractType
 
                 ]
             ])
-
-
-
-
             
-            ->add('post', EntityType::class, [
-            'required' => true,
-            'class' => Post::class,
-            'query_builder' => function (PostRepository $er) {
-                return $er->createQueryBuilder('c');
-            },
-            'choice_label' => 'contenu',
-            'label' => 'Post',
-            ])
                 ;
             }
 

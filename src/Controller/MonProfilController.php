@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Entity\CatPost;
 use App\Entity\Commentaire;
+use App\Form\CommentaireType;
 use App\Repository\PostRepository;
 use App\Repository\CatPostRepository;
 use Doctrine\ORM\PersistentCollection;
@@ -22,36 +23,34 @@ class MonProfilController extends AbstractController
 {
 
 
-    #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET']) ]
+    #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
     
-    public function profil($id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire ): Response
+    public function profil(Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire ): Response
 {
     //$commentaire = $commentaireRepository->findAll($post);
 
-return $this->render('user/profil_view/index.html.twig', [
-    
-   /* 'nbCom' => $commentaire,
-    'nbLike' => $like,*/
-    "post"=> $post->findByUser($user),
-    "com" => $commentaireRepository->findByUser($user),
-    //"commentaire" => $commentaire,
-    //"cat"=> $catPostRepository->findById($user),
-    "user"=> $user,
+    $commentaire = new Commentaire();
+    $form = $this->createForm(CommentaireType::class, $commentaire);
+    $form->handleRequest($request);
+    $commentaire->setCreatedAt(new \DateTimeImmutable());
 
-   /* #[Route('utilisateur/profil/{id}', name: 'app_mon_profil', methods:['GET']) ]
-    
-            public function index(Request $request, $id,ManagerRegistry $doctrine, UserRepository $userRepository, PostRepository $postRepository, LikeRepository $likeRepository, CommentaireRepository $commentaireRepository ): Response
-    {
-        $user = $this->getUser();
-        $post = $postRepository->findAll($user);
-        
-        return $this->render('user/profil_view/index.html.twig', [
-            'nbCom' => $commentaireRepository ->findAllWithCom(),
-            'nbLike' => $likeRepository ->findAllWithLike(),
-            "post"=> $post,
-            "user"=> $user,*/
 
+    if ($form->isSubmitted() && $form->isValid()) {
+        $commentaireRepository->add($commentaire, true);
+        return $this->redirectToRoute('app_profil', [], Response::HTTP_SEE_OTHER);
+    }
+
+    return $this->renderForm('user/profil_view/index.html.twig', [
+        'commentaire' => $commentaire,
+        'form' => $form,
+        "post"=> $post->findByUser($user),
+        "com" => $commentaireRepository->findByUser($user),
+        "user"=> $user,
 
     ]);
 }
 }
+
+
+
+    

@@ -64,22 +64,33 @@
 {#///////////////////////Templates-Commentaires////////////////////#}
     <div id="container_com" > 
 
-        <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
+        {#<textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
+        
 
-        <button id="CloseCom" onClick="closeMenu()">Publier</button>
+        <button id="CloseCom" onClick="closeMenu()">Publier</button>#}
+        {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
 
 
         <h3>Les commentaires existants</h3>
 
-    {% for comment in posts.commentaires %} 
+    
 
-       
+     {% for comment in posts.commentaires %}   
 
         <div class="com_box">
 
+
+    
+
             <div class="commentaire">
                 <figure>
+               
                 <img src="../{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
+               
                 </figure>
 
             
@@ -89,23 +100,22 @@
             </div>
 
         </div>
+        {% endfor %}
         
-
         <div class="com_box_droite">
 
               <div class="commentaire2">
               
                 <figure>
-                  <img src="../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                  <img src="../{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
                 </figure>
 
-                    <p>Droite, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ab aspernatur ipsa vitae, totam
-                    consectetur eligendi debitis!.</p>
+                    <p></p>
              </div>
 
         </div>
 
-    {% endfor %}
+   
 
     </div>
 

@@ -18,11 +18,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MonProfilController extends AbstractController
 {
-    #[Route('utilisateur/profil', name: 'app_mon_profil', methods:['GET']) ]
+    #[Route('utilisateur/profil/{id}', name: 'app_mon_profil', methods:['GET']) ]
     
-            public function index(Request $request,ManagerRegistry $doctrine, UserRepository $userRepository, PostRepository $postRepository, LikeRepository $likeRepository, CommentaireRepository $commentaireRepository ): Response
+            public function index(Request $request, $id,ManagerRegistry $doctrine, UserRepository $userRepository, PostRepository $postRepository, LikeRepository $likeRepository, CommentaireRepository $commentaireRepository ): Response
     {
-        $user = $this->getUser()->getUserIdentifier();
+        $user = $this->getUser();
         $post = $postRepository->findAll($user);
         
         return $this->render('user/profil_view/index.html.twig', [

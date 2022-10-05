@@ -11,49 +11,30 @@
   display: flex;
   justify-content: center;
   height: 70%;
+  width: 100%;
   border-bottom: solid 5px #F2BF2C;
 }
 #container_bandeau figure img {
-  width: 100%;
+  border: solid 1px black;
 }
 #container_bandeau #Conteneur_Logo_Usr {
   position: absolute;
   display: flex;
-  /* justify-content: center; */
-  /* right: 40.5%; */
-  /* border-radius: 50%; */
-  top: 120px;
-  border-bottom: solid #dfdfdf00;
   align-items: center;
   flex-direction: column;
+  top: 54%;
+  width: 140px;
+  height: 140px;
+  border-bottom: solid #dfdfdf00;
 }
 #container_bandeau #Conteneur_Logo_Usr img {
-  width: 70%;
-  height: 80%;
   border-radius: 50%;
   border: solid 10px white;
 }
-/*h1 {
-
-        font-size: clamp(0.625rem, 2.2rem, 3rem);
-        letter-spacing: 1px;
-        margin: 0px 0px;
-        width: 100%;
-        text-align: center;
-        color: @clr-pol4;
-    }
-
-    h1>span {
-
-        font-weight: 200;
-
-
-    }*/
 #container_general {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0px 0px 0px 0px;
   width: 93%;
 }
 #container_general #container_carte {
@@ -148,7 +129,6 @@
 #container_general #container_posts .posts {
   position: relative;
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   width: 98%;
   padding: 35px;
@@ -167,29 +147,31 @@
   font-size: 0.9rem;
 }
 #container_general #container_posts .posts figure {
+  display: flex;
   width: 20%;
+  align-items: flex-start;
+  justify-content: center;
 }
 #container_general #container_posts .posts figure img {
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  width: 90px;
+  height: 90px;
 }
 #container_general #container_posts .posts .contenues {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: -webkit-fill-available;
-  margin-left: 35px;
+  width: 70%;
 }
 #container_general #container_posts .posts .contenues #contenues_img {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  margin: 10px 0px;
+  margin: 10px 0px 20px 2px;
 }
 #container_general #container_posts .posts .contenues #contenues_img img {
-  width: 30%;
+  width: 60%;
   margin: 5px 10px 5px 0px;
 }
 #container_general #container_posts .posts .contenues p > span {
@@ -228,7 +210,7 @@
 #container_general #container_posts #container_com {
   background-color: #EFEFEF;
   flex-direction: column;
-  display: none;
+  display: flex;
   align-items: flex-start;
   width: 98%;
   padding: 25px 40px;
@@ -270,12 +252,11 @@
 #container_general #container_posts .commentaire {
   background-color: #C4D4D3;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 0.5rem;
   border-radius: 10px;
   width: 65%;
   /* height: 80px; */
-  justify-content: center;
   padding: 15px;
   margin: 10px 0px 15px 0px;
   text-align: left;
@@ -285,12 +266,14 @@
 }
 #container_general #container_posts .commentaire figure {
   display: flex;
-}
-#container_general #container_posts .commentaire figure img {
+  width: 50px;
+  height: 40px;
+  /* height: 30px; */
+  align-items: flex-start;
+  justify-content: center;
   border-radius: 50%;
   margin: 0px 10px 0px 0px;
-  width: 70px;
-  height: 30px;
+  overflow: hidden;
 }
 #container_general #container_posts .com_box_droite {
   display: flex;
@@ -300,12 +283,11 @@
 #container_general #container_posts .com_box_droite .commentaire2 {
   background-color: #8EB0AF;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 0.5rem;
   border-radius: 10px;
   width: 65%;
   /* height: 80px; */
-  justify-content: center;
   padding: 15px;
   text-align: left;
 }
@@ -314,12 +296,14 @@
 }
 #container_general #container_posts .com_box_droite .commentaire2 figure {
   display: flex;
-}
-#container_general #container_posts .com_box_droite .commentaire2 figure img {
-  width: 70px;
-  height: 30px;
+  width: 50px;
+  height: 40px;
+  /* height: 30px; */
+  align-items: flex-start;
+  justify-content: center;
   border-radius: 50%;
   margin: 0px 10px 0px 0px;
+  overflow: hidden;
 }
 #container_general #container_btn {
   display: flex;

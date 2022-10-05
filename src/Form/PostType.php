@@ -19,14 +19,13 @@ class PostType extends AbstractType
         $builder
             ->add('contenu', TextType::class, [
                 'required' => true,
-                'label' => "Contenu ",
-                'attr' => ['class' => 'input_Reg_Form'],
+                'label' => "Contenu",
 
                 'constraints' =>
                 
                 [
                     new NotBlank([
-                       'message' => 'Veuillez saisir un poste'
+                       'message' => 'Veuillez saisir un Contenu'
                     ]),
 
                 ]

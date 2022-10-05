@@ -78,20 +78,39 @@
                 font-family: @fontM;
                 padding: 15px;
                 font-weight: 600;
+               
             }
 
             input {
                 padding: 10px;
-                border-left: none;
-                border-right: none;
-                border-top: none;
-                border-bottom: none;
+                border: solid  0.5px #44519b00;
+                transition: @trt;
+                border-radius: 2px;
+                &:hover
+                {
+                    border: solid  0.5px #44519b;
+                }
             }
 
 
             select
             {
+                border-radius: 2px;
+                transition: @trt;
                 padding: 10px;
+                border: solid  0.5px #44519b00;
+                
+                &:hover
+                {
+                    border: solid  0.5px #44519b;
+                }
+
+                option{
+                    background-color: #efefef00;
+                    color: @clr-pol4;
+                    font-size: 0.9rem;
+                    
+                }
             }
 
         }

@@ -1,0 +1,37 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Bienvenue sur la partie admin!{% endblock %}
+
+{% block body %}
+
+<section>
+
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h4>Gérer les posts</h4>
+    </div>
+
+    <table>      
+            <tr>
+                <th>Contenu</th>
+                <td>{{ post.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Image post</th>
+                <td>{{ post.imagePost }}</td>
+            </tr>
+            <tr>
+                <th>Image post alt</th>
+                <td>{{ post.imagePostAlt }}</td>
+            </tr>
+            <tr>
+                <th>Créer </th>
+                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+     
+    </table>
+
+    <a href="{{ path('app_post_index') }}">Retour à la liste</a>
+
+    </section>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Bienvenue sur la partie admin!{% endblock %}
+
+{% block body %}
+   <section>
+
+
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h4> 
+            Gérer les Actualités
+        </h4>
+    </div>
+
+    <table >
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ actualite.id }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ actualite.contenu |length > 50 ? actualite.contenu |slice(0, 50) ~ '...' : actualite.contenu  }}</td>
+            </tr>
+            <tr>
+                <th>Image actu</th>
+                <td>{{ actualite.imageActu }}</td>
+            </tr>
+            <tr>
+                <th>Image actu alt</th>
+                <td>{{ actualite.imageActuAlt }}</td>
+            </tr>
+            <tr>
+                <th>Créer</th>
+                <td>{{ actualite.cratedAt ? actualite.cratedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_actualite_index') }}">Retour à la liste</a>
+
+   
+  </section>
+{% endblock %}

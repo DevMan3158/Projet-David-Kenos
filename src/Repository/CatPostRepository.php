@@ -39,6 +39,8 @@ class CatPostRepository extends ServiceEntityRepository
         }
     }
 
+    //Permet de compter le nombre de cat avec l'id 
+
     public function countCat(){
         $qb = $this->createQueryBuilder('cat')
             ->select('count(cat.id)');

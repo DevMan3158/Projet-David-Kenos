@@ -25,309 +25,262 @@
 @media (max-width: 656px) {
 
     //CONTAINER BANDEAU TOP,CARTE DESCRIPTIVE, POSTS, BOUTONS// 
+    
     .container_command {
         overflow-y: visible;
-        display: flex;
         align-items: center;
         flex-direction: column;
         width: 100%;
-        //border: solid 4px rgb(255, 0, 242);
 
         /////////////////////CHARGE LE MODULE LEADERBOARD/////////////////////
         //@import '../éléments/leaderboard.less';
+
         #container_bandeau {
-            position: relative;
-            display: flex;
-            justify-content: flex-start;
-            flex-direction: column;
-            width:95%;
+            width: 99%;
             height: 33%;
-            //background-color: @bgd_bgr_w;
-            //border: solid 3px rgb(0, 30, 255);
 
-            figure {
-                display: flex;
-                justify-content: center;
-                height: 81%;
-                border-bottom: solid 5px @bgd_btn3;
-                //background-color: @bgd_bgr_w;
-
-                img {
-                    width: 100%;
-                    //border: solid 1px black;
-                }
-            }
 
             #Conteneur_Logo_Usr {
-                position: absolute;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                height: 60%;
-                right: 36.5%;
-                top: 50px;
-                border-style: inset;
-                border: solid 5px white;
-
+                top: 115px;
+                width: 90px;
+                height: 90px;
                 img {
-                    width: 95%;
-                    height: 33%;
-                    border-radius: 50%;
-                    //border: solid 1px black;
+                    border: solid 5px white;
                 }
+
             }
+
         }
+            //CONTAINER CARTE DESCRIPTIVE, POSTS, BOUTONS// 
 
-        //CONTAINER CARTE DESCRIPTIVE, POSTS, BOUTONS// 
-
-        #container_general {
-            display: flex;
-            flex-direction: column-reverse;
-            justify-content: center;
-            align-items: center;
-            margin: 0px 0px 0px 0px;
-            width: 100%;
-            //border: solid 2px black;
-
-            /////////////////////CHARGE LE MODULE CARTE DESCRIPTIVE/////////////
-            //@import '../éléments/carte_desc.less';
-            #container_carte {
-                display: flex;
+            #container_general {
+                flex-direction: column-reverse;
                 justify-content: center;
                 align-items: center;
                 width: 100%;
-                margin: 25px 0px;
-                //border: solid 2px rgb(255, 0, 0);
+    
 
-                .carte {
+                /////////////////////CHARGE LE MODULE CARTE DESCRIPTIVE/////////////
+                //@import '../éléments/carte_desc.less';
+                #container_carte {
                     display: flex;
-                    flex-direction: column;
                     justify-content: center;
-                    padding: 20px 20px 20px 20px;
-                    width: 90%;
-                    background-color: @bgd_bgr_w;
-                    border-bottom: solid 2px @bgd_btn3;
+                    align-items: center;
+                    width: 100%;
+                    margin: 25px 0px;
 
-                    h1 {
-                        font-weight: 200;
-                        color: @clr-pol4;
-                        text-transform: uppercase;
-                        margin: 0px 0px 0px 0px;
-                        font-size: clamp(0.625rem, 1.0886rem, 3rem);
-                    }
 
-                    h1>span {
-                        font-family: @fontP;
-                        font-style: oblique;
-                        text-transform: none;
-                    }
-
-                    p>span {
-                        color: @bgd_btn1;
-                        font-weight: 600;
-                    }
-
-                    .logo {
+                    .carte {
                         display: flex;
-                        flex-direction: row;
-                        align-items: center;
+                        flex-direction: column;
                         justify-content: center;
-                        margin: 35px 0px 35px 0px;
-                        width: 100%;
+                        padding: 20px 20px 20px 20px;
+                        width: 90%;
+                        background-color: @bgd_bgr_w;
+                        border-bottom: solid 2px @bgd_btn3;
 
-                        figure {
+                        h1 {
+                            font-weight: 200;
+                            color: @clr-pol4;
+                            text-transform: uppercase;
+                            margin: 0px 0px 0px 0px;
+                            font-size: clamp(0.625rem, 1.0886rem, 3rem);
+                        }
+
+                        h1>span {
+                            font-family: @fontP;
+                            font-style: oblique;
+                            text-transform: none;
+                        }
+
+                        p>span {
+                            color: @bgd_btn1;
+                            font-weight: 600;
+                        }
+
+                        .logo {
                             display: flex;
-                            flex-direction: column;
-                            justify-content: center;
+                            flex-direction: row;
                             align-items: center;
-                            border: solid 3px @bgd_btn3;
-                            border-radius: 50%;
-                            margin: 0px 10px 0px 10px;
-                            width: 53px;
-                            height: 40px;
+                            justify-content: center;
+                            margin: 35px 0px 35px 0px;
+                            width: 100%;
 
-                            i {
-                                font-size: 1.2rem;
+                            figure {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                border: solid 3px @bgd_btn3;
+                                border-radius: 50%;
+                                margin: 0px 10px 0px 10px;
+                                width: 53px;
+                                height: 40px;
 
+                                i {
+                                    font-size: 1.2rem;
+
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            /////////////////////CHARGE LE MODULE POST//////////////////////////
-            //@import '../éléments/post.less';
-            #container_posts {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 15px;
-                margin: 10px 0px;
-                width: 100%;
-                //border: solid 3px rgb(38, 255, 0);
+                /////////////////////CHARGE LE MODULE POST//////////////////////////
+                //@import '../éléments/post.less';
+                #container_posts {
+                    padding: 15px;
+                    margin: 10px 0px;
+                    width: 100%;
 
-                h1 {
-                    margin: 0px 0px;
-                    letter-spacing: 1px;
-                    font-size: clamp(0.625rem, 1.1586rem, 3rem);
-                    width: -webkit-fill-available;
-                    color: @clr-pol4;
-                }
 
-                h1>span {
-                    font-weight: 200;
-                }
-
-                .posts {
-                    display: flex;
-                    flex-direction: column;
-                    align-content: center;
-                    justify-content: center;
-                    width: 90vw;
-                    padding: 17px;
-                    margin: 16px 0px;
-                    background-color: @bgd_bgr_w;
-                    //border: solid 2px rgb(255, 34, 0);;
-                    filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
-
-                    figure {
-                        width: 25%;
-
-                        img {
-                            border-radius: 50%;
-                        }
+                    h1 {
+                        margin: 0px 0px;
+                        font-size: clamp(0.625rem, 1.1586rem, 3rem);
                     }
 
-                    .contenues {
-                        display: flex;
+                    .posts {
                         flex-direction: column;
-                       
-                        text-align: left;
-                        width: -webkit-fill-available;
-                        margin: 10px 0px;
+                        align-content: center;
+                        justify-content: center;
+                        width: 90vw;
+                        padding: 17px;
+                        margin: 16px 0px;
+                        filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
 
-                        
-                        #contenues_img {
+                        figure {
+                    
+
+                            img {
+                                border-radius: 50%;
+                            }
+                        }
+
+                        .contenues {
                             display: flex;
-                            flex-direction: row;
-                            justify-content: flex-start;
-                            flex-wrap: wrap;
+                            flex-direction: column;
+                            text-align: left;
+                            width: -webkit-fill-available;
                             margin: 10px 0px;
 
 
-                            img {
-                                width: 40%;
-                                margin: 5px 10px 5px 0px;
-                            }
-                        }
-                        
-                        p>span {
-                            font-weight: 200;
-                        }
+                            #contenues_img {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-start;
+                                flex-wrap: wrap;
+                                margin: 10px 0px;
 
-                        
-                        h3 {
-                            
-                            margin: 0px;
-                            text-align: left;
-                            font-weight: 200;
-                            text-transform: uppercase;
-                            letter-spacing: 2px;
-                            font-size: 20px;
-                        }
 
-                        h3>span {
-
-                            font-family: @fontP;
-                            font-weight: 200;
-                            font-style: italic;
-                            text-transform: none;
-                        }
-
-                        .colorP {
-                            font-size: 0.7rem;
-                            color: @clr-btn1;
-                            text-transform: none;
-                        }
-                        
-                        .comments {
-                        
-                            margin: 15px 0px 0px 0px;
-
-                            i {
-                                font-size: small;
-                                font-weight: 500;
-                                color: #314090;
+                                img {
+                                    width: 40%;
+                                    margin: 5px 10px 5px 0px;
+                                }
                             }
 
-                            a {
-                                margin: 0px 30px 0px 0px;
-                                font-size: 0.8rem;
-                                font-weight: 600;
-                                color: #314090;
+                            p>span {
+                                font-weight: 200;
+                            }
+
+
+                            h3 {
+
+                                margin: 0px;
+                                text-align: left;
+                                font-weight: 200;
+                                text-transform: uppercase;
+                                letter-spacing: 2px;
+                                font-size: 20px;
+                            }
+
+                            h3>span {
+
+                                font-family: @fontP;
+                                font-weight: 200;
+                                font-style: italic;
+                                text-transform: none;
+                            }
+
+                            .colorP {
+                                font-size: 0.7rem;
+                                color: @clr-btn1;
+                                text-transform: none;
+                            }
+
+                            .comments {
+
+                                margin: 15px 0px 0px 0px;
+
+                                i {
+                                    font-size: small;
+                                    font-weight: 500;
+                                    color: #314090;
+                                }
+
+                                a {
+                                    margin: 0px 30px 0px 0px;
+                                    font-size: 0.8rem;
+                                    font-weight: 600;
+                                    color: #314090;
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            /////////////////////CHARGE LE MODULE BOUTONS///////////////////////
-            //@import '../éléments/btn.less';
+                /////////////////////CHARGE LE MODULE BOUTONS///////////////////////
+                //@import '../éléments/btn.less';
 
-            #container_btn {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                width: 70%;
-            
-                //border: solid 2px black;
+                #container_btn {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 70%;
 
+                    span>a {
+                        background-color: @bgd_btn1;
 
-            span>a {
-                background-color: @bgd_btn1;
+                    }
 
-            }
+                    a {
+                        border-radius: 9px;
+                        text-align: center;
+                        list-style: none;
+                        background-color: @bgd_bgr1;
+                        margin: 10px 0px 7px 0px;
+                        padding: 15px 15px;
+                        width: 100%;
+                    }
 
-            a {
-                border-radius: 9px;
-                text-align: center;
-                list-style: none;
-                background-color: @bgd_bgr1;
-                margin: 10px 0px 7px 0px;
-                padding: 15px 15px;
-                width: 100%;
-            }
+                    .btn {
+                        font-size: 1rem;
+                        background-color: @bgd_bgr1;
+                        font-weight: bold;
+                        color: #ffffff;
+                        transition: @trt;
 
-            .btn {
-                font-size: 1rem;
-                background-color: @bgd_bgr1;
-                font-weight: bold;
-                color: #ffffff;
-                transition: @trt;
+                        &:hover {
+                            color: (@bgd_btn3);
+                        }
+                    }
 
-                &:hover {
-                    color: (@bgd_btn3);
+                    .btn2 {
+                        font-size: 1rem;
+                        background-color: @bgd_btn1;
+                        font-weight: bold;
+                        color: @clr-pol2;
+                        transition: @trt;
+
+                        &:hover {
+                            color: (@bgd_btn2);
+                        }
+                    }
+
                 }
-            }
 
-            .btn2 {
-                font-size: 1rem;
-                background-color: @bgd_btn1;
-                font-weight: bold;
-                color: @clr-pol2;
-                transition: @trt;
-
-                &:hover {
-                    color: (@bgd_btn2);
-                }
-            }
 
             }
-
-            
         }
     }
-}
 
-@media (max-width: 300px) {}
+    @media (max-width: 300px) {}

@@ -39,6 +39,18 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
+    //Requête permettent le calcul dans le controller 
+
+    public function findAllPost($perPage, $firstObj){
+        $query = $this->createQueryBuilder('p')
+            ->setMaxResults($perPage)
+            ->setFirstResult($firstObj);
+        return $query->getQuery()->getResult();
+    }
+
+
+    //Permet de compter le nombre de post avec l'id 
+
     public function countPost(){
         $qb = $this->createQueryBuilder('p')
             ->select('count(p.id)');

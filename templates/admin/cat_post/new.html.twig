@@ -1,0 +1,18 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Ajout catégorie{% endblock %}
+
+{% block body %}
+<section>
+
+    <div class="titleBurger">
+        <i class="fa-solid fa-bars" onClick="openMenu2()" id="burger2"></i>
+        <h1>Ajouter une nouvelle catégories</h1>
+    </div>
+
+    {{ include('admin/cat_post/_form.html.twig') }}
+
+    <a href="{{ path('app_cat_post_index') }}">Retour à la liste</a>
+    
+    </section>
+{% endblock %}

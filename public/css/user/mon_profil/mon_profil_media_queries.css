@@ -7,50 +7,26 @@
 @media (max-width: 656px) {
   .container_command {
     overflow-y: visible;
-    display: flex;
     align-items: center;
     flex-direction: column;
     width: 100%;
   }
   .container_command #container_bandeau {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    width: 95%;
+    width: 99%;
     height: 33%;
-  }
-  .container_command #container_bandeau figure {
-    display: flex;
-    justify-content: center;
-    height: 81%;
-    border-bottom: solid 5px #F2BF2C;
-  }
-  .container_command #container_bandeau figure img {
-    width: 100%;
   }
   .container_command #container_bandeau #Conteneur_Logo_Usr {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 60%;
-    right: 36.5%;
-    top: 50px;
-    border-style: inset;
-    border: solid 5px white;
+    top: 115px;
+    width: 90px;
+    height: 90px;
   }
   .container_command #container_bandeau #Conteneur_Logo_Usr img {
-    width: 95%;
-    height: 33%;
-    border-radius: 50%;
+    border: solid 5px white;
   }
   .container_command #container_general {
-    display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    margin: 0px 0px 0px 0px;
     width: 100%;
   }
   .container_command #container_general #container_carte {
@@ -108,37 +84,22 @@
     font-size: 1.2rem;
   }
   .container_command #container_general #container_posts {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 15px;
     margin: 10px 0px;
     width: 100%;
   }
   .container_command #container_general #container_posts h1 {
     margin: 0px 0px;
-    letter-spacing: 1px;
     font-size: clamp(0.625rem, 1.1586rem, 3rem);
-    width: -webkit-fill-available;
-    color: #333333;
-  }
-  .container_command #container_general #container_posts h1 > span {
-    font-weight: 200;
   }
   .container_command #container_general #container_posts .posts {
-    display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
     width: 90vw;
     padding: 17px;
     margin: 16px 0px;
-    background-color: #ffffff;
     filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
-  }
-  .container_command #container_general #container_posts .posts figure {
-    width: 25%;
   }
   .container_command #container_general #container_posts .posts figure img {
     border-radius: 50%;

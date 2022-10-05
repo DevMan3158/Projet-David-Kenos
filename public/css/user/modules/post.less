@@ -8,7 +8,6 @@
     flex-direction: column;
     align-items: center;
     width: 50%;
-    //border: solid 3px rgb(255, 0, 0);
     justify-content: center;
     padding: 25px 0px;
 
@@ -32,13 +31,12 @@
     .posts {
         position: relative;
         display: flex;
-        flex-direction: row;
+        //flex-direction: row;
         justify-content: flex-start;
         width: 98%;
         padding: 35px;
         margin: 16px 0px;
         background-color: @bgd_bgr_w;
-        //border: solid 2px rgb(255, 34, 0);
         filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
 
 
@@ -55,13 +53,15 @@
 
 
         figure {
+            display: flex;
             width: 20%;
-
+            align-items: flex-start;
+            justify-content: center;
 
             img {
                 border-radius: 50%;
-                height: 100px;
-                width: 100px;
+                width: 90px;
+                height: 90px;
             }
         }
 
@@ -69,19 +69,19 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: -webkit-fill-available;
-            margin-left: 35px;
+            width: 70%;
+            //margin-left: 35px;
 
             #contenues_img {
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
                 flex-wrap: wrap;
-                margin: 10px 0px;
+                margin: 10px 0px 20px 2px;
 
 
                 img {
-                    width: 30%;
+                    width: 60%;
                     margin: 5px 10px 5px 0px;
                 }
 
@@ -142,7 +142,8 @@
     #container_com {
         background-color: #EFEFEF;
         flex-direction: column;
-        display: none;
+        //display: none;
+        display: flex;
         align-items: flex-start;
         width: 98%;
         padding: 25px 40px;
@@ -201,12 +202,12 @@
         .commentaire {
             background-color: #C4D4D3;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             font-size: 0.5rem;
             border-radius: 10px;
             width: 65%;
             /* height: 80px; */
-            justify-content: center;
+            //align-items: flex-start;
             padding: 15px;
             margin: 10px 0px 15px 0px;
             text-align: left;
@@ -217,15 +218,14 @@
 
             figure {
                 display: flex;
-                
-
-                img {
-                    border-radius: 50%;
-                    margin: 0px 10px 0px 0px;
-                    width: 70px;
-                    height: 30px
-                }
-
+                width: 50px;
+                height: 40px;
+                /* height: 30px; */
+                align-items: flex-start;
+                justify-content: center;
+                border-radius: 50%;
+                margin: 0px 10px 0px 0px;
+                overflow: hidden;
             }
         }
 
@@ -239,12 +239,12 @@
             .commentaire2 {
                 background-color: #8EB0AF;
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 font-size: 0.5rem;
                 border-radius: 10px;
                 width: 65%;
                 /* height: 80px; */
-                justify-content: center;
+                //justify-content: center;
                 padding: 15px;
                 text-align: left;
 
@@ -256,15 +256,16 @@
 
                 figure {
                     display: flex;
-                    
+                width: 50px;
+                height: 40px;
+                /* height: 30px; */
+                align-items: flex-start;
+                justify-content: center;
+                border-radius: 50%;
+                margin: 0px 10px 0px 0px;
+                overflow: hidden;
 
 
-                    img {
-                        width: 70px;
-                        height: 30px;
-                        border-radius: 50%;
-                        margin: 0px 10px 0px 0px;
-                    }
                 }
             }
 

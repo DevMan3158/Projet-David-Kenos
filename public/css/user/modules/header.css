@@ -92,7 +92,5 @@ header #containerBottom #test1 figure {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-header #containerBottom #test1 figure img {
-  width: 50%;
+  width: 150px;
 }

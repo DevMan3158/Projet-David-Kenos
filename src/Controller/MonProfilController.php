@@ -28,28 +28,28 @@ class MonProfilController extends AbstractController
     
     public function profil(Post $posts, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire ): Response
 {
-    //$commentaire = $commentaireRepository->findAll($post);
-
+    /*//$commentaire = $commentaireRepository->findAll($post);
+    $postCom = ($_GET["idPost"]);
     //On appel l'entité commentaire
     $commentaire = new Commentaire();
     //On appel le formulaire 
     $form = $this->createForm(CommentaireType::class, $commentaire);
     
     $form->handleRequest($request);
+    $userId = $this->getUser();
 
     //On remplie les champs non null 
     $commentaire->setCreatedAt(new \DateTimeImmutable());
-    $commentaire->setUser($user);
-    $commentaire->setPost($posts);
+    $commentaire->setUser($userId);
+    $commentaire->setPost(($_GET["idPost"]));
 
     if ($form->isSubmitted() && $form->isValid()) {
         $commentaireRepository->add($commentaire, true);
-        
-    }
+    }*/
 
     return $this->renderForm('user/profil_view/index.html.twig', [
         'commentaire' => $commentaire,
-        'form' => $form,
+        //'form' => $form,
         "post"=> $post->findByUser($user),
         "com" => $commentaireRepository->findByUser($user),
         "user"=> $user,

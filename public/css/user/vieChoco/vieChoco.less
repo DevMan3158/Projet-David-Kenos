@@ -46,11 +46,36 @@
             padding: 15px 50px;
             background-color: @bgd_btn3;
             font-weight: 600;
+            transition: 0.2s;
 
             &:hover {
                 background-color: @bgd;
             }
         }
+
+        label{
+
+            cursor: pointer;
+
+
+            input{
+
+
+
+                display: none;
+
+                
+                &:checked ~ li{
+                    background-color: @bgd_bgr1;
+                    color: white;
+                    transform: scale(1.02);
+                    border-top: 5px solid white;
+                }
+            }
+
+        }
+
+    
     }
 
     .container_amis {

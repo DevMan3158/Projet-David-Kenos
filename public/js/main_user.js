@@ -53,6 +53,52 @@ function getId(obj){
       }
   }
 }
+
+// Fonction qui permet de cocher tous les filtres si "Tous les post" est activé.
+
+function gBox(nbCheck){
+
+allInput = document.querySelectorAll('.active');
+
+  if(document.getElementById(nbCheck).checked == true){
+
+    allInput.forEach(element => {
+      element.checked = true;
+    });
+
+  }
+  else if(document.getElementById(nbCheck).checked == false){
+
+    allInput.forEach(element => {
+      element.checked = false;
+    });
+
+  }
+}
+
+// Fonction qui coche "tous les posts" si tous les filtres sont activés.
+
+function allBox(active){
+
+
+  let allInput = document.querySelectorAll(active);
+
+ if(Array.from(allInput).every(n => n.checked == true)){
+
+  document.querySelector('#firstLi').checked = true;
+  
+  } else {
+
+    document.querySelector('#firstLi').checked = false;
+
+  }
+  
+}
+
+/*const nums = [34, 2, 48, 91, 12, 32];
+let i = nums.every(n => n < 100);
+console.log(i);*/
+
   
 
 /*function openMenu(){

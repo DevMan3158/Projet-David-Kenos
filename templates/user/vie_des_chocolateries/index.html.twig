@@ -44,10 +44,24 @@
 <nav class="menu_cat">
 
     <ul>
-        <li>Tout les posts</li>
+
+    <label  for="firstLi">
+            <input type="checkbox" id="firstLi" onClick="gBox('firstLi')" />
+            <li class="label">
+                Tout les posts
+            </li>
+    </label>
+
     {% for cat in catPost %}
-        
-        <li>{{ cat.nom }}</li>
+
+        <label for="checkbox{{ loop.index }}" >
+                
+                    <input type="checkbox" id="checkbox{{ loop.index }}" class="active" onClick="allBox('.active')">
+                    <li class="label">
+
+                        {{ cat.nom }}
+                    </li>
+        </label>
         
     {% endfor %}
 

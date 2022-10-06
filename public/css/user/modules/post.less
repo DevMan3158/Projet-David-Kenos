@@ -149,7 +149,12 @@
         padding: 25px 40px;
         margin: -14px 0px 0px 0px;
         
-
+        form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
         
 
         textarea {
@@ -193,11 +198,16 @@
 
         h3 {
             width: 100%;
-            margin: 15px 0px 0px 0px;
+            margin: 15px 0px 10px 0px;
 
         }
 
-
+        .com_box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            margin: 0px 0px 15px 0px;
 
         .commentaire {
             background-color: #C4D4D3;
@@ -207,35 +217,49 @@
             border-radius: 10px;
             width: 65%;
             /* height: 80px; */
-            //align-items: flex-start;
             padding: 15px;
-            margin: 10px 0px 15px 0px;
-            text-align: left;
+
+            .contenu{
+                width: 80%;
 
             p {
                 font-size: 0.76rem;
+                font-weight: 100;
+                
             }
 
+
+            }
+
+            
             figure {
-                display: flex;
-                width: 50px;
-                height: 40px;
-                /* height: 30px; */
-                align-items: flex-start;
-                justify-content: center;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 0px 10px 0px 0px;
+            overflow: hidden;
+
+            img{
+                width: 35px;
+                height: 35px;
                 border-radius: 50%;
-                margin: 0px 10px 0px 0px;
-                overflow: hidden;
+            }
+
             }
         }
 
-
+}
 
         .com_box_droite {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+            width: 100%;
+            margin: 0px 0px 15px 0px;
+            
 
+
+       
             .commentaire2 {
                 background-color: #8EB0AF;
                 display: flex;
@@ -244,27 +268,35 @@
                 border-radius: 10px;
                 width: 65%;
                 /* height: 80px; */
-                //justify-content: center;
                 padding: 15px;
-                text-align: left;
+
+                .contenu{
+                    width: 80%;
 
                 p {
                     font-size: 0.76rem;
+                    font-weight: 100;
                     
                     
                 }
 
+
+                }
+
+                
+
                 figure {
-                    display: flex;
-                width: 50px;
-                height: 40px;
-                /* height: 30px; */
+                display: flex;
                 align-items: flex-start;
                 justify-content: center;
-                border-radius: 50%;
                 margin: 0px 10px 0px 0px;
                 overflow: hidden;
 
+                img{
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                }
 
                 }
             }

@@ -58,7 +58,7 @@ class ActualiteRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    // Reqête qui va chercher toutes les actualitées avec la pagination
+    // Requête qui va chercher toutes les actualitées avec la pagination
 
     public function findAllAct($perPage, $firstObj){
         $query = $this->createQueryBuilder('a')

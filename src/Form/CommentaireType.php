@@ -13,6 +13,8 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CommentaireType extends AbstractType
 {
@@ -20,19 +22,11 @@ class CommentaireType extends AbstractType
     {
         $builder
           
-        ->add('user', EntityType::class, [
-            'required' => true,
-            'class' => User::class,
-            'query_builder' => function (UserRepository $er) {
-                return $er->createQueryBuilder('c');
-            },
-            'choice_label' => 'nom',
-            'label' => 'Utlisateur',
-            ])
-            ->add('contenu', TextType::class, [
+        //    ->add('user', HiddenType::class, [])
+            ->add('contenu', TextareaType::class, [
                 'required' => true,
                 'label' => "Commentaire ",
-                'attr' => ['class' => 'input_Reg_Form'],
+                
 
                 'constraints' =>
                 
@@ -43,20 +37,7 @@ class CommentaireType extends AbstractType
 
                 ]
             ])
-
-
-
-
             
-            ->add('post', EntityType::class, [
-            'required' => true,
-            'class' => Post::class,
-            'query_builder' => function (PostRepository $er) {
-                return $er->createQueryBuilder('c');
-            },
-            'choice_label' => 'contenu',
-            'label' => 'Post',
-            ])
                 ;
             }
 
@@ -67,4 +48,3 @@ class CommentaireType extends AbstractType
         ]);
     }
 }
-

@@ -1,6 +1,7 @@
 <section id="container_bandeau">
 
-    {% if app.request.get('_route') == 'app_profil' %}
+{% if app.request.get('_route') == 'app_profil' %}
+ 
 
         <figure id="Conteneur_Logo_Usr">
             <img titre="Logo utilisateur" src="../{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
@@ -19,9 +20,4 @@
         </figure>
 
     {% endif %}
-
-    
-
-
-
 </section>

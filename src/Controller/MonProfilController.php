@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class MonProfilController extends AbstractController
 {
@@ -25,19 +26,25 @@ class MonProfilController extends AbstractController
 
     #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
     
-    public function profil(Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire ): Response
+    public function profil(Post $posts, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire ): Response
 {
     //$commentaire = $commentaireRepository->findAll($post);
 
+    //On appel l'entité commentaire
     $commentaire = new Commentaire();
+    //On appel le formulaire 
     $form = $this->createForm(CommentaireType::class, $commentaire);
+    
     $form->handleRequest($request);
-    $commentaire->setCreatedAt(new \DateTimeImmutable());
 
+    //On remplie les champs non null 
+    $commentaire->setCreatedAt(new \DateTimeImmutable());
+    $commentaire->setUser($user);
+    $commentaire->setPost($posts);
 
     if ($form->isSubmitted() && $form->isValid()) {
         $commentaireRepository->add($commentaire, true);
-        return $this->redirectToRoute('app_profil', [], Response::HTTP_SEE_OTHER);
+        
     }
 
     return $this->renderForm('user/profil_view/index.html.twig', [
@@ -47,20 +54,19 @@ class MonProfilController extends AbstractController
         "com" => $commentaireRepository->findByUser($user),
         "user"=> $user,
 
-   /* #[Route('utilisateur/profil/{id}', name: 'app_mon_profil', methods:['GET']) ]
-    
-            public function index(Request $request, $id,ManagerRegistry $doctrine, UserRepository $userRepository, PostRepository $postRepository, LikeRepository $likeRepository, CommentaireRepository $commentaireRepository ): Response
-    {
-        $user = $this->getUser();
-        $post = $postRepository->findAll($user);
-        
-        return $this->render('user/profil_view/index.html.twig', [
-            'nbCom' => $commentaireRepository ->findAllWithCom(),
-            'nbLike' => $likeRepository ->findAllWithLike(),
-            "post"=> $post,
-            "user"=> $user,*/
-
-
     ]);
+
+    
 }
+
+
+/*#[Route('utilisateur/profil/{id}', name: 'app_profil', methods: ['POST'])]
+public function delete(Request $request, Commentaire $commentaire, CommentaireRepository $commentaireRepository): Response
+{
+    if ($this->isCsrfTokenValid('delete'.$commentaire->getId(), $request->request->get('_token'))) {
+        $commentaireRepository->remove($commentaire, true);
+    }
+}*/
+
+
 }

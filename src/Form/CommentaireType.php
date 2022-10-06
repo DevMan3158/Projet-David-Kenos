@@ -13,6 +13,8 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CommentaireType extends AbstractType
 {
@@ -20,11 +22,11 @@ class CommentaireType extends AbstractType
     {
         $builder
           
-
-            ->add('contenu', TextType::class, [
+        //    ->add('user', HiddenType::class, [])
+            ->add('contenu', TextareaType::class, [
                 'required' => true,
                 'label' => "Commentaire ",
-                'attr' => ['class' => 'input_Reg_Form'],
+                
 
                 'constraints' =>
                 

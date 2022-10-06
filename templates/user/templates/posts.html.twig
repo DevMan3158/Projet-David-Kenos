@@ -115,10 +115,12 @@
                               <div class="commentaire2">
 
                                 <figure>
-                                  <img src="../../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                                   <a href="{{ path('app_profil', {'id':comment.user.id}) }}"><img src="../../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}"></a>
                                 </figure>
 
                                 <div class="contenu"> 
+                                    <a href="{{ path('app_profil', {'id': user.id}) }}"><p><span>{{ comment.user.prenom}}</span> {{ comment.user.nom }} :</p></a>
+                                    <br>
                                     <p>{{ comment.contenu }}</p>
                                     <br>
                                     <p><strong>le {{ comment.createdAt|date('d/m/Y') }}</strong></p>{#{{ include('commentaire/_delete_form.html.twig') }}#}
@@ -137,9 +139,11 @@
 
                             <div class="commentaire">
                                 <figure>
-                                <img src="../../{{ comment.user.imageprofil }}" alt="{{ comment.user.imageprofilalt }}">
+                                <a href="{{ path('app_profil', {'id':comment.user.id}) }}"><img src="../../{{ comment.user.imageprofil }}" alt="{{ comment.user.imageprofilalt }}"></a>
                                 </figure>
                             <div class="contenu"> 
+                               <a href="{{ path('app_profil', {'id':comment.user.id}) }}"><p>{{ comment.user.prenom}} {{ comment.user.nom }} :</p></a>
+                                <br>
                                 <p>{{ comment.contenu }}</p>
                                 <br>
                                 <p><strong>le {{ comment.createdAt|date('d/m/Y') }}</strong></p>

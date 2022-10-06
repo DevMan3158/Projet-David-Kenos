@@ -39,7 +39,8 @@ class MonProfilController extends AbstractController
 
     //On remplie les champs non null 
     $commentaire->setCreatedAt(new \DateTimeImmutable());
-    $commentaire->setUser($user);
+    $userId = $this->getUser();
+    $commentaire->setUser($userId);
     $commentaire->setPost($posts);
 
     if ($form->isSubmitted() && $form->isValid()) {

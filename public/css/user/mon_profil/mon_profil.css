@@ -272,6 +272,10 @@
   /* height: 80px; */
   padding: 15px;
 }
+#container_general #container_posts .com_box .commentaire .name {
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+}
 #container_general #container_posts .com_box .commentaire .contenu {
   width: 80%;
 }

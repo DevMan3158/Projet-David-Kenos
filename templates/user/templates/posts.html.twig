@@ -1,4 +1,4 @@
-<section id="container_posts">
+
 
     {# On conditionne la route pour afficher le H1 sur les profils #}
 
@@ -159,8 +159,16 @@
 
     {% endif %}
 
-</section>
+{# On crée des variables personnalisées #}
+
+{% set queryParams = app.request.query.all %}
+{% set queryString = queryParams|filter((v,k) => k != "page" and k != "ajax")|url_encode %}
+
+{% include 'admin/pagination.html.twig' %}
 
 
+
+{% block javascripts %}
   {# <script src="{{ asset('js/com.js') }}"></script>#}
+{% endblock %}
 

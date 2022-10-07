@@ -39,11 +39,17 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
-    // Requete qui compte le nombre de posts
+    // Requete qui compte le nombre de posts OU compte le nombre de posts en fonction des filtres 
 
-    public function countPost(){
+    public function countPost($filters = null){
         $qb = $this->createQueryBuilder('p')
-            ->select('count(p.id)');
+            ->select('count(p)');
+
+        // On compte les postes par filtres
+        if($filters != null){
+            $qb->andWhere('p.cat_post IN (:cats)')
+            ->setParameter(':cats', array_values($filters));
+        };
         
         return $qb->getQuery()->getSingleScalarResult();
     }
@@ -56,6 +62,23 @@ class PostRepository extends ServiceEntityRepository
             ->setFirstResult($firstObj);
         return $query->getQuery()->getResult();
     }
+
+        // Requete qui va chercher les posts avec la pagination + les filtres
+
+        public function postPaginateFilters($perPage, $firstObj, $filters = null){
+            $query = $this->createQueryBuilder('p');
+
+        // On recherche les posts par filtres
+            
+        if($filters != null){
+            $query->andWhere('p.cat_post IN (:cats)')
+            ->setParameter(':cats', array_values($filters));
+        };
+
+            $query->setMaxResults($perPage)
+                ->setFirstResult($firstObj);
+            return $query->getQuery()->getResult();
+        }
 
 
 

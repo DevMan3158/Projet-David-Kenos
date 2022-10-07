@@ -20,33 +20,6 @@
   justify-content: space-around;
   align-items: flex-start;
 }
-.container_general .menu_cat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 41px 0px;
-}
-.container_general .menu_cat li {
-  padding: 15px 50px;
-  background-color: #F2BF2C;
-  font-weight: 600;
-  transition: 0.2s;
-}
-.container_general .menu_cat li:hover {
-  background-color: #FFD867;
-}
-.container_general .menu_cat label {
-  cursor: pointer;
-}
-.container_general .menu_cat label input {
-  display: none;
-}
-.container_general .menu_cat label input:checked ~ li {
-  background-color: #1F2547;
-  color: white;
-  transform: scale(1.02);
-  border-top: 5px solid white;
-}
 .container_general .container_amis {
   display: flex;
   flex-direction: column;
@@ -296,4 +269,30 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
+}
+.menu_cat {
+  flex-direction: column;
+  align-items: center;
+  margin: 41px 0px;
+}
+.menu_cat li {
+  padding: 15px 50px;
+  background-color: #F2BF2C;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.menu_cat li:hover {
+  background-color: #FFD867;
+}
+.menu_cat label {
+  cursor: pointer;
+}
+.menu_cat label input {
+  display: none;
+}
+.menu_cat label input:checked ~ li {
+  background-color: #1F2547;
+  color: white;
+  transform: scale(1.02);
+  border-top: 5px solid white;
 }

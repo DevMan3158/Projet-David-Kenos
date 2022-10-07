@@ -1,75 +1,101 @@
 {% extends 'user_base.html.twig' %}
 
+{# On crée des variables personnalisées #}
+
+{% set queryParams = app.request.query.all %}
+
+
 {% block title %}Vie des chocolateries{% endblock %}
 
 {% block body %}
 
 
-
-
-
 <div class="Top">
-<h1><strong>La vie</strong> des chocolateries, <span>Catègories</span></h1>
+    <h1>
+        <strong>
+            La vie
+        </strong>
+        des chocolateries, 
+        <span>
+            Catègories
+        </span>
+    </h1>
 </div>
 
 <section class="container_general">
 
 
 
-<article class="container_amis">
-<h3>Les derniers inscrits</h3>
+    <article class="container_amis">
 
-{% for user in users %}
-        
-<figure>
-<img src="{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
-<figcaption><span>{{ user.prenom}}</span><br>{{ user.nom}}</figcaption>
-</figure>
-        
-        
-    {% endfor %}
+        <h3>Les derniers inscrits</h3>
 
+        {% for user in users %}
 
+            <figure>
+                <img src="{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
+                <figcaption>
+                    <span>
+                        {{ user.prenom}}
+                    </span><br>
+                    {{ user.nom}}
+                </figcaption>
+            </figure>
 
-</article>
+        {% endfor %}
 
+    </article>
 
-{% include "user/templates/posts.html.twig" %}
+    <section id="container_posts">
+        {% include "user/templates/posts.html.twig" %}
+    </section>
+    
 
+    <nav class="menu_cat">
 
+        <ul>
 
-
-
-
-<nav class="menu_cat">
-
-    <ul>
-
-    <label  for="firstLi">
-            <input type="checkbox" id="firstLi" onClick="gBox('firstLi')" />
-            <li class="label">
-                Tout les posts
-            </li>
-    </label>
-
-    {% for cat in catPost %}
-
-        <label for="checkbox{{ loop.index }}" >
-                
-                    <input type="checkbox" id="checkbox{{ loop.index }}" class="active" onClick="allBox('.active')">
+            {#<label for="firstLi">
+                    <input type="checkbox" id="firstLi" onClick="gBox('firstLi')"/>
                     <li class="label">
-
-                        {{ cat.nom }}
+                        Tous les posts
                     </li>
-        </label>
-        
-    {% endfor %}
+            </label>#}
 
-    </ul>
+            <form id="filters">
 
-</nav>
+                    {# On vérifie si la catégorie est dans les paramètres #}
 
+                {% for cat in catPost %}
+
+                    {% if queryParams is not empty and queryParams.categories is defined %}
+                        {% set checked = (cat.id in queryParams.categories) ? "checked" : "" %}
+                    {% else %}
+                        {% set checked = "" %}
+                    {% endif %}
+
+                    <label for="cat{{cat.id}}">
+                                <input type="checkbox" {{checked}} name="categories[]" id="cat{{cat.id}}" class="active" onClick="allBox('.active')" value="{{cat.id}}">
+                                <li class="label">
+                                    {{ cat.nom }}
+                                </li>
+                    </label>
+
+                {% endfor %}
+
+                <input type="hidden" name="page" value="{{currentPage}}"/>
+
+            </form>
+
+        </ul>
+
+    </nav>
+
+
+    
 </section>
 
-{% include 'admin/pagination.html.twig' %}
+
+
+
 {% endblock %}

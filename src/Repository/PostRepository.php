@@ -47,7 +47,7 @@ class PostRepository extends ServiceEntityRepository
 
         // On compte les postes par filtres
         if($filters != null){
-            $qb->andWhere('p.cat_post IN (:cats)')
+            $qb->where('p.cat_post IN (:cats)')
             ->setParameter(':cats', array_values($filters));
         };
         
@@ -56,23 +56,36 @@ class PostRepository extends ServiceEntityRepository
 
     // Requete qui va chercher les posts avec la pagination
 
-    public function postPaginate($perPage, $firstObj){
+    /*public function postPaginate($perPage, $firstObj, $user = null){
         $query = $this->createQueryBuilder('p')
             ->setMaxResults($perPage)
             ->setFirstResult($firstObj);
+
+            if($user != null){
+                $query->where('p = :user')
+                ->setParameter(':user', $user);
+            }
         return $query->getQuery()->getResult();
-    }
+    }*/
 
         // Requete qui va chercher les posts avec la pagination + les filtres
 
-        public function postPaginateFilters($perPage, $firstObj, $filters = null){
+        public function postPaginateFilters($perPage, $firstObj, $user = null, $filters = null){
             $query = $this->createQueryBuilder('p');
 
-        // On recherche les posts par filtres
+        //On recherche les posts par filtres si besoin
             
         if($filters != null){
-            $query->andWhere('p.cat_post IN (:cats)')
+
+            $query->where('p.cat_post IN (:cats)')
             ->setParameter(':cats', array_values($filters));
+
+        //On recherche les posts par utilisateurs si besoin
+        }if($user != null){
+
+            $query->where('p.user = :user')
+            ->setParameter(':user', $user);
+
         };
 
             $query->setMaxResults($perPage)

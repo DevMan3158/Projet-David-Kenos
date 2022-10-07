@@ -162,9 +162,10 @@
 {# On crée des variables personnalisées #}
 
 {% set queryParams = app.request.query.all %}
-{% set queryString = queryParams|filter((v,k) => k != "page" and k != "ajax")|url_encode %}
+{% set queryString = queryParams|filter((v,k) => k != "pg" and k != "ajax")|url_encode %}
+{% set user = app.request.get('id') %}
 
-{% include 'admin/pagination.html.twig' %}
+{% include 'pagination.html.twig' %}
 
 
 

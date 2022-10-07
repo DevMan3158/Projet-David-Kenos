@@ -47,12 +47,36 @@ class MonProfilController extends AbstractController
         $commentaireRepository->add($commentaire, true);
     }*/
 
+        // PAGINATION
+
+        // On stocke la page actuelle dans une variable
+
+        $currentPage = (int)$request->query->get("pg", 1);
+
+        // On détermine le nombre d'articles par page
+
+        $perPage = 3;
+
+        // Calcul du premier article de la page
+
+        $firstObj = ($currentPage * $perPage) - $perPage;
+                
+        // On récupère le nombre d'articles et on compte le nombre de pages et on arrondi à l'entier suppérieur
+
+        $page = ceil(count($post->findByUser($user)) / $perPage);
+
+        // On définis les articles à afficher en fonction de la page
+
+        $postPerPage = $post->postPaginateFilters($perPage, $firstObj, $user);
+
     return $this->renderForm('user/profil_view/index.html.twig', [
         'commentaire' => $commentaire,
         //'form' => $form,
-        "post"=> $post->findByUser($user),
+        "post"=> $postPerPage,
         "com" => $commentaireRepository->findByUser($user),
         "user"=> $user,
+        "pages"=> $page,
+        "currentPage"=>$currentPage,
 
     ]);
 

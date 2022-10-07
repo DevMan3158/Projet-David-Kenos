@@ -11,11 +11,23 @@
 
         {# On vérifie si queryString existe ( pour les filtres ), sinon la variable est null #}
 
-            {% if queryString is defined %}
+            {% if queryString is defined and queryString is not empty %}
                 {% set queryStringisDefined = "&" ~ queryString %}
             {% else %}
                 {% set queryStringisDefined = null %}
             {% endif %}
+
+            {% if user is defined and user is not empty %}
+                {% set userIsDefined = user %}
+            {% else %}
+                {% set userIsDefined = null %}
+            {% endif %}
+
+            {{ userIsDefined }}
+
+
+            
+
 
         {# Le nombre de page à afficher autours de la page actuelle est 2 ou une valeur minimale calculée #}
         {% set defaultPageQuantityAround = 2 %}
@@ -31,23 +43,28 @@
         {% set PageQuantityAroundAfter = conditionAfter ? defaultPageQuantityAround : minimumPageQuantityAround %}
         <div class="uk-flex uk-flex-center">
             <ul class="uk-pagination uk-text-bold uk-text-uppercase">
+
                 {# Lien précédent #}
                 {% if currentPage - 1 != 0 %}
-                <li><a class="st-color-yellow" href="{{ path(routePath, { 'pg': currentPage - 1 }) }}{{queryStringisDefined}}" title="Previous"><span class="uk-margin-small-right" uk-pagination-previous></span> Précédent</a></li>
+                <li><a class="st-color-yellow" href="{{ path(routePath, { 'pg': currentPage - 1, 'id' : userIsDefined  }) }}{{queryStringisDefined}}" title="Previous"><span class="uk-margin-small-right" uk-pagination-previous></span> Précédent</a></li>
                 {% endif %}
                 {% for i in 1.. pages %}
+
                 {# La page actuelle à montrer #}
                 {% if currentPage == i %}
                 <li class="st-color-red">{{ i }}</li>
+
                 {# Liens normaux non concernés par les conditions ci-dessus #}
                 {% else %}
-                <li><a href="{{ path(routePath, { 'pg': i }) }}" title="Page {{ i }}{{queryStringisDefined}}">{{ i }}</a></li>
+                <li><a href="{{ path(routePath, { 'pg': i, 'id' : userIsDefined }) }}{{queryStringisDefined}}" title="Page {{ i }}">{{ i }}</a></li>
                 {% endif %}
                 {% endfor %}
+
                 {# Lien suivant #}
                 {% if currentPage + 1 <= pages %}
-                <li class="uk-margin-auto-left"><a class="st-color-yellow" href="{{ path(routePath, { 'pg': currentPage + 1 }) }}{{queryStringisDefined}}" title="Next">Suivant <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
+                <li class="uk-margin-auto-left"><a class="st-color-yellow" href="{{ path(routePath, { 'pg': currentPage + 1, 'id' : userIsDefined }) }}{{queryStringisDefined}}" title="Next">Suivant <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
                 {% endif %}
+                
             </ul>
         </div>
     {% endif %}

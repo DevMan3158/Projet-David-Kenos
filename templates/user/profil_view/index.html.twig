@@ -90,8 +90,9 @@
 
             </article>
 
-
-            {% include 'user/templates/posts.html.twig' %}
+            <section id="container_posts">
+                {% include 'user/templates/posts.html.twig' %}
+            <section id="container_posts">
 
             {% if (app.user.id in app.request.attributes.get('_route_params')) %}
 

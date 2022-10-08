@@ -66,8 +66,9 @@ class MonProfilController extends AbstractController
         $page = ceil(count($post->findByUser($user)) / $perPage);
 
         // On définis les articles à afficher en fonction de la page
+        //$userId = $user->getId();
 
-        $postPerPage = $post->postPaginateFilters($perPage, $firstObj, $user);
+        $postPerPage = $post->postPaginateUser($perPage, $firstObj, $user);
 
     return $this->renderForm('user/profil_view/index.html.twig', [
         'commentaire' => $commentaire,

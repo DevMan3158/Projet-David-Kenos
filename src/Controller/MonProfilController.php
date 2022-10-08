@@ -47,7 +47,23 @@ class MonProfilController extends AbstractController
         $commentaireRepository->add($commentaire, true);
     }*/
 
-        // PAGINATION
+
+    // CREATION D'UN NOUVEAU POST
+
+        // On crée un nouvel objet de la classe Post
+    
+        $newPost = new Post();
+
+        // On apelle le formulaire des post
+
+        $formPost = $this->createForm(PostType::class, $newPost);
+        $formPost->handleRequest($request);
+
+        //On remplie les champs non null 
+
+        $newPost->
+
+    // PAGINATION
 
         // On stocke la page actuelle dans une variable
 
@@ -66,7 +82,6 @@ class MonProfilController extends AbstractController
         $page = ceil(count($post->findByUser($user)) / $perPage);
 
         // On définis les articles à afficher en fonction de la page
-        //$userId = $user->getId();
 
         $postPerPage = $post->postPaginateUser($perPage, $firstObj, $user);
 

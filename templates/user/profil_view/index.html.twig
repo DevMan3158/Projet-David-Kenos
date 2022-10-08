@@ -13,7 +13,7 @@
         Les derniers <span>posts publiés.</span>
     </h1>#}
 
-        <section id="container_general">
+        < id="container_general">
 
             <article id="container_carte">
 
@@ -92,7 +92,7 @@
 
             <section id="container_posts">
                 {% include 'user/templates/posts.html.twig' %}
-            <section id="container_posts">
+            </section id="container_posts">
 
             {% if (app.user.id in app.request.attributes.get('_route_params')) %}
 
@@ -110,7 +110,7 @@
               
                      
                 
-        </section>
+        </>
 
 
 {% endblock %}

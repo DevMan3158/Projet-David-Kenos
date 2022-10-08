@@ -17,16 +17,13 @@
                 {% set queryStringisDefined = null %}
             {% endif %}
 
+        {# On vérifie si user existe ( pour les user ), sinon la variable est null #}
+
             {% if user is defined and user is not empty %}
                 {% set userIsDefined = user %}
             {% else %}
                 {% set userIsDefined = null %}
             {% endif %}
-
-            {{ userIsDefined }}
-
-
-            
 
 
         {# Le nombre de page à afficher autours de la page actuelle est 2 ou une valeur minimale calculée #}

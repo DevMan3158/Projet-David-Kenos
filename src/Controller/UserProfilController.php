@@ -50,9 +50,15 @@ class UserProfilController extends AbstractController
 
 
         #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
-        public function edit(Request $request ,SluggerInterface $slugger, EntityManagerInterface $entityManager,User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
+        public function edit(EntityManagerInterface $em, Request $request ,SluggerInterface $slugger, User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
         {
+
+
+            //dd($request);            
+            $id = $this->getUser();
+            //dd($userId);
             $form = $this->createForm(User1Type::class, $user);
+
             $form->handleRequest($request);
     
 
@@ -66,7 +72,8 @@ class UserProfilController extends AbstractController
             /** @var UploadedFile $imageFile */
 
             $imageFile = $form->get('ImageBandeau')->getData();
-
+            
+            
             // cette condition est nécessaire car le champ 'ImageBandeau' n'est pas obligatoire
 
             // donc le fichier doit être traité uniquement lorsqu'un fichier est téléchargé
@@ -75,31 +82,39 @@ class UserProfilController extends AbstractController
                 
             // ceci est nécessaire pour inclure en toute sécurité le nom du fichier dans l'URL
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+                
+            //on indique le chemin du fichier pour l'enregistrement dans la bdd   
+                $newFilename = '../data/'.$safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
 
             /* Définit data_directory dans le fichier service.yaml    
+                Déplace le fichier dans le répertoire où sont stockées les images*/
 
-             Déplace le fichier dans le répertoire où sont stockées les images*/
                 try {
-                    $imageFile->move(
-                        $this->getParameter('data_directory'),
-                        $newFilename
-                    );
+                    
+                    $imageFile->move($this->getParameter('data_directory'),$newFilename);
+
                 } catch (FileException $e) {
                     
-            // ... gérer l'exception si quelque chose se passe pendant le téléchargement du fichie
+            // ... gérer l'exception si quelque chose se passe pendant le téléchargement du fichier
                 }
 
                 
-            // met à jour la propriété 'setImageBandeau' pour stocker le nom du fichier PDF
+            // met à jour la propriété 'setImageBandeau' pour stocker le nom du fichier 
             // au lieu de son contenu
-                $user->setImageBandeau($newFilename);
+            $user->setImageBandeau($newFilename);
             }
 
             // ... persister la variable $user ou tout autre travail
+            //hydrate la bdd
+            $em->persist($user);
 
-                $this->addFlash('success', 'Photo modifié');
-                return $this->redirectToRoute('app_mon_profil', [], Response::HTTP_SEE_OTHER);
+            $em->flush();
+
+                $this->addFlash('success', 'Leaderboard modifié');
+
+                /*return $this->redirectToRoute('app_mon_profil',
+                 [
+                    'id' => $user = $this->getUser()], Response::HTTP_SEE_OTHER);*/
             }
     
             return $this->renderForm('user_profil/edit.html.twig', [

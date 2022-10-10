@@ -34,6 +34,20 @@ class User1Type extends AbstractType
                 'required' => false,
                 // unmapped fields can't define their validation using annotations
                 // in the associated entity, so you can use the PHP constraint classes
+
+                'constraints' => [
+                    new File([
+                        'maxSize' => '5M',
+                        'maxSizeMessage' => "Taille du fichier supérieur à 5MB.",
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                            'image/tiff',
+                            'image/gif',
+                        ],
+                        'mimeTypesMessage' => 'Fichier accepté : png, jpeg, gif, tiff',
+                    ])
+                ],
                 
 
             ])
@@ -41,11 +55,14 @@ class User1Type extends AbstractType
             ->add('ImageProfil',FileType::class, 
             [
                 "mapped"=>false,
-                'data_class'=>null,
-                'label'=> 'Photo de profil', 
+
+                //'data_class'=>null,
+
+                'label'=> 'Photo de profil',
+                
                 'required' => false
                 
-                ])/**/
+                ])
 
           
             ->add('facebook')

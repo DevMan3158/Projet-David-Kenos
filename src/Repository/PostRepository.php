@@ -49,8 +49,27 @@ class PostRepository extends ServiceEntityRepository
     }
 
 
+    // Requête qui va chercher toutes les actualitées avec la pagination
+
+    public function findAllPost($perPage, $firstObj){
+        $query = $this->createQueryBuilder('p')
+            ->setMaxResults($perPage)
+            ->setFirstResult($firstObj);
+        return $query->getQuery()->getResult();
+    }
 
 
+//  public function findByPost($value): array
+// {
+//     return $this->createQueryBuilder('p')
+//         ->andWhere('p.user = :val')
+//         ->setParameter('val', $value)
+//         ->orderBy('p.id', 'ASC')
+//         ->getQuery()
+//         ->getResult()
+//    ;
+//}
+//
 
 //    /**
 //     * @return Post[] Returns an array of Post objects

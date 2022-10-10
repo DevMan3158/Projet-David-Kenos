@@ -12,153 +12,177 @@
 
     {% if post is not empty %}
 
-        {# On Boucle les posts liés à l'utilisateur recherché OU de tous les utilisateurs si vous êtes sur la vie des chocolaterie #}
+    {# On Boucle les posts liés à l'utilisateur recherché OU de tous les utilisateurs si vous êtes sur la vie des
+    chocolaterie #}
 
-        {% for posts in post  %} 
+    {% for posts in post %}
 
-            <article class="posts">
+    {{ posts.id }}
+    <article class="posts">
 
-                <div class="etiquette">
-                    {{ posts.catpost.nom }}
-                </div>
+        <div class="etiquette">
+            {{ posts.catpost.nom }}
+        </div>
 
-                <figure>
+        <figure>
 
-                    <img src="../{{ posts.user.imageprofil }}" alt="{{ posts.user.imageprofilalt }}">
+            <img src="../{{ posts.user.imageprofil }}" alt="{{ posts.user.imageprofilalt }}">
 
-                </figure>
-
-
-                <div class="contenues">
-
-                    <h3>
-                        <span>
-                            {{ posts.user.prenom}}
-                        </span>
-
-                        {{ posts.user.nom }}
-
-                        <p class="colorP">
-                            publiés le {{ posts.createdAt|date('d/m/Y') }}
-                        </p>
-                    </h3>
-
-                    <div id="contenues_img">
-                        <img src="../{{ posts.imagepost }}" alt="{{ posts.imagepostalt }}">
-                    </div>
+        </figure>
 
 
-                    <p>
-                        {{ posts.contenu }}
-                    </p>
+        <div class="contenues">
 
-                    <div class="comments">
+            <h3>
+                <span>
+                    {{ posts.user.prenom}}
+                </span>
 
-                        {{ posts.commentaires|length }} 
+                {{ posts.user.nom }}
 
-                        <i class="fa-regular fa-comments">
-                            <a href="#" id="commentaire" onClick="openMenu()"> 
-                                Commenter
-                            </a>
-                        </i>
+                <p class="colorP">
+                    publiés le {{ posts.createdAt|date('d/m/Y') }}
+                </p>
+            </h3>
 
-                        {{ posts.likes|length }} 
-
-                        <i class="fa-regular fa-heart">
-                            <a  href="#"> 
-                                J'aime
-                            </a>
-                        </i>
+            <div id="contenues_img">
+                <img src="../{{ posts.imagepost }}" alt="{{ posts.imagepostalt }}">
+            </div>
 
 
-                    </div>
+            <p>
+                {{ posts.contenu }}
+            </p>
 
-                </div>
+            <div class="comments">
 
+                {{ posts.commentaires|length }}
 
-            </article>
+                <i class="fa-regular fa-comments">
+                    <a href="#" id="commentaire" onClick="openMenu()">
+                        Commenter
+                    </a>
+                </i>
 
-            {#Condition Soyer le premier à commenter ! commentaire différent suivant user, nom d'user dans com? et heure date#}
+                {{ posts.likes|length }}
 
+                <i class="fa-regular fa-heart">
+                    <a href="#">
+                        J'aime
+                    </a>
+                </i>
 
-
-            {#///////////////////////Templates-Commentaires////////////////////#}
-
-
-            <div id="container_com" >
- {#var headdd = document.getElementById('head')
-                <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
-
-                <button id="CloseCom" onClick="closeMenu()">Publier</button> #}   
-
-                {{ form_start(form) }}
-
-
-                {{ form_widget(form.contenu, {'attr': {'placeholder': 'Écrivez votre commentaire...' }} )  }}
-                    <button class="btn">{{ button_label|default('Publier') }}</button>
-                {{ form_end(form) }}
-
-                <h3>Les commentaires existants</h3>
-
-                {# Ici on boucle les commentaires du post en question #}
-
-                {% for comment in posts.commentaires %}
-
-                    {# Ici on conditionne nos commentaires afin de les placer à droite s'ils ont été postés par l'utilisateur connecté #}
-
-                    {% if comment.user.id == app.user.id %}
-
-<div class="commentaire_box"></div>
-
-                        <div class="com_box_droite">
-
-                              <div class="commentaire2">
-
-                                <figure>
-                                   <a href="{{ path('app_profil', {'id':comment.user.id}) }}"><img src="../../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}"></a>
-                                </figure>
-
-                                <div class="contenu"> 
-                                    <a href="{{ path('app_profil', {'id': user.id}) }}"><p><span>{{ comment.user.prenom}}</span> {{ comment.user.nom }} :</p></a>
-                                    <br>
-                                    <p>{{ comment.contenu }}</p>
-                                    <br>
-                                    <p><strong>le {{ comment.createdAt|date('d/m/Y') }}</strong></p>{#{{ include('commentaire/_delete_form.html.twig') }}#}
-                                </div>
-
-
-                             </div>
-
-                        </div>
-
-                    {# Ou à gauche s'ils ont été postés par n'importe quel autre utilisateur.  #}
-
-                    {% else %}
-
-                        <div class="com_box">
-
-                            <div class="commentaire">
-                                <figure>
-                                <a href="{{ path('app_profil', {'id':comment.user.id}) }}"><img src="../../{{ comment.user.imageprofil }}" alt="{{ comment.user.imageprofilalt }}"></a>
-                                </figure>
-                            <div class="contenu"> 
-                               <a href="{{ path('app_profil', {'id':comment.user.id}) }}"><p>{{ comment.user.prenom}} {{ comment.user.nom }} :</p></a>
-                                <br>
-                                <p>{{ comment.contenu }}</p>
-                                <br>
-                                <p><strong>le {{ comment.createdAt|date('d/m/Y') }}</strong></p>
-                            </div>
-                            </div>
-
-                        </div>
-
-                    {% endif %}
-
-                {% endfor %}
 
             </div>
 
+        </div>
+
+
+    </article>
+
+    {#Condition Soyer le premier à commenter ! commentaire différent suivant user, nom d'user dans com? et heure date#}
+
+
+
+    {#///////////////////////Templates-Commentaires////////////////////#}
+
+
+    <div id="container_com">
+
+        {#///////////////////////Formulaire-Commentaire////////////////////#}
+
+
+    
+
+    
+        
+    
+
+        {{ form_start(form) }}
+{% for currentPosts in currentPost %}
+        {{ form_row(form.contenu, {'attr': {'placeholder': 'Écrivez votre commentaire...' }} ) }}
+    {% endfor %} 
+        {#{{ form_row(form.contenu, {'data': {'contenu': currentPost.id}} ) }}#}
+
+        <button class="btn">{{ button_label|default('Publier') }}</button>
+
+        {{ form_end(form) }}
+
+  
+
+        <h3>Les commentaires existants</h3>
+
+        {# Ici on boucle les commentaires du post en question #}
+
+        {% for comment in posts.commentaires %}      
+
+        {# Ici on conditionne nos commentaires afin de les placer à droite s'ils ont été postés par l'utilisateur
+        connecté #}
+
+        {% if comment.user.id == app.user.id %}
+
+        <div class="commentaire_box"></div>
+
+        <div class="com_box_droite">
+
+            <div class="commentaire2">
+
+                <figure>
+                    <a href="{{ path('app_profil', {'id':comment.user.id}) }}"><img
+                            src="../../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}"></a>
+                </figure>
+
+                <div class="contenu">
+                    <a href="{{ path('app_profil', {'id': user.id}) }}">
+                        <p><span>{{ comment.user.prenom}}</span> {{ comment.user.nom }} :</p>
+                    </a>
+
+                    <br>
+                    <p>{{ comment.contenu }}</p>
+                    <br>
+
+                    <p><strong>le {{ comment.createdAt|date('d/m/Y') }}</strong></p>
+                    {#{{include('commentaire/_delete_form.html.twig') }}#}
+                </div>
+
+
+            </div>
+
+        </div>
+
+        {# Ou à gauche s'ils ont été postés par n'importe quel autre utilisateur. #}
+
+        {% else %}
+
+        <div class="com_box">
+
+            <div class="commentaire">
+                <figure>
+                    <a href="{{ path('app_profil', {'id':comment.user.id}) }}"><img
+                            src="../../{{ comment.user.imageprofil }}" alt="{{ comment.user.imageprofilalt }}"></a>
+                </figure>
+                <div class="contenu">
+                    <a href="{{ path('app_profil', {'id':comment.user.id}) }}">
+                        <p>{{ comment.user.prenom}} {{ comment.user.nom }} :</p>
+                    </a>
+
+                    <br>
+                    <p>{{ comment.contenu }}</p>
+                    <br>
+
+                    <p><strong>le {{ comment.createdAt|date('d/m/Y') }}</strong></p>
+                </div>
+            </div>
+
+        </div>
+
+        {% endif %}
+
         {% endfor %}
+
+    </div>
+
+    {% endfor %}
 
 
 
@@ -171,5 +195,5 @@
 </section>
 
 
-  {# <script src="{{ asset('js/com.js') }}"></script>#}
-
+{#
+<script src="{{ asset('js/com.js') }}"></script>#}

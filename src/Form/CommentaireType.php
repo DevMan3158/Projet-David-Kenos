@@ -13,26 +13,34 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CommentaireType extends AbstractType
 {
+
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+
+        //$id = $options['id'];
+
+    
+
         $builder
-          
-        //    ->add('user', HiddenType::class, [])
+       
+
             ->add('contenu', TextareaType::class, [
                 'required' => true,
+                 //'mapped' => false,
                 'label' => "Commentaire ",
-                
-
                 'constraints' =>
                 
                 [
                     new NotBlank([
-                       'message' => 'Veuillez saisir un poste'
+                       'message' => 'Veuillez saisir un commentaire'
                     ]),
 
                 ]

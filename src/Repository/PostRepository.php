@@ -72,7 +72,8 @@ class PostRepository extends ServiceEntityRepository
             }
 
             $query->setMaxResults($perPage)
-            ->setFirstResult($firstObj);
+            ->setFirstResult($firstObj)
+            ->orderBy('p.id', 'DESC');
 
         return $query->getQuery()->getResult();
     }
@@ -93,7 +94,8 @@ class PostRepository extends ServiceEntityRepository
         }
 
             $query->setMaxResults($perPage)
-                ->setFirstResult($firstObj);
+                ->setFirstResult($firstObj)
+                ->orderBy('p.id', 'DESC');
             return $query->getQuery()->getResult();
         }
 

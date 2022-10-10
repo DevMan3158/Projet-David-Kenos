@@ -20,6 +20,7 @@ closeBtn.onclick = closeNav;
 
 
 // Fonction permettant de filtrer les utilisateurs du trombinoscope
+
 function search() {
   let input = document.getElementById('searchBar').value
   input=input.toLowerCase();
@@ -34,6 +35,8 @@ function search() {
       }
   }
 }
+
+// Fonction qui permets de filtrer les actualités par catégories ( ville )
 
 function getId(obj){
 
@@ -53,6 +56,21 @@ function getId(obj){
       }
   }
 }
+
+// Fonction qui ouvre le formulaire de création d'un post dans la page mon profil
+
+function newPost(){
+  let newPost = document.getElementById('newPost');
+  newPost.classList.add('active');
+}
+
+// Fonction qui ferme le formulaire de création d'un post dans la page mon profil
+
+function closePost(){
+  let newPost = document.getElementById('newPost');
+  newPost.classList.remove('active');
+}
+
 
 // Fonction qui permet de cocher tous les filtres si "Tous les post" est activé.
 

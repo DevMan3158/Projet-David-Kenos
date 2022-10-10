@@ -13,7 +13,7 @@
         Les derniers <span>posts publiés.</span>
     </h1>#}
 
-        < id="container_general">
+        <section id="container_general">
 
             <article id="container_carte">
 
@@ -90,16 +90,25 @@
 
             </article>
 
-            <section id="container_posts">
-                {% include 'user/templates/posts.html.twig' %}
-            </section id="container_posts">
+            <div id="allPosts">
+
+                <article id="newPost">
+                    {{ form(formPost) }}
+                    <i id="postScroll" onClick="closePost()" class="fa-solid fa-angles-up"></i>
+                </article>
+    
+                <section id="container_posts">
+                    {% include 'user/templates/posts.html.twig' %}
+                </section>
+    
+            </div>
 
             {% if (app.user.id in app.request.attributes.get('_route_params')) %}
 
             <section id="container_btn">
 
                 <a class="btn" href="{{ path('app_user_profil_edit', {'id': app.user.id}) }}"><li>Modifer mon profil</li></a>
-                <a class="btn" href="#"><li>Publier un post</li></a>
+                <a class="btn" href="#" onClick="newPost()"><li>Publier un post</li></a>
                 <a class="btn2" href="{{ path('app_trombinoscope') }}"><li>Trombinoscope</li></a>
                 
 
@@ -110,7 +119,7 @@
               
                      
                 
-        </>
+        </section>
 
 
 {% endblock %}

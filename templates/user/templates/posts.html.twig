@@ -78,17 +78,19 @@
 
                 </div>
 
-
             </article>
 
-            {#Condition Soyer le premier à commenter ! commentaire différent suivant user, nom d'user dans com? et heure date#}
+
+            
+
+                {#Condition Soyer le premier à commenter ! commentaire différent suivant user, nom d'user dans com? et heure date#}
 
 
 
-            {#///////////////////////Templates-Commentaires////////////////////
+                {#///////////////////////Templates-Commentaires////////////////////
 
 
-            <div id="container_com" >
+                <div id="container_com" >
                 var headdd = document.getElementById('head')
                 <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
 
@@ -147,15 +149,13 @@
 
                 {% endfor %}
 
-            </div>
-
         {% endfor %}
 
 
 
     {% else %}
 
-    <p>Vous n'avez pas de poste publiés</span></p>
+    <p>Vous n'avez pas de posts publiés</span></p>
 
     {% endif %}
 

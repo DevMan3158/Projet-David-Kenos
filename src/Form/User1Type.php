@@ -56,7 +56,7 @@ class User1Type extends AbstractType
             [
                 "mapped"=>false,
 
-                //'data_class'=>null,
+                'data_class'=>null,
 
                 'label'=> 'Photo de profil',
                 
@@ -141,9 +141,7 @@ class User1Type extends AbstractType
                 'second_options' => [
                     'required' => false,
                     'label' => "Répeter le Mot de Passe :",
-                    'attr' => ['autocomplete' => 'Nouveau Mot de Passe'],
-                    'attr' => ['class' => 'input_Reg_Form'],
-                    
+                    'attr' => ['autocomplete' => 'Nouveau Mot de Passe'],          
                 ],
                 'invalid_message' => 'Les champs du mot de passe doivent correspondre.',
                 // Instead of being set onto the object directly,

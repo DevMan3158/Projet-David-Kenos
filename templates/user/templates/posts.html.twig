@@ -91,13 +91,6 @@
 
         {#///////////////////////Formulaire-Commentaire////////////////////#}
 
-
-    
-
-    
-        
-    
-
         {{ form_start(form) }}
 {% for currentPosts in currentPost %}
         {{ form_row(form.contenu, {'attr': {'placeholder': 'Écrivez votre commentaire...' }} ) }}
@@ -188,12 +181,9 @@
 
     {% else %}
 
-    <p>Vous n'avez pas de poste publiés</span></p>
+    <p>Vous n'avez pas de post publiés</span></p>
 
     {% endif %}
 
 </section>
 
-
-{#
-<script src="{{ asset('js/com.js') }}"></script>#}

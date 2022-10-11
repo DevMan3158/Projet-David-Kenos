@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
@@ -24,18 +25,19 @@ class UserProfilController extends AbstractController
 {
 
         #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
-        public function edit(EntityManagerInterface $em, Request $request ,SluggerInterface $slugger, User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
+        public function edit(FileUploader $fileUploader, EntityManagerInterface $em, Request $request ,SluggerInterface $slugger, User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
         {
-
+        
+        //Création du formulaire User1Type
             $form = $this->createForm(User1Type::class, $user);
 
             $form->handleRequest($request);
     
-        //  cette condition est nécessaire pour les champs du formulaire hors Upload
-
+        //Cette condition est nécessaire pour les champs du formulaire 
         if ($form->isSubmitted() && $form->isValid()) 
         {
-            
+
+            //Appel du repos user 
             $userRepository->add($user, true);
 
             /** @var UploadedFile $imageFile */
@@ -43,53 +45,25 @@ class UserProfilController extends AbstractController
             //Récupère la donnée du champs ImageBandeau du usertype et le stoke
             $imageFile = $form->get('ImageBandeau')->getData();
 
-            //Récupère la donnée du champs ImageProfil du usertype et le stoke
+            ////Récupère la donnée du champs ImageProfil du usertype et le stoke
             $imageFilePro = $form->get('ImageProfil')->getData();
-
+            
             //Cette condition est nécessaire car le champ 'ImageBandeau' n'est pas obligatoire
-            //
-            //Donc le fichier doit être traité uniquement lorsqu'un fichier est téléchargé
-            if ($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                
-            //Ceci est nécessaire pour inclure en toute sécurité le nom du fichier dans l'URL
-                $safeFilename = $slugger->slug($originalFilename);
-                
-            //On indique le chemin du fichier pour l'enregistrement dans la bdd et donne un id unique au fichier  
-                $newFilename = '../data/'.$safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+            //Donc le fichier doit être traité uniquement lorsqu'il est téléchargé et non vide 
 
-            /* Définit data_directory dans le fichier service.yaml    
-               Déplace le fichier dans le répertoire où sont stockées les fichiers*/
-                try {
-                    
-                    $imageFile->move($this->getParameter('data_directory'),$newFilename);
+               if (!empty($imageFile)) {
 
-            //Gérer l'exception si quelque chose se passe pendant le téléchargement du fichier
-                } catch (FileException $e) {
-                    
-                }
+                   $imageFileName = $fileUploader->upload($imageFile);
+                   //Met à jour la propriété 'setImageBandeau' pour stocker le nom du fichier et sa concaténation (chemin du fichier) 
+                   $user->setImageBandeau('../data/'. $imageFileName);
+               }
 
-            //Met à jour la propriété 'setImageBandeau' pour stocker le nom du fichier 
-            $user->setImageBandeau($newFilename);
+               //Conditionne dans le cas d'un changement de l'image du profile 
+               elseif (!empty($imageFilePro)) {
 
-            }
-
-            //Conditionne dans le cas d'un changement de l'image de profile 
-            elseif ($imageFilePro) {
-                $originalFilename = pathinfo($imageFilePro->getClientOriginalName(), PATHINFO_FILENAME);
-                
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = '../data/'.$safeFilename.'-'.uniqid().'.'.$imageFilePro->guessExtension();
-                try {
-                    
-                    $imageFilePro->move($this->getParameter('data_directory'),$newFilename);
-
-                } catch (FileException $e) {
-                    
-                }
-
-            $user->setImageProfil($newFilename);
-            }
+                   $imageFileName = $fileUploader->upload($imageFilePro);
+                   $user->setImageProfil('../data/'. $imageFileName);
+               }
 
             // Persiste la variable $user ou tout autre travail
             $em->persist($user);

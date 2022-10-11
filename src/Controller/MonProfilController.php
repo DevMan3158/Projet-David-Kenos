@@ -72,7 +72,7 @@ class MonProfilController extends AbstractController
             
 
             // On récupère l'image
-            $image = $formPost->get('image_post')->getData();
+            $image = $formPost->get('images')->getData();
 
             // Si on a une image, alors on vérifie son nom pour le renommé si son nom est déja prit.
             if ($image) {
@@ -113,7 +113,7 @@ class MonProfilController extends AbstractController
 
         // On détermine le nombre d'articles par page
 
-        $perPage = 3;
+        $perPage = 5;
 
         // Calcul du premier article de la page
 

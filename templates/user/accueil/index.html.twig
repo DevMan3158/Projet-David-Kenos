@@ -4,73 +4,80 @@
 
 {% block body %}
 
-<body>
 
-    <section id="post">
-        <h2>
-            Bienvenue sur ton espace,<br/>
-            <span>Voici les derniers posts publiés.</span>
-        </h2>
+    <body>
 
-        <div id="gridPost">
+        <section class="container_command">
 
-            {% for post in findAllPost %}
+            <section id="post">
+                <h2>
+                    Bienvenue sur ton espace,<br/>
+                    <span>Voici les derniers posts publiés.</span>
+                </h2>
 
-                <a href="#" id="post{{ loop.index }}" style="background:center / cover no-repeat url({{ post.imagePost }}); box-shadow: 0 0 0 200px rgb(0,0,0,40%) inset;">
-                    <article>
+                <div id="gridPost">
 
+                    {% for post in findAllPost|slice(0, 6) %}
 
-                            <h4>
-                                {{ post.catPost.nom }}
-                            </h4>
-                            <p>
-                                {{ post.contenu |length > 50 ? post.contenu |slice(0, 70) ~ '...' : post.contenu  }}
-                            </p>
+                        <a href="{{ path('app_profil', { 'id':post.user.id }) }}#post{{post.id}}" id="post{{ loop.index }}" style="background:center / cover no-repeat url({{ post.imagePost }}); box-shadow: 0 0 0 200px rgb(0,0,0,40%) inset;">
+                            <article>
 
 
-                    </article>
-                </a>
-
-            {% endfor %}
-            
-        </div>
-    </section>
-
-    <section id="act">
-
-        <h2>
-            Les dernières actualités,<br/>
-            <span>de l'entreprise.</span>
-        </h2>
+                                    <h4>
+                                        {{ post.catPost.nom }}
+                                    </h4>
+                                    <p>
+                                        {{ post.contenu |length > 50 ? post.contenu |slice(0, 70) ~ '...' : post.contenu  }}
+                                    </p>
 
 
-            {% for act in findAllAct|slice(0, 2) %}
+                            </article>
+                        </a>
 
-                <a href="#">
-    
-                    <article id="act{{ loop.index }}">
-    
-                        <div class="chocolaterie">
-                            <img src="{{ act.imageActu }}" alt="{{ act.imageActuAlt}}"/>
-                            <span>
-                                {{ act.chocolaterie.lieu }}
-                            </span>
-                        </div>
-    
-                        <h4>
-                            {{ act.chocolaterie.nom }}
-                        </h4>
-                        <p>
-                            {{ act.contenu |length > 50 ? act.contenu |slice(0, 50) ~ '...' : act.contenu  }}
-                        </p>
-    
-                    </article>
-    
-                </a>
+                    {% endfor %}
 
-            {% endfor %}
+                </div>
+            </section>
 
-    </section>
+            <section id="act">
 
-</body>
+                <h2>
+                    Les dernières actualités,<br/>
+                    <span>de l'entreprise.</span>
+                </h2>
+
+
+                    {% for act in findAllAct|slice(0, 2) %}
+
+                        <a href="#">
+
+                            <article id="act{{ loop.index }}">
+
+                                <div class="chocolaterie">
+                                    <img src="{{ act.imageActu }}" alt="{{ act.imageActuAlt}}"/>
+                                    <span>
+                                        {{ act.chocolaterie.lieu }}
+                                    </span>
+                                </div>
+
+                                <h4>
+                                    {{ act.chocolaterie.nom }}
+                                </h4>
+                                <p>
+                                    {{ act.contenu |length > 50 ? act.contenu |slice(0, 50) ~ '...' : act.contenu  }}
+                                </p>
+
+                            </article>
+
+                        </a>
+
+                    {% endfor %}
+
+            </section>
+
+        </section class="container_command">
+
+    </body>
+
+
 {% endblock %}

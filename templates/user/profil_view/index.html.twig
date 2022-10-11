@@ -7,11 +7,13 @@
                 {{ dump(app.user) }}
                   
                 {{ dump(post) }} #}
-        {% include 'user/templates/dashboard.html.twig' %}
   
    {#<h1>
         Les derniers <span>posts publiés.</span>
     </h1>#}
+    <section class="container_command">
+
+    {% include 'user/templates/dashboard.html.twig' %}
 
         <section id="container_general">
 
@@ -120,6 +122,8 @@
                      
                 
         </section>
+
+    </section>
 
 
 {% endblock %}

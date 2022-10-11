@@ -67,6 +67,15 @@ class ActualiteRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
+    // Requete qui va chercher les actualités par chocolaterie
+
+    public function findActByChoc($chocoEntity){
+        $query = $this->createQueryBuilder('a')
+            ->where('a.chocolaterie = :choc')
+            ->setParameter(':choc', $chocoEntity);
+        return $query->getQuery()->getResult();
+    }
+
 
 
 //    public function findOneBySomeField($value): ?Actualite

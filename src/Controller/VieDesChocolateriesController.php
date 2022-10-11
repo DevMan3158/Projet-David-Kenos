@@ -21,7 +21,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class VieDesChocolateriesController extends AbstractController
 {
-    #[Route('/chocolateries', name: 'app_chocolateries', methods:['GET'])]
+    #[Route('/viedeschocolateries', name: 'app_viedeschocolateries', methods:['GET'])]
     public function index(/*Post $post,*/ Request $request, PostRepository $postRepository, UserRepository $userRepository, CatPostRepository $catPost): Response
     {
 

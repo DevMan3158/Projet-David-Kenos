@@ -38,7 +38,10 @@ class PostType extends AbstractType
 
                 ]
             ])
-            ->add('image_post', FileType::class, [
+            ->add('images', FileType::class, [
+
+                'attr' => array(
+                    'multiple' => true),
 
 
                 'label' => false,

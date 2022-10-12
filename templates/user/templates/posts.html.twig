@@ -91,18 +91,25 @@
 
         {#///////////////////////Formulaire-Commentaire////////////////////#}
 
+{#{% for contenulField in form %}
+    
         {{ form_start(form) }}
-{% for currentPosts in currentPost %}
-        {{ form_row(form.contenu, {'attr': {'placeholder': 'Écrivez votre commentaire...' }} ) }}
-    {% endfor %} 
-        {#{{ form_row(form.contenu, {'data': {'contenu': currentPost.id}} ) }}#}
+
+        {{ form_row(form.contenu) }}
 
         <button class="btn">{{ button_label|default('Publier') }}</button>
 
         {{ form_end(form) }}
-
+        
+{% endfor %}#}
   
+ {{ form_start(form) }}
 
+        <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
+
+        <button id="CloseCom" onClick="closeMenu()">Publier</button>
+        
+{{ form_end(form) }}
         <h3>Les commentaires existants</h3>
 
         {# Ici on boucle les commentaires du post en question #}

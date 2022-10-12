@@ -27,6 +27,9 @@ class Chocolaterie
     #[ORM\OneToMany(mappedBy: 'chocolaterie', targetEntity: Actualite::class, orphanRemoval: true)]
     private Collection $actualites;
 
+    #[ORM\Column(length: 255)]
+    private ?string $photo = null;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -122,6 +125,18 @@ class Chocolaterie
                 $actualite->setChocolaterie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }

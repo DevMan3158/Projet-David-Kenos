@@ -36,7 +36,6 @@ class UserProfilController extends AbstractController
         //Cette condition est nécessaire pour les champs du formulaire 
         if ($form->isSubmitted() && $form->isValid()) 
         {
-
             //Appel du repos user 
             $userRepository->add($user, true);
 

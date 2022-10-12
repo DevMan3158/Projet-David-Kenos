@@ -16,16 +16,19 @@
             <tr>
                 <th>Nom</th>
                 <th>Lieu</th>
+                <th>Photo</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for chocolaterie in chocolateries %}
-            <tr>
+        
+                <tr>
 
                 <td>{{ chocolaterie.nom }}</td>
                 <td>{{ chocolaterie.lieu }}</td>
-                
+                <td>{{ chocolaterie.photo }}</td>
+
                 <td>
 
                         <a  href="{{ path('app_chocolaterie_show', {'id': chocolaterie.id}) }}">

@@ -3,21 +3,21 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\User1Type;
-use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
-use Doctrine\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ChocolaterieRepository;
+use App\Form\User1Type;
+use App\Service\FileUploader;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 
 #[Route('/')]
@@ -65,6 +65,7 @@ class UserProfilController extends AbstractController
                    $user->setImageProfil('../data/'. $imageFileName);
                }
 
+
             // Persiste la variable $user ou tout autre travail
             $em->persist($user);
 
@@ -72,7 +73,7 @@ class UserProfilController extends AbstractController
             $em->flush();
 
                 $this->addFlash('success', 'Leaderboard modifié');
-                //return $this->redirectToRoute('app_mon_profil',['id' => $id], Response::HTTP_SEE_OTHER);
+                return $this->redirectToRoute('app_user_profil_edit',['id' => $id], Response::HTTP_SEE_OTHER);
             }
     
             return $this->renderForm('user_profil/edit.html.twig', [

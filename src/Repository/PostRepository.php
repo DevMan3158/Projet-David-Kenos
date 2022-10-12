@@ -59,17 +59,17 @@ class PostRepository extends ServiceEntityRepository
     }
 
 
-//  public function findByPost($value): array
-// {
-//     return $this->createQueryBuilder('p')
-//         ->andWhere('p.user = :val')
-//         ->setParameter('val', $value)
-//         ->orderBy('p.id', 'ASC')
-//         ->getQuery()
-//         ->getResult()
-//    ;
-//}
-//
+  public function findByPost($value): array
+ {
+     return $this->createQueryBuilder('p')
+         ->andWhere('p.user = :val')
+         ->setParameter('val', $value)
+         ->orderBy('p.id', 'ASC')
+         ->getQuery()
+         ->getResult()
+    ;
+}
+
 
 //    /**
 //     * @return Post[] Returns an array of Post objects

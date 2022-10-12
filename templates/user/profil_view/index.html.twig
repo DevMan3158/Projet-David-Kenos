@@ -42,14 +42,8 @@
                     
                     
 
-                    {#{% if app.user and app.user.facebook or app.user.twitter or app.user.instagram or app.user.linkedin  is not null %}
+                    {% if app.user and app.user.facebook or app.user.twitter or app.user.instagram or app.user.linkedin  is not null %}
                              
-                        {% else %}
-    
-                        <p>Aucuns réseaux connu.</p>
-
-                        {% endif %}#}
-                        
 
                         {% if user.facebook is not null %}
                           <figure>
@@ -80,7 +74,11 @@
                         {% endif %}
 
 
-                  
+                        {% else %}
+    
+                        <p>Aucuns réseaux connu.</p>
+
+                        {% endif %}
 
                     </div>
 

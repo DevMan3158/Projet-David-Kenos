@@ -24,6 +24,21 @@ class User1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+
+            ->add('facebook')
+            
+            ->add('instagram')
+            
+            ->add('twitter')
+            
+            ->add('linkedin')
+            
+            ->add('lien')
+            
+            ->add('description')
+            
+            ->add('email')
+
             ->add('ImageBandeau',FileType::class, 
             [
                 'label' => 'Photo du bandeau',
@@ -47,8 +62,7 @@ class User1Type extends AbstractType
                         ],
                         'mimeTypesMessage' => 'Fichier accepté : png, jpeg, gif, tiff',
                     ])
-                ],
-                
+               ],        
 
             ])
 
@@ -60,18 +74,24 @@ class User1Type extends AbstractType
 
                 'label'=> 'Photo de profil',
                 
-                'required' => false
-                
-                ])
+                'required' => false,
 
-          
-            ->add('facebook')
-            ->add('instagram')
-            ->add('twitter')
-            ->add('linkedin')
-            ->add('lien')
-            ->add('description')
-            ->add('email')
+                'constraints' => [
+                    new File([
+                        'maxSize' => '5M',
+                        'maxSizeMessage' => "Taille du fichier supérieur à 5MB.",
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                            'image/tiff',
+                            'image/gif',
+                        ],
+                        'mimeTypesMessage' => 'Fichier accepté : png, jpeg, gif, tiff',
+                    ])
+                ],
+                
+            ])
+
             ->add('nom', TextType::class, [
             
             'constraints' =>

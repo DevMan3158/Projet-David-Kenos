@@ -25,7 +25,7 @@ class CommentaireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
 
-        //$id = $options['id'];
+
 
     
 
@@ -34,7 +34,6 @@ class CommentaireType extends AbstractType
 
             ->add('contenu', TextareaType::class, [
                 'required' => true,
-                 //'mapped' => false,
                 'label' => "Commentaire ",
                 'constraints' =>
                 

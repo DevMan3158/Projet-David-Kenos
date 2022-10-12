@@ -4,85 +4,89 @@
 
 {% block body %}
 
-{% include 'user/templates/dashboard.html.twig' %}
+<section class="container_command">
 
-<h1>Trombinoscope</h1>
+    {% include 'user/templates/dashboard.html.twig' %}
 
-<div id="searchContainer">
+    <h1>Trombinoscope</h1>
 
-    <div id="searchLoopBar">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input id="searchBar" onkeyup="search()"  type="text" name="search" placeholder="Rechercher...">
+    <div id="searchContainer">
+
+        <div id="searchLoopBar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="searchBar" onkeyup="search()"  type="text" name="search" placeholder="Rechercher...">
+        </div>
+
     </div>
 
-</div>
 
-
-<section id="cardSection">
+    <section id="cardSection">
 
 
 
-    {% for user in findAll %}
-        <article class="card">
+        {% for user in findAll %}
+            <article class="card">
 
-            <div class="headArticle">
-                <div class="imgB">
-                    <image src="{{ user.imageBandeau }}" alt="{{ user.imageBandeauAlt }}"/>
+                <div class="headArticle">
+                    <div class="imgB">
+                        <image src="{{ user.imageBandeau }}" alt="{{ user.imageBandeauAlt }}"/>
+                    </div>
+
+                    <span>
+                        {{ user.chocolaterie.lieu }}
+                    </span>
+
+                    <div class="imgP">
+                        <image src="{{ user.imageProfil }}" alt="{{ user.imageProfilAlt }}"/>
+                    </div>
                 </div>
 
-                <span>
-                    {{ user.chocolaterie.lieu }}
-                </span>
+                <h3>
+                    {{user.prenom}} {{user.nom}}
+                </h3>
 
-                <div class="imgP">
-                    <image src="{{ user.imageProfil }}" alt="{{ user.imageProfilAlt }}"/>
-                </div>
-            </div>
-
-            <h3>
-                {{user.prenom}} {{user.nom}}
-            </h3>
-
-            <h6>
-                {{user.poste}}
-            </h6>
+                <h6>
+                    {{user.poste}}
+                </h6>
 
 
-           <div class="logo">
-                {% if user.facebook is not null %}
-                  <figure>
-                        <a class="mod" href="{{ user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
-                  </figure>                         
-                {% endif %}
-                {% if user.instagram is not null %}
-                    <figure>
-                        <a class="mod" href="{{ user.instagram}}"><i class="fa-brands fa-instagram"></i></a>
-                    </figure>
-                {% endif %}
-                {% if user.twitter is not null %}
-                    <figure>  
-                        <a class="mod" href="{{ user.twitter}}"><i class="fa-brands fa-twitter"></i></a>            
-                    </figure>                       
-                {% endif %}
-                {% if user.linkedin is not null %}
-                    <figure>
-                        <a class="mod" href="{{ user.linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </figure>
-                {% endif %}
-           </div>
+               <div class="logo">
+                    {% if user.facebook is not null %}
+                      <figure>
+                            <a class="mod" href="{{ user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
+                      </figure>                         
+                    {% endif %}
+                    {% if user.instagram is not null %}
+                        <figure>
+                            <a class="mod" href="{{ user.instagram}}"><i class="fa-brands fa-instagram"></i></a>
+                        </figure>
+                    {% endif %}
+                    {% if user.twitter is not null %}
+                        <figure>  
+                            <a class="mod" href="{{ user.twitter}}"><i class="fa-brands fa-twitter"></i></a>            
+                        </figure>                       
+                    {% endif %}
+                    {% if user.linkedin is not null %}
+                        <figure>
+                            <a class="mod" href="{{ user.linkedin}}"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </figure>
+                    {% endif %}
+               </div>
 
-                <a href="{{ path('app_profil', { 'id':user.id }) }}" class="seeProfil">
-                    <i class="fa-solid fa-eye"></i>
-                        Voir le profil
-                </a>
+                    <a href="{{ path('app_profil', { 'id':user.id }) }}" class="seeProfil">
+                        <i class="fa-solid fa-eye"></i>
+                            Voir le profil
+                    </a>
 
-        </article>
+            </article>
 
 
-    {% endfor %}
+        {% endfor %}
+
+    </section>
+
+    {% include 'pagination.html.twig' %}
 
 </section>
-
-{% include 'admin/pagination.html.twig' %}
 
 {% endblock %}

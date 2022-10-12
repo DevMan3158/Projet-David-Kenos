@@ -32,11 +32,13 @@
 
                 <a href="{{ path('app_accueil') }}">Accueil</a>
 
+                <a href="{{ path('app_chocolateries', { 'id':random(1,5) }) }}">Les chocolateries</a>
+
                 <a href="{{ path('app_actualite') }}">Actualités de l'entreprise</a>
 
                 <a href="{{ path('app_trombinoscope') }}">Trombinoscope</a>
 
-                <a href="{{ path('app_chocolateries') }}">La vie des chocolateries</a>              
+                <a href="{{ path('app_viedeschocolateries') }}">La vie des chocolateries</a>              
 
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
                 {# Si l'utilisateur est authentifié et qu'il est admin #}

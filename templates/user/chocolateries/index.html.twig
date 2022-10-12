@@ -1,0 +1,78 @@
+{% extends 'user_base.html.twig' %}
+
+{% block title %}Les chocolateries{% endblock %}
+
+
+{% block body %}
+
+<section class="container_command">
+
+    <h1>
+        Présentation, <span>de la </span><strong>{{ chocolateries.nom }}</strong>
+    </h1>
+
+    <div id="searchContainer">
+
+        <ul>
+            {% for chocolaterie in chocoFindAll %}
+                <a href="{{ path('app_chocolateries', { 'id':chocolaterie.id }) }}">
+                    <li id="{{ loop.index }}">
+                        {{ chocolaterie.nom }}
+                    </li>
+                </a>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <div id="chocolateriesContain">
+
+        {# On boucle les chocolateries pour les afficher #}
+
+
+            <article id="chocolaterie{{chocolateries.id}}" class="chocArticles">
+
+                <div id="photoChoc">
+                    <img src="../../{{chocolateries.photo}}" alt=""> 
+                    <span>
+                        {{ chocolateries.lieu }}
+                    </span>     
+                </div>
+
+                <p>
+                    {{chocolateries.description}}
+                </p>    
+
+                <div id="actContainer">
+
+                <h5>
+                    Les actualités
+                </h5>
+
+                    {% for act in actus %}
+
+
+                         <article id="act{{ act.id }}" class="actArticles">
+
+                            <div class="chocolaterie">
+                                <img src="../../{{ act.imageActu }}" alt="{{ act.imageActuAlt}}"/>
+                            </div>
+
+                            <p>
+                                {{ act.contenu }}
+                            </p>
+
+                        </article>
+
+                    {% endfor %}
+                    
+                </div>
+
+                
+            </article>
+
+
+    </div>
+
+</section>
+{% endblock %}

@@ -48,22 +48,21 @@ class ActualiteRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
-    // Requête qui va chercher 3 actualitées pour l'accueil
-
-    public function accAct(){
-        $qb = $this->createQueryBuilder('a')
-            ->select('a.contenu','a.crated_at')
-            ->setMaxResults(3);
-        
-        return $qb->getQuery()->getResult();
-    }
-
     // Requête qui va chercher toutes les actualitées avec la pagination
 
     public function findAllAct($perPage, $firstObj){
         $query = $this->createQueryBuilder('a')
             ->setMaxResults($perPage)
             ->setFirstResult($firstObj);
+        return $query->getQuery()->getResult();
+    }
+
+    // Requete qui va chercher les actualités par chocolaterie
+
+    public function findActByChoc($chocoEntity){
+        $query = $this->createQueryBuilder('a')
+            ->where('a.chocolaterie = :choc')
+            ->setParameter(':choc', $chocoEntity);
         return $query->getQuery()->getResult();
     }
 

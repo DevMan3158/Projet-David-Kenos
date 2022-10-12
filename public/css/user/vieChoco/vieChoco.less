@@ -3,6 +3,8 @@
 @import '../../variable.less';
 
 /////////////////////CHARGE LE MODULE POST//////////////////////////
+
+
 .Top {
     width: 100%;
     padding: 50px 50px 15px 50px;
@@ -33,25 +35,6 @@
     justify-content: space-around;
     align-items: flex-start;
     //border: solid 2px black;
-
-
-
-    .menu_cat {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 41px 0px;
-
-        li {
-            padding: 15px 50px;
-            background-color: @bgd_btn3;
-            font-weight: 600;
-
-            &:hover {
-                background-color: @bgd;
-            }
-        }
-    }
 
     .container_amis {
         display: flex;
@@ -99,4 +82,45 @@
     }
 
     @import '../modules/post.less';
+}
+
+.menu_cat {
+    flex-direction: column;
+    align-items: center;
+    margin: 41px 0px;
+
+    li {
+        padding: 15px 50px;
+        background-color: @bgd_btn3;
+        font-weight: 600;
+        transition: 0.2s;
+
+        &:hover {
+            background-color: @bgd;
+        }
+    }
+
+    label{
+
+        cursor: pointer;
+
+
+        input{
+
+
+
+            display: none;
+
+            
+            &:checked ~ li{
+                background-color: @bgd_bgr1;
+                color: white;
+                transform: scale(1.02);
+                border-top: 5px solid white;
+            }
+        }
+
+    }
+
+
 }

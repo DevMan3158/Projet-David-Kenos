@@ -15,8 +15,8 @@ class AccueilController extends AbstractController
     {
         return $this->render('user/accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
-            'findAllPost' => $postRepo->findAll(),
-            'findAllAct' => $actRepo->findAll(),
+            'findAllPost' => $postRepo->findBy([], ['id' => 'DESC']),
+            'findAllAct' => $actRepo->findBy([], ['id' => 'DESC']),
         ]);
     }
 }

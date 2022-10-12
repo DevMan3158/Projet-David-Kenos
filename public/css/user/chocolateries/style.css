@@ -101,6 +101,20 @@ body {
 .container_command #chocolateriesContain .chocArticles:first-of-type {
   background-color: white;
 }
+.container_command #chocolateriesContain .chocArticles h5 {
+  font-size: 1.2em;
+  margin: 50px auto 10px auto;
+  border: solid 2px beige;
+  padding: 15px 20px;
+  background-color: #0BAA9F;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.container_command #chocolateriesContain .chocArticles h5 i {
+  margin-top: 10px;
+}
 .container_command #chocolateriesContain .chocArticles #photoChoc {
   height: 350px;
   position: relative;
@@ -121,13 +135,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-}
-.container_command #chocolateriesContain .chocArticles #actContainer h5 {
-  font-size: 1.2em;
-  margin: 50px auto 10px auto;
-  border: solid 2px beige;
-  padding: 8px 20px;
-  background-color: #0BAA9F;
 }
 .container_command #chocolateriesContain .chocArticles #actContainer .actArticles {
   width: 100%;

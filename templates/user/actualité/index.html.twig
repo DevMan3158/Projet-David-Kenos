@@ -32,7 +32,7 @@
 
     <section id="gridAct">
         {% for act in findAllAct %}
-            <a href="#" class="card">
+            <a href="{{ path('app_chocolateries', { 'id':act.chocolaterie.id }) }}#act{{act.id}}" class="card">
                 <article >
                     <div class="chocolaterie">
                         <img src="{{ act.imageActu }}" alt="{{ act.imageActuAlt}}"/>

@@ -48,6 +48,16 @@ class ActualiteRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    // Requête qui va chercher 3 actualitées pour l'accueil admin
+
+    public function accAct(){
+        $qb = $this->createQueryBuilder('a')
+            ->select('a.contenu','a.crated_at')
+            ->orderBy('a.id', 'DESC');
+        
+        return $qb->getQuery()->getResult();
+    }
+
     // Requête qui va chercher toutes les actualitées avec la pagination
 
     public function findAllAct($perPage, $firstObj){

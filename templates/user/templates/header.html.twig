@@ -12,14 +12,14 @@
        
         <figure>
 
-            <img src="{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+            <img src="../{{ app.user.imageprofil }}" alt="../{{ app.user.imageprofilalt }}">
 
         </figure>
 
 
         <h1><span>{{ app.user.prenom }} </span> {{ app.user.nom }} </h1>
 
-        <a class="btn" href="{{ path('app_mon_profil') }}"><i class="fa-regular fa-user"></i> Voir mon profil</a>
+        <a class="btn" href="{{ path('app_profil', { 'id':app.user.id }) }}"><i class="fa-regular fa-user"></i> Voir mon profil</a>
 
     </div>
 
@@ -32,11 +32,13 @@
 
                 <a href="{{ path('app_accueil') }}">Accueil</a>
 
+                <a href="{{ path('app_chocolateries', { 'id':random(1,5) }) }}">Les chocolateries</a>
+
                 <a href="{{ path('app_actualite') }}">Actualités de l'entreprise</a>
 
                 <a href="{{ path('app_trombinoscope') }}">Trombinoscope</a>
 
-                <a href="{{ path('app_chocolateries') }}">La vie des chocolateries</a>              
+                <a href="{{ path('app_viedeschocolateries') }}">La vie des chocolateries</a>              
 
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
                 {# Si l'utilisateur est authentifié et qu'il est admin #}
@@ -59,19 +61,18 @@
 
     <div id="test1">
 
-            <figure class="icon_mod">
+           {#  <figure class="icon_mod">
             
-            <a href="#" onClick="closeMenu()"><i class="fa-sharp fa-solid fa-xmark"></i>
+            <a href="#" onClick="closeMenu()"><i class="fa-sharp fa-solid fa-xmark"></i></a>
             
-            </figure>
+            </figure>#}
 
-        {##}<figure>     
+       <figure>     
 
             <img title="logo david-kenos" src="{{ asset('img/logos/logo-david-kenos-blanc.png') }}" alt="Le logo de david kenos blanc">
 
            </figure>
-         
-        
+      
     </div>
 
 

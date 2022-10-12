@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 90%;
   justify-content: center;
   padding: 25px 0px;
 }
@@ -19,7 +19,6 @@
 #container_posts .posts {
   position: relative;
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   width: 98%;
   padding: 35px;
@@ -38,29 +37,31 @@
   font-size: 0.9rem;
 }
 #container_posts .posts figure {
+  display: flex;
   width: 20%;
+  align-items: flex-start;
+  justify-content: center;
 }
 #container_posts .posts figure img {
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  width: 90px;
+  height: 90px;
 }
 #container_posts .posts .contenues {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: -webkit-fill-available;
-  margin-left: 35px;
+  width: 70%;
 }
 #container_posts .posts .contenues #contenues_img {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  margin: 10px 0px;
+  margin: 10px 0px 20px 2px;
 }
 #container_posts .posts .contenues #contenues_img img {
-  width: 30%;
+  width: 60%;
   margin: 5px 10px 5px 0px;
 }
 #container_posts .posts .contenues p > span {
@@ -99,11 +100,17 @@
 #container_posts #container_com {
   background-color: #EFEFEF;
   flex-direction: column;
-  display: none;
+  display: flex;
   align-items: flex-start;
   width: 98%;
   padding: 25px 40px;
   margin: -14px 0px 0px 0px;
+}
+#container_posts #container_com form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 #container_posts #container_com textarea {
   width: 100%;
@@ -136,59 +143,77 @@
 }
 #container_posts h3 {
   width: 100%;
-  margin: 15px 0px 0px 0px;
+  margin: 15px 0px 10px 0px;
 }
-#container_posts .commentaire {
-  background-color: #C4D4D3;
+#container_posts .com_box {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0px 0px 15px 0px;
+}
+#container_posts .com_box .commentaire {
+  background-color: #C4D4D3;
+  display: flex;
+  flex-direction: row;
   font-size: 0.5rem;
   border-radius: 10px;
   width: 65%;
   /* height: 80px; */
-  justify-content: center;
   padding: 15px;
-  margin: 10px 0px 15px 0px;
-  text-align: left;
 }
-#container_posts .commentaire p {
+#container_posts .com_box .commentaire .contenu {
+  width: 80%;
+}
+#container_posts .com_box .commentaire .contenu p {
   font-size: 0.76rem;
+  font-weight: 100;
 }
-#container_posts .commentaire figure {
+#container_posts .com_box .commentaire figure {
   display: flex;
-}
-#container_posts .commentaire figure img {
-  border-radius: 50%;
+  align-items: flex-start;
+  justify-content: center;
   margin: 0px 10px 0px 0px;
-  width: 70px;
-  height: 30px;
+  overflow: hidden;
+}
+#container_posts .com_box .commentaire figure img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 #container_posts .com_box_droite {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width: 100%;
+  margin: 0px 0px 15px 0px;
 }
 #container_posts .com_box_droite .commentaire2 {
   background-color: #8EB0AF;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 0.5rem;
   border-radius: 10px;
   width: 65%;
   /* height: 80px; */
-  justify-content: center;
   padding: 15px;
-  text-align: left;
 }
-#container_posts .com_box_droite .commentaire2 p {
+#container_posts .com_box_droite .commentaire2 .contenu {
+  width: 80%;
+}
+#container_posts .com_box_droite .commentaire2 .contenu p {
   font-size: 0.76rem;
+  font-weight: 100;
 }
 #container_posts .com_box_droite .commentaire2 figure {
   display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0px 10px 0px 0px;
+  overflow: hidden;
 }
 #container_posts .com_box_droite .commentaire2 figure img {
-  width: 70px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  margin: 0px 10px 0px 0px;
 }

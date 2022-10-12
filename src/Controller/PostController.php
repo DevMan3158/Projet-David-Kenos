@@ -32,7 +32,7 @@ class PostController extends AbstractController
 
     // On détermine le nombre d'articles par page
 
-    $perPage = 5;
+    $perPage = 3;
 
     // On calcule le nombre de page total
 
@@ -42,7 +42,7 @@ class PostController extends AbstractController
 
     $firstObj = ($currentPage * $perPage) - $perPage;
 
-    $postPerPage = $postRepository->findAllPost($perPage, $firstObj);
+    $postPerPage = $postRepository->postPaginate($perPage, $firstObj);
 
     return $this->render('admin/post/index.html.twig', [
         
@@ -63,11 +63,10 @@ class PostController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $postRepository->add($post, true);
-
             return $this->redirectToRoute('app_post_index', [], Response::HTTP_SEE_OTHER);
         }
 
+        $postRepository->add($post, true);
         return $this->renderForm('admin/post/new.html.twig', [
             'post' => $post,
             'form' => $form,

@@ -1,0 +1,69 @@
+{% block pagination %}
+
+    <!-- Génère un bloc de pagination s'il y a au moins une page -->
+    {% if pages > 1 %}
+        <!-- Pagination -->
+        {# On adapte notre route 'path' en fonction de la page sur la quelle on est #}
+
+
+            {% set routePath = app.request.get('_route') %}
+
+
+        {# On vérifie si queryString existe ( pour les filtres ), sinon la variable est null #}
+
+            {% if queryString is defined and queryString is not empty %}
+                {% set queryStringisDefined = "&" ~ queryString %}
+            {% else %}
+                {% set queryStringisDefined = null %}
+            {% endif %}
+
+        {# On vérifie si user existe ( pour les user ), sinon la variable est null #}
+
+            {% if user is defined and user is not empty %}
+                {% set userIsDefined = user %}
+            {% else %}
+                {% set userIsDefined = null %}
+            {% endif %}
+
+
+        {# Le nombre de page à afficher autours de la page actuelle est 2 ou une valeur minimale calculée #}
+        {% set defaultPageQuantityAround = 2 %}
+        {# Valeur minimum #}
+        {% set minimumPageQuantityAround = min(currentPage - 1, pages - currentPage) %}
+        {# Condition pour afficher les bons numéros de page avant la page actuelle : valeur par défaut ou minimale #}
+        {% set conditionBefore = currentPage != 1 and minimumPageQuantityAround <= currentPage - 1 %}
+        {# Condition pour afficher les bons numéros de page après la page actuelle : valeur par défaut ou minimale #}
+        {% set conditionAfter = currentPage != pages and minimumPageQuantityAround <= pages - currentPage %}
+        {# Définir les numéros de page avant, les autres pages seront remplacées par "..." #}
+        {% set PageQuantityAroundBefore = conditionBefore ? defaultPageQuantityAround : minimumPageQuantityAround %}
+        {# Définir les numéros de page après, les autres pages seront remplacées par "..." #}
+        {% set PageQuantityAroundAfter = conditionAfter ? defaultPageQuantityAround : minimumPageQuantityAround %}
+        <div class="uk-flex uk-flex-center">
+            <ul class="uk-pagination uk-text-bold uk-text-uppercase">
+
+                {# Lien précédent #}
+                {% if currentPage - 1 != 0 %}
+                <li><a class="st-color-yellow" href="{{ path(routePath, { 'pg': currentPage - 1, 'id' : userIsDefined  }) }}{{queryStringisDefined}}" title="Previous"><span class="uk-margin-small-right" uk-pagination-previous></span> Précédent</a></li>
+                {% endif %}
+                {% for i in 1.. pages %}
+
+                {# La page actuelle à montrer #}
+                {% if currentPage == i %}
+                <li class="st-color-red">{{ i }}</li>
+
+                {# Liens normaux non concernés par les conditions ci-dessus #}
+                {% else %}
+                <li><a href="{{ path(routePath, { 'pg': i, 'id' : userIsDefined }) }}{{queryStringisDefined}}" title="Page {{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+
+                {# Lien suivant #}
+                {% if currentPage + 1 <= pages %}
+                <li class="uk-margin-auto-left"><a class="st-color-yellow" href="{{ path(routePath, { 'pg': currentPage + 1, 'id' : userIsDefined }) }}{{queryStringisDefined}}" title="Next">Suivant <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
+                {% endif %}
+                
+            </ul>
+        </div>
+    {% endif %}
+
+{% endblock %}

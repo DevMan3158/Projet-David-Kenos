@@ -76,7 +76,7 @@
                             {{ app.user.chocolaterie.nom }}
                         </a>
 
-                        <a href="{{ path('app_mon_profil') }}">
+                        <a href="{{ path('app_profil', { 'id':app.user.id }) }}">
                             <img src="../{{ app.user.imageProfil }}" alt="{{ app.user.imageProfilAlt }}"/>
                         </a>
                     </li>

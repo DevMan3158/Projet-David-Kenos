@@ -4,19 +4,19 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\User1Type;
+use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ChocolaterieRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
-/*use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\String\Slugger\SluggerInterface;*/
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 
 #[Route('/')]
@@ -24,7 +24,7 @@ class UserProfilController extends AbstractController
 {
 
 
-   #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
+   /* #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
     {
         $form = $this->createForm(User1Type::class, $user);
@@ -45,48 +45,67 @@ class UserProfilController extends AbstractController
         return $this->renderForm('user_profil/edit.html.twig', [
             'user' => $user,
             'form' => $form,
-        ]);
+        ]);*/
 
 
 
-        /*#[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
-        public function edit(Request $request, FileUploader $fileUploader ,SluggerInterface $slugger ,User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
+        #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
+        public function edit(Request $request ,SluggerInterface $slugger, EntityManagerInterface $entityManager,User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
         {
             $form = $this->createForm(User1Type::class, $user);
-            $form->handleRequest($request);*/
+            $form->handleRequest($request);
     
-            /*if ($form->isSubmitted() && $form->isValid()) {*/
+
+            //  cette condition est nécessaire pour les champs du formulaire hors fichier
+
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+
+            $userRepository->add($user, true);
+
+            /** @var UploadedFile $imageFile */
+
+            $imageFile = $form->get('ImageBandeau')->getData();
+
+            // cette condition est nécessaire car le champ 'ImageBandeau' n'est pas obligatoire
+
+            // donc le fichier doit être traité uniquement lorsqu'un fichier est téléchargé
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 
-               /* $userRepository->add($user, true);
-                $image_bandeau = $form->get('ImageBandeau')->getData();*/
-    
-                // this condition is needed because the 'brochure' field is not required
-                // so the PDF file must be processed only when a file is uploaded
-                /*if ($image_bandeau) {
-                    $image_bandeauName = $fileUploader->upload($image_bandeau);
-                    $user->setImageBandeau($image_bandeauName);*/
-    
-                    // Move the file to the directory where brochures are stored
-                    /*try {
-                        $image_bandeau->move(
-                            $this->getParameter('data'),
-                            $newFilename
-                        );
-                    } catch (FileException $e) {
-                        // ... handle exception if something happens during file upload
-                    }
-    
-                    // updates the 'brochureFilename' property to store the PDF file name
-                    // instead of its contents
-                    $user->setImageBandeau($newFilename);*/
-               /* }
+            // ceci est nécessaire pour inclure en toute sécurité le nom du fichier dans l'URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+            /* Définit data_directory dans le fichier service.yaml    
+
+             Déplace le fichier dans le répertoire où sont stockées les images*/
+                try {
+                    $imageFile->move(
+                        $this->getParameter('data_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    
+            // ... gérer l'exception si quelque chose se passe pendant le téléchargement du fichie
+                }
+
+                
+            // met à jour la propriété 'setImageBandeau' pour stocker le nom du fichier PDF
+            // au lieu de son contenu
+                $user->setImageBandeau($newFilename);
+            }
+
+            // ... persister la variable $user ou tout autre travail
+
+                $this->addFlash('success', 'Photo modifié');
                 return $this->redirectToRoute('app_mon_profil', [], Response::HTTP_SEE_OTHER);
             }
     
             return $this->renderForm('user_profil/edit.html.twig', [
                 'user' => $user,
                 'form' => $form,
-            ]);*/
+            ]);
 
 
     }

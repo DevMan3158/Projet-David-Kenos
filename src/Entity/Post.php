@@ -77,6 +77,8 @@ class Post
         return $this;
     }
 
+    
+
     public function getImagePost(): ?string
     {
         return $this->image_post;

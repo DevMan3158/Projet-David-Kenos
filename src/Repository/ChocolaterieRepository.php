@@ -40,7 +40,7 @@ class ChocolaterieRepository extends ServiceEntityRepository
         }
     }
 
-    //Permet de compter le nombre de cholateries avec l'id 
+    // Requete qui compte le nombre de chocolaterie
 
     public function countChoco(){
         $qb = $this->createQueryBuilder('c')
@@ -49,6 +49,8 @@ class ChocolaterieRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    // Requete qui affiche les chocolateries avec la pagination
+
     public function findAllChoco($perPage, $firstObj){
         $query = $this->createQueryBuilder('c')
             ->setMaxResults($perPage)
@@ -56,7 +58,7 @@ class ChocolaterieRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
-    //Permet d'afficher les actualité du lieux 
+    // Requete qui cherche les lieux des chocolaterie ? ( parrait innutile à check )
 
     public function actLieux(){
         $qb = $this->createQueryBuilder('c')

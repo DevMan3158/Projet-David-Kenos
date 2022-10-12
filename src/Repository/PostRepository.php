@@ -39,24 +39,69 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
-    //Requête permettent le calcul dans le controller 
+    // Requete qui compte le nombre de posts OU compte le nombre de posts en fonction des filtres 
 
-    public function findAllPost($perPage, $firstObj){
-        $query = $this->createQueryBuilder('p')
-            ->setMaxResults($perPage)
-            ->setFirstResult($firstObj);
+    public function countPost($filters = null){
+        $qb = $this->createQueryBuilder('p')
+            ->select('count(p)');
+
+        // On compte les postes par filtres
+        if($filters != null){
+            $qb->where('p.cat_post IN (:cats)')
+            ->setParameter(':cats', array_values($filters));
+        };
+        
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+
+
+    // Requete qui va chercher les posts avec la user si besoin
+
+    public function postPaginateUser($perPage, $firstObj, $user = null){
+        $query = $this->createQueryBuilder('p');
+
+
+        //On recherche les posts par user si besoin
+
+            if($user != null){
+
+                $query->where('p.user = :user')
+                ->setParameter(':user', $user);
+
+            }
+
+            $query->setMaxResults($perPage)
+            ->setFirstResult($firstObj)
+            ->orderBy('p.id', 'DESC');
+
         return $query->getQuery()->getResult();
     }
 
 
-    //Permet de compter le nombre de post avec l'id 
 
-    public function countPost(){
-        $qb = $this->createQueryBuilder('p')
-            ->select('count(p.id)');
-        
-        return $qb->getQuery()->getSingleScalarResult();
-    }
+        // Requete qui va chercher les posts avec la pagination + les filtres
+
+        public function postPaginateFilters($perPage, $firstObj, $filters = null){
+            $query = $this->createQueryBuilder('p');
+
+        //On recherche les posts par filtres si besoin
+            
+        if($filters != null){
+
+            $query->where('p.cat_post IN (:cats)')
+            ->setParameter(':cats', array_values($filters));
+        }
+
+            $query->setMaxResults($perPage)
+                ->setFirstResult($firstObj)
+                ->orderBy('p.id', 'DESC');
+            return $query->getQuery()->getResult();
+        }
+
+
+
+
 
 //    /**
 //     * @return Post[] Returns an array of Post objects

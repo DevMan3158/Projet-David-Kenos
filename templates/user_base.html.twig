@@ -1,83 +1,87 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}base{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/ico" href="../img/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&display=swap"rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}base{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" type="image/ico" href="../img/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&display=swap"rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
 
 
-    {% block stylesheets %}
+        {% block stylesheets %}
 
-        {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags('app') }}
 
-        <link rel="stylesheet" href="{{ asset('css/user/normalizer.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/styles.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/media_queries.css') }}">
-    {% if app.request.get('_route') == 'app_mon_profil' %}
-        <link rel="stylesheet" href="{{ asset('css/user/mon_profil/mon_profil.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/mon_profil/mon_profil_media_queries.css') }}">
-    {% elseif app.request.get('_route') == 'app_user_profil_edit' %}
-        <link rel="stylesheet" href="{{ asset('css/user/edit_prof/edit_prof.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/edit_prof/edit_prof_media_queries.css') }}">
-    {% elseif app.request.get('_route') == 'app_accueil' %}
-        <link rel="stylesheet" href="{{ asset('css/user/acc/acc.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/acc/acc_media_queries.css') }}">
-    {% elseif app.request.get('_route') == 'app_actualite' %}
-        <link rel="stylesheet" href="{{ asset('css/user/actu/actu.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/actu/actu_media_queries.css') }}">
-    {% elseif app.request.get('_route') == 'app_trombinoscope' %}
-        <link rel="stylesheet" href="{{ asset('css/user/tromb/tromb.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/tromb/tromb_media_queries.css') }}">
-    {% elseif app.request.get('_route') == 'app_chocolateries' %}
-        <link rel="stylesheet" href="{{ asset('css/user/vieChoco/vieChoco.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user/vieChoco/vieChoco_media_queries.css') }}">
-    {% endif %}
+            <link rel="stylesheet" href="{{ asset('css/user/normalizer.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/user/styles.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/user/media_queries.css') }}">
+        {% if app.request.get('_route') == 'app_mon_profil' or app.request.get('_route') == 'app_profil' %}
+            <link rel="stylesheet" href="{{ asset('css/user/mon_profil/mon_profil.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/user/mon_profil/mon_profil_media_queries.css') }}">
+        {% elseif app.request.get('_route') == 'app_user_profil_edit' %}
+            <link rel="stylesheet" href="{{ asset('css/user/edit_prof/edit_prof.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/user/edit_prof/edit_prof_media_queries.css') }}">
+        {% elseif app.request.get('_route') == 'app_accueil' %}
+            <link rel="stylesheet" href="{{ asset('css/user/acc/acc.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/user/acc/acc_media_queries.css') }}">
+        {% elseif app.request.get('_route') == 'app_actualite' %}
+            <link rel="stylesheet" href="{{ asset('css/user/actu/actu.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/user/actu/actu_media_queries.css') }}">
+        {% elseif app.request.get('_route') == 'app_trombinoscope' %}
+            <link rel="stylesheet" href="{{ asset('css/user/tromb/tromb.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/user/tromb/tromb_media_queries.css') }}">
+        {% elseif app.request.get('_route') == 'app_viedeschocolateries' %}
+            <link rel="stylesheet" href="{{ asset('css/user/vieChoco/vieChoco.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/user/vieChoco/vieChoco_media_queries.css') }}">
+        {% elseif app.request.get('_route') == 'app_chocolateries' or app.request.get('_route') == 'app_chocolateries_id' %}
+            <link rel="stylesheet" href="{{ asset('css/user/chocolateries/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/user/chocolateries/media_queries.css') }}">
+        {% endif %}
 
-    {% endblock %}
+        {% endblock %}
 
-    {% block javascripts %}
-    {{ encore_entry_script_tags('app') }}
-    <script src="{{ asset('js/main_user.js') }}"></script>
-    <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
-    {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script src="{{ asset('js/main_user.js') }}"></script>
+            <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
+        {% endblock %}
 
-</head>
-
-
-<body>
-
-{% include 'user/templates/header.html.twig' %}
-
-{#Container command : permet la mise en place des éléments à l'intérieur -> post,carte...#}
-<section class="container_command">
+    </head>
 
 
+    <body>
 
-<div id="head">
+        {% include 'user/templates/header.html.twig' %}
 
-    <div id="mobile">
+        {#Container command : permet la mise en place des éléments à l'intérieur -> post,carte...#}
+        
+    
+    
+    
+            <div id="head">
 
-        <figure id="logo">
-                    <img src="{{ asset('img/logos/logo-david-kenos.png') }}" alt="Logo David Kenos"/>
-        </figure>
+                <div id="mobile">
 
-       
-        <a href="#" id="openBtn" onClick="openMenu()" > <i class="fa-solid fa-bars"></i></a>
+                    <figure id="logo">
+                        <img src="{{ asset('img/logos/logo-david-kenos.png') }}" alt="Logo David Kenos"/>
+                    </figure>
 
-    </div>
 
-</div>
-    {% block body %} {% endblock %}
- </section>   
- 
-        <script src="{{ asset('js/main_user.js') }}"></script>               
-</body>
+                    <a href="#" id="openBtn" onClick="openMenu()" ><i class="fa-solid fa-bars"></i></a>
+
+                </div>
+
+            </div>
+
+            {% block body %}{% endblock %}
+        
+
+    <script src="{{ asset('js/main_user.js') }}"></script>               
+    </body>
 
 </html>

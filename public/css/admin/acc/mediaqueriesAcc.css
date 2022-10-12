@@ -31,11 +31,11 @@
     }
 
     section article:first-of-type{
-        grid-area: art1;
+        grid-area: art2;
     }
 
     section article:nth-of-type(2){
-        grid-area: art2;
+        grid-area: art1;
     }
 
     section article:nth-of-type(3){

@@ -14,11 +14,11 @@ class ChocolaterieFixtures extends Fixture
     {
 
         $tableChocolateries=[
-            ['nom' => 'Chocolaterie du ministral', 'lieu' => 'Marzy'],
-            ['nom' => 'Chocolaterie du chocolat','lieu' => 'Nevers'],
-            ['nom' => 'Chocolaterie du fondant','lieu' => 'La Charité'],
-            ['nom' => 'Chocolaterie du croustillant','lieu' => 'Pougues-les-eaux'],
-            ['nom' => 'Chocolaterie du palpitant','lieu' => 'Sancerre'],
+            ['nom' => 'Chocolaterie du ministral', 'lieu' => 'Marzy', 'photo' => 'img/chocolaterie/choc1.jpg'],
+            ['nom' => 'Chocolaterie du chocolat','lieu' => 'Nevers', 'photo' => 'img/chocolaterie/choc2.jpg'],
+            ['nom' => 'Chocolaterie du fondant','lieu' => 'La Charité', 'photo' => 'img/chocolaterie/choc3.jpg'],
+            ['nom' => 'Chocolaterie du croustillant','lieu' => 'Pougues-les-eaux', 'photo' => 'img/chocolaterie/choc4.jpg'],
+            ['nom' => 'Chocolaterie du palpitant','lieu' => 'Sancerre', 'photo' => 'img/chocolaterie/choc5.jpg'],
         ];
 
         for ($i = 0; $i < 5; $i++) {
@@ -26,6 +26,8 @@ class ChocolaterieFixtures extends Fixture
             $chocolaterie = new Chocolaterie();
             $chocolaterie->setNom($tableChocolateries[$i]['nom']);
             $chocolaterie->setLieu($tableChocolateries[$i]['lieu']);
+            $chocolaterie->setPhoto($tableChocolateries[$i]['photo']);
+            $chocolaterie->setDescription('Ceci est la description de la chocolaterie, cette chocolaterie fabrique du tres bon chocolat blablabliblablabla');
             $this->addReference('chocolaterie_'.$i, $chocolaterie);
             $manager->persist($chocolaterie);
 

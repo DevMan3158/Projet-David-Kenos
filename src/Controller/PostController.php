@@ -42,7 +42,7 @@ class PostController extends AbstractController
 
     $firstObj = ($currentPage * $perPage) - $perPage;
 
-    $postPerPage = $postRepository->postPaginate($perPage, $firstObj);
+    $postPerPage = $postRepository->postPaginateFilters($perPage, $firstObj);
 
     return $this->render('admin/post/index.html.twig', [
         

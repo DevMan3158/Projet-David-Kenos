@@ -49,7 +49,7 @@
 
                     {% for act in findAllAct|slice(0, 2) %}
 
-                        <a href="#">
+                        <a href="{{ path('app_chocolateries', { 'id':act.chocolaterie.id }) }}#act{{act.id}}">
 
                             <article id="act{{ loop.index }}">
 

@@ -8,7 +8,7 @@
 <section class="container_command">
 
     <h1>
-        Présentation, <span>des chocolateries</span>
+        Présentation, <span>de la </span><strong>{{ chocolateries.nom }}</strong>
     </h1>
 
     <div id="searchContainer">
@@ -36,14 +36,18 @@
                     <img src="../../{{chocolateries.photo}}" alt=""> 
                     <span>
                         {{ chocolateries.lieu }}
-                    </span>        
+                    </span>     
                 </div>
 
-                <h3>
-                    {{ chocolateries.nom }}
-                </h3>
+                <p>
+                    {{chocolateries.description}}
+                </p>    
 
                 <div id="actContainer">
+
+                <h5>
+                    Les actualités
+                </h5>
 
                     {% for act in actus %}
 
@@ -52,9 +56,6 @@
 
                             <div class="chocolaterie">
                                 <img src="../../{{ act.imageActu }}" alt="{{ act.imageActuAlt}}"/>
-                                <span>
-                                    {{ act.chocolaterie.lieu }}
-                                </span>
                             </div>
 
                             <p>

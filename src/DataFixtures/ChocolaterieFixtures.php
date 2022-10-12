@@ -27,6 +27,7 @@ class ChocolaterieFixtures extends Fixture
             $chocolaterie->setNom($tableChocolateries[$i]['nom']);
             $chocolaterie->setLieu($tableChocolateries[$i]['lieu']);
             $chocolaterie->setPhoto($tableChocolateries[$i]['photo']);
+            $chocolaterie->setDescription('Ceci est la description de la chocolaterie, cette chocolaterie fabrique du tres bon chocolat blablabliblablabla');
             $this->addReference('chocolaterie_'.$i, $chocolaterie);
             $manager->persist($chocolaterie);
 

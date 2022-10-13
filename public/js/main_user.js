@@ -163,15 +163,22 @@ window.onload = () => {
 
   
 
-/*function openMenu(){
-  div.classList.add("divcontainer_com");
-  document.SelectorById('#container_com').style.display = "flex";
+function openMenu(){
+
+  let buttonId = event.currentTarget.id.replace('commenter', 'container_com_');
+  let postId = document.getElementById(buttonId);
+  console.log(postId);
+
+  if (postId.classList.contains('activeComment') == false) {
+
+postId.style.maxHeight = "1000px";
+postId.classList.add("activeComment");
+
+  } else {
+
+    postId.style.maxHeight = "0";
+    postId.classList.remove("activeComment");
+
+  }
+
 }
-
-function closeMenu(){
-  div.classList.remove("divcontainer_com");
-  document.SelectorById('#container_com').style.display = "none";
-
-
-}*/
-

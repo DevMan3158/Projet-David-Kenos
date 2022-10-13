@@ -61,7 +61,7 @@
                         {{ posts.commentaires|length }} 
 
                         <i class="fa-regular fa-comments">
-                            <a href="#" id="commentaire" onClick="openMenu()"> 
+                            <a href="#" id="commenter{{posts.id}}" onClick="openMenu()"> 
                                 Commenter
                             </a>
                         </i>
@@ -85,14 +85,14 @@
                 {#///////////////////////Templates-Commentaires////////////////////#}
 
 
-                <div id="container_com" >
+                <div id="container_com_{{posts.id}}" class="container_com">
 
                     <form action="" name="comForm" method="post">
 
                         <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
                         <input type="hidden" id="postId" name="postId" value="{{posts.id}}">
 
-                        <input id="CloseCom" type="submit" onClick="closeMenu()" name="submit">
+                        <input id="CloseCom{{posts.id}}" type="submit" onClick="closeMenu()" name="submit">
 
                     </form>
 
@@ -100,7 +100,7 @@
 
                     {# Ici on boucle les commentaires du post en question #}
 
-                    {% for comment in posts.commentaires %}
+                    {% for comment in posts.commentaires|reverse %}
 
                         {# Ici on conditionne nos commentaires afin de les placer à droite s'ils ont été postés par l'utilisateur connecté #}
 

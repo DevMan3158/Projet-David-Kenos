@@ -62,6 +62,8 @@ class MonProfilController extends AbstractController
                 // On envoi tout ça en BDD
 
                 $commentaireRepository->add($commentaire, true);
+
+                return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
             }     
 
         // CREATION D'UN NOUVEAU POST
@@ -84,29 +86,33 @@ class MonProfilController extends AbstractController
 
 
                 // On récupère l'image
+
                 $image = $formPost->get('images')->getData();
 
                 // Si on a une image, alors on vérifie son nom pour le renommé si son nom est déja prit.
+
                 if ($image) {
                     $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                     $safeFilename = $slugger->slug($originalFilename);
                     $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
                     $newFilename = '../data/'.$safeFilename.'-'.uniqid().'.'.$image->guessExtension();
-
-
                 
                     // On envoi l'image dans le dossier définis
+
                     try {
                         $image->move(
                             $this->getParameter('data_directory'),
                             $newFilename
                         );
                     } catch (FileException $e) {
-                        // Ceci est un esapce pour écrire un quelquconque message d'erreur
+
+                    // Ceci est un espace pour écrire un quelquconque message d'erreur
+
                     }
                 
 
                     // On envoi dans la BDD
+
                     $newPost->setImagePost($newFilename);
                     $post->add($newPost, true);
 
@@ -119,9 +125,7 @@ class MonProfilController extends AbstractController
 
             // On stocke la page actuelle dans une variable
 
-
             $currentPage = (int)$request->query->get("pg", 1);
-
 
             // On détermine le nombre d'articles par page
 
@@ -141,7 +145,6 @@ class MonProfilController extends AbstractController
 
             return $this->renderForm('user/profil_view/index.html.twig', [
                 'commentaire' => $commentaire,
-                //'form' => $form,
                 'formPost' => $formPost,
                 "post"=> $postPerPage,
                 "com" => $commentaireRepository->findByUser($user),

@@ -27,8 +27,7 @@
 
                 <td>{{ chocolaterie.nom }}</td>
                 <td>{{ chocolaterie.lieu }}</td>
-                <td>{{ chocolaterie.photo }}</td>
-
+                <td><img title="Chocolaterie" src="../../{{ chocolaterie.photo }}" alt="Les chocolateries affichés"></td>
                 <td>
 
                         <a  href="{{ path('app_chocolaterie_show', {'id': chocolaterie.id}) }}">

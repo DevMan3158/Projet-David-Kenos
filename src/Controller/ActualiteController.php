@@ -2,18 +2,19 @@
 
 namespace App\Controller;
 
+use DateTimeImmutable;
 use App\Entity\Actualite;
 use App\Form\ActualiteType;
 use App\Entity\Chocolaterie;
 use App\Service\FileUploader;
 use App\Form\ChocolaterieType;
 use App\Repository\ActualiteRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ChocolaterieRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('admin/actualite')]
@@ -61,35 +62,36 @@ class ActualiteController extends AbstractController
         $actualite = new Actualite();
         $form = $this->createForm(ActualiteType::class, $actualite);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            $actualite->setCratedAt(new DateTimeImmutable());
             $actualiteRepository->add($actualite, true);
-
-
-
+            
             /** @var UploadedFile $imageFile */
-
+            
             //Récupère la donnée du champs ImageBandeau du usertype et le stoke
             $imageFile = $form->get('image_actu')->getData();
-      
+            
             //Cette condition est nécessaire car le champ 'ImageBandeau' n'est pas obligatoire
             //Donc le fichier doit être traité uniquement lorsqu'il est téléchargé et non vide 
 
                if (!empty($imageFile)) {
-
+                   
                    $imageFileName = $fileUploader->upload($imageFile);
                    //Met à jour la propriété 'setImageBandeau' pour stocker le nom du fichier et sa concaténation (chemin du fichier) 
-                   $actualite->ImageActu('../data/'. $imageFileName);
+                   $actualite->setImageActu('../data/'. $imageFileName);
+                   
                }
-
+               
             // Persiste la variable $user ou tout autre travail
             $em->persist($actualite);
-
+            
             // Hydrate la bdd
             $em->flush();
             return $this->redirectToRoute('app_actualite_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        
         return $this->renderForm('admin/actualite/new.html.twig', [
             'actualite' => $actualite,
             'form' => $form,

@@ -16,6 +16,7 @@
             <tr>
                 <th>Utilisateurs</th>
                 <th>Catégorie</th>
+                <th>Like</th>
                 <th>Contenu</th>
                 <th>Image post</th>
                 <th>Créer</th>
@@ -27,8 +28,9 @@
             <tr>
                 <td>{{ post.user.prenom}} {{ post.user.nom}}</td>
                 <td>{{ post.catpost.nom }}</td>
+                <td>{{ post.likes|length }} </td> 
                 <td>{{ post.contenu |length > 50 ? post.contenu |slice(0, 50) ~ '...' : post.contenu  }}</td>
-                <td>{{ post.imagePost }}</td>
+                <td><img title="Post" src="../{{ post.imagePost }}" alt="{{ post.imagePostAlt }}"></td>
                 <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_post_show', {'id': post.id}) }}"><i class="fa-solid fa-eye"></i></a>
@@ -47,7 +49,7 @@
 
     {% include 'pagination.html.twig' %}
 
-     <button class="btn-add"><a href="{{ path('app_post_new') }}">Ajouter un nouveaux post</a></button>
+     {#<button class="btn-add"><a href="{{ path('app_post_new') }}">Ajouter un nouveaux post</a></button>#}
 
 
 

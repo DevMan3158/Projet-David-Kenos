@@ -82,53 +82,43 @@
             </article>
 
 
-            
-
-                {#Condition Soyer le premier à commenter ! commentaire différent suivant user, nom d'user dans com? et heure date#}
-
-
-
-                {#///////////////////////Templates-Commentaires////////////////////
+                {#///////////////////////Templates-Commentaires////////////////////#}
 
 
                 <div id="container_com" >
-                var headdd = document.getElementById('head')
-                <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
 
-                <button id="CloseCom" onClick="closeMenu()">Publier</button> 
+                    <form action="" name="comForm" method="post">
 
-                {{ form_start(form) }}
+                        <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
+                        <input type="hidden" id="postId" name="postId" value="{{posts.id}}">
 
+                        <input id="CloseCom" type="submit" onClick="closeMenu()" name="submit">
 
-                {{ form_widget(form.contenu, {'attr': {'placeholder': 'Écrivez votre commentaire...' }} )  }}
-                    <button class="btn"><a href="?idPost={{ posts.id }}">{{ button_label|default('Publierr') }}</a></button>
-                {{ form_end(form) }}
+                    </form>
 
-                {{ postCom }}
+                    <h3>Les commentaires existants</h3>
 
-                <h3>Les commentaires existants</h3>#}
+                    {# Ici on boucle les commentaires du post en question #}
 
-                {# Ici on boucle les commentaires du post en question #}
+                    {% for comment in posts.commentaires %}
 
-                {% for comment in posts.commentaires %}
+                        {# Ici on conditionne nos commentaires afin de les placer à droite s'ils ont été postés par l'utilisateur connecté #}
 
-                    {# Ici on conditionne nos commentaires afin de les placer à droite s'ils ont été postés par l'utilisateur connecté #}
-
-                    {% if comment.user.id == app.user.id %}
+                        {% if comment.user.id == app.user.id %}
 
 
-                        <div class="com_box_droite">
-                            <div class="commentaire2">
-                                <figure>
-                                  <img src="../../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
-                                </figure>
-                                <div class="contenu"> 
-                                    <p>{{ comment.contenu }}</p>
-                                    <br>
-                                    <p><strong>le {{ comment.createdAt|date('d/m/Y') }}</strong></p>{#{{ include('commentaire/_delete_form.html.twig') }}#}
+                            <div class="com_box_droite">
+                                <div class="commentaire2">
+                                    <figure>
+                                      <img src="../../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+                                    </figure>
+                                    <div class="contenu"> 
+                                        <p>{{ comment.contenu }}</p>
+                                        <br>
+                                        <p><strong>le {{ comment.createdAt|date('d/m/Y') }}</strong></p>{#{{ include('commentaire/_delete_form.html.twig') }}#}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
                         {# Ou à gauche s'ils ont été postés par n'importe quel autre utilisateur.  #}
                         {% else %}
@@ -146,9 +136,11 @@
                                 </div>
                             </div>
 
-                    {% endif %}
+                        {% endif %}
 
-                {% endfor %}
+                    {% endfor %}
+                
+                </div>
 
         {% endfor %}
 

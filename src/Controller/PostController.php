@@ -42,7 +42,7 @@ class PostController extends AbstractController
 
     $firstObj = ($currentPage * $perPage) - $perPage;
 
-    $postPerPage = $postRepository->postPaginate($perPage, $firstObj);
+    $postPerPage = $postRepository->postPaginateUser($perPage, $firstObj);
 
     return $this->render('admin/post/index.html.twig', [
         
@@ -64,9 +64,10 @@ class PostController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirectToRoute('app_post_index', [], Response::HTTP_SEE_OTHER);
+           $postRepository->add($post, true); 
         }
 
-        $postRepository->add($post, true);
+        
         return $this->renderForm('admin/post/new.html.twig', [
             'post' => $post,
             'form' => $form,

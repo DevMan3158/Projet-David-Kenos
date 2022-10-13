@@ -24,6 +24,21 @@ class User1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+
+            ->add('facebook')
+            
+            ->add('instagram')
+            
+            ->add('twitter')
+            
+            ->add('linkedin')
+            
+            ->add('lien')
+            
+            ->add('description')
+            
+            ->add('email')
+
             ->add('ImageBandeau',FileType::class, 
             [
                 'label' => 'Photo du bandeau',
@@ -34,27 +49,49 @@ class User1Type extends AbstractType
                 'required' => false,
                 // unmapped fields can't define their validation using annotations
                 // in the associated entity, so you can use the PHP constraint classes
-                
+
+                'constraints' => [
+                    new File([
+                        'maxSize' => '5M',
+                        'maxSizeMessage' => "Taille du fichier supérieur à 5MB.",
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                            'image/tiff',
+                            'image/gif',
+                        ],
+                        'mimeTypesMessage' => 'Fichier accepté : png, jpeg, gif, tiff',
+                    ])
+               ],        
 
             ])
 
             ->add('ImageProfil',FileType::class, 
             [
                 "mapped"=>false,
-                'data_class'=>null,
-                'label'=> 'Photo de profil', 
-                'required' => false
-                
-                ])/**/
 
-          
-            ->add('facebook')
-            ->add('instagram')
-            ->add('twitter')
-            ->add('linkedin')
-            ->add('lien')
-            ->add('description')
-            ->add('email')
+                'data_class'=>null,
+
+                'label'=> 'Photo de profil',
+                
+                'required' => false,
+
+                'constraints' => [
+                    new File([
+                        'maxSize' => '5M',
+                        'maxSizeMessage' => "Taille du fichier supérieur à 5MB.",
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                            'image/tiff',
+                            'image/gif',
+                        ],
+                        'mimeTypesMessage' => 'Fichier accepté : png, jpeg, gif, tiff',
+                    ])
+                ],
+                
+            ])
+
             ->add('nom', TextType::class, [
             
             'constraints' =>
@@ -124,9 +161,7 @@ class User1Type extends AbstractType
                 'second_options' => [
                     'required' => false,
                     'label' => "Répeter le Mot de Passe :",
-                    'attr' => ['autocomplete' => 'Nouveau Mot de Passe'],
-                    'attr' => ['class' => 'input_Reg_Form'],
-                    
+                    'attr' => ['autocomplete' => 'Nouveau Mot de Passe'],          
                 ],
                 'invalid_message' => 'Les champs du mot de passe doivent correspondre.',
                 // Instead of being set onto the object directly,

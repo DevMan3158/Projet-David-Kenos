@@ -4,6 +4,7 @@
 {% block title %}Modifer mon profil{% endblock %}
 
 {% block body %}
+<section class="container_command">
 
 {% include 'user/templates/dashboard.html.twig' %}
 
@@ -13,10 +14,11 @@
 
  {{ include('user_profil/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
- {##}
+
 
 </div>
 
 {{ include('user_profil/_delete_form.html.twig') }}
 
+</section>
 {% endblock %}

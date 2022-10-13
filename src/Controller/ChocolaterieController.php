@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Chocolaterie;
+use App\Service\FileUploader;
 use App\Form\ChocolaterieType;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ChocolaterieRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('admin/chocolaterie')]
 class ChocolaterieController extends AbstractController
@@ -51,7 +53,7 @@ class ChocolaterieController extends AbstractController
     }
 
     #[Route('/new', name: 'app_chocolaterie_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ChocolaterieRepository $chocolaterieRepository): Response
+    public function new(Request $request,FileUploader $fileUploader, EntityManagerInterface $em, ChocolaterieRepository $chocolaterieRepository): Response
     {
         $chocolaterie = new Chocolaterie();
         $form = $this->createForm(ChocolaterieType::class, $chocolaterie);
@@ -59,6 +61,27 @@ class ChocolaterieController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $chocolaterieRepository->add($chocolaterie, true);
+
+        /** @var UploadedFile $imageFile */
+
+            //Récupère la donnée du champs ImageBandeau du usertype et le stoke
+            $imageFile = $form->get('photo')->getData();
+      
+            //Cette condition est nécessaire car le champ 'ImageBandeau' n'est pas obligatoire
+            //Donc le fichier doit être traité uniquement lorsqu'il est téléchargé et non vide 
+
+               if (!empty($imageFile)) {
+
+                   $imageFileName = $fileUploader->upload($imageFile);
+                   //Met à jour la propriété 'setImageBandeau' pour stocker le nom du fichier et sa concaténation (chemin du fichier) 
+                   $chocolaterie->setPhoto('../data/'. $imageFileName);
+               }
+
+            // Persiste la variable $user ou tout autre travail
+            $em->persist($chocolaterie);
+
+            // Hydrate la bdd
+            $em->flush();    
 
             return $this->redirectToRoute('app_chocolaterie_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -78,13 +101,34 @@ class ChocolaterieController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_chocolaterie_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Chocolaterie $chocolaterie, ChocolaterieRepository $chocolaterieRepository): Response
+    public function edit(Request $request, FileUploader $fileUploader, EntityManagerInterface $em, Chocolaterie $chocolaterie, ChocolaterieRepository $chocolaterieRepository): Response
     {
         $form = $this->createForm(ChocolaterieType::class, $chocolaterie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $chocolaterieRepository->add($chocolaterie, true);
+
+             /** @var UploadedFile $imageFile */
+
+            //Récupère la donnée du champs ImageBandeau du usertype et le stoke
+            $imageFile = $form->get('photo')->getData();
+      
+            //Cette condition est nécessaire car le champ 'ImageBandeau' n'est pas obligatoire
+            //Donc le fichier doit être traité uniquement lorsqu'il est téléchargé et non vide 
+
+               if (!empty($imageFile)) {
+
+                   $imageFileName = $fileUploader->upload($imageFile);
+                   //Met à jour la propriété 'setImageBandeau' pour stocker le nom du fichier et sa concaténation (chemin du fichier) 
+                   $chocolaterie->setPhoto('../data/'. $imageFileName);
+               }
+
+            // Persiste la variable $user ou tout autre travail
+            $em->persist($chocolaterie);
+
+            // Hydrate la bdd
+            $em->flush();    
 
             return $this->redirectToRoute('app_chocolaterie_index', [], Response::HTTP_SEE_OTHER);
         }

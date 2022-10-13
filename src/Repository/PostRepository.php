@@ -39,6 +39,15 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
+        // Requete qui affiche les chocolateries avec la pagination
+
+        public function findAllPost($perPage, $firstObj){
+            $query = $this->createQueryBuilder('p')
+                ->setMaxResults($perPage)
+                ->setFirstResult($firstObj);
+            return $query->getQuery()->getResult();
+        }
+
     // Requete qui compte le nombre de posts OU compte le nombre de posts en fonction des filtres 
 
     public function countPost($filters = null){
@@ -55,7 +64,6 @@ class PostRepository extends ServiceEntityRepository
     }
 
 
-    // Requête qui va chercher toutes les actualitées avec la pagination
 
     // Requete qui va chercher les posts avec la user si besoin
 
@@ -80,16 +88,6 @@ class PostRepository extends ServiceEntityRepository
     }
 
 
-//  public function findByPost($value): array
-// {
-//     return $this->createQueryBuilder('p')
-//         ->andWhere('p.user = :val')
-//         ->setParameter('val', $value)
-//         ->orderBy('p.id', 'ASC')
-//         ->getQuery()
-//         ->getResult()
-//    ;
-//}
 
         // Requete qui va chercher les posts avec la pagination + les filtres
 

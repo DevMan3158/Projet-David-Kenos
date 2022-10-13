@@ -3,15 +3,8 @@
 {% block title %}{{ user.prenom }} {{ user.nom }}{% endblock %}
 
 {% block body %}
-{#{{ dump(likeRepository) }}
-                {{ dump(app.user) }}
-                  
-                {{ dump(post) }} #}
-  
-   {#<h1>
-        Les derniers <span>posts publiés.</span>
-    </h1>#}
-    <section class="container_command">
+
+<section class="container_command">
 
     {% include 'user/templates/dashboard.html.twig' %}
 
@@ -129,7 +122,7 @@
                 
         </section>
 
-    </section>
+</section>
 
 
 {% endblock %}

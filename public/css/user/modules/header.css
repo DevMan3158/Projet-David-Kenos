@@ -92,5 +92,6 @@ header #containerBottom #test1 figure {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
+  width: 110px;
+  overflow: hidden;
 }

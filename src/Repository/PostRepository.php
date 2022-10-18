@@ -39,6 +39,7 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
+     
     // Requete qui compte le nombre de posts OU compte le nombre de posts en fonction des filtres 
 
     public function countPost($filters = null){
@@ -56,7 +57,7 @@ class PostRepository extends ServiceEntityRepository
 
 
 
-    // Requete qui va chercher les posts avec la user si besoin
+    // Requete qui va chercher les posts avec le user si besoin
 
     public function postPaginateUser($perPage, $firstObj, $user = null){
         $query = $this->createQueryBuilder('p');

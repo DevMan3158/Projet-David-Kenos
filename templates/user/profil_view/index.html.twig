@@ -3,15 +3,8 @@
 {% block title %}{{ user.prenom }} {{ user.nom }}{% endblock %}
 
 {% block body %}
-{#{{ dump(likeRepository) }}
-                {{ dump(app.user) }}
-                  
-                {{ dump(post) }} #}
-  
-   {#<h1>
-        Les derniers <span>posts publiés.</span>
-    </h1>#}
-    <section class="container_command">
+
+<section class="container_command">
 
     {% include 'user/templates/dashboard.html.twig' %}
 
@@ -44,14 +37,8 @@
                     
                     
 
-                    {#{% if app.user and app.user.facebook or app.user.twitter or app.user.instagram or app.user.linkedin  is not null %}
+                    {% if app.user and app.user.facebook or app.user.twitter or app.user.instagram or app.user.linkedin  is not null %}
                              
-                        {% else %}
-    
-                        <p>Aucuns réseaux connu.</p>
-
-                        {% endif %}#}
-                        
 
                         {% if user.facebook is not null %}
                           <figure>
@@ -82,7 +69,11 @@
                         {% endif %}
 
 
-                  
+                        {% else %}
+    
+                        <p>Aucuns réseaux connu.</p>
+
+                        {% endif %}
 
                     </div>
 
@@ -116,6 +107,14 @@
 
             </section>
 
+
+            {% else %}
+                <section id="container_btn">
+
+                <a class="btn" href="#"><li>Publier un post</li></a>
+                <a class="btn2" href="{{ path('app_trombinoscope') }}"><li>Trombinoscope</li></a>
+
+                </section>
             {% endif %}
 
               
@@ -123,7 +122,7 @@
                 
         </section>
 
-    </section>
+</section>
 
 
 {% endblock %}

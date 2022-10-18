@@ -34,6 +34,10 @@ section table tr td:last-of-type {
   width: 350px;
   align-items: center;
 }
+section table tr td img {
+  width: 75px;
+  height: 75px;
+}
 section table .btn {
   padding: 10px;
   color: white;

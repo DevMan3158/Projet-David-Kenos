@@ -4,7 +4,7 @@
   align-items: center;
   width: 100%;
   justify-content: center;
-  padding: 25px 0px;
+  padding: 25px 40px;
   margin: auto;
 }
 #container_posts h1 {
@@ -20,7 +20,7 @@
 #container_posts .posts {
   position: relative;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
   padding: 35px;
   margin: 16px 0px;

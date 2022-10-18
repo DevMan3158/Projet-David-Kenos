@@ -24,9 +24,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
+  width: 100%;
   justify-content: center;
-  padding: 25px 0px;
+  padding: 25px 40px;
   margin: auto;
 }
 .container_general #container_posts h1 {
@@ -42,8 +42,8 @@
 .container_general #container_posts .posts {
   position: relative;
   display: flex;
-  justify-content: flex-start;
-  width: 98%;
+  justify-content: space-between;
+  width: 100%;
   padding: 35px;
   margin: 16px 0px;
   background-color: #ffffff;
@@ -126,11 +126,15 @@
   display: flex;
   align-items: flex-start;
   width: 98%;
-  padding: 25px 40px;
   margin: -14px 0px 0px 0px;
   height: auto;
   max-height: 0;
-  transition: 1.4s;
+  transition: 1s;
+}
+.container_general #container_posts .container_com form,
+.container_general #container_posts .container_com h3,
+.container_general #container_posts .container_com div {
+  display: none !important;
 }
 .container_general #container_posts .container_com form {
   width: 100%;
@@ -155,7 +159,7 @@
   color: #141414;
   /* border: solid 1px #000000; */
 }
-.container_general #container_posts .container_com button {
+.container_general #container_posts .container_com input[type="submit"] {
   color: #EFEFEF;
   border-radius: 5px;
   background-color: #29388D;
@@ -164,7 +168,7 @@
   margin: 15px 0px 15px 0px;
   transition: 0.3s;
 }
-.container_general #container_posts .container_com button:hover {
+.container_general #container_posts .container_com input[type="submit"]:hover {
   scale: 1.05;
 }
 .container_general #container_posts .container_com h3 {
@@ -184,12 +188,13 @@
   flex-direction: row;
   font-size: 0.5rem;
   border-radius: 10px;
-  width: 65%;
-  /* height: 80px; */
+  max-width: 90%;
   padding: 15px;
+  align-items: center;
 }
 .container_general #container_posts .container_com .com_box .commentaire .contenu {
-  width: 80%;
+  width: 100%;
+  flex-direction: column;
 }
 .container_general #container_posts .container_com .com_box .commentaire .contenu p {
   font-size: 0.76rem;
@@ -220,12 +225,13 @@
   flex-direction: row;
   font-size: 0.5rem;
   border-radius: 10px;
-  width: 65%;
-  /* height: 80px; */
+  max-width: 90%;
   padding: 15px;
+  align-items: center;
 }
 .container_general #container_posts .container_com .com_box_droite .commentaire2 .contenu {
-  width: 80%;
+  width: 100%;
+  flex-direction: column;
 }
 .container_general #container_posts .container_com .com_box_droite .commentaire2 .contenu p {
   font-size: 0.76rem;
@@ -242,6 +248,14 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
+}
+.container_general #container_posts .activeComment {
+  padding: 25px 40px;
+}
+.container_general #container_posts .activeComment form,
+.container_general #container_posts .activeComment h3,
+.container_general #container_posts .activeComment div {
+  display: flex !important;
 }
 .container_general .container_amis {
   display: flex;

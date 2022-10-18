@@ -24,14 +24,13 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Doctrine\ORM\EntityManagerInterface;
 
 class MonProfilController extends AbstractController
 {
 
     #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
     
-    public function profil(ManagerRegistry $doctrine, Post $posts, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire, SluggerInterface $slugger ): Response
+    public function profil(ManagerRegistry $doctrine, FileUploader $fileUploader, Post $posts, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire ): Response
     {
         $userId = $this->getUser();
 
@@ -68,60 +67,40 @@ class MonProfilController extends AbstractController
             }     
 
         // CREATION D'UN NOUVEAU POST
-
-            // On crée un nouvel objet de la classe Post
-        
-            $newPost = new Post();
-
-            // On apelle le formulaire des post
-
-            $formPost = $this->createForm(PostType::class, $newPost);
-            $formPost->handleRequest($request);
-
+             
+             // On crée un nouvel objet de la classe Post
+             
+             $newPost = new Post();
+             
+             // On apelle le formulaire des post
+             
+             $formPost = $this->createForm(PostType::class, $newPost);
+             $formPost->handleRequest($request);
+             
+             
             //On remplie les champs non null
 
             $newPost->setUser($userId);
             $newPost->setCreatedAt(new \DateTimeImmutable());
 
             if ($formPost->isSubmitted() && $formPost->isValid()) {
-
-
-                // On récupère l'image
+            
+            //Traite l'image 
 
                 $image = $formPost->get('images')->getData();
 
-                // Si on a une image, alors on vérifie son nom pour le renommé si son nom est déja prit.
+                   if (!empty($image)) {
+                       $imageFileName = $fileUploader->upload($image);
+                       $newPost->setImagePost('../data/'. $imageFileName);
+                   }
 
-                if ($image) {
-                    $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
-                    $safeFilename = $slugger->slug($originalFilename);
-                    $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
-                    $newFilename = '../data/'.$safeFilename.'-'.uniqid().'.'.$image->guessExtension();
-                
-                    // On envoi l'image dans le dossier définis
+            $post->add($newPost, true);
 
-                    try {
-                        $image->move(
-                            $this->getParameter('data_directory'),
-                            $newFilename
-                        );
-                    } catch (FileException $e) {
-
-                    // Ceci est un espace pour écrire un quelquconque message d'erreur
-
-                    }
-                
-
-                    // On envoi dans la BDD
-
-                    $newPost->setImagePost($newFilename);
-                    $post->add($newPost, true);
-
-                    return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
-                }
-            
+            return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
+               
             }
 
+       
         // PAGINATION
 
             // On stocke la page actuelle dans une variable

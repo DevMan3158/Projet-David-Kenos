@@ -30,101 +30,111 @@ class MonProfilController extends AbstractController
 
     #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
     
+    public function profil(ManagerRegistry $doctrine, FileUploader $fileUploader, Post $posts, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire ): Response
+    {
+        $userId = $this->getUser();
 
-    public function profil(Post $posts,EntityManagerInterface $em, FileUploader $fileUploader, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire ): Response
-{
-    $userId = $this->getUser();
-   
-    // CREATION D'UN NOUVEAU POST
+        // PUBLICATION D'UN COMMENTAIRE
 
-        // On crée un nouvel objet de la classe Post
-    
-        $newPost = new Post();
+            // On Vérifie si un commentaire à été envoyer
 
-        // On apelle le formulaire des post
+            if(isset($_POST['submit'])){
 
-        $formPost = $this->createForm(PostType::class, $newPost);
-        $formPost->handleRequest($request);
+                // On récupère l'id du post
 
-        //On remplie les champs non null
+                $postId = $_POST['postId'];
 
-        $newPost->setUser($userId);
-        $newPost->setCreatedAt(new \DateTimeImmutable());
+                // On récupère l'objet du post grace à son ID
 
-        if ($formPost->isSubmitted() && $formPost->isValid()) {
-    
-        //Traite l'image 
+                $postSelected = $post->find($postId); // On peux également utiliser le Manager Registry : $postSelected = $doctrine()->getRepository(Post::Class)->find($postId);
 
-                    /** @var UploadedFile $imageFile */
+                // On crée un nouvel objet de la classe Commentaire
 
-            $image = $formPost->get('images')->getData();
+                $commentaire = new Commentaire();
 
-               if (!empty($image)) {
-                   $imageFileName = $fileUploader->upload($image);
-                   $newPost->setImagePost('../data/'. $imageFileName);
-               }
+                // On rempli les données
 
-        $em->persist($newPost);
+                $commentaire->setCreatedAt(new \DateTimeImmutable());
+                $commentaire->setUser($userId);
+                $commentaire->setContenu($_POST['commentaire']);
+                $commentaire->setPost($postSelected);
 
-        $em->flush();
+                // On envoi tout ça en BDD
 
-        $post->add($newPost, true);
+                $commentaireRepository->add($commentaire, true);
 
-        return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
+                return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
+            }     
+
+        // CREATION D'UN NOUVEAU POST
+             
+             // On crée un nouvel objet de la classe Post
+             
+             $newPost = new Post();
+             
+             // On apelle le formulaire des post
+             
+             $formPost = $this->createForm(PostType::class, $newPost);
+             $formPost->handleRequest($request);
+             
+             
+            //On remplie les champs non null
+
+            $newPost->setUser($userId);
+            $newPost->setCreatedAt(new \DateTimeImmutable());
+
+            if ($formPost->isSubmitted() && $formPost->isValid()) {
             
-        }
+            //Traite l'image 
 
-    // PAGINATION
+                $image = $formPost->get('images')->getData();
 
-        // On stocke la page actuelle dans une variable
+                   if (!empty($image)) {
+                       $imageFileName = $fileUploader->upload($image);
+                       $newPost->setImagePost('../data/'. $imageFileName);
+                   }
 
+            $post->add($newPost, true);
 
-        $currentPage = (int)$request->query->get("pg", 1);
+            return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
+               
+            }
 
+       
+        // PAGINATION
 
-        // On détermine le nombre d'articles par page
+            // On stocke la page actuelle dans une variable
 
-        $perPage = 5;
+            $currentPage = (int)$request->query->get("pg", 1);
 
-        // Calcul du premier article de la page
+            // On détermine le nombre d'articles par page
 
-        $firstObj = ($currentPage * $perPage) - $perPage;
-                
-        // On récupère le nombre d'articles et on compte le nombre de pages et on arrondi à l'entier suppérieur
+            $perPage = 5;
 
-        $page = ceil(count($post->findByUser($user)) / $perPage);
+            // Calcul du premier article de la page
 
-        // On définis les articles à afficher en fonction de la page
+            $firstObj = ($currentPage * $perPage) - $perPage;
 
-        $postPerPage = $post->postPaginateUser($perPage, $firstObj, $user);
+            // On récupère le nombre d'articles et on compte le nombre de pages et on arrondi à l'entier suppérieur
 
-   $commentaire = new Commentaire();
-   $form = $this->createForm(CommentaireType::class, $commentaire);
+            $page = ceil(count($post->findByUser($user)) / $perPage);
 
-   //$currentPost = $form->get('post')->getData();
+            // On définis les articles à afficher en fonction de la page
 
-   $form->handleRequest($request);
-      if ($form->isSubmitted() && $form->isValid()){
+            $postPerPage = $post->postPaginateUser($perPage, $firstObj, $user);
 
-       $commentaire->setUser($userId);
-       $commentaire->setCreatedAt(new \DateTimeImmutable());
-       $commentaire->setPost($post);
+            return $this->renderForm('user/profil_view/index.html.twig', [
+                'commentaire' => $commentaire,
+                'formPost' => $formPost,
+                "post"=> $postPerPage,
+                "com" => $commentaireRepository->findByUser($user),
+                "user"=> $user,
+                "pages"=> $page,
+                "currentPage"=>$currentPage,
+            
+            ]);
 
-      $commentaireRepository->add($commentaire, true);
-      return $this->redirectToRoute('app_profil', ['id' => $user->getId()], Response::HTTP_SEE_OTHER);
-  }
-    //on envoie à la vue 
-    return $this->renderForm('user/profil_view/index.html.twig', [
-        'commentaire' => $commentaire,
-        
-  
-        'formPost' => $formPost,
-        "post"=> $postPerPage,
-        "com" => $commentaireRepository->findByUser($user),
-        "user"=> $user,
-        "pages"=> $page,
+    
+    }
 
-    ]);
-}
- 
 }

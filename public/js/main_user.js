@@ -60,17 +60,17 @@ function getId(obj){
 // Fonction qui ouvre le formulaire de création d'un post dans la page mon profil
 
 function newPost(){
+
   let newPost = document.getElementById('newPost');
-  newPost.classList.add('active');
+
+  if(newPost.classList.contains('active') == false){
+    newPost.classList.add('active');
+  } else {
+    newPost.classList.remove('active');
+  }
+  
+  
 }
-
-// Fonction qui ferme le formulaire de création d'un post dans la page mon profil
-
-function closePost(){
-  let newPost = document.getElementById('newPost');
-  newPost.classList.remove('active');
-}
-
 
 // Fonction qui permet de cocher tous les filtres si "Tous les post" est activé.
 
@@ -160,17 +160,25 @@ window.onload = () => {
 }
 
 
+
   
 
-/*function openMenu(){
-  div.classList.add("divcontainer_com");
-  document.SelectorById('#container_com').style.display = "flex";
+function openMenu(){
+
+  let buttonId = event.currentTarget.id.replace('commenter', 'container_com_');
+  let postId = document.getElementById(buttonId);
+  console.log(postId);
+
+  if (postId.classList.contains('activeComment') == false) {
+
+postId.style.maxHeight = "1000px";
+postId.classList.add("activeComment");
+
+  } else {
+
+    postId.style.maxHeight = "0";
+    postId.classList.remove("activeComment");
+
+  }
+
 }
-
-function closeMenu(){
-  div.classList.remove("divcontainer_com");
-  document.SelectorById('#container_com').style.display = "none";
-
-
-}*/
-

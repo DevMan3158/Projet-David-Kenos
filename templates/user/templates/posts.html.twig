@@ -56,21 +56,28 @@
 
                     <div class="comments">
 
-                        {{ posts.commentaires|length }} 
+                        
+                        <a href="#" id="commenter{{posts.id}}" onClick="openMenu()"> 
+                            <i class="fa-regular fa-comments"></i>
+                            <span>
+                                {{ posts.commentaires|length }} 
+                            </span>
+                            <span>
+                                Commentaire{% if posts.commentaires|length > 1 %}s{% endif %}
+                            </span>
+                        </a>
 
-                        <i class="fa-regular fa-comments">
-                            <a href="#" id="commenter{{posts.id}}" onClick="openMenu()"> 
-                                Commenter
-                            </a>
-                        </i>
+                         
 
-                        {{ posts.likes|length }} 
-
-                        <i class="fa-regular fa-heart">
-                            <a  href="#"> 
-                                J'aime
-                            </a>
-                        </i>
+                        <a  href="#"> 
+                            <i class="fa-regular fa-heart"></i>
+                            <span>
+                                {{ posts.likes|length }}
+                            </span>
+                            <span>
+                                J'aime{% if posts.likes|length > 1 %}s{% endif %}
+                            </span>       
+                        </a>
 
 
                     </div>

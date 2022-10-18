@@ -22,7 +22,7 @@ class TrombinoscopeController extends AbstractController
 
         // On détermine le nombre d'articles par page
 
-        $perPage = 7;
+        $perPage = 15;
 
         // Calcul du premier article de la page
 

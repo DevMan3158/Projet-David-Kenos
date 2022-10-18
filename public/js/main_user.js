@@ -60,17 +60,17 @@ function getId(obj){
 // Fonction qui ouvre le formulaire de création d'un post dans la page mon profil
 
 function newPost(){
+
   let newPost = document.getElementById('newPost');
-  newPost.classList.add('active');
+
+  if(newPost.classList.contains('active') == false){
+    newPost.classList.add('active');
+  } else {
+    newPost.classList.remove('active');
+  }
+  
+  
 }
-
-// Fonction qui ferme le formulaire de création d'un post dans la page mon profil
-
-function closePost(){
-  let newPost = document.getElementById('newPost');
-  newPost.classList.remove('active');
-}
-
 
 // Fonction qui permet de cocher tous les filtres si "Tous les post" est activé.
 

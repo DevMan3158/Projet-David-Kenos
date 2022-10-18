@@ -55,7 +55,7 @@
 
                         {% if user.facebook is not null %}
                           <figure>
-                                <a class="mod" href="{{ user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a target="_blank" class="mod" href="{{ user.facebook}}"><i class="fa-brands fa-facebook-f"></i></a>
                           </figure>                         
                         {% endif %}
 
@@ -63,21 +63,21 @@
 
                         {% if user.instagram is not null %}
                             <figure>
-                                <a class="mod" href="{{ user.instagram }}"><i class="fa-brands fa-instagram"></i></a>
+                                <a target="_blank" class="mod" href="{{ user.instagram }}"><i class="fa-brands fa-instagram"></i></a>
                             </figure>
                         {% endif %}
 
 
                         {% if user.twitter is not null %}
                             <figure>  
-                                <a class="mod" href="{{ user.twitter }}"><i class="fa-brands fa-twitter"></i></a>            
+                                <a target="_blank" class="mod" href="{{ user.twitter }}"><i class="fa-brands fa-twitter"></i></a>            
                             </figure>                       
                         {% endif %}
 
 
                         {% if user.linkedin is not null %}
                             <figure>
-                                <a class="mod" href="{{ user.linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a target="_blank" class="mod" href="{{ user.linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a>
                             </figure>
                         {% endif %}
 
@@ -96,7 +96,7 @@
 
                 <article id="newPost">
                     {{ form(formPost) }}
-                    <i id="postScroll" onClick="closePost()" class="fa-solid fa-angles-up"></i>
+                    <i id="postScroll" onClick="newPost()" class="fa-solid fa-angles-up"></i>
                 </article>
     
                 <section id="container_posts">

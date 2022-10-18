@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  top: 54%;
+  bottom: -15px;
   width: 140px;
   height: 140px;
   border-bottom: solid #dfdfdf00;
@@ -130,7 +130,7 @@
   position: relative;
   display: flex;
   justify-content: flex-start;
-  width: 98%;
+  width: 100%;
   padding: 35px;
   margin: 16px 0px;
   background-color: #ffffff;

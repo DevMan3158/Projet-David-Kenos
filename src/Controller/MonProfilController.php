@@ -30,8 +30,9 @@ class MonProfilController extends AbstractController
 
     #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
     
-    public function profil(ManagerRegistry $doctrine, FileUploader $fileUploader, Post $posts, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire ): Response
+    public function profil(ManagerRegistry $doctrine, FileUploader $fileUploader, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, ): Response
     {
+     
         $userId = $this->getUser();
 
         // PUBLICATION D'UN COMMENTAIRE
@@ -124,7 +125,7 @@ class MonProfilController extends AbstractController
             $postPerPage = $post->postPaginateUser($perPage, $firstObj, $user);
 
             return $this->renderForm('user/profil_view/index.html.twig', [
-                'commentaire' => $commentaire,
+                
                 'formPost' => $formPost,
                 "post"=> $postPerPage,
                 "com" => $commentaireRepository->findByUser($user),

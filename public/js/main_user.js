@@ -182,3 +182,41 @@ postId.classList.add("activeComment");
   }
 
 }
+
+// Fonction permettant d'avoir plusieurs onglet 
+
+
+
+/*let networks = document.getElementById("networks");
+let profile = document.getElementById("profile");
+let personalization = document.getElementById("personalization");
+let company = document.getElementById("company");
+
+function showNetworks() {
+  networks.style.display = "block";
+  profile.style.display = "none";
+  personalization.style.display = "none";
+  company.style.display = "none";
+}
+
+function showProfile() {
+  profile.style.display = "block";
+  networks.style.display = "none";
+  personalization.style.display = "none";
+  company.style.display = "none";
+}
+
+function showPersonalization() {
+  personalization.style.display = "block";
+  networks.style.display = "none";
+  profile.style.display = "none";
+  company.style.display = "none";
+}
+
+function showCompany() {
+  company.style.display = "block";
+  networks.style.display = "none";
+  profile.style.display = "none";
+  personalization.style.display = "none";
+}*/
+

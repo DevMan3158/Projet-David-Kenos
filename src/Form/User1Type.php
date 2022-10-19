@@ -16,8 +16,11 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class User1Type extends AbstractType
 {
@@ -35,12 +38,15 @@ class User1Type extends AbstractType
             
             ->add('lien')
             
-            ->add('description')
+            ->add('description',TextareaType::class,[
+                'required' => false,
+            ])
             
-            ->add('email')
+            ->add('email', EmailType::class,)
 
             ->add('ImageBandeau',FileType::class, 
             [
+                'attr' => ['class' => 'inputFile'],
                 'label' => 'Photo du bandeau',
                 // unmapped means that this field is not associated to any entity property
                 'mapped' => false,
@@ -62,20 +68,17 @@ class User1Type extends AbstractType
                         ],
                         'mimeTypesMessage' => 'Fichier accepté : png, jpeg, gif, tiff',
                     ])
-               ],        
-
+               ],  
+               
             ])
 
             ->add('ImageProfil',FileType::class, 
             [
+                'attr' => ['class' => 'inputFile'],
                 "mapped"=>false,
-
                 'data_class'=>null,
-
-                'label'=> 'Photo de profil',
-                
+                'label'=> 'Photo de profil',      
                 'required' => false,
-
                 'constraints' => [
                     new File([
                         'maxSize' => '5M',

@@ -32,8 +32,9 @@ class RegistrationFormType extends AbstractType
                 'label' => "Nom :",
                 'attr' => ['class' => 'input_Reg_Form'],
                 
-
+                
                 'constraints' =>
+                
                 
                 [
                     new NotBlank([
@@ -172,3 +173,4 @@ class RegistrationFormType extends AbstractType
         ]);
     }
 }
+

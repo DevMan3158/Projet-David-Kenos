@@ -58,11 +58,13 @@ class PostType extends AbstractType
                 // in the associated entity, so you can use the PHP constraint classes
                 'constraints' => [
                     new File([
-                        'maxSize' => '3M',
+                        'maxSize' => '5M',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/jpg',
                             'image/png',
+                            'image/gif',
+                            'video/mp4',
                         ],
                         'mimeTypesMessage' => 'Veuillez choisir un fichier de type JPEG, JPG ou PNG de 3Mo maximum.',
                     ])

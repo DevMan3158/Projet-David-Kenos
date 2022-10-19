@@ -38,10 +38,10 @@ class RegistrationController extends AbstractController
                 )
             );
 
-            $user->setImageProfil('https://via.placeholder.com/150');
-            $user->setImageProfilAlt('https://via.placeholder.com/150');
-            $user->setImageBandeau('https://via.placeholder.com/150');
-            $user->setImageBandeauAlt('https://via.placeholder.com/150');
+            $user->setImageProfil('../img/profils/default/Cranks-1.png');
+            $user->setImageProfilAlt('Image de profil sans genre, de couleur de peau orange avec un oeil bleu et des cheveux bleu sur fond bleu-ciel');
+            $user->setImageBandeau('../img/profils/default/abstract-luxury-plain.jpg');
+            $user->setImageBandeauAlt('Fond blanc lumineux');
             $user->setCreatedAt(new \DateTimeImmutable());
 
             if($routeName == "app_register_admin"){

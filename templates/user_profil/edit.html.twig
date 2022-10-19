@@ -9,6 +9,8 @@
 
   <div class="tab-container">
 
+  {#Onglets#}
+
     <ul class="tab">
       <li><a href="#">Réseaux</a></li>
       <li><a href="#">Profil</a></li>
@@ -20,6 +22,8 @@
     
 
     {{ form_start(form) }}
+
+  {#content = contenu de l'onglet#}
 
     <div class="content">
       {{ form_row(form.facebook, {'attr': {'placeholder': 'https://fr-fr.facebook.com/' }} ) }}

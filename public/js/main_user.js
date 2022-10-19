@@ -159,9 +159,7 @@ window.onload = () => {
   })
 }
 
-
-
-  
+// Fonction qui ouvre ou ferme le menu des commentaires
 
 function openMenu(){
 
@@ -182,3 +180,34 @@ postId.classList.add("activeComment");
   }
 
 }
+
+// Fonction AJAX pour les likes
+
+function onClickBtnLike(event){
+    event.preventDefault();
+
+    const url = this.href;
+    const spanCount = this.querySelector('span.js-likes');
+    const icone = this.querySelector('i');
+    console.log(icone);
+
+    axios.get(url).then(function(response){
+        spanCount.textContent = response.data.likes;
+
+        if(icone.classList.contains('fa-solid')){
+
+            icone.classList.replace('fa-solid', 'fa-regular');
+
+        } else {
+
+            icone.classList.replace('fa-regular', 'fa-solid');
+
+        };
+
+        
+    })
+}
+
+document.querySelectorAll('a.js-like').forEach(function(link){
+    link.addEventListener('click', onClickBtnLike)
+})

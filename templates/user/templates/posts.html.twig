@@ -69,9 +69,13 @@
 
                          
 
-                        <a  href="#"> 
-                            <i class="fa-regular fa-heart"></i>
-                            <span>
+                        <a  href="{{ path('app_post_likes', { 'id' : posts.id } ) }}" class="js-like">
+                            {% if app.user and posts.isLikedByuser(app.user) %} 
+                                <i class="fa-solid fa-heart"></i>
+                            {% else %}
+                                <i class="fa-regular fa-heart"></i>
+                            {% endif %}
+                            <span class="js-likes">
                                 {{ posts.likes|length }}
                             </span>
                             <span>
@@ -168,5 +172,5 @@
 
 
 {% block javascripts %}
-  {# <script src="{{ asset('js/com.js') }}"></script>#}
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 {% endblock %}

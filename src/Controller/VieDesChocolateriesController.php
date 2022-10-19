@@ -62,30 +62,7 @@ class VieDesChocolateriesController extends AbstractController
                     'currentPage' => $currentPage,
                 ])
             ]);
-        }
-
-        /*// FORMULAIRE POUR COMMENTAIRES
-
-        //On appel l'entité commentaire
-        $commentaire = new Commentaire();
-
-        //On appel le formulaire 
-        $form = $this->createForm(CommentaireType::class, $commentaire);
-        
-        $form->handleRequest($request);
-        $userId = $this->getUser();
-
-        //On remplie les champs non null 
-        $commentaire->setCreatedAt(new DateTimeImmutable());
-        $commentaire->setUser($userId);
-        $commentaire->setPost($post);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $commentaireRepository->add($commentaire, true);
-
-        }*/
-
-        
+        }    
         
         return $this->render('user/vie_des_chocolateries/index.html.twig', [
             'controller_name' => 'VieDesChocolateriesController',

@@ -31,8 +31,7 @@ class MonProfilController extends AbstractController
 {
 
     #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
-    
-    public function profil(FileUploader $fileUploader, Post $posts, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, Like $like, Commentaire $commentaire ): Response
+    public function profil(FileUploader $fileUploader, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post ): Response
     {
         $userId = $this->getUser();
 
@@ -52,18 +51,18 @@ class MonProfilController extends AbstractController
 
                 // On crée un nouvel objet de la classe Commentaire
 
-                $commentaire = new Commentaire();
+                $newCommentaire = new Commentaire();
 
                 // On rempli les données
 
-                $commentaire->setCreatedAt(new \DateTimeImmutable());
-                $commentaire->setUser($userId);
-                $commentaire->setContenu($_POST['commentaire']);
-                $commentaire->setPost($postSelected);
+                $newCommentaire->setCreatedAt(new \DateTimeImmutable());
+                $newCommentaire->setUser($userId);
+                $newCommentaire->setContenu($_POST['commentaire']);
+                $newCommentaire->setPost($postSelected);
 
                 // On envoi tout ça en BDD
 
-                $commentaireRepository->add($commentaire, true);
+                $commentaireRepository->add($newCommentaire, true);
 
                 return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
             }     
@@ -126,7 +125,6 @@ class MonProfilController extends AbstractController
             $postPerPage = $post->postPaginateUser($perPage, $firstObj, $user);
 
             return $this->renderForm('user/profil_view/index.html.twig', [
-                'commentaire' => $commentaire,
                 'formPost' => $formPost,
                 "post"=> $postPerPage,
                 "com" => $commentaireRepository->findByUser($user),
@@ -154,12 +152,12 @@ class MonProfilController extends AbstractController
         ], 403);
 
         if($post->isLikedByUser($user)) {
-            $like = $likeRepo->findOneBy([
+            $newLike = $likeRepo->findOneBy([
                 'post' => $post,
                 'user' => $user,
             ]);
 
-            $likeRepo->remove($like, true);
+            $likeRepo->remove($newLike, true);
 
             return $this->json([
                 'code' => 200,
@@ -168,11 +166,11 @@ class MonProfilController extends AbstractController
             ], 200);
         }
 
-        $like = new Like();
-        $like->setPost($post)
+        $newLike = new Like();
+        $newLike->setPost($post)
              ->setUser($user);
 
-            $likeRepo->add($like, true);
+            $likeRepo->add($newLike, true);
 
         return $this->json([
         'code' => 200,

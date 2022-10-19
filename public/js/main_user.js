@@ -189,7 +189,8 @@ function onClickBtnLike(event){
     const url = this.href;
     const spanCount = this.querySelector('span.js-likes');
     const icone = this.querySelector('i');
-    console.log(icone);
+    const nbLikes = document.querySelector('span.js-nbLikes')
+    const jsText = this.querySelector('span.js-text')
 
     axios.get(url).then(function(response){
         spanCount.textContent = response.data.likes;
@@ -204,6 +205,13 @@ function onClickBtnLike(event){
 
         };
 
+
+        if(spanCount.innerHTML > 1){
+          jsText.innerHTML = "J'aimes";
+        } else {
+          jsText.innerHTML = "J'aime";
+        }
+
         
     })
 }
@@ -211,3 +219,26 @@ function onClickBtnLike(event){
 document.querySelectorAll('a.js-like').forEach(function(link){
     link.addEventListener('click', onClickBtnLike)
 })
+
+
+
+// Fonction qui ouvre ou ferme le header coté user (mobile)
+
+
+function openHeader(){
+
+  let header = document.querySelector('header');
+  let section = document.querySelector('section.container_command');
+
+  if(header.classList.contains("activeHead")){
+
+    header.classList.remove('activeHead');
+    section.style.display = 'flex';
+
+  } else {
+
+    header.classList.add('activeHead');
+    section.style.display = 'none';
+
+  }
+}

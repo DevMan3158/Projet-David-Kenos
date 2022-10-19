@@ -12,7 +12,7 @@
     width: 100%;
   }
   .container_command #container_bandeau {
-    width: 99%;
+    width: 100%;
     height: 33%;
   }
   .container_command #container_bandeau #Conteneur_Logo_Usr {
@@ -149,7 +149,6 @@
   }
   .container_command #container_general #container_posts .posts .contenues .comments i {
     font-size: small;
-    font-weight: 500;
     color: #314090;
   }
   .container_command #container_general #container_posts .posts .contenues .comments a {

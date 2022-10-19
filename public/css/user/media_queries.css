@@ -13,11 +13,21 @@
     font-weight: 600;
     font-size: clamp(0.3125rem, 0.8rem, 3rem);
   }
+  #container_bandeau {
+    justify-content: flex-start !important;
+    height: 165px !important;
+  }
+  #container_bandeau figure:nth-of-type(2) {
+    height: 100% !important;
+  }
   #head {
     display: block;
     width: 100%;
     padding: 15px;
-    background-color: #DFDFDF;
+    background-color: transparent;
+    z-index: 999;
+    position: absolute;
+    top: 0;
   }
   #head #mobile {
     display: flex;
@@ -34,66 +44,76 @@
   }
   #head #mobile a i {
     font-size: 20px;
-    color: #333333;
+    color: white;
   }
   body {
     flex-direction: column;
     align-items: center;
+    height: 100%;
+    display: block;
   }
   body header {
-    width: 100%;
-    height: 100vh;
+    width: 0%;
+    transition: 0.2s;
+    overflow: hidden;
+    position: absolute;
   }
-  body header #containerTop {
+  body #containerTop {
     justify-content: space-around;
     padding: 15px;
     height: 40vh;
   }
-  body header #containerTop h1 {
+  body #containerTop h1 {
     font-size: clamp(0.625rem, 1rem, 3rem);
   }
-  body header #containerTop .btn {
+  body #containerTop .btn {
     width: 65%;
     padding: 10px 0px;
     font-size: 0.8rem;
   }
-  body header #containerTop figure {
+  body #containerTop figure {
     align-items: center;
     width: 100px;
     height: 100px;
   }
-  body header #containerBottom {
+  body #containerTop #containerBottom {
     padding: 10px;
     height: 60vh;
   }
-  body header #containerBottom ul {
+  body #containerTop #containerBottom ul {
     align-items: center;
   }
-  body header #containerBottom ul a {
+  body #containerTop #containerBottom ul a {
     padding: 10px 0px 10px 29px;
     width: 70%;
     font-size: 0.9rem;
   }
-  body header #containerBottom .icon_mod {
+  body #containerTop #containerBottom .icon_mod {
     flex-direction: row-reverse;
     align-items: flex-end;
     justify-content: flex-end;
   }
-  body header #containerBottom .icon_mod i {
+  body #containerTop #containerBottom .icon_mod i {
     display: flex;
     padding: 15px;
     font-size: 1.9rem;
     opacity: 0.58;
     color: #ffffff;
   }
-  body header #containerBottom .icon_mod i:hover {
+  body #containerTop #containerBottom .icon_mod i:hover {
     opacity: 0.8;
     scale: 1.05;
   }
-  body header #containerBottom figure {
+  body #containerTop #containerBottom figure {
     width: 80px !important;
   }
-  body header #containerBottom figure img {
+  body #containerTop #containerBottom figure img {
     border-radius: 50%;
+  }
+  .activeHead {
+    width: 100%;
+  }
+  #container_btn {
+    margin-top: 50px;
   }
 }

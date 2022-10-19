@@ -36,6 +36,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 93%;
+  overflow: hidden;
 }
 #container_general #container_carte {
   display: flex;

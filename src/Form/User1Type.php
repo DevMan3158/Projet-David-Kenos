@@ -14,8 +14,10 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
@@ -25,19 +27,19 @@ class User1Type extends AbstractType
     {
         $builder
 
-            ->add('facebook')
+            ->add('facebook', UrlType::class,['required' => false])
             
-            ->add('instagram')
+            ->add('instagram', UrlType::class,['required' => false])
             
-            ->add('twitter')
+            ->add('twitter', UrlType::class,['required' => false])
             
-            ->add('linkedin')
+            ->add('linkedin', UrlType::class,['required' => false])
             
-            ->add('lien')
+            ->add('lien', UrlType::class,['required' => false])
             
-            ->add('description')
+            ->add('description', TextType::class,['required' => false])
             
-            ->add('email')
+            ->add('email', EmailType::class)
 
             ->add('ImageBandeau',FileType::class, 
             [

@@ -1,3 +1,5 @@
+//Fonctionnalité pour les onglets
+
 let TabLiens = document.querySelectorAll(".tab a");
 //je cible tous les liens
 let TabCt= document.querySelectorAll (".content");
@@ -19,7 +21,7 @@ function tabo(){
   TabCt[this.rang].style.display="block";
 }
 
-for(var j=0; j<TabLiens.length; j++){
+for(let j=0; j<TabLiens.length; j++){
   TabLiens[j].rang = j;
   TabLiens[j].addEventListener('click',tabo);
 }

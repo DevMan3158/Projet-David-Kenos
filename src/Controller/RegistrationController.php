@@ -40,7 +40,7 @@ class RegistrationController extends AbstractController
 
             $user->setImageProfil('../img/profils/default/Cranks-1.png');
             $user->setImageProfilAlt('Image de profil sans genre, de couleur de peau orange avec un oeil bleu et des cheveux bleu sur fond bleu-ciel');
-            $user->setImageBandeau('../img/profils/default/abstract-luxury-plain.jpg');
+            $user->setImageBandeau('../img/profils/default/pexels-rovenimagescom-949587.jpg');
             $user->setImageBandeauAlt('Fond blanc lumineux');
             $user->setCreatedAt(new \DateTimeImmutable());
 

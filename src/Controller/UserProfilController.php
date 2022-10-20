@@ -3,21 +3,22 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Repository\UserRepository;
-use App\Repository\ChocolaterieRepository;
 use App\Form\User1Type;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\ChocolaterieRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 
 #[Route('/')]
@@ -25,7 +26,7 @@ class UserProfilController extends AbstractController
 {
 
         #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
-        public function edit(FileUploader $fileUploader, EntityManagerInterface $em, Request $request ,SluggerInterface $slugger, User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
+        public function edit(UserPasswordHasherInterface $userPasswordHasher, FileUploader $fileUploader, EntityManagerInterface $em, Request $request ,SluggerInterface $slugger, User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
         {
         
         //Création du formulaire User1Type
@@ -38,6 +39,15 @@ class UserProfilController extends AbstractController
         {
             //Appel du repos user 
             $userRepository->add($user, true);
+
+           
+
+            //Permet de changer le mdp -> hash le mdp 
+            $encodedPassword = $userPasswordHasher->hashPassword(
+                $user,
+                 $form->get('plainPassword')->getData()
+                );
+                
 
             /** @var UploadedFile $imageFile */
 
@@ -65,13 +75,15 @@ class UserProfilController extends AbstractController
                }
 
 
+            //transmet le mdp
+            $user->setPassword($encodedPassword);
+
             // Persiste la variable $user ou tout autre travail
             $em->persist($user);
 
             // Hydrate la bdd
             $em->flush();
 
-                $this->addFlash('success', 'Leaderboard modifié');
                 return $this->redirectToRoute('app_user_profil_edit',['id' => $id], Response::HTTP_SEE_OTHER);
             }
     
@@ -87,9 +99,12 @@ class UserProfilController extends AbstractController
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            //si token null redirige vers register 
+            $this->container->get('security.token_storage')->setToken(null);
             $userRepository->remove($user, true);
         }
 
-        return $this->redirectToRoute('app_register', [], Response::HTTP_SEE_OTHER);
+        $this->addFlash('deleted','Votre compte a été supprimé.');
+        return $this->redirectToRoute('app_register');
     }
 }

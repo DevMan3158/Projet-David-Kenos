@@ -33,6 +33,8 @@ class MonProfilController extends AbstractController
     #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
     public function profil(FileUploader $fileUploader, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post ): Response
     {
+        
+
         $userId = $this->getUser();
 
         // PUBLICATION D'UN COMMENTAIRE
@@ -96,8 +98,13 @@ class MonProfilController extends AbstractController
                    }
 
             $post->add($newPost, true);
-
-            return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
+            
+              
+            //Supression
+            /*
+            if ($this->isCsrfTokenValid('delete'.$posts->getId(), $request->request->get('_token'))) {
+                $postRepository->remove($posts, true);
+            }*/
                
             }
 

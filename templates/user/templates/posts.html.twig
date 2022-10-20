@@ -84,6 +84,11 @@
                         </a>
 
 
+                         {{ include('user/profil_view/_delete_form.html.twig') }}
+                        
+
+                    
+
                     </div>
 
                 </div>
@@ -101,7 +106,7 @@
                         <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
                         <input type="hidden" id="postId" name="postId" value="{{posts.id}}">
 
-                        <input id="CloseCom{{posts.id}}" type="submit" onClick="closeMenu()" name="submit">
+                        {#<input id="CloseCom{{posts.id}}" type="submit" onClick="closeMenu()" name="submit">#}
 
                     </form>
 

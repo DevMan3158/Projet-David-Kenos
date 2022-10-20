@@ -1,0 +1,25 @@
+{% extends 'user_base.html.twig' %}
+{#Bug d'affichage double bouton - ne modifie pas le post#}
+{% block title %}Modification de post{% endblock %}
+
+{% block body %}
+
+<section>
+
+    <div class="">
+
+        <h1>Modification de post</h1>
+    </div>
+
+
+        {{ include('admin/post/_form.html.twig', {'button_label': 'Modifier'}) }}
+        
+
+
+    <a href="{{ path('app_post_index') }}">Retour à la liste</a>
+
+    
+
+</section>
+
+{% endblock %}

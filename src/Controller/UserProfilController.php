@@ -37,14 +37,17 @@ class UserProfilController extends AbstractController
         //Cette condition est nécessaire pour les champs du formulaire 
         if ($form->isSubmitted() && $form->isValid()) 
         {
+            //Appel du repos user 
+            $userRepository->add($user, true);
+
+           
+
             //Permet de changer le mdp -> hash le mdp 
             $encodedPassword = $userPasswordHasher->hashPassword(
                 $user,
-                $form->get('plainPassword')->getData()
-                )
-            ;
-            //Appel du repos user 
-            $userRepository->add($user, true);
+                 $form->get('plainPassword')->getData()
+                );
+                
 
             /** @var UploadedFile $imageFile */
 
@@ -99,6 +102,6 @@ class UserProfilController extends AbstractController
             $userRepository->remove($user, true);
         }
 
-        return $this->redirectToRoute('app_register', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_login');
     }
 }

@@ -1,5 +1,5 @@
-//Fonctionnalité pour les onglets, il est n'est nul besoin de rajouter
-//du code js, juste du html (classe content => contenus ) et 
+//Fonctionnalité pour les onglets, il est nul besoin de rajouter
+//du code js, juste du html (classe content => contenus )  
 
 //je cible tous tab et ancre
 let TabLiens = document.querySelectorAll(".tab a");

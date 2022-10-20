@@ -28,29 +28,43 @@
   border-radius: 50%;
   border: solid 10px white;
 }
+h1 {
+  font-size: clamp(0.625rem, 2.2rem, 3rem);
+  letter-spacing: 1px;
+  width: 93%;
+  color: #333333;
+}
+h1 > span {
+  font-weight: 200;
+}
 .tab-container {
   width: 93%;
   margin: 45px 0px;
   border-top-left-radius: 5px;
   border-bottom: solid 5px #F2BF2C;
+  filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.103));
   background-color: #ffffff;
 }
 .tab-container .tab {
   overflow: hidden;
-  background-color: #F2BF2C;
+  background-color: #DFDFDF;
   border-top-left-radius: 5px;
-  border-bottom: solid 2px #F2BF2C;
+  border-bottom: solid 2px #191E39;
 }
 .tab-container .tab a {
+  text-align: center;
   text-decoration: none;
   display: block;
+  background-color: #F2BF2C;
   float: left;
-  padding: 10px;
+  width: 20%;
+  padding: 10px 0px;
   transition: all 0.3s ease;
   color: #000000;
   font-weight: 600;
+  border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  border-right: solid 0.5px rgba(0, 0, 0, 0.033);
+  border-right: solid 0.5px rgba(0, 0, 0, 0.193);
 }
 .tab-container .tab a:hover {
   background-color: #FFD867;
@@ -63,6 +77,14 @@
 .tab-container .content {
   display: none;
 }
+.tab-container .content p {
+  width: 100%;
+  text-align: center;
+  font-weight: 100;
+}
+.tab-container .content p a {
+  text-decoration: underline;
+}
 .tab-container form {
   text-align: center;
   display: flex;
@@ -73,12 +95,13 @@
   justify-content: flex-start;
 }
 .tab-container button {
-  padding: 10px;
-  width: 110px;
+  padding: 15px;
+  width: 200px;
   display: flex;
   justify-content: space-evenly;
   margin: 20px auto;
   color: white;
+  font-weight: 600;
   background-color: #1F2547;
   border: none;
   cursor: pointer;
@@ -111,6 +134,10 @@
   padding: 15px;
   resize: none;
   background-color: #EFEFEF;
+}
+.tab-container div textarea:hover {
+  outline: 1px solid #14141423;
+  border-radius: 2px;
 }
 .tab-container div textarea:focus {
   outline: 1px solid #14141444;

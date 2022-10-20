@@ -32,7 +32,8 @@ class MonProfilController extends AbstractController
     
     public function profil(ManagerRegistry $doctrine, FileUploader $fileUploader, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, ): Response
     {
-     
+        
+
         $userId = $this->getUser();
 
         // PUBLICATION D'UN COMMENTAIRE
@@ -96,12 +97,17 @@ class MonProfilController extends AbstractController
                    }
 
             $post->add($newPost, true);
-
+            
+            //Supression du post 
+            if ($this->isCsrfTokenValid('delete'.$posts->getId(), $request->request->get('_token'))) {
+                $postRepository->remove($posts, true);
+            }
+            
             return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
                
             }
 
-       
+            
         // PAGINATION
 
             // On stocke la page actuelle dans une variable
@@ -125,7 +131,6 @@ class MonProfilController extends AbstractController
             $postPerPage = $post->postPaginateUser($perPage, $firstObj, $user);
 
             return $this->renderForm('user/profil_view/index.html.twig', [
-                
                 'formPost' => $formPost,
                 "post"=> $postPerPage,
                 "com" => $commentaireRepository->findByUser($user),
@@ -137,5 +142,6 @@ class MonProfilController extends AbstractController
 
     
     }
+
 
 }

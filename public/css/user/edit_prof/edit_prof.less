@@ -5,30 +5,49 @@
 /////////////////////CHARGE LE MODULE LEADERBOARD/////////////////////
 @import '../modules/leaderboard.less';
 
+h1 {
+
+   
+    font-size: clamp(0.625rem, 2.2rem, 3rem);
+    letter-spacing: 1px;
+    width: 93%;
+    color: @clr-pol4;
+}
+
+h1>span {
+
+    font-weight: 200;
+    
+}
+
 .tab-container {
     width: 93%;
     margin: 45px 0px;
     border-top-left-radius: 5px;
     border-bottom: solid 5px @bgd_btn3;
+    filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.103));
 
     .tab {
         
         overflow: hidden;
-        background-color: @bgd_btn3;
+        background-color: @bgd_bgr;
         border-top-left-radius: 5px;
-        border-bottom: solid 2px @bgd_btn3;
+        border-bottom: solid 2px@bgd_bgr2;
 
         a {
+            text-align: center;
             text-decoration: none;
             display: block;
+            background-color: @bgd_btn3;
             float: left;
-            padding: 10px;
+            width: 20%;
+            padding: 10px 0px;
             transition: all 0.3s ease;
             color: @clr-pol3;
             font-weight: 600;
+            border-top-right-radius: 5px;
             border-top-left-radius: 5px;
-            //border-top-right-radius: 5px;
-            border-right: solid 0.5px rgba(0, 0, 0, 0.033);
+            border-right: solid 0.5px rgba(0, 0, 0, 0.193);
 
             &:hover {
                 background-color: @bgd;
@@ -45,6 +64,18 @@
 
     .content {
         display: none;
+
+
+        p{
+            width: 100%;
+            text-align: center;
+            font-weight: 100;
+
+            a
+            {
+                text-decoration: underline;
+            }
+        }
     }
 
     
@@ -64,12 +95,13 @@
 
 
     button {
-        padding: 10px;
-        width: 110px;
+        padding: 15px;
+        width: 200px;
         display: flex;
         justify-content: space-evenly;
         margin: 20px auto;
         color: white;
+        font-weight: 600;
         background-color: #1F2547;
         border: none;
         cursor: pointer;
@@ -111,6 +143,12 @@
             padding: 15px;
             resize: none;
             background-color: #EFEFEF;
+            
+
+            &:hover {
+                outline: 1px solid #14141423;
+                border-radius: 2px;
+            }
 
             &:focus {
                 outline: 1px solid #14141444;
@@ -137,13 +175,6 @@
             &:hover {
                 border: solid 0.5px #44519b;
             }
-
-
-
-  
-
-
-
 
         }
 

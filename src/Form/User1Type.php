@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -28,27 +29,27 @@ class User1Type extends AbstractType
     {
         $builder
 
-            ->add('facebook', TextType::class, [
+            ->add('facebook', UrlType::class, [
             'required' => false,
             'label' => 'Facebook :',
             ])
             
-            ->add('instagram', TextType::class, [
+            ->add('instagram', UrlType::class, [
                 'required' => false,
                 'label' => 'Instagram :',
                 ])
             
-            ->add('twitter', TextType::class, [
+            ->add('twitter', UrlType::class, [
                 'required' => false,
                 'label' => 'Twitter :',
                 ])
             
-            ->add('linkedin', TextType::class, [
+            ->add('linkedin', UrlType::class, [
                 'required' => false,
                 'label' => 'Linkedin :',
                 ])
             
-            ->add('lien', TextType::class, [
+            ->add('lien', UrlType::class, [
                 'required' => false,
                 'label' => 'Liens :',
                 ])

@@ -1,3 +1,6 @@
+body {
+  height: 100vh;
+}
 .container_command {
   padding: 50px;
   display: flex;

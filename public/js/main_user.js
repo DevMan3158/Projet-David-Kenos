@@ -138,9 +138,7 @@ window.onload = () => {
   })
 }
 
-
-
-  
+// Fonction qui ouvre ou ferme le menu des commentaires
 
 function openMenu(){
 
@@ -162,4 +160,67 @@ postId.classList.add("activeComment");
 
 }
 
+// Fonction AJAX pour les likes
 
+function onClickBtnLike(event){
+    event.preventDefault();
+
+    const url = this.href;
+    const spanCount = this.querySelector('span.js-likes');
+    const icone = this.querySelector('i');
+    const nbLikes = document.querySelector('span.js-nbLikes')
+    const jsText = this.querySelector('span.js-text')
+
+    axios.get(url).then(function(response){
+        spanCount.textContent = response.data.likes;
+
+        if(icone.classList.contains('fa-solid')){
+
+            icone.classList.replace('fa-solid', 'fa-regular');
+
+        } else {
+
+            icone.classList.replace('fa-regular', 'fa-solid');
+
+        };
+
+
+        if(spanCount.innerHTML > 1){
+          jsText.innerHTML = "J'aimes";
+        } else {
+          jsText.innerHTML = "J'aime";
+        }
+
+        
+    })
+}
+
+document.querySelectorAll('a.js-like').forEach(function(link){
+    link.addEventListener('click', onClickBtnLike)
+})
+
+
+
+// Fonction qui ouvre ou ferme le header coté user (mobile)
+
+
+function openHeader(){
+
+  let header = document.querySelector('header');
+  let section = document.querySelector('section.container_command');
+  let burger = document.querySelector('i#userBurger');
+
+  if(header.classList.contains("activeHead")){
+
+    header.classList.remove('activeHead');
+    section.style.display = 'flex';
+    burger.classList.replace('fa-xmark', 'fa-bars');
+
+  } else {
+
+    burger.classList.replace('fa-bars', 'fa-xmark');
+    header.classList.add('activeHead');
+    section.style.display = 'none';
+
+  }
+}

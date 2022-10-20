@@ -101,20 +101,12 @@
             <section id="container_btn">
 
                 <a class="btn" href="{{ path('app_user_profil_edit', {'id': app.user.id}) }}"><li>Modifer mon profil</li></a>
-                <a class="btn" href="#" onClick="newPost()"><li>Publier un post</li></a>
+                <a class="btn" onClick="newPost()"><li>Publier un post</li></a>
                 <a class="btn2" href="{{ path('app_trombinoscope') }}"><li>Trombinoscope</li></a>
                 
 
             </section>
 
-
-            {% else %}
-                <section id="container_btn">
-
-                <a class="btn" href="#"><li>Publier un post</li></a>
-                <a class="btn2" href="{{ path('app_trombinoscope') }}"><li>Trombinoscope</li></a>
-
-                </section>
             {% endif %}
 
               

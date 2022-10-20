@@ -11,9 +11,11 @@ use App\Entity\CatPost;
 use App\Entity\Commentaire;
 use App\Form\CommentaireType;
 use App\Service\FileUploader;
+use App\Repository\LikeRepository;
 use App\Repository\PostRepository;
 use App\Repository\CatPostRepository;
 use Doctrine\ORM\PersistentCollection;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\CommentaireRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -29,8 +31,7 @@ class MonProfilController extends AbstractController
 {
 
     #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
-    
-    public function profil(ManagerRegistry $doctrine, FileUploader $fileUploader, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post, ): Response
+    public function profil(FileUploader $fileUploader, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post ): Response
     {
         
 
@@ -52,18 +53,18 @@ class MonProfilController extends AbstractController
 
                 // On crée un nouvel objet de la classe Commentaire
 
-                $commentaire = new Commentaire();
+                $newCommentaire = new Commentaire();
 
                 // On rempli les données
 
-                $commentaire->setCreatedAt(new \DateTimeImmutable());
-                $commentaire->setUser($userId);
-                $commentaire->setContenu($_POST['commentaire']);
-                $commentaire->setPost($postSelected);
+                $newCommentaire->setCreatedAt(new \DateTimeImmutable());
+                $newCommentaire->setUser($userId);
+                $newCommentaire->setContenu($_POST['commentaire']);
+                $newCommentaire->setPost($postSelected);
 
                 // On envoi tout ça en BDD
 
-                $commentaireRepository->add($commentaire, true);
+                $commentaireRepository->add($newCommentaire, true);
 
                 return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
             }     
@@ -143,5 +144,46 @@ class MonProfilController extends AbstractController
     
     }
 
+    // Fonction qui permet de liker ou unliker un post
+
+    #[Route('/post/{id}/likes', name: 'app_post_likes', methods: ['GET'])]
+
+    public function like(Post $post, EntityManagerInterface $manager, LikeRepository $likeRepo): Response
+
+    {
+        $user = $this->getUser();
+
+        if(!$user) return $this->json([
+            'code' => 403,
+            'message' => "Vous n'êtes pas autorisé à visiter cette page",
+        ], 403);
+
+        if($post->isLikedByUser($user)) {
+            $newLike = $likeRepo->findOneBy([
+                'post' => $post,
+                'user' => $user,
+            ]);
+
+            $likeRepo->remove($newLike, true);
+
+            return $this->json([
+                'code' => 200,
+                'message' => 'Like bien supprimé',
+                'likes' => $likeRepo->count(['post' => $post])
+            ], 200);
+        }
+
+        $newLike = new Like();
+        $newLike->setPost($post)
+             ->setUser($user);
+
+            $likeRepo->add($newLike, true);
+
+        return $this->json([
+        'code' => 200,
+        'message' => 'Like bien ajouté',
+        'likes' => $likeRepo->count(['post' => $post])
+        ], 200);
+    }
 
 }

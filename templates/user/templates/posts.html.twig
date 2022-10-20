@@ -56,21 +56,32 @@
 
                     <div class="comments">
 
-                        {{ posts.commentaires|length }} 
+                        
+                        <a id="commenter{{posts.id}}" onClick="openMenu()"> 
+                            <i class="fa-regular fa-comments"></i>
+                            <span>
+                                {{ posts.commentaires|length }} 
+                            </span>
+                            <span>
+                                Commentaire{% if posts.commentaires|length > 1 %}s{% endif %}
+                            </span>
+                        </a>
 
-                        <i class="fa-regular fa-comments">
-                            <a href="#" id="commenter{{posts.id}}" onClick="openMenu()"> 
-                                Commenter
-                            </a>
-                        </i>
+                         
 
-                        {{ posts.likes|length }} 
-
-                        <i class="fa-regular fa-heart">
-                            <a  href="#"> 
-                                J'aime
-                            </a>
-                        </i>
+                        <a  href="{{ path('app_post_likes', { 'id' : posts.id } ) }}" class="js-like">
+                            {% if app.user and posts.isLikedByuser(app.user) %} 
+                                <i class="fa-solid fa-heart"></i>
+                            {% else %}
+                                <i class="fa-regular fa-heart"></i>
+                            {% endif %}
+                            <span class="js-likes">
+                                {{ posts.likes|length }}
+                            </span>
+                            <span class="js-text">
+                                J'aime{% if posts.likes|length > 1 %}s{% endif %}
+                            </span>       
+                        </a>
 
 
                          {{ include('user/profil_view/_delete_form.html.twig') }}
@@ -166,5 +177,5 @@
 
 
 {% block javascripts %}
-  {# <script src="{{ asset('js/com.js') }}"></script>#}
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 {% endblock %}

@@ -36,7 +36,7 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-    height: 100vh;
+    height: 100%;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
 }
@@ -45,6 +45,7 @@ body {
 a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 /* Make images easier to work with */

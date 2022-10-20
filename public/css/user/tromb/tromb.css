@@ -4,13 +4,13 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 93%;
-  height: 35%;
+  width: 100%;
+  height: 100%;
 }
 #container_bandeau figure {
   display: flex;
   justify-content: center;
-  height: 70%;
+  height: 220px;
   width: 100%;
   border-bottom: solid 5px #F2BF2C;
 }
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  top: 150px;
+  bottom: -70px;
   width: 140px;
   height: 140px;
   border-bottom: solid #dfdfdf00;
@@ -34,12 +34,12 @@
 .container_command {
   padding: 50px;
 }
+.container_command h1 {
+  margin-top: 100px;
+}
 #container_bandeau {
   width: 100%;
   justify-content: initial;
-}
-#Conteneur_Logo_Usr {
-  top: 100px !important;
 }
 #searchContainer {
   background: white;

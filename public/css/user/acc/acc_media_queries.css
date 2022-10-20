@@ -24,3 +24,15 @@
 }
 /* Tablette */
 /* Mobile */
+@media (max-width: 656px) {
+  #gridPost {
+    display: flex !important;
+    flex-direction: column;
+  }
+  #post {
+    height: unset !important;
+  }
+  #act a {
+    width: 100% !important;
+  }
+}

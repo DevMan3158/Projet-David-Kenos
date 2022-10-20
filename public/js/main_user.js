@@ -229,14 +229,17 @@ function openHeader(){
 
   let header = document.querySelector('header');
   let section = document.querySelector('section.container_command');
+  let burger = document.querySelector('i#userBurger');
 
   if(header.classList.contains("activeHead")){
 
     header.classList.remove('activeHead');
     section.style.display = 'flex';
+    burger.classList.replace('fa-xmark', 'fa-bars');
 
   } else {
 
+    burger.classList.replace('fa-bars', 'fa-xmark');
     header.classList.add('activeHead');
     section.style.display = 'none';
 

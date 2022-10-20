@@ -3,8 +3,7 @@
 /* ---------- */
 /* Ordinateur */
 /* Tablette */
-/* Mobile */
-@media (max-width: 656px) {
+@media (max-width: 1024px) {
   * {
     font-family: 'Montserrat', sans-serif;
   }
@@ -19,6 +18,9 @@
   }
   #container_bandeau figure:nth-of-type(2) {
     height: 100% !important;
+  }
+  .container_command {
+    margin-left: unset !important;
   }
   #head {
     display: block;
@@ -117,3 +119,4 @@
     margin-top: 50px;
   }
 }
+/* Mobile */

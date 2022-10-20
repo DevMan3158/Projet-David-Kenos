@@ -4,13 +4,13 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 93%;
-  height: 35%;
+  width: 100%;
+  height: 100%;
 }
 #container_bandeau figure {
   display: flex;
   justify-content: center;
-  height: 70%;
+  height: 220px;
   width: 100%;
   border-bottom: solid 5px #F2BF2C;
 }
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  bottom: -15px;
+  bottom: -70px;
   width: 140px;
   height: 140px;
   border-bottom: solid #dfdfdf00;
@@ -35,8 +35,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 93%;
+  width: 100%;
   overflow: hidden;
+  margin-top: 50px;
 }
 #container_general #container_carte {
   display: flex;
@@ -140,7 +141,7 @@
 }
 #container_general #container_posts .posts .etiquette {
   position: absolute;
-  top: 25px;
+  top: 10px;
   right: -1.5%;
   background-color: #F2BF2C;
   padding: 2px 20px;
@@ -381,9 +382,6 @@
 }
 #container_general #allPosts {
   padding: 0 30px;
-}
-#container_general #container_posts {
-  padding: 25px 0;
 }
 #newPost {
   background-color: #EFEFEF;

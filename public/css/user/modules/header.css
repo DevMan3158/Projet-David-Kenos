@@ -2,7 +2,8 @@ header {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 21%;
+  position: fixed;
+  width: 20%;
   height: 100vh;
   background-color: white;
 }

@@ -102,6 +102,6 @@ class UserProfilController extends AbstractController
             $userRepository->remove($user, true);
         }
 
-        return $this->redirectToRoute('app_register', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_login');
     }
 }

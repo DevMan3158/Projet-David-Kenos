@@ -103,6 +103,7 @@ h1 > span {
   color: white;
   font-weight: 600;
   background-color: #1F2547;
+  font-size: 0.9rem;
   border: none;
   cursor: pointer;
   transition: 0.2s;
@@ -155,7 +156,7 @@ h1 > span {
   background-color: #EFEFEF;
 }
 .tab-container div input:hover {
-  border: solid 0.5px #44519b;
+  border: solid 0.5px #1F2547;
 }
 .tab-container .add {
   padding: 10px;

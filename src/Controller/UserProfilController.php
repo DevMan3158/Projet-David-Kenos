@@ -99,9 +99,12 @@ class UserProfilController extends AbstractController
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            //si token null redirige vers register 
+            $this->container->get('security.token_storage')->setToken(null);
             $userRepository->remove($user, true);
         }
 
-        return $this->redirectToRoute('app_login');
+        $this->addFlash('deleted','Votre compte a été supprimé.');
+        return $this->redirectToRoute('app_register');
     }
 }

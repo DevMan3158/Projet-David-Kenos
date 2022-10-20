@@ -98,16 +98,16 @@ class MonProfilController extends AbstractController
 
             $post->add($newPost, true);
             
-            //Supression du post 
+              
+            //Supression
+            /*
             if ($this->isCsrfTokenValid('delete'.$posts->getId(), $request->request->get('_token'))) {
                 $postRepository->remove($posts, true);
-            }
-            
-            return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
+            }*/
                
             }
 
-            
+       
         // PAGINATION
 
             // On stocke la page actuelle dans une variable

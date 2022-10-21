@@ -9,7 +9,7 @@
 
 {% block body %}
 
-<section class="container_command">
+<section class="container_command deleteInBurger">
 
     <div class="Top">
         <h1>
@@ -36,10 +36,9 @@
                 <figure>
                     <img src="{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
                     <figcaption>
-                        <span>
-                            {{ user.prenom}}
-                        </span><br>
-                        {{ user.nom}}
+                        <div>
+                            {{ user.prenom}} {{ user.nom}}
+                        </div>
                     </figcaption>
                 </figure>
 

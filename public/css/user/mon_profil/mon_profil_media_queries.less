@@ -18,16 +18,20 @@
 
 @media (max-width: 1200px) {
 
+    .container_command{
+        padding: 35px;
+    }
+
     #container_general{
 
         flex-wrap: wrap;
-        margin-top: 10px;
+        margin-top: 50px;
 
         #container_btn{
             width: 100%;
             order: 1;
             flex-direction: row;
-            margin: 20px 0;
+            margin: 45px 0;
             justify-content: space-between;
             align-items: center;
 
@@ -42,7 +46,7 @@
 
         #allPosts{
             order: 3;
-            width: 70%;
+            width: 100%;
             padding: 0;
 
             h1{
@@ -52,7 +56,7 @@
 
         #container_carte{
             order: 2;
-            width: 30%;
+            width: 100%;
         }
 
     }
@@ -65,6 +69,7 @@
     #allPosts{
         width: 100% !important;
     }
+
 
        //CONTAINER BANDEAU TOP,CARTE DESCRIPTIVE, POSTS, BOUTONS// 
     
@@ -88,10 +93,6 @@
                 top: 115px;
                 width: 90px;
                 height: 90px;
-                img {
-                    border: solid 5px white;
-                }
-
             }
 
         }
@@ -102,6 +103,7 @@
                 align-items: center;
                 width: 100%;
                 padding: 35px;
+                margin-top: unset;
     
 
                 /////////////////////CHARGE LE MODULE CARTE DESCRIPTIVE/////////////
@@ -279,6 +281,7 @@
                     flex-direction: column;
                     justify-content: center;
                     width: 70%;
+                    margin: 15px 0 0 0 !important;
 
                     span>a {
                         background-color: @bgd_btn1;
@@ -326,12 +329,20 @@
         }
 }
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+
+    #container_general{
+        padding: 20px !important;
+    }
+}
 
 /* Mobile */
 
 @media (max-width: 656px) {
 
+    .etiquette{
+        font-size: 0.7rem !important;
+    }
  
     }
 

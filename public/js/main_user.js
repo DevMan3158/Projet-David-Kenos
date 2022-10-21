@@ -144,16 +144,13 @@ function openMenu(){
 
   let buttonId = event.currentTarget.id.replace('commenter', 'container_com_');
   let postId = document.getElementById(buttonId);
-  console.log(postId);
 
   if (postId.classList.contains('activeComment') == false) {
 
-postId.style.maxHeight = "1000px";
-postId.classList.add("activeComment");
+    postId.classList.add("activeComment");
 
   } else {
 
-    postId.style.maxHeight = "0";
     postId.classList.remove("activeComment");
 
   }
@@ -207,20 +204,22 @@ document.querySelectorAll('a.js-like').forEach(function(link){
 function openHeader(){
 
   let header = document.querySelector('header');
-  let section = document.querySelector('section.container_command');
+  let deleteInBurger = document.querySelector('section.deleteInBurger');
   let burger = document.querySelector('i#userBurger');
 
   if(header.classList.contains("activeHead")){
 
     header.classList.remove('activeHead');
-    section.style.display = 'flex';
     burger.classList.replace('fa-xmark', 'fa-bars');
+    deleteInBurger.style.display = 'flex';
+    sectionTromb.style.display = 'flex';
 
   } else {
 
-    burger.classList.replace('fa-bars', 'fa-xmark');
     header.classList.add('activeHead');
-    section.style.display = 'none';
+    burger.classList.replace('fa-bars', 'fa-xmark');
+    deleteInBurger.style.display = 'none';
+    sectionTromb.style.display = 'none';
 
   }
 }

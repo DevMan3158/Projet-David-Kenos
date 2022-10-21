@@ -2,5 +2,26 @@
 /* Responsive */
 /* ---------- */
 /* Ordinateur */
+@media (max-width: 1300px) {
+  .container_general {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .container_general .menu_cat {
+    order: 1;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .container_general #container_posts {
+    order: 3;
+    width: calc(100% - 225px);
+    margin-left: 20px;
+    margin: unset;
+  }
+  .container_general .container_amis {
+    order: 2;
+    width: 205px;
+  }
+}
 /* Tablette */
 /* Mobile */

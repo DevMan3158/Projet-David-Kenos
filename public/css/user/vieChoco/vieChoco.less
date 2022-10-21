@@ -31,11 +31,19 @@
     display: flex;
     flex-direction: row;
     margin: 0px 0px 0px 0px;
-    width: 93%;
+    width: 100%;
     justify-content: space-around;
     align-items: flex-start;
 
     @import '../modules/post.less';
+
+    .posts:first-of-type{
+        margin-top: 0 !important;
+    }
+
+    #container_posts{
+        margin: auto 20px;
+    }
 
     .container_amis {
         display: flex;
@@ -45,7 +53,7 @@
         border-top: solid 5px @bgd_btn3;
         filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
         padding: 30px;
-        margin: 41px 0px;
+        min-width: 209px;
 
 
         h3 {
@@ -56,26 +64,26 @@
         figure {
             display: flex;
             height: 50px;
-            width: 50px;
+            width: 100%;
             flex-direction: row;
-            //justify-content: center;
+            align-items: center;
             margin: 20px 0px;
 
             img {
                 border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
             }
 
 
 
             figcaption {
-                margin: 0px 0px 0px 15px;
+                
                 line-height: 20px;
-
-                span {
-                    font-family: @fontP;
-                    font-style: italic;
-
-                }
+                width: calc(100% - 50px);
+                font-family: @fontP;
+                font-style: italic;
 
             }
         }
@@ -86,7 +94,6 @@
 .menu_cat {
     flex-direction: column;
     align-items: center;
-    margin: 41px 0px;
 
     li {
         padding: 15px 50px;

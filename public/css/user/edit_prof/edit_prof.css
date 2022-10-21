@@ -31,15 +31,15 @@
 h1 {
   font-size: clamp(0.625rem, 2.2rem, 3rem);
   letter-spacing: 1px;
-  width: 93%;
+  width: 100%;
   color: #333333;
+  margin: 45px 0px;
 }
 h1 > span {
   font-weight: 200;
 }
 .tab-container {
-  width: 93%;
-  margin: 45px 0px;
+  width: 100%;
   border-top-left-radius: 5px;
   border-bottom: solid 5px #F2BF2C;
   filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.103));

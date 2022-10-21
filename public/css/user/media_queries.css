@@ -21,14 +21,13 @@
   }
   .container_command {
     margin-left: unset !important;
+    margin-top: 48px;
   }
   #head {
     display: block;
     width: 100%;
-    padding: 15px;
-    background-color: transparent;
+    padding: 5px 20px 0 20px;
     z-index: 999;
-    position: absolute;
     top: 0;
   }
   #head #mobile {
@@ -59,6 +58,8 @@
     transition: 0.2s;
     overflow: hidden;
     position: absolute;
+    height: calc(100vh - 5%);
+    margin-top: 48px;
   }
   body #containerTop {
     justify-content: space-around;
@@ -67,6 +68,7 @@
   }
   body #containerTop h1 {
     font-size: clamp(0.625rem, 1rem, 3rem);
+    margin-top: 30px;
   }
   body #containerTop .btn {
     width: 65%;

@@ -20,9 +20,37 @@
     .container_command{
         padding: 0 !important;
     }
+
+    header{
+        z-index: 10;
+    }
+
+    #container_bandeau{
+        z-index: 15;
+    }
+
+    #Conteneur_Logo_Usr{
+        width: 90px !important;
+        height: 90px !important;
+        top: 115px;
+    }
+
+    .activeHead{
+        margin-top: 0 !important;
+    }
 }
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    #searchLoopBar{
+        &::after, &::before{
+            display: none;
+        }
+
+        #searchBar{
+            width: 100% !important;
+        }
+    }
+}
 
 /* Mobile */
 

@@ -9,7 +9,6 @@
     align-items: center;
     width: 100%;
     justify-content: center;
-    padding: 25px 40px;
     margin: auto;
 
 
@@ -53,15 +52,12 @@
 
 
         figure {
-            display: flex;
-            width: 20%;
-            align-items: flex-start;
-            justify-content: center;
 
-            img {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+            img{
                 border-radius: 50%;
-                width: 90px;
-                height: 90px;
             }
         }
 
@@ -69,8 +65,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 70%;
-            //margin-left: 35px;
+            width: 80%;
 
             #contenues_img {
                 display: flex;
@@ -144,9 +139,10 @@
         height: auto;
         max-height: 0;
         transition: 1s;
+        overflow: hidden;
 
             form, h3, div{
-                display: none !important;
+                padding: 0;
             }
         
             form{
@@ -299,9 +295,7 @@
 
     .activeComment{
         padding: 25px 40px;
-        form, h3, div{
-            display: flex !important;
-        }
+        max-height: 1000px;
     }
 }
 

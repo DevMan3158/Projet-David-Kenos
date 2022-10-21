@@ -1,22 +1,22 @@
 .Top {
-  width: 100%;
-  padding: 50px 50px 15px 50px;
+  margin: 0 0 50px 30px;
 }
 .Top h1 {
   color: #333333;
-  text-align: left;
-  margin-left: 60px;
   font-weight: 100;
 }
 .Top h1 span {
   color: #0BAA9F;
   font-weight: 600;
 }
+.container_command {
+  align-items: flex-start;
+}
 .container_general {
   display: flex;
   flex-direction: row;
   margin: 0px 0px 0px 0px;
-  width: 93%;
+  width: 100%;
   justify-content: space-around;
   align-items: flex-start;
 }
@@ -26,7 +26,6 @@
   align-items: center;
   width: 100%;
   justify-content: center;
-  padding: 25px 40px;
   margin: auto;
 }
 .container_general #container_posts h1 {
@@ -51,7 +50,7 @@
 }
 .container_general #container_posts .posts .etiquette {
   position: absolute;
-  top: 25px;
+  top: 10px;
   right: -1.5%;
   background-color: #F2BF2C;
   padding: 2px 20px;
@@ -60,21 +59,18 @@
   font-size: 0.9rem;
 }
 .container_general #container_posts .posts figure {
-  display: flex;
-  width: 20%;
-  align-items: flex-start;
-  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
 }
 .container_general #container_posts .posts figure img {
   border-radius: 50%;
-  width: 90px;
-  height: 90px;
 }
 .container_general #container_posts .posts .contenues {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 70%;
+  width: 80%;
 }
 .container_general #container_posts .posts .contenues #contenues_img {
   display: flex;
@@ -126,11 +122,12 @@
   height: auto;
   max-height: 0;
   transition: 1s;
+  overflow: hidden;
 }
 .container_general #container_posts .container_com form,
 .container_general #container_posts .container_com h3,
 .container_general #container_posts .container_com div {
-  display: none !important;
+  padding: 0;
 }
 .container_general #container_posts .container_com form {
   width: 100%;
@@ -247,11 +244,13 @@
 }
 .container_general #container_posts .activeComment {
   padding: 25px 40px;
+  max-height: 1000px;
 }
-.container_general #container_posts .activeComment form,
-.container_general #container_posts .activeComment h3,
-.container_general #container_posts .activeComment div {
-  display: flex !important;
+.container_general .posts:first-of-type {
+  margin-top: 0 !important;
+}
+.container_general #container_posts {
+  margin: auto 20px;
 }
 .container_general .container_amis {
   display: flex;
@@ -261,7 +260,7 @@
   border-top: solid 5px #F2BF2C;
   filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
   padding: 30px;
-  margin: 41px 0px;
+  min-width: 209px;
 }
 .container_general .container_amis h3 {
   margin: 0px 0px 50px 0px;
@@ -269,25 +268,26 @@
 .container_general .container_amis figure {
   display: flex;
   height: 50px;
-  width: 50px;
+  width: 100%;
   flex-direction: row;
+  align-items: center;
   margin: 20px 0px;
 }
 .container_general .container_amis figure img {
   border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
 .container_general .container_amis figure figcaption {
-  margin: 0px 0px 0px 15px;
   line-height: 20px;
-}
-.container_general .container_amis figure figcaption span {
+  width: calc(100% - 50px);
   font-family: 'Playfair Display', serif;
   font-style: italic;
 }
 .menu_cat {
   flex-direction: column;
   align-items: center;
-  margin: 41px 0px;
 }
 .menu_cat li {
   padding: 15px 50px;

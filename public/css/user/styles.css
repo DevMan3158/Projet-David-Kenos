@@ -67,11 +67,11 @@ header #containerBottom ul {
   justify-content: center;
 }
 header #containerBottom ul a {
-  padding: 20px 0px 20px 38px;
+  padding: 20px;
   width: 100%;
   font-weight: 200;
   color: #ffffff;
-  font-size: 1.15rem;
+  font-size: 1rem;
 }
 header #containerBottom ul a:hover {
   background-color: #16394D;
@@ -104,6 +104,7 @@ p {
   font-weight: 600;
   width: 100%;
   font-size: clamp(0.3125rem, 0.8743rem, 3rem);
+  text-align: justify;
 }
 body {
   display: flex;
@@ -115,6 +116,8 @@ body {
   width: 100%;
   padding: 15px;
   background-color: #DFDFDF;
+  position: fixed;
+  background-color: #1F2547;
 }
 #head #mobile {
   display: flex;

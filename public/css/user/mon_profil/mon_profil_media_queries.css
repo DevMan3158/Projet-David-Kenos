@@ -8,15 +8,18 @@
   }
 }
 @media (max-width: 1200px) {
+  .container_command {
+    padding: 35px;
+  }
   #container_general {
     flex-wrap: wrap;
-    margin-top: 10px;
+    margin-top: 50px;
   }
   #container_general #container_btn {
     width: 100%;
     order: 1;
     flex-direction: row;
-    margin: 20px 0;
+    margin: 45px 0;
     justify-content: space-between;
     align-items: center;
   }
@@ -29,7 +32,7 @@
   }
   #container_general #allPosts {
     order: 3;
-    width: 70%;
+    width: 100%;
     padding: 0;
   }
   #container_general #allPosts h1 {
@@ -37,7 +40,7 @@
   }
   #container_general #container_carte {
     order: 2;
-    width: 30%;
+    width: 100%;
   }
 }
 /* Tablette */
@@ -62,14 +65,12 @@
     width: 90px;
     height: 90px;
   }
-  .container_command #container_bandeau #Conteneur_Logo_Usr img {
-    border: solid 5px white;
-  }
   .container_command #container_general {
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 35px;
+    margin-top: unset;
   }
   .container_command #container_general #container_carte {
     display: flex;
@@ -204,6 +205,7 @@
     flex-direction: column;
     justify-content: center;
     width: 70%;
+    margin: 15px 0 0 0 !important;
   }
   .container_command #container_general #container_btn span > a {
     background-color: #0BAA9F;
@@ -237,5 +239,18 @@
   .container_command #container_general #container_btn .btn2:hover {
     color: #191E39;
   }
+  .activeHead {
+    margin-top: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  #container_general {
+    padding: 20px !important;
+  }
 }
 /* Mobile */
+@media (max-width: 656px) {
+  .etiquette {
+    font-size: 0.7rem !important;
+  }
+}

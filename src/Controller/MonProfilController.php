@@ -101,10 +101,10 @@ class MonProfilController extends AbstractController
             
               
             //Supression
-            /*
+            
             if ($this->isCsrfTokenValid('delete'.$posts->getId(), $request->request->get('_token'))) {
                 $postRepository->remove($posts, true);
-            }*/
+            }
                
             }
 

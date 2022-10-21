@@ -26,7 +26,7 @@
 }
 #container_bandeau #Conteneur_Logo_Usr img {
   border-radius: 50%;
-  border: solid 10px white;
+  border: solid 7px white;
 }
 #container_general {
   display: flex;
@@ -34,7 +34,7 @@
   justify-content: space-between;
   width: 100%;
   overflow: hidden;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 #container_general #container_carte {
   display: flex;
@@ -113,7 +113,6 @@
   align-items: center;
   width: 100%;
   justify-content: center;
-  padding: 25px 40px;
   margin: auto;
 }
 #container_general #container_posts h1 {
@@ -147,21 +146,18 @@
   font-size: 0.9rem;
 }
 #container_general #container_posts .posts figure {
-  display: flex;
-  width: 20%;
-  align-items: flex-start;
-  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
 }
 #container_general #container_posts .posts figure img {
   border-radius: 50%;
-  width: 90px;
-  height: 90px;
 }
 #container_general #container_posts .posts .contenues {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 70%;
+  width: 80%;
 }
 #container_general #container_posts .posts .contenues #contenues_img {
   display: flex;
@@ -213,11 +209,12 @@
   height: auto;
   max-height: 0;
   transition: 1s;
+  overflow: hidden;
 }
 #container_general #container_posts .container_com form,
 #container_general #container_posts .container_com h3,
 #container_general #container_posts .container_com div {
-  display: none !important;
+  padding: 0;
 }
 #container_general #container_posts .container_com form {
   width: 100%;
@@ -334,11 +331,7 @@
 }
 #container_general #container_posts .activeComment {
   padding: 25px 40px;
-}
-#container_general #container_posts .activeComment form,
-#container_general #container_posts .activeComment h3,
-#container_general #container_posts .activeComment div {
-  display: flex !important;
+  max-height: 1000px;
 }
 #container_general #container_btn {
   display: flex;
@@ -353,9 +346,11 @@
   text-align: center;
   list-style: none;
   background-color: #1F2547;
-  margin: 10px 0px 7px 0px;
   padding: 15px 15px;
   width: 100%;
+}
+#container_general #container_btn a:nth-of-type(2) {
+  margin: 10px auto;
 }
 #container_general #container_btn .btn {
   background-color: #1F2547;
@@ -382,19 +377,29 @@
 }
 #newPost {
   background-color: #EFEFEF;
-  height: 0px;
+  max-height: 0;
   transition: 0.4s;
   position: relative;
   padding: unset;
+  overflow: hidden;
+}
+#newPost #post {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#newPost #post div:first-of-type {
+  width: 100%;
 }
 #newPost input {
   border: none;
 }
 #newPost form {
-  display: none;
+  opacity: 0;
 }
 #newPost #postScroll {
-  display: none;
+  opacity: 0;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -421,12 +426,12 @@
   /* border: solid 1px #000000; */
 }
 .active {
-  height: 400px !important;
+  max-height: 1000px !important;
   padding: 30px !important;
 }
 .active form {
-  display: block !important;
+  opacity: 1 !important;
 }
 .active #postScroll {
-  display: block !important;
+  opacity: 1 !important;
 }

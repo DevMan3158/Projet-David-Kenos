@@ -14,32 +14,53 @@
 
 @media (max-width: 1300px) {
 
-    .container_general{
+        .container_general{
 
-        flex-wrap: wrap;
-        justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: space-between;
 
-        .menu_cat{
-            order:1;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+            .menu_cat{
+                order:1;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            #container_posts{
+                order: 3;
+                width: 100%;
+                margin-left: 20px;
+                margin: unset;
+            }
         
-        #container_posts{
-            order: 3;
-            width: calc(100% - 225px);
-            margin-left: 20px;
-            margin: unset;
-        }
-    
-        .container_amis{
-            order:2;
-            width: 205px;
-        }
+            .container_amis{
+                order:2;
+                width: 100%;
+                margin-bottom: 20px;
+                flex-direction: row;
+                flex-wrap: wrap;
 
+                h3{
+                    width: 100%;
+                }
 
+                figure {
+                    display: flex;
+                    width: fit-content;
+                    align-items: center;
+                    margin: 9px 14px;
+
+                    figcaption {
+                        line-height: 20px;
+                        width: 96px;
+                        font-family: 'Playfair Display', serif;
+                        font-style: italic;
+                        display: block;
+                }
+            }
+        }
     }
 }
+
 
 /* Tablette */
 
@@ -49,6 +70,20 @@
 
 /* Mobile */
 
-@media (max-width: 656px) {}
+@media (max-width: 656px) {
+    .container_command{
+        padding: 0;
+
+        .Top{
+            margin: 40px 30px !important;
+        }
+    }
+
+    #container_posts{
+        margin: 0 10px !important;
+    }
+
+
+}
 
 @media (max-width: 300px) {}

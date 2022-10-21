@@ -239,6 +239,9 @@
   .container_command #container_general #container_btn .btn2:hover {
     color: #191E39;
   }
+  .activeHead {
+    margin-top: 0 !important;
+  }
 }
 @media (max-width: 768px) {
   #container_general {

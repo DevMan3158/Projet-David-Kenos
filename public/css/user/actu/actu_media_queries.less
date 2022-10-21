@@ -19,9 +19,33 @@
 }
 
 @media (max-width: 1200px) {
-    #searchBar:focus{
-        width:unset;
 
+    .container_command h1{
+        margin: 20px 0 0 0;
+    }
+
+    #searchContainer{
+
+        ul{
+            display: none !important;
+        }
+
+        #searchLoopBar{
+
+            &::after, &::before{
+                display: none;
+            }
+
+            #searchBar{
+
+                width: 100% !important;
+
+                &:focus{
+                    width: 100% !important;
+    
+                }
+            }
+        }
     }
 }
 
@@ -29,10 +53,27 @@
 
 @media (max-width: 1024px) {}
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    #gridAct{
+        align-items: center;
+        flex-direction: column;
+
+        a{
+            width: 100%;
+        }
+    }
+}
 
 /* Mobile */
 
-@media (max-width: 656px) {}
+@media (max-width: 656px) {
+    .container_command{
+        padding: 50px 10px;
+    }
+}
 
-@media (max-width: 300px) {}
+@media (max-width: 400px) {
+    #gridAct{
+        padding: 20px 20px;
+    }
+}

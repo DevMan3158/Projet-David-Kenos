@@ -377,20 +377,29 @@
 }
 #newPost {
   background-color: #EFEFEF;
-  height: 0px;
+  max-height: 0;
   transition: 0.4s;
   position: relative;
   padding: unset;
   overflow: hidden;
 }
+#newPost #post {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#newPost #post div:first-of-type {
+  width: 100%;
+}
 #newPost input {
   border: none;
 }
 #newPost form {
-  display: none;
+  opacity: 0;
 }
 #newPost #postScroll {
-  display: none;
+  opacity: 0;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -417,12 +426,12 @@
   /* border: solid 1px #000000; */
 }
 .active {
-  height: 400px !important;
+  max-height: 1000px !important;
   padding: 30px !important;
 }
 .active form {
-  display: block !important;
+  opacity: 1 !important;
 }
 .active #postScroll {
-  display: block !important;
+  opacity: 1 !important;
 }

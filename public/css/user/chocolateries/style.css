@@ -4,32 +4,29 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 93%;
-  height: 35%;
+  width: 100%;
+  height: 100%;
 }
 #container_bandeau figure {
   display: flex;
   justify-content: center;
-  height: 70%;
+  height: 220px;
   width: 100%;
   border-bottom: solid 5px #F2BF2C;
-}
-#container_bandeau figure img {
-  border: solid 1px black;
 }
 #container_bandeau #Conteneur_Logo_Usr {
   position: absolute;
   display: flex;
   align-items: center;
   flex-direction: column;
-  top: 54%;
+  bottom: -70px;
   width: 140px;
   height: 140px;
   border-bottom: solid #dfdfdf00;
 }
 #container_bandeau #Conteneur_Logo_Usr img {
   border-radius: 50%;
-  border: solid 10px white;
+  border: solid 7px white;
 }
 body {
   height: unset !important;
@@ -45,7 +42,7 @@ body {
   align-items: flex-start;
 }
 .container_command h1 {
-  margin-bottom: 20px;
+  margin: 0 0 30px 30px;
 }
 .container_command h1 span {
   font-weight: normal;
@@ -53,7 +50,6 @@ body {
 .container_command h1 strong {
   color: #0BAA9F;
   margin-left: 10px;
-  text-shadow: 2px 2px 2px black;
   font-size: 1.4em;
 }
 .container_command #searchContainer {
@@ -234,9 +230,11 @@ body {
   text-align: center;
   list-style: none;
   background-color: #1F2547;
-  margin: 10px 0px 7px 0px;
   padding: 15px 15px;
   width: 100%;
+}
+.container_command #container_btn a:nth-of-type(2) {
+  margin: 10px auto;
 }
 .container_command #container_btn .btn {
   background-color: #1F2547;

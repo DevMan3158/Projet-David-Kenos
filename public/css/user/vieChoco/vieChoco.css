@@ -1,16 +1,16 @@
 .Top {
-  width: 100%;
-  padding: 50px 50px 15px 50px;
+  margin: 0 0 50px 30px;
 }
 .Top h1 {
   color: #333333;
-  text-align: left;
-  margin-left: 60px;
   font-weight: 100;
 }
 .Top h1 span {
   color: #0BAA9F;
   font-weight: 600;
+}
+.container_command {
+  align-items: flex-start;
 }
 .container_general {
   display: flex;

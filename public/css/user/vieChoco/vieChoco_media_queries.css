@@ -14,14 +14,44 @@
   }
   .container_general #container_posts {
     order: 3;
-    width: calc(100% - 225px);
+    width: 100%;
     margin-left: 20px;
     margin: unset;
   }
   .container_general .container_amis {
     order: 2;
-    width: 205px;
+    width: 100%;
+    margin-bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .container_general .container_amis h3 {
+    width: 100%;
+  }
+  .container_general .container_amis figure {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    margin: 9px 14px;
+  }
+  .container_general .container_amis figure figcaption {
+    line-height: 20px;
+    width: 96px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    display: block;
   }
 }
 /* Tablette */
 /* Mobile */
+@media (max-width: 656px) {
+  .container_command {
+    padding: 0;
+  }
+  .container_command .Top {
+    margin: 40px 30px !important;
+  }
+  #container_posts {
+    margin: 0 10px !important;
+  }
+}

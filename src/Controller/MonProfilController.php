@@ -90,21 +90,23 @@ class MonProfilController extends AbstractController
             
             //Traite l'image 
 
-                $image = $formPost->get('images')->getData();
+            $image = $formPost->get('images')->getData();
 
-                   if (!empty($image)) {
-                       $imageFileName = $fileUploader->upload($image);
-                       $newPost->setImagePost('../data/'. $imageFileName);
-                   }
+               if (!empty($image)) {
+                   $imageFileName = $fileUploader->upload($image);
+                   $newPost->setImagePost('../data/'. $imageFileName);
+               }
 
             $post->add($newPost, true);
+
+            return $this->redirectToRoute('app_profil', ['id' => $user->getId()]);
             
               
-            //Supression
-            
-            if ($this->isCsrfTokenValid('delete'.$posts->getId(), $request->request->get('_token'))) {
-                $postRepository->remove($posts, true);
-            }
+            ////Supression
+            //
+            //if ($this->isCsrfTokenValid('delete'.$posts->getId(), $request->request->get('_token'))) {
+            //    $postRepository->remove($posts, true);
+            //}
                
             }
 

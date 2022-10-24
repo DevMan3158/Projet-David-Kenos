@@ -61,7 +61,7 @@
     height: 33%;
   }
   .container_command #container_bandeau #Conteneur_Logo_Usr {
-    top: 115px;
+    bottom: -45px;
     width: 90px;
     height: 90px;
   }

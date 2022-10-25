@@ -61,7 +61,7 @@
     height: 33%;
   }
   .container_command #container_bandeau #Conteneur_Logo_Usr {
-    top: 115px;
+    bottom: -45px;
     width: 90px;
     height: 90px;
   }
@@ -205,7 +205,7 @@
     flex-direction: column;
     justify-content: center;
     width: 70%;
-    margin: 15px 0 0 0 !important;
+    margin: 30px 0 0 0 !important;
   }
   .container_command #container_general #container_btn span > a {
     background-color: #0BAA9F;

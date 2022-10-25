@@ -1,23 +1,18 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\user;
 
-use App\Entity\Actualite;
 use App\Service\Pagination;
-use App\Repository\ActualiteRepository;
-use App\Repository\ChocolaterieRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-
-class ActualitéController extends AbstractController
+class TrombinoscopeController extends AbstractController
 {
-    #[Route('/actualite', name: 'app_actualite')]
-    public function index(ChocolaterieRepository $chocRepo, ActualiteRepository $actRepo): Response
+    #[Route('/trombinoscope', name: 'app_trombinoscope')]
+    public function index(UserRepository $userRepository): Response
     {
-
 
         if(!empty($_GET['pg'])){
             $currentPage = (int) strip_tags($_GET['pg']);
@@ -27,7 +22,7 @@ class ActualitéController extends AbstractController
 
         // On détermine le nombre d'articles par page
 
-        $perPage = 5;
+        $perPage = 15;
 
         // Calcul du premier article de la page
 
@@ -35,19 +30,18 @@ class ActualitéController extends AbstractController
                 
         // On récupère le nombre d'articles et on compte le nombre de pages et on arrondi à l'entier suppérieur
 
-        $page = ceil((count($actRepo->findAll())) / $perPage);
+        $page = ceil((count($userRepository->findAll())) / $perPage);
 
         // On définis les articles à afficher en fonction de la page
 
-        $actPerPage = $actRepo->findAllAct($perPage, $firstObj);
+        $userPerPage = $userRepository->findAllWithChoco($perPage, $firstObj);
 
-
-        return $this->render('user/actualité/index.html.twig', [
-            'controller_name' => 'ActualitéController',
-            'findAllAct' => $actPerPage,
+        return $this->render('user/trombinoscope/index.html.twig', [
+            'controller_name' => 'TrombinoscopeController',
+            'nbUser' => $userRepository->countUser(),
+            'findAll' => $userPerPage,
             'pages' => $page,
             'currentPage' => $currentPage,
-            'allLieux' => $chocRepo->actLieux(),
         ]);
     }
 }

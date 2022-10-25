@@ -1,15 +1,15 @@
 // Ici on récupère l'url courant
-var urlcourante = document.location.href; 
+let urlcourante = document.location.href; 
 
 // Supprimons l'éventuel dernier slash de l'URL
-var urlcourante = urlcourante.replace(/\/$/, "");
+urlcourante = urlcourante.replace(/\/$/, "");
 
-// Gardons dans la variable queue_url uniquement la portion derrière le dernier slash de urlcourante
+// Gardons dans la letiable queue_url uniquement la portion derrière le dernier slash de urlcourante
 queue_url = urlcourante.substring (urlcourante.lastIndexOf( "/" )+1 );
 
 
 // Ces deux fonctions permettent d'ouvrir et fermer le menu burger
-var headdd = document.getElementById('head');
+let headdd = document.getElementById('head');
 
 function openMenu(){
     headdd.classList.add("headerBurger");
@@ -44,7 +44,7 @@ function closeMenu2(){
 }
 
 // On récupère le titre des CRUD pour le modifier en fonction de la page
-var titleCrud = document.getElementById('titleCrud');
+let titleCrud = document.getElementById('titleCrud');
 
 // On modifie le titre des crud en fonction de la page
 if (queue_url == 'user') {
@@ -69,20 +69,20 @@ if(queue_url == 'admin'){
 
 // Détermine la largeur de la fenetre 
 
-var largeur = window.innerWidth;
+let largeur = window.innerWidth;
 
 // Modification des boutons pour responsive
 
 if(largeur <= 800){
 
-    var editBtn = document.querySelectorAll('.editBtn');
+    let editBtn = document.querySelectorAll('.editBtn');
 
     editBtn.forEach(element => {
         element.innerHTML = "<i class='fa-solid fa-pen-to-square'></i>"
         element.style.width = "unset"
     });
     
-    var deleteBtn = document.querySelectorAll('.btn');
+    let deleteBtn = document.querySelectorAll('.btn');
     
     deleteBtn.forEach(element => {
         element.innerHTML = "<i class='fa-solid fa-trash'></i>"

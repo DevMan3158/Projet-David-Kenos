@@ -45,9 +45,13 @@
                         </p>
                     </h3>
 
-                    <div id="contenues_img">
-                        <img src="../{{ posts.imagepost }}" alt="{{ posts.imagepostalt }}">
-                    </div>
+                    {% if posts.imagepost %} 
+
+                        <div id="contenues_img">
+                            <img src="../{{ posts.imagepost }}" alt="{{ posts.imagepostalt }}">
+                        </div>
+
+                    {% endif %} 
 
 
                     <p>
@@ -82,12 +86,7 @@
                                 J'aime{% if posts.likes|length > 1 %}s{% endif %}
                             </span>       
                         </a>
-
-
-                         {{ include('user/profil_view/_delete_form.html.twig') }}
                         
-
-                    
 
                     </div>
 

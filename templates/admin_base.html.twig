@@ -36,9 +36,6 @@
         {% endblock %}
 
         {% block javascripts %}
-
-            {{ encore_entry_script_tags('app') }}
-            <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
         {% endblock %}
 
     </head>
@@ -109,38 +106,46 @@
                     {% endif %}
                 </ul>
                 <ul>
-                    <li>
-                         <a href="{{ path('app_actualite_index') }}">Actualites
-                         </a>
-                    </li>
-                    <li>
-                         <a href="{{ path('app_cat_post_index') }}">Categories
-                         </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('app_post_index') }}">Posts
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('app_user_index') }}">
+                    
+                    <a href="{{ path('app_actualite_index') }}">
+                        <li>
+                            Actualites
+                        </li>
+                    </a>
+                    
+                    <a href="{{ path('app_cat_post_index') }}">
+                        <li>
+                            Categories
+                        </li>
+                    </a>
+                    
+                    <a href="{{ path('app_post_index') }}">
+                        <li>
+                        Posts
+                        </li>
+                    </a>
+
+                    <a href="{{ path('app_user_index') }}">
+                        <li>
                             Utilisateurs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('app_chocolaterie_index') }}">
+                        </li>
+                    </a>
+
+                    <a href="{{ path('app_chocolaterie_index') }}">
+                        <li>
                             Chocolateries
-                        </a>
-                    </li>
+                        </li>
+                    </a>
+
                 </ul>
                 <i class="fa-solid fa-angles-up" id="hamb" onClick="closeMenu()"></i>{#document.getElementById('hamb').style.display = "block";#}
             </div>
         </header>
 
-        
-
         {% block body %}{% endblock %}
-        
+                
+        <script src="{{ asset('js/main_admin.js') }}"></script>
+        <script src="https://kit.fontawesome.com/280516d329.js" crossorigin="anonymous"></script>
 
-        <script src="{{ asset('js/main.js') }}"></script>
     </body>
 </html>

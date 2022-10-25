@@ -1,18 +1,23 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\user;
 
+use App\Entity\Actualite;
 use App\Service\Pagination;
-use App\Repository\UserRepository;
+use App\Repository\ActualiteRepository;
+use App\Repository\ChocolaterieRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class TrombinoscopeController extends AbstractController
+
+class ActualiteController extends AbstractController
 {
-    #[Route('/trombinoscope', name: 'app_trombinoscope')]
-    public function index(UserRepository $userRepository): Response
+    #[Route('/actualite', name: 'app_actualite')]
+    public function index(ChocolaterieRepository $chocRepo, ActualiteRepository $actRepo): Response
     {
+
 
         if(!empty($_GET['pg'])){
             $currentPage = (int) strip_tags($_GET['pg']);
@@ -22,7 +27,7 @@ class TrombinoscopeController extends AbstractController
 
         // On détermine le nombre d'articles par page
 
-        $perPage = 15;
+        $perPage = 5;
 
         // Calcul du premier article de la page
 
@@ -30,18 +35,19 @@ class TrombinoscopeController extends AbstractController
                 
         // On récupère le nombre d'articles et on compte le nombre de pages et on arrondi à l'entier suppérieur
 
-        $page = ceil((count($userRepository->findAll())) / $perPage);
+        $page = ceil((count($actRepo->findAll())) / $perPage);
 
         // On définis les articles à afficher en fonction de la page
 
-        $userPerPage = $userRepository->findAllWithChoco($perPage, $firstObj);
+        $actPerPage = $actRepo->findAllAct($perPage, $firstObj);
 
-        return $this->render('user/trombinoscope/index.html.twig', [
-            'controller_name' => 'TrombinoscopeController',
-            'nbUser' => $userRepository->countUser(),
-            'findAll' => $userPerPage,
+
+        return $this->render('user/actualité/index.html.twig', [
+            'controller_name' => 'ActualiteController',
+            'findAllAct' => $actPerPage,
             'pages' => $page,
             'currentPage' => $currentPage,
+            'allLieux' => $chocRepo->actLieux(),
         ]);
     }
 }

@@ -46,10 +46,10 @@ input {
   border: 1px solid #0BAA9F;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 10px;
+  padding: 15px;
 }
 ::placeholder {
   color: #D9D9D9;
-  padding: 15px;
 }
 .btn {
   width: 220px;
@@ -132,7 +132,6 @@ form {
 }
 ::placeholder {
   color: #D9D9D9;
-  padding: 10px;
 }
 .btn_Reg_Form {
   width: 220px;

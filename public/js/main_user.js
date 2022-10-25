@@ -211,6 +211,11 @@ function openHeader(){
 
     header.classList.remove('activeHead');
     burger.classList.replace('fa-xmark', 'fa-bars');
+
+    if ( deleteInBurger.classList.contains("block")) {
+      deleteInBurger.style.display = 'block';
+      }
+
     deleteInBurger.style.display = 'flex';
     sectionTromb.style.display = 'flex';
 

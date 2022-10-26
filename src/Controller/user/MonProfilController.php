@@ -11,6 +11,7 @@ use App\Form\CommentaireType;
 use App\Service\FileUploader;
 use App\Repository\LikeRepository;
 use App\Repository\PostRepository;
+use App\Repository\UserRepository;
 use App\Repository\CommentaireRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,11 +23,20 @@ class MonProfilController extends AbstractController
 {
 
     #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
-    public function profil(FileUploader $fileUploader, Request $request, User $user, CommentaireRepository $commentaireRepository ,PostRepository $post ): Response
+    public function profil(FileUploader $fileUploader, Request $request, UserRepository $userRepo, CommentaireRepository $commentaireRepository ,PostRepository $post, int $id ): Response
     {
-        
 
+        
         $userId = $this->getUser();
+
+        $user = $userRepo->find($id);
+
+        if( $user == null ){
+            
+            return $this->redirectToRoute('app_profil',['id' => $userId->getId()], Response::HTTP_SEE_OTHER);
+
+        }
+
 
         // PUBLICATION D'UN COMMENTAIRE
 

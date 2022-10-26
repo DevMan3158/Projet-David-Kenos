@@ -20,6 +20,13 @@ class UserEditController extends AbstractController
         #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
         public function edit(UserPasswordHasherInterface $userPasswordHasher, FileUploader $fileUploader, Request $request, User $user, Int $id, UserRepository $userRepository): Response
         {
+
+            $userId = $this->getUser()->getId();
+            if ($userId !== $id) {
+
+                return $this->redirectToRoute('app_profil',['id' => $id], Response::HTTP_SEE_OTHER);
+                
+            }
         
         //Création du formulaire EditUserType
             $form = $this->createForm(EditUserType::class, $user);

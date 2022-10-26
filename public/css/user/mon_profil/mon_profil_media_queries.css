@@ -112,18 +112,7 @@
     margin: 35px 0px 35px 0px;
     width: 100%;
   }
-  .container_command #container_general #container_carte .carte .logo figure {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: solid 3px #F2BF2C;
-    border-radius: 50%;
-    margin: 0px 10px 0px 10px;
-    width: 53px;
-    height: 40px;
-  }
-  .container_command #container_general #container_carte .carte .logo figure i {
+  .container_command #container_general #container_carte .carte .logo i {
     font-size: 1.2rem;
   }
   .container_command #container_general #container_posts {

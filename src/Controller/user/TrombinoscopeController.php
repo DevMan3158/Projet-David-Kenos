@@ -2,7 +2,6 @@
 
 namespace App\Controller\user;
 
-use App\Service\Pagination;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

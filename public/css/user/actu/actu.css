@@ -37,6 +37,10 @@ img {
   width: 100%;
   display: flex;
   white-space: nowrap;
+  transition: 0.2s;
+}
+.container_command #searchContainer ul a:hover {
+  color: #0BAA9F;
 }
 .container_command #searchContainer ul a:not(:last-of-type) {
   border-right: 1px solid black;

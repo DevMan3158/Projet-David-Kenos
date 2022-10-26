@@ -29,7 +29,6 @@
 
         {# On boucle les chocolateries pour les afficher #}
 
-
             <article id="chocolaterie{{chocolateries.id}}" class="chocArticles">
 
                 <div id="photoChoc">
@@ -51,8 +50,7 @@
 
                 <div id="actContainer">
 
-
-                    {% for act in actus %}
+                    {% for act in chocolateries.actualites %}
 
 
                          <article id="act{{ act.id }}" class="actArticles">

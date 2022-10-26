@@ -94,8 +94,7 @@ class EditUserType extends AbstractType
             ->add('ImageProfil',FileType::class, 
             [
                 'attr' => ['class' => 'inputFile'],
-                "mapped"=>false,
-                'data_class'=>null,
+                'mapped' => false,
                 'label'=> 'Photo de profil :',      
                 'required' => false,
                 'constraints' => [
@@ -168,11 +167,7 @@ class EditUserType extends AbstractType
                     'label' => "Mot de passe :",
                     'attr' => ['autocomplete' => 'Nouveau Mot de Passe',
                     'placeholder' => "Nouveau mot de passe - 6 caratères minimun",],
-                    'constraints' => [
-
-                        new NotBlank([
-                            'message' => '',
-                        ]),
+                    'constraints' => 
                         
                         new Length([
                             'min' => 6,
@@ -180,7 +175,6 @@ class EditUserType extends AbstractType
                             // max length allowed by Symfony for security reasons
                             'max' => 4096,
                         ]),
-                    ],
                     
                 ],
 

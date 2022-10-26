@@ -6,32 +6,23 @@ use App\Entity\Like;
 use App\Entity\Post;
 use App\Entity\User;
 use App\Form\PostType;
-use App\Form\UserType;
-use App\Entity\CatPost;
 use App\Entity\Commentaire;
 use App\Form\CommentaireType;
 use App\Service\FileUploader;
 use App\Repository\LikeRepository;
 use App\Repository\PostRepository;
-use App\Repository\CatPostRepository;
-use Doctrine\ORM\PersistentCollection;
-use Doctrine\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\CommentaireRepository;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class MonProfilController extends AbstractController
 {
 
     #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
-    public function profil(FileUploader $fileUploader, Request $request, $id, User $user, CatPostRepository $catPostRepository, CommentaireRepository $commentaireRepository ,PostRepository $post ): Response
+    public function profil(FileUploader $fileUploader, Request $request, User $user, CommentaireRepository $commentaireRepository ,PostRepository $post ): Response
     {
         
 
@@ -146,46 +137,52 @@ class MonProfilController extends AbstractController
     
     }
 
-    // Fonction qui permet de liker ou unliker un post
+    // LIKES <3
 
-    #[Route('/post/{id}/likes', name: 'app_post_likes', methods: ['GET'])]
-
-    public function like(Post $post, EntityManagerInterface $manager, LikeRepository $likeRepo): Response
-
-    {
-        $user = $this->getUser();
-
-        if(!$user) return $this->json([
-            'code' => 403,
-            'message' => "Vous n'êtes pas autorisé à visiter cette page",
-        ], 403);
-
-        if($post->isLikedByUser($user)) {
-            $newLike = $likeRepo->findOneBy([
-                'post' => $post,
-                'user' => $user,
-            ]);
-
-            $likeRepo->remove($newLike, true);
-
+        #[Route('/post/{id}/likes', name: 'app_post_likes', methods: ['GET'])]
+    
+        public function like(Post $post, LikeRepository $likeRepo): Response
+    
+        {
+            $user = $this->getUser();
+        
+            // On empèche l'utilisateur de liker s'il n'est pas authentifié
+        
+            if(!$user) return $this->json([
+                'code' => 403,
+                'message' => "Vous n'êtes pas autorisé à visiter cette page",
+            ], 403);
+        
+            // Si l'utilisateur à déja liker le post, on retire le like
+        
+            if($post->isLikedByUser($user)) {
+                $newLike = $likeRepo->findOneBy([
+                    'post' => $post,
+                    'user' => $user,
+                ]);
+            
+                $likeRepo->remove($newLike, true);
+            
+                return $this->json([
+                    'code' => 200,
+                    'message' => 'Like bien supprimé',
+                    'likes' => $likeRepo->count(['post' => $post])
+                ], 200);
+            }
+        
+            // Sinon on rajoute le like :) 
+        
+            $newLike = new Like();
+            $newLike->setPost($post)
+                 ->setUser($user);
+        
+                $likeRepo->add($newLike, true);
+        
             return $this->json([
-                'code' => 200,
-                'message' => 'Like bien supprimé',
-                'likes' => $likeRepo->count(['post' => $post])
+            'code' => 200,
+            'message' => 'Like bien ajouté',
+            'likes' => $likeRepo->count(['post' => $post])
             ], 200);
         }
-
-        $newLike = new Like();
-        $newLike->setPost($post)
-             ->setUser($user);
-
-            $likeRepo->add($newLike, true);
-
-        return $this->json([
-        'code' => 200,
-        'message' => 'Like bien ajouté',
-        'likes' => $likeRepo->count(['post' => $post])
-        ], 200);
-    }
 
 }

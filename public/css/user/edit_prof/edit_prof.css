@@ -26,7 +26,7 @@
 }
 #container_bandeau #Conteneur_Logo_Usr img {
   border-radius: 50%;
-  border: solid 10px white;
+  border: solid 7px white;
 }
 h1 {
   font-size: clamp(0.625rem, 2.2rem, 3rem);

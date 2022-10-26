@@ -3,22 +3,13 @@
 namespace App\Controller\user;
 
 use App\Entity\User;
-use App\Form\User1Type;
 use App\Form\EditUserType;
 use App\Service\FileUploader;
-use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
-use Doctrine\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManagerInterface;
-use App\Repository\ChocolaterieRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\String\Slugger\SluggerInterface;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 
@@ -27,61 +18,49 @@ class UserEditController extends AbstractController
 {
 
         #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
-        public function edit(UserPasswordHasherInterface $userPasswordHasher, FileUploader $fileUploader, EntityManagerInterface $em, Request $request ,SluggerInterface $slugger, User $user, Int $id, UserRepository $userRepository, ChocolaterieRepository $chocolaterieRepository): Response
+        public function edit(UserPasswordHasherInterface $userPasswordHasher, FileUploader $fileUploader, Request $request, User $user, Int $id, UserRepository $userRepository): Response
         {
         
-        //Création du formulaire User1Type
+        //Création du formulaire EditUserType
             $form = $this->createForm(EditUserType::class, $user);
 
             $form->handleRequest($request);
-    
         //Cette condition est nécessaire pour les champs du formulaire 
         if ($form->isSubmitted() && $form->isValid()) 
         {
-            //Appel du repos user 
-            
 
-           
+            //Récupère les différentes données du formulaire
 
-            //Permet de changer le mdp -> hash le mdp 
-            $encodedPassword = $userPasswordHasher->hashPassword(
-                $user,
-                 $form->get('plainPassword')->getData()
-                );
-                
-
-            /** @var UploadedFile $imageFile */
-
-            //Récupère la donnée du champs ImageBandeau du usertype et le stoke
             $imageFile = $form->get('ImageBandeau')->getData();
-
-            ////Récupère la donnée du champs ImageProfil du usertype et le stoke
             $imageFilePro = $form->get('ImageProfil')->getData();
-            
+            $password = $form->get('plainPassword')->getData();
+
+            if (!empty($password)) {
+
+                //Permet de changer le mdp -> hash le mdp 
+
+                $encodedPassword = $userPasswordHasher->hashPassword($user, $password);
+                $user->setPassword($encodedPassword);
+            }
+
             //Cette condition est nécessaire car le champ 'ImageBandeau' n'est pas obligatoire
             //Donc le fichier doit être traité uniquement lorsqu'il est téléchargé et non vide 
 
-               if (!empty($imageFile)) {
-
+            if (!empty($imageFile)) {
                    $imageFileName = $fileUploader->upload($imageFile);
-                   //Met à jour la propriété 'setImageBandeau' pour stocker le nom du fichier et sa concaténation (chemin du fichier) 
                    $user->setImageBandeau('../data/'. $imageFileName);
+                   //Met à jour la propriété 'setImageBandeau' pour stocker le nom du fichier et sa concaténation (chemin du fichier) 
                }
 
                //Conditionne dans le cas d'un changement de l'image du profile 
-               elseif (!empty($imageFilePro)) {
-
-                   $imageFileName = $fileUploader->upload($imageFilePro);
-                   $user->setImageProfil('../data/'. $imageFileName);
+            if (!empty($imageFilePro)) {
+                   $imageFileNamePro = $fileUploader->upload($imageFilePro);
+                   $user->setImageProfil('../data/'. $imageFileNamePro);
                }
 
-
-            //transmet le mdp
-            $user->setPassword($encodedPassword);
-
-            $userRepository->add($user, true);
-
+                $userRepository->add($user, true);
                 return $this->redirectToRoute('app_user_profil_edit',['id' => $id], Response::HTTP_SEE_OTHER);
+
             }
     
             return $this->renderForm('user_profil/edit.html.twig', [

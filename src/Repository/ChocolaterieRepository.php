@@ -62,7 +62,8 @@ class ChocolaterieRepository extends ServiceEntityRepository
 
     public function actLieux(){
         $qb = $this->createQueryBuilder('c')
-            ->select('c.lieu');
+            ->select('c.lieu')
+            ->distinct();
         
         return $qb->getQuery()->getResult();
     }

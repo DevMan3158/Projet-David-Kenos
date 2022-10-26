@@ -2,11 +2,8 @@
 
 namespace App\Controller\user;
 
-use App\Entity\Actualite;
-use App\Service\Pagination;
 use App\Repository\ActualiteRepository;
 use App\Repository\ChocolaterieRepository;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

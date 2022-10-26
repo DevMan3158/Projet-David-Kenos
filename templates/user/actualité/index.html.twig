@@ -15,12 +15,17 @@
 
         <ul>
             {% for lieu in allLieux %}
-                <a href="#">
-                    <li onclick="getId(this)" id="{{ loop.index }}">
+                <a onclick="getId(this)" id="{{ loop.index }}">
+                    <li>
                         {{ lieu.lieu }}
                     </li>
                 </a>
             {% endfor %}
+                <a onClick="getId(this)" id="reset">
+                    <li>
+                        <i class="fa-solid fa-xmark" style="font-size: 1.2em; color: red; display:flex;"></i>
+                    </li>
+                </a>
         </ul>
 
         <div id="searchLoopBar">

@@ -73,6 +73,7 @@ header #containerBottom ul a {
   font-weight: 200;
   color: #ffffff;
   font-size: 1rem;
+  white-space: nowrap;
 }
 header #containerBottom ul a:hover {
   background-color: #16394D;

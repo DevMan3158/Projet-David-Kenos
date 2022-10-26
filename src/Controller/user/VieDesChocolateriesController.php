@@ -2,17 +2,9 @@
 
 namespace App\Controller\user;
 
-use App\Entity\Post;
-use App\Entity\User;
-use App\Form\UserType;
-use DateTimeImmutable;
-use App\Entity\Commentaire;
-use App\Form\CommentaireType;
 use App\Repository\PostRepository;
 use App\Repository\UserRepository;
 use App\Repository\CatPostRepository;
-use Doctrine\ORM\PersistentCollection;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class VieDesChocolateriesController extends AbstractController
 {
     #[Route('/viedeschocolateries', name: 'app_viedeschocolateries', methods:['GET'])]
-    public function index(/*Post $post,*/ Request $request, PostRepository $postRepository, UserRepository $userRepository, CatPostRepository $catPost): Response
+    public function index(Request $request, PostRepository $postRepository, UserRepository $userRepository, CatPostRepository $catPost): Response
     {
 
         // PAGINATION
@@ -70,7 +62,7 @@ class VieDesChocolateriesController extends AbstractController
             "post"=> $postPerPage,
             'pages' => $page,
             'currentPage' => $currentPage,
-            'catPost' => $catPost ->findAll(),
+            'catPost' => $catPost->findAll(),
             //'form' => $form,
         ]);
     }

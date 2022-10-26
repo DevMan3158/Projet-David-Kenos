@@ -26,7 +26,8 @@ class MonProfilController extends AbstractController
     public function profil(FileUploader $fileUploader, Request $request, UserRepository $userRepo, CommentaireRepository $commentaireRepository ,PostRepository $post, int $id ): Response
     {
 
-        
+        // Résolution bug ParamConverter, on redirige l'utilisateur s'il va sur la page d'un untilisateur innéxistant.
+
         $userId = $this->getUser();
 
         $user = $userRepo->find($id);

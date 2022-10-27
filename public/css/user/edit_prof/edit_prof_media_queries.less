@@ -17,12 +17,32 @@
 /* Tablette */
 
 @media (max-width: 1024px) {
-    .container_command{
-        padding: 0 !important;
+
+
+    header{
+        z-index: 10;
     }
 
+    #container_bandeau{
+        z-index: 15;
+        margin-bottom: 50px;
+    }
+
+    #Conteneur_Logo_Usr{
+        width: 90px !important;
+        height: 90px !important;
+        bottom: -45px !important;
+    }
+
+    .activeHead{
+        margin-top: 0 !important;
+    }
+
+    .container_command{
+        padding: 0 !important;
+    
     h1 {
-        margin: 72px 0px 60px 0px;
+        margin: 0px 0px 20px 0px;
         font-size: revert;
         text-align: center;
     }
@@ -32,6 +52,7 @@
     
         .tab {
             background-color: @bgd_bgr;
+            border-top-left-radius: 0px;
     
             a {
                 width: 100%;
@@ -49,6 +70,7 @@
      
     
 } }
+}
 
 @media (max-width: 768px) {}
 

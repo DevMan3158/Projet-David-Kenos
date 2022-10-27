@@ -2,6 +2,11 @@
 /* Responsive */
 /* ---------- */
 /* Ordinateur */
+@media (max-width: 1600px) {
+  #containerBottom a {
+    padding: 12px 20px !important;
+  }
+}
 /* Tablette */
 @media (max-width: 1024px) {
   * {
@@ -78,7 +83,7 @@
     height: 100px;
   }
   body #containerBottom {
-    padding: 10px;
+    padding: 15px;
     height: 50vh;
   }
   body #containerBottom ul {
@@ -93,9 +98,6 @@
   }
   .activeHead {
     width: 100%;
-  }
-  #container_btn {
-    margin-top: 50px;
   }
 }
 @media (max-width: 768px) {

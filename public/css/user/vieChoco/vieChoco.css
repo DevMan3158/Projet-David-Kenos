@@ -251,7 +251,7 @@
   margin-top: 0 !important;
 }
 .container_general #container_posts {
-  margin: auto 20px;
+  margin: 0 20px;
 }
 .container_general .container_amis {
   display: flex;

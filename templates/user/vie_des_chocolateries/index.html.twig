@@ -65,7 +65,7 @@
                     {% endif %}
                         <ul>
                             <li class="label">
-                                <input type="checkbox" {{checked}} name="categories[]" id="cat{{cat.id}}" class="active" onClick="allBox('.active')" value="{{cat.id}}">
+                                <input type="checkbox" {{checked}} name="categories[]" id="cat{{cat.id}}" class="active" {# onClick="allBox('.active')" #} value="{{cat.id}}">
                                 <label for="cat{{cat.id}}">
                                     {{ cat.nom }}
                                 </label>

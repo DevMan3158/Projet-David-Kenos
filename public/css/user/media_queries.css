@@ -1,3 +1,35 @@
+.flex_C_C {
+  display: flex;
+  flex-direction: column;
+}
+.flex_C {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.Boutton {
+  background-color: #1F2547;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: 0.4s;
+}
+.Boutton:hover {
+  color: #F2BF2C;
+}
+.BouttonCP {
+  color: #EFEFEF;
+  border-radius: 5px;
+  background-color: #29388D;
+  padding: 4px 35px;
+  border: solid 1px #29388D;
+  margin: 15px 0px 15px 0px;
+  transition: 0.3s;
+}
+.BouttonCP:hover {
+  scale: 1.05;
+}
 /* ---------- */
 /* Responsive */
 /* ---------- */
@@ -15,7 +47,6 @@
   p {
     color: #141414;
     font-weight: 600;
-    font-size: clamp(0.3125rem, 0.8rem, 3rem);
   }
   #container_bandeau {
     justify-content: flex-start !important;
@@ -98,29 +129,6 @@
   }
   .activeHead {
     width: 100%;
-  }
-}
-@media (max-width: 768px) {
-  header {
-    background-color: white;
-  }
-  header #containerTop {
-    background-color: #1F2547;
-  }
-  header #containerTop h1 {
-    color: white;
-  }
-  header #containerTop .btn {
-    color: #ffffff;
-  }
-  header #containerBottom {
-    color: #ffffff;
-  }
-  header #containerBottom ul {
-    display: flex;
-  }
-  header #containerBottom ul a {
-    color: #ffffff;
   }
 }
 /*Version Mobile */

@@ -21,7 +21,7 @@ header #containerTop h1 {
   letter-spacing: 1px;
   color: #ffffff;
   text-transform: uppercase;
-  font-size: clamp(1.2rem, calc(0.96rem + 0.5vw), 1.56rem);
+  font-size: clamp(1.2rem, calc(0.96rem + 0.9vw), 1.65rem);
 }
 header #containerTop h1 > span {
   font-family: 'Playfair Display', serif;
@@ -29,7 +29,7 @@ header #containerTop h1 > span {
   text-transform: none;
 }
 header #containerTop .btn {
-  width: clamp(10.63rem, calc(9.8rem + 4.15vw), 12.75rem);
+  width: clamp(10.63rem, calc(9.8rem + 4.15vw), 14.75rem);
   background-color: #0BAA9F;
   padding: 15px 0px;
   border-radius: 5px;
@@ -81,6 +81,6 @@ header #containerBottom ul li a {
   display: block;
 }
 header #containerBottom figure {
-  width: clamp(4.38rem, calc(3rem + 6.88vw), 11.25rem);
+  width: clamp(4.38rem, calc(3rem + 6.88vw), 9.25rem);
   overflow: hidden;
 }

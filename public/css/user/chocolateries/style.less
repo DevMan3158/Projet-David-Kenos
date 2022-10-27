@@ -43,7 +43,6 @@ body{
         box-shadow: 5px 5px 5px silver;
         width: 100%;
         height: 50px;
-        padding: 7px;
         text-align: right;
         margin: 15px auto;
         display: flex;
@@ -57,17 +56,31 @@ body{
             align-items: center;
             font-size: 0.8em;
             font-weight: bold;
+            height: 100%;
+
+            li{
+                transition: 0.2s;
+                cursor: pointer;
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+    
+                &:hover{
+                    background-color: #F2BF2C;
+                }
+            }
+
+            li:nth-child(odd){
+                border-right: 1px solid black;
+                border-left: 1px solid black;
+            }
 
             a{
                 padding:0 10px ;
                 width: 100%;
                 display: flex;
                 white-space: nowrap;
-            
-
-                &:not(:last-of-type){
-                    border-right: 1px solid black;
-                }
             }
         }
     
@@ -95,22 +108,16 @@ body{
                 margin: 50px auto 10px auto;
                 border: solid 2px beige;
                 padding: 15px 20px;
-                background-color: #0BAA9F;
+                background-color: #F2BF2C;;
                 width: fit-content;
                 display: flex;
                 flex-direction: column;
-                i{
-                    margin-top: 10px;
-                }
-                cursor: pointer;
             }
 
             #photoChoc{
-                height: 350px;
                 position: relative;
                 margin-bottom: 20px;
-                border: solid 5px #1F2547;
-                box-shadow: 0px 0px 15px black;
+                height: 400px;
 
                     span{
                         position: absolute;
@@ -130,7 +137,6 @@ body{
 
                 .actArticles{
                     width: 100%;
-                    height: 300px;
                     margin: 25px 0;
                     padding: 50px;
                     background-color: #EFEFEF;

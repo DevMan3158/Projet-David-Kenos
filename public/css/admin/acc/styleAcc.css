@@ -43,7 +43,7 @@ article li p {
   display: inline;
   font-weight: bold;
 }
-article button {
+article a {
   background-color: #1F2547;
   color: white;
   padding: 5px 10px;
@@ -51,16 +51,15 @@ article button {
   width: 199px;
   font-family: 'Montserrat', sans-serif !important;
   font-size: 0.9em;
-  margin-top: 30px;
   transition: 0.2s;
   border: none;
 }
-article button a {
-  color: white;
-}
-article button:hover {
+article a:hover {
   transform: scale(1.05);
   cursor: pointer;
+}
+article div:nth-of-type(2) {
+  margin-top: 50px;
 }
 section {
   text-align: center;

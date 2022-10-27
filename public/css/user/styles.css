@@ -67,31 +67,33 @@ header #containerBottom ul {
   flex-direction: column;
   justify-content: center;
 }
-header #containerBottom ul a {
+header #containerBottom ul li:hover {
+  background-color: #16394D;
+}
+header #containerBottom ul li a {
   padding: 20px;
-  width: 100%;
+  width: 250px;
+  margin: auto;
   font-weight: 200;
   color: #ffffff;
   font-size: 1rem;
   white-space: nowrap;
+  display: block;
 }
-header #containerBottom ul a:hover {
-  background-color: #16394D;
-}
-header #containerBottom #test1 {
+header #containerBottom #logo {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-header #containerBottom #test1 .icon_mod {
+header #containerBottom #logo .icon_mod {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-header #containerBottom #test1 .icon_mod i {
+header #containerBottom #logo .icon_mod i {
   display: none;
 }
-header #containerBottom #test1 figure {
+header #containerBottom #logo figure {
   display: flex;
   align-items: center;
   justify-content: center;

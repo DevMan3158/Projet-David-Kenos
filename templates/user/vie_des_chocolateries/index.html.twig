@@ -46,52 +46,38 @@
 
         </article>
 
-        <section id="container_posts">
-            {% include "user/templates/posts.html.twig" %}
-        </section>
-
+        {% include "user/templates/posts.html.twig" %}
 
         <nav class="menu_cat">
 
-            <ul>
+            <form id="filters">
 
-                {#<label for="firstLi">
-                        <input type="checkbox" id="firstLi" onClick="gBox('firstLi')"/>
-                        <li class="label">
-                            Tous les posts
-                        </li>
-                </label>#}
+                {% for cat in catPost %}
 
-                <form id="filters">
+                    {% if queryParams is not empty and queryParams.categories is defined %}
 
-                        {# On vérifie si la catégorie est dans les paramètres #}
+                        {% set checked = (cat.id in queryParams.categories) ? "checked" : "" %}
 
-                    {% for cat in catPost %}
+                    {% else %}
 
-                        {% if queryParams is not empty and queryParams.categories is defined %}
-                            {% set checked = (cat.id in queryParams.categories) ? "checked" : "" %}
-                        {% else %}
-                            {% set checked = "" %}
-                        {% endif %}
+                        {% set checked = "" %}
 
-                        <label for="cat{{cat.id}}">
-                                    <input type="checkbox" {{checked}} name="categories[]" id="cat{{cat.id}}" class="active" onClick="allBox('.active')" value="{{cat.id}}">
-                                    <li class="label">
-                                        {{ cat.nom }}
-                                    </li>
-                        </label>
+                    {% endif %}
+                        <ul>
+                            <li class="label">
+                                <input type="checkbox" {{checked}} name="categories[]" id="cat{{cat.id}}" class="active" onClick="allBox('.active')" value="{{cat.id}}">
+                                <label for="cat{{cat.id}}">
+                                    {{ cat.nom }}
+                                </label>
+                            </li>
+                        </ul>
+                {% endfor %}
 
-                    {% endfor %}
+                <input type="hidden" name="page" value="{{currentPage}}">
 
-                    <input type="hidden" name="page" value="{{currentPage}}"/>
-
-                </form>
-
-            </ul>
+            </form>
 
         </nav>
-
-
 
     </section>
 

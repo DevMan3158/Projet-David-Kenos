@@ -99,6 +99,7 @@
   text-transform: none;
 }
 .container_general #container_posts .posts .contenues .colorP {
+  display: block;
   color: #0BAA9F;
   font-size: 0.75rem;
   text-transform: none;
@@ -290,7 +291,6 @@
   align-items: center;
 }
 .menu_cat li {
-  padding: 15px 50px;
   background-color: #F2BF2C;
   font-weight: 600;
   transition: 0.2s;
@@ -298,15 +298,17 @@
 .menu_cat li:hover {
   background-color: #FFD867;
 }
-.menu_cat label {
-  cursor: pointer;
-}
-.menu_cat label input {
+.menu_cat li input {
   display: none;
 }
-.menu_cat label input:checked ~ li {
+.menu_cat li input:checked ~ label {
   background-color: #1F2547;
   color: white;
   transform: scale(1.02);
   border-top: 5px solid white;
+}
+.menu_cat li label {
+  padding: 15px 50px;
+  cursor: pointer;
+  display: block;
 }

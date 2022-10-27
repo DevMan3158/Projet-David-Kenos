@@ -1,21 +1,12 @@
-
-  
- 
-
-
-<header >
-
+<header>
 
     <div id="containerTop">
-
-    
        
         <figure>
 
             <img src="../{{ app.user.imageprofil }}" alt="../{{ app.user.imageprofilalt }}">
 
         </figure>
-
 
         <h1><span>{{ app.user.prenom }} </span> {{ app.user.nom }} </h1>
 
@@ -26,57 +17,81 @@
 
     <div id="containerBottom">
 
-
-        
             <ul>
 
-                <a href="{{ path('app_accueil') }}">Accueil</a>
+                <li>
+                    <a href="{{ path('app_accueil') }}">
+                        Accueil
+                    </a>
+                </li>
 
-                <a href="{{ path('app_chocolateries', { 'id':random(1,5) }) }}">Les chocolateries</a>
+                <li>
+                    <a href="{{ path('app_chocolateries', { 'id':random(1,5) }) }}">
+                        Les chocolateries
+                    </a>
+                </li>
 
-                <a href="{{ path('app_actualite') }}">Actualités de l'entreprise</a>
+                <li>
+                    <a href="{{ path('app_actualite') }}">
+                        Actualités de l'entreprise
+                    </a>
+                </li>
 
-                <a href="{{ path('app_trombinoscope') }}">Trombinoscope</a>
+                <li>
+                    <a href="{{ path('app_trombinoscope') }}">
+                        Trombinoscope
+                    </a>
+                </li>
 
-                <a href="{{ path('app_viedeschocolateries') }}">La vie des chocolateries</a>              
+                <li>
+                    <a href="{{ path('app_viedeschocolateries') }}">
+                        La vie des chocolateries
+                    </a>
+                </li>              
 
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
-                {# Si l'utilisateur est authentifié et qu'il est admin #}
-                <a href="{{ path('app_admin') }}">Gestion</a>
+
+                    {# Si l'utilisateur est authentifié et qu'il est admin #}
+                    <li>
+                        <a href="{{ path('app_admin') }}">
+                            Gestion
+                        </a>
+                    </li>
 
                     {% elseif is_granted('ROLE_ADMIN') %}
     
                     {# Si l'utilisateur est authentifié et qu'il est superadmin #}
-                    <a href="{{ path('app_admin') }}">Gestion</a>
+                    <li>
+                        <a href="{{ path('app_admin') }}">
+                            Gestion
+                        </a>
+                    </li>
     
                     {% else %}
                     {# Si l'utilisateur est authentifié et qu'il est user = vide #}
              
                 {% endif %}
 
-                <a href="{{ path('app_logout') }}"><i class="fa-solid fa-power-off"></i> Déconnexion</a>
+                <li>
+                    <a href="{{ path('app_logout') }}">
+                        <i class="fa-solid fa-power-off"></i> 
+                        Déconnexion
+                    </a>
+                </li>
 
             </ul>
 
 
-    <div id="test1">
+    <div id="logo">
 
-           {#  <figure class="icon_mod">
-            
-            <a href="#" onClick="closeMenu()"><i class="fa-sharp fa-solid fa-xmark"></i></a>
-            
-            </figure>#}
+        <figure>     
 
-       <figure>     
+            <img src="{{ asset('img/logos/logo-david-kenos-blanc.png') }}" alt="Le logo de david kenos blanc">
 
-            <img title="logo david-kenos" src="{{ asset('img/logos/logo-david-kenos-blanc.png') }}" alt="Le logo de david kenos blanc">
+        </figure>
 
-           </figure>
-      
     </div>
 
-
- </div>
 </header>
 
 

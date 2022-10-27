@@ -4,19 +4,19 @@
  
 
         <figure id="Conteneur_Logo_Usr">
-            <img titre="Logo utilisateur" src="../{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
+            <img src="../{{ user.imageprofil }}" alt="{{ user.imageprofilalt }}">
         </figure>
         <figure>
-            <img titre="bandeau utlisateur " src="../{{ user.imagebandeau }}" alt="{{ user.imagebandeaualt }}">
+            <img src="../{{ user.imagebandeau }}" alt="{{ user.imagebandeaualt }}">
         </figure>
 
     {% else %}
 
         <figure id="Conteneur_Logo_Usr">
-            <img titre="Logo utilisateur" src="../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
+            <img src="../{{ app.user.imageprofil }}" alt="{{ app.user.imageprofilalt }}">
         </figure>
         <figure>
-            <img titre="bandeau utlisateur " src="../{{ app.user.imagebandeau }}" alt="{{ app.user.imagebandeaualt }}">
+            <img src="../{{ app.user.imagebandeau }}" alt="{{ app.user.imagebandeaualt }}">
         </figure>
 
     {% endif %}

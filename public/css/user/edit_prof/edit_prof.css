@@ -51,7 +51,7 @@ h1 > span {
   border-top-left-radius: 5px;
   border-bottom: solid 2px #191E39;
 }
-.tab-container .tab a {
+.tab-container .tab li {
   text-align: center;
   text-decoration: none;
   display: block;
@@ -65,8 +65,9 @@ h1 > span {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   border-right: solid 0.5px rgba(0, 0, 0, 0.193);
+  cursor: pointer;
 }
-.tab-container .tab a:hover {
+.tab-container .tab li:hover {
   background-color: #FFD867;
   filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.293));
 }

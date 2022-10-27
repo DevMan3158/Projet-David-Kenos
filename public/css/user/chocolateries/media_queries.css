@@ -2,5 +2,42 @@
 /* Responsive */
 /* ---------- */
 /* Ordinateur */
+@media (max-width: 1350px) {
+  #searchContainer {
+    height: unset !important;
+  }
+  #searchContainer ul {
+    flex-direction: row !important;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  #searchContainer ul li a {
+    width: 200px !important;
+    margin: 5px auto;
+  }
+  #searchContainer ul li:nth-child(odd):not(:last-of-type) {
+    border-left: none !important;
+  }
+}
 /* Tablette */
+@media (max-width: 768px) {
+  .container_command {
+    padding: 0;
+  }
+  .container_command #chocolateriesContain {
+    padding: 0;
+  }
+}
 /* Mobile */
+@media (max-width: 456px) {
+  #searchContainer li {
+    width: 100% !important;
+    border: none !important;
+  }
+  .actArticles {
+    padding: 0 !important;
+  }
+  .actArticles p {
+    padding: 5px;
+  }
+}

@@ -9,7 +9,32 @@
 
 @media (max-width: 3860px) {}
 
-@media (max-width: 1600px) {}
+@media (max-width: 1350px) {
+    #searchContainer{
+        height: unset !important;
+
+        ul{
+
+            flex-direction: row !important;
+            align-items: flex-start;
+            flex-wrap: wrap;
+
+            li{
+                
+
+                a{
+                    width: 200px !important;
+                    margin: 5px auto;
+                }
+
+                &:nth-child(odd):not(:last-of-type){
+                    border-left: none !important;
+                }
+            }
+
+        }
+    }
+}
 
 @media (max-width: 1200px) {}
 
@@ -18,10 +43,32 @@
 @media (max-width: 1024px) {}
 
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    .container_command{
+        padding: 0;
+
+        #chocolateriesContain{
+            padding: 0;
+        }
+    }
+}
 
 /* Mobile */
 
-@media (max-width: 656px) {}
+@media (max-width: 456px) {
+    #searchContainer{
+        li{
+            width: 100% !important;
+            border: none !important;
+        }
+    }
+
+    .actArticles{
+        padding: 0 !important;
+        p{
+            padding: 5px;
+        }
+    }
+}
 
 @media (max-width: 300px) {}

@@ -15,17 +15,13 @@
 
         <ul>
             {% for lieu in allLieux %}
-                <a onclick="getId(this)" id="{{ loop.index }}">
-                    <li>
-                        {{ lieu.lieu }}
-                    </li>
-                </a>
+                <li onclick="getId(this)" id="{{ loop.index }}">
+                    {{ lieu.lieu }}
+                </li>
             {% endfor %}
-                <a onClick="getId(this)" id="reset">
-                    <li>
-                        <i class="fa-solid fa-xmark" style="font-size: 1.2em; color: red; display:flex;"></i>
-                    </li>
-                </a>
+                <li onClick="getId(this)" id="reset">
+                    <i class="fa-solid fa-xmark" style="font-size: 1.2em; color: red; display:flex;"></i>
+                </li>
         </ul>
 
         <div id="searchLoopBar">
@@ -40,7 +36,7 @@
             <a href="{{ path('app_chocolateries', { 'id':act.chocolaterie.id }) }}#act{{act.id}}" class="card">
                 <article >
                     <div class="chocolaterie">
-                        <img src="{{ act.imageActu }}" alt="{{ act.imageActuAlt}}"/>
+                        <img src="{{ act.imageActu }}" alt="{{ act.imageActuAlt}}">
                         <span>
                             {{ act.chocolaterie.lieu }}
                         </span>

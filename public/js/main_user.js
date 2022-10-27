@@ -238,7 +238,7 @@ function openHeader(){
 
 //je cible tous tab et ancre
 
-let TabLiens = document.querySelectorAll(".tab a");
+let TabLiens = document.querySelectorAll(".tab li");
 
 //je cible tous les liens
 

@@ -21,7 +21,7 @@ header #containerTop h1 {
   letter-spacing: 1px;
   color: #ffffff;
   text-transform: uppercase;
-  font-size: clamp(0.625rem, 2rem, 3rem);
+  font-size: clamp(1.06rem, calc(0.96rem + 0.5vw), 1.56rem);
 }
 header #containerTop h1 > span {
   font-family: 'Playfair Display', serif;
@@ -29,7 +29,7 @@ header #containerTop h1 > span {
   text-transform: none;
 }
 header #containerTop .btn {
-  width: 85%;
+  width: clamp(10.63rem, calc(9.8rem + 4.15vw), 12.75rem);
   background-color: #0BAA9F;
   padding: 15px 0px;
   border-radius: 5px;
@@ -72,30 +72,14 @@ header #containerBottom ul a {
   width: 100%;
   font-weight: 200;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: clamp(0.88rem, calc(0.85rem + 0.13vw), 1rem);
   white-space: nowrap;
 }
 header #containerBottom ul a:hover {
   background-color: #16394D;
 }
-header #containerBottom #test1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-header #containerBottom #test1 .icon_mod {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-header #containerBottom #test1 .icon_mod i {
-  display: none;
-}
-header #containerBottom #test1 figure {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 110px;
+header #containerBottom figure {
+  width: clamp(6.25rem, calc(5.63rem + 3.13vw), 9.38rem);
   overflow: hidden;
 }
 * {

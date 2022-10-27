@@ -64,55 +64,32 @@
   body #containerTop {
     justify-content: space-around;
     padding: 15px;
-    height: 40vh;
+    height: 50vh;
   }
   body #containerTop h1 {
-    font-size: clamp(0.625rem, 1rem, 3rem);
     margin-top: 30px;
   }
   body #containerTop .btn {
-    width: 65%;
     padding: 10px 0px;
-    font-size: 0.8rem;
   }
   body #containerTop figure {
     align-items: center;
     width: 100px;
     height: 100px;
   }
-  body #containerTop #containerBottom {
+  body #containerBottom {
     padding: 10px;
-    height: 60vh;
+    height: 50vh;
   }
-  body #containerTop #containerBottom ul {
+  body #containerBottom ul {
     align-items: center;
+    width: auto;
   }
-  body #containerTop #containerBottom ul a {
-    padding: 10px 0px 10px 29px;
-    width: 70%;
-    font-size: 0.9rem;
+  body #containerBottom ul a {
+    padding: 10px 50px 10px 50px;
   }
-  body #containerTop #containerBottom .icon_mod {
-    flex-direction: row-reverse;
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-  body #containerTop #containerBottom .icon_mod i {
-    display: flex;
-    padding: 15px;
-    font-size: 1.9rem;
-    opacity: 0.58;
-    color: #ffffff;
-  }
-  body #containerTop #containerBottom .icon_mod i:hover {
-    opacity: 0.8;
-    scale: 1.05;
-  }
-  body #containerTop #containerBottom figure {
-    width: 80px !important;
-  }
-  body #containerTop #containerBottom figure img {
-    border-radius: 50%;
+  body #containerBottom figure {
+    display: none;
   }
   .activeHead {
     width: 100%;
@@ -121,7 +98,30 @@
     margin-top: 50px;
   }
 }
-/* Mobile */
+@media (max-width: 768px) {
+  header {
+    background-color: white;
+  }
+  header #containerTop {
+    background-color: #1F2547;
+  }
+  header #containerTop h1 {
+    color: white;
+  }
+  header #containerTop .btn {
+    color: #ffffff;
+  }
+  header #containerBottom {
+    color: #ffffff;
+  }
+  header #containerBottom ul {
+    display: flex;
+  }
+  header #containerBottom ul a {
+    color: #ffffff;
+  }
+}
+/*Version Mobile */
 @media (max-width: 656px) {
   #containerBottom ul a {
     padding: 1vh 20px !important;

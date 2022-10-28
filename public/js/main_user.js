@@ -76,24 +76,65 @@ allInput = document.querySelectorAll('.active');
   }
 }
 
-// Fonction qui coche "tous les posts" si tous les filtres sont activés.
+// Fonction qui coche "tous les posts" si tous les filtres sont activés.  ( EN COURS DE DEV )
 
-function allBox(active){
+//function allBox(active){
+//
+//
+//  let allInput = document.querySelectorAll(active);
+//
+// if(Array.from(allInput).every(n => n.checked == true)){
+//
+//  document.querySelector('#firstLi').checked = true;
+//  
+//  } else {
+//
+//    document.querySelector('#firstLi').checked = false;
+//
+//  }
+//  
+//}
+
+// Fonction AJAX pour les likes
+
+function onClickBtnLike(event){
+  event.preventDefault();
+
+  const url = this.href;
+  const spanCount = this.querySelector('span.js-likes');
+  const icone = this.querySelector('i');
+  const nbLikes = document.querySelector('span.js-nbLikes');
+  const jsText = this.querySelector('span.js-text');
+
+  axios.get(url).then(function(response){
+      spanCount.textContent = response.data.likes;
+
+      if(icone.classList.contains('fa-solid')){
+
+          icone.classList.replace('fa-solid', 'fa-regular');
+
+      } else {
+
+          icone.classList.replace('fa-regular', 'fa-solid');
+
+      };
 
 
-  let allInput = document.querySelectorAll(active);
+      if(spanCount.innerHTML > 1){
+        jsText.innerHTML = "J'aimes";
+      } else {
+        jsText.innerHTML = "J'aime";
+      }
 
- if(Array.from(allInput).every(n => n.checked == true)){
-
-  document.querySelector('#firstLi').checked = true;
-  
-  } else {
-
-    document.querySelector('#firstLi').checked = false;
-
-  }
-  
+      
+  })
 }
+
+document.querySelectorAll('a.js-like').forEach(function(link){
+  link.addEventListener('click', onClickBtnLike)
+})
+
+// FILTRES AJAX
 
 window.onload = () => {
   const FilterForm = document.querySelector('#filters');
@@ -102,6 +143,7 @@ window.onload = () => {
   document.querySelectorAll('#filters input').forEach(input => {
     input.addEventListener("change", () =>{
       console.log("click");
+
       // On récupere les données du formulaire
       const Form = new FormData(FilterForm);
 
@@ -125,7 +167,10 @@ window.onload = () => {
 
         response.json()
         
+        
       ).then(data => {
+
+        console.log(data.content);
 
         // On va chercher le conteneur des post
         const content = document.querySelector('#container_posts');
@@ -135,6 +180,7 @@ window.onload = () => {
 
         // On met à jour l'url
         history.pushState({}, null, Url.pathname + "?" + Params.toString());
+        
 
     }).catch(e => alert(e));
     })
@@ -159,46 +205,6 @@ function openMenu(){
   }
 
 }
-
-// Fonction AJAX pour les likes
-
-function onClickBtnLike(event){
-    event.preventDefault();
-
-    const url = this.href;
-    const spanCount = this.querySelector('span.js-likes');
-    const icone = this.querySelector('i');
-    const nbLikes = document.querySelector('span.js-nbLikes')
-    const jsText = this.querySelector('span.js-text')
-
-    axios.get(url).then(function(response){
-        spanCount.textContent = response.data.likes;
-
-        if(icone.classList.contains('fa-solid')){
-
-            icone.classList.replace('fa-solid', 'fa-regular');
-
-        } else {
-
-            icone.classList.replace('fa-regular', 'fa-solid');
-
-        };
-
-
-        if(spanCount.innerHTML > 1){
-          jsText.innerHTML = "J'aimes";
-        } else {
-          jsText.innerHTML = "J'aime";
-        }
-
-        
-    })
-}
-
-document.querySelectorAll('a.js-like').forEach(function(link){
-    link.addEventListener('click', onClickBtnLike)
-})
-
 
 
 // Fonction qui ouvre ou ferme le header coté user (mobile)
@@ -238,7 +244,7 @@ function openHeader(){
 
 //je cible tous tab et ancre
 
-let TabLiens = document.querySelectorAll(".tab a");
+let TabLiens = document.querySelectorAll(".tab li");
 
 //je cible tous les liens
 

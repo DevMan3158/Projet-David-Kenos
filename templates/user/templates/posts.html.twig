@@ -1,3 +1,4 @@
+
  {# On conditionne la route pour afficher le H1 sur les profils #}
 
     {% if app.request.get('_route') == 'app_profil' %}
@@ -40,9 +41,9 @@
 
                         {{ posts.user.nom }}
 
-                        <p class="colorP">
+                        <span class="colorP">
                             publiés le {{ posts.createdAt|date('d/m/Y') }}
-                        </p>
+                        </span>
                     </h3>
 
                     {% if posts.imagepost %} 
@@ -100,9 +101,9 @@
 
                 <div id="container_com_{{posts.id}}" class="container_com">
 
-                    <form action="" name="comForm" method="post">
+                    <form name="comForm" method="post">
 
-                        <textarea type="textarea" id="commentaire" name="commentaire" required minlength="2" maxlength="400" size="10" placeholder="Écrivez votre commentaire..."></textarea>
+                        <textarea id="commentaire" name="commentaire" required minlength="2" maxlength="400" placeholder="Écrivez votre commentaire..."></textarea>
                         <input type="hidden" id="postId" name="postId" value="{{posts.id}}">
 
                         <input id="CloseCom{{posts.id}}" type="submit" onClick="closeMenu()" name="submit">
@@ -161,19 +162,17 @@
 
     {% else %}
 
-    <p>Vous n'avez pas de posts publiés</span></p>
+    <p>Vous n'avez pas de posts publiés</p>
 
     {% endif %}
 
-{# On crée des variables personnalisées #}
-
-{% set queryParams = app.request.query.all %}
-{% set queryString = queryParams|filter((v,k) => k != "pg" and k != "ajax")|url_encode %}
-{% set user = app.request.get('id') %}
-
-{% include 'pagination.html.twig' %}
-
-
+    {# On crée des variables personnalisées #}
+    
+    {% set queryParams = app.request.query.all %}
+    {% set queryString = queryParams|filter((v,k) => k != "pg" and k != "ajax")|url_encode %}
+    {% set user = app.request.get('id') %}
+    
+    {% include 'pagination.html.twig' %}
 
 {% block javascripts %}
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>

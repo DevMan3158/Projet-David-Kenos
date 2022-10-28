@@ -57,7 +57,6 @@ body {
   box-shadow: 5px 5px 5px silver;
   width: 100%;
   height: 50px;
-  padding: 7px;
   text-align: right;
   margin: 15px auto;
   display: flex;
@@ -71,15 +70,30 @@ body {
   align-items: center;
   font-size: 0.8em;
   font-weight: bold;
+  height: 100%;
+}
+.container_command #searchContainer ul li {
+  transition: 0.2s;
+  cursor: pointer;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.container_command #searchContainer ul li:hover {
+  background-color: #F2BF2C;
+}
+.container_command #searchContainer ul li:nth-child(odd) {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 .container_command #searchContainer ul a {
   padding: 0 10px ;
   width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
   white-space: nowrap;
-}
-.container_command #searchContainer ul a:not(:last-of-type) {
-  border-right: 1px solid black;
 }
 .container_command #chocolateriesContain {
   background-color: white;
@@ -102,21 +116,15 @@ body {
   margin: 50px auto 10px auto;
   border: solid 2px beige;
   padding: 15px 20px;
-  background-color: #0BAA9F;
+  background-color: #F2BF2C;
   width: fit-content;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
-}
-.container_command #chocolateriesContain .chocArticles h5 i {
-  margin-top: 10px;
 }
 .container_command #chocolateriesContain .chocArticles #photoChoc {
-  height: 350px;
   position: relative;
   margin-bottom: 20px;
-  border: solid 5px #1F2547;
-  box-shadow: 0px 0px 15px black;
+  height: 400px;
 }
 .container_command #chocolateriesContain .chocArticles #photoChoc span {
   position: absolute;
@@ -134,7 +142,6 @@ body {
 }
 .container_command #chocolateriesContain .chocArticles #actContainer .actArticles {
   width: 100%;
-  height: 300px;
   margin: 25px 0;
   padding: 50px;
   background-color: #EFEFEF;
@@ -198,6 +205,7 @@ body {
 .container_command #container_carte .carte .logo {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   margin: 35px 0px 35px 0px;
@@ -210,7 +218,7 @@ body {
   align-items: center;
   border: solid 2px #F2BF2C;
   border-radius: 50%;
-  margin: 0px 10px 0px 10px;
+  margin: 10px;
   width: 46px;
   height: 45px;
 }

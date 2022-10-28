@@ -43,7 +43,7 @@
     }
 
     #container_posts{
-        margin: auto 20px;
+        margin: 0 20px;
         width: 55%;
     }
 
@@ -98,7 +98,6 @@
     align-items: center;
 
     li {
-        padding: 15px 50px;
         background-color: @bgd_btn3;
         font-weight: 600;
         transition: 0.2s;
@@ -106,26 +105,26 @@
         &:hover {
             background-color: @bgd;
         }
-    }
-
-    label{
-
-        cursor: pointer;
-
 
         input{
 
-
-
             display: none;
 
-            
-            &:checked ~ li{
+                
+            &:checked ~ label{
                 background-color: @bgd_bgr1;
                 color: white;
                 transform: scale(1.02);
                 border-top: 5px solid white;
             }
+        }
+
+        label{
+
+            padding: 15px 50px;
+            cursor: pointer;
+            display: block;
+
         }
 
     }

@@ -15,11 +15,13 @@
 
         <ul>
             {% for chocolaterie in chocoFindAll %}
-                <a href="{{ path('app_chocolateries', { 'id':chocolaterie.id }) }}">
-                    <li id="{{ loop.index }}">
+                
+                <li id="{{ loop.index }}" >
+                    <a href="{{ path('app_chocolateries', { 'id':chocolaterie.id }) }}">
                         {{ chocolaterie.nom }}
-                    </li>
-                </a>
+                    </a>
+                </li>
+                
             {% endfor %}
         </ul>
 
@@ -44,7 +46,6 @@
 
                 <h5>
                     Les actualités
-                    <i id="postScroll" class="fa-solid fa-angles-down"></i>
                 </h5>
 
 
@@ -56,7 +57,7 @@
                          <article id="act{{ act.id }}" class="actArticles">
 
                             <div class="chocolaterie">
-                                <img src="../../{{ act.imageActu }}" alt="{{ act.imageActuAlt}}"/>
+                                <img src="../../{{ act.imageActu }}" alt="{{ act.imageActuAlt}}">
                             </div>
 
                             <p>

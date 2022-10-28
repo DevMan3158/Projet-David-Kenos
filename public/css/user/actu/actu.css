@@ -32,17 +32,18 @@ img {
   align-items: center;
   font-size: 0.9em;
 }
-.container_command #searchContainer ul a {
+.container_command #searchContainer ul li {
   padding: 0 20px ;
   width: 100%;
   display: flex;
   white-space: nowrap;
   transition: 0.2s;
+  cursor: pointer;
 }
-.container_command #searchContainer ul a:hover {
+.container_command #searchContainer ul li:hover {
   color: #0BAA9F;
 }
-.container_command #searchContainer ul a:not(:last-of-type) {
+.container_command #searchContainer ul li:not(:last-of-type) {
   border-right: 1px solid black;
 }
 .container_command #searchContainer #searchLoopBar {

@@ -4,14 +4,11 @@
 
 {% block body %}
 
-
-    <body>
-
         <section class="container_command deleteInBurger">
 
             <section id="post">
                 <h2>
-                    Bienvenue sur ton espace,<br/>
+                    Bienvenue sur ton espace,<br>
                     <span>Voici les derniers posts publiés.</span>
                 </h2>
 
@@ -42,7 +39,7 @@
             <section id="act">
 
                 <h2>
-                    Les dernières actualités,<br/>
+                    Les dernières actualités,<br>
                     <span>de l'entreprise.</span>
                 </h2>
 
@@ -54,7 +51,7 @@
                             <article id="act{{ loop.index }}">
 
                                 <div class="chocolaterie">
-                                    <img src="{{ act.imageActu }}" alt="{{ act.imageActuAlt}}"/>
+                                    <img src="{{ act.imageActu }}" alt="{{ act.imageActuAlt}}">
                                     <span>
                                         {{ act.chocolaterie.lieu }}
                                     </span>
@@ -75,9 +72,6 @@
 
             </section>
 
-        </section class="container_command">
-
-    </body>
-
+        </section>
 
 {% endblock %}

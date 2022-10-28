@@ -58,7 +58,7 @@ class VieDesChocolateriesController extends AbstractController
         
         return $this->render('user/vie_des_chocolateries/index.html.twig', [
             'controller_name' => 'VieDesChocolateriesController',
-            'users' => $userRepository->findAllOrderedUser(),
+            'users' => $userRepository->findBy([], ['id' => 'DESC'],5),
             "post"=> $postPerPage,
             'pages' => $page,
             'currentPage' => $currentPage,

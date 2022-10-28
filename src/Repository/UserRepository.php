@@ -75,17 +75,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $qb->getQuery()->getSingleScalarResult();
     }
 
-    // Requete qui va chercher les 5 derniers utilisateurs inscrits
-
-    public function findAllOrderedUser()
-    {
-        $qb = $this->createQueryBuilder('u')
-        ->setMaxResults(5)
-        ->OrderBy('u.id', 'ASC');
-        $query = $qb->getQuery();
-        return $query->execute();
-    }
-
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */

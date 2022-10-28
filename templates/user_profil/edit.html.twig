@@ -3,88 +3,85 @@
 {% block title %}Modifer mon profil{% endblock %}
 
 {% block body %}
-<section class="container_command">
 
-  {% include 'user/templates/dashboard.html.twig' %}
+  <section class="container_command">
+
+    {% include 'user/templates/dashboard.html.twig' %}
 
 
-   <h1>
-        Modifier <span>mon profil</span>
-    </h1>
-
+      <h1>
+          Modifier
+          <span>
+            mon profil
+          </span>
+      </h1>
   <section class="tab-container deleteInBurger block" >
 
-  {#Onglets#}
+    {#Onglets#}
 
-    <ul class="tab">
-      <li><a>Réseaux</a></li>
-      <li><a>Profil</a></li>
-      <li><a>Entreprise</a></li>
-      <li><a>Personnalisation</a></li>
-      <li><a>Compte</a></li>
-    </ul>
-
-    
-
-    {{ form_start(form) }}
-
-  {#content = contenu de l'onglet#}
-
-    <div class="content">
-      {{ form_row(form.facebook, {'attr': {'placeholder': 'https://fr-fr.facebook.com/' }} ) }}
-      {{ form_row(form.instagram, {'attr': {'placeholder': 'https://fr.instagram.com/' }}) }}
-      {{ form_row(form.twitter, {'attr': {'placeholder': 'https://twitter.com/?lang=frdd' }}) }}
-      {{ form_row(form.linkedin, {'attr': {'placeholder': 'https://fr.linkedin.com/' }}) }}
-      {{ form_row(form.lien, {'attr': {'placeholder': 'https://exemple.fr/' }}) }}
-      <button class="btn">{{ button_label|default('Mettre à jour') }}</button>
-    </div>
-
-    <div class="content">
-      {{ form_row(form.prenom, {'attr': {'placeholder': 'Nom' }}) }}
-      {{ form_row(form.nom, {'attr': {'placeholder': 'Prenom' }}) }}
-      {{ form_row(form.email, {'attr': {'placeholder': 'monadresse@gmail.fr' }}) }}
-      {{ form_row(form.plainPassword) }}
-      <button class="btn">{{ button_label|default('Mettre à jour') }}</button>
-    </div>
-
-    <div class="content">
-      {{ form_row(form.poste, {'attr': {'placeholder': 'Votre poste' }}) }}
-      {{ form_row(form.chocolaterie) }}
-      <button class="btn">{{ button_label|default('Mettre à jour') }}</button>
-    </div>
+      <ul class="tab">
+        <li>Réseaux</li>
+        <li>Profil</li>
+        <li>Entreprise</li>
+        <li>Personnalisation</li>
+        <li>Compte</li>
+      </ul>
 
 
-    <div class="content">
-      {{ form_row(form.description , {'attr': {'placeholder': 'Ajouter une courte description (255 caractères max.)' }})}}
-      {{ form_row(form.ImageBandeau, {'attr': {'value': 'Choisir une image' }}) }}
-      {{ form_row(form.ImageProfil, {'attr': {'value': 'Choisir une image' }}) }}
-      <button class="btn">{{ button_label|default('Mettre à jour') }}</button>
-    </div>
 
-    
-    {{ form_end(form) }}
+      {{ form_start(form) }}
 
-    <div class="content">
-    <p><strong>Remarque importante :</strong><br><br>En supprimant votre profil, vous perdriez toutes les données qui y sont associées et ne pourraient plus accéder au réseau David Kenos.
-    <br>Vous pourrez toujours vous inscrire au réseau social David Kenos grâce à ce <a href="https://localhost:8000/inscription" target="blank"><strong>lien</strong></a>.</p>
+    {#content = contenu de l'onglet#}
+
+      <div class="content">
+        {{ form_row(form.facebook, {'attr': {'placeholder': 'https://fr-fr.facebook.com/' }} ) }}
+        {{ form_row(form.instagram, {'attr': {'placeholder': 'https://fr.instagram.com/' }}) }}
+        {{ form_row(form.twitter, {'attr': {'placeholder': 'https://twitter.com/?lang=frdd' }}) }}
+        {{ form_row(form.linkedin, {'attr': {'placeholder': 'https://fr.linkedin.com/' }}) }}
+        {{ form_row(form.lien, {'attr': {'placeholder': 'https://exemple.fr/' }}) }}
+        <button class="btn">{{ button_label|default('Mettre à jour') }}</button>
+      </div>
+
+      <div class="content">
+        {{ form_row(form.prenom, {'attr': {'placeholder': 'Nom' }}) }}
+        {{ form_row(form.nom, {'attr': {'placeholder': 'Prenom' }}) }}
+        {{ form_row(form.email, {'attr': {'placeholder': 'monadresse@gmail.fr' }}) }}
+        {{ form_row(form.plainPassword) }}
+        <button class="btn">{{ button_label|default('Mettre à jour') }}</button>
+      </div>
+
+      <div class="content">
+        {{ form_row(form.poste, {'attr': {'placeholder': 'Votre poste' }}) }}
+        {{ form_row(form.chocolaterie) }}
+        <button class="btn">{{ button_label|default('Mettre à jour') }}</button>
+      </div>
+
+
+      <div class="content">
+        {{ form_row(form.description , {'attr': {'placeholder': 'Ajouter une courte description (255 caractères max.)' }})}}
+        {{ form_row(form.ImageBandeau, {'attr': {'value': 'Choisir une image' }}) }}
+        {{ form_row(form.ImageProfil, {'attr': {'value': 'Choisir une image' }}) }}
+        <button class="btn">{{ button_label|default('Mettre à jour') }}</button>
+      </div>
+
+
+      {{ form_end(form) }}
+
+      <div class="content">
+        <p>
+          <strong>
+            Remarque importante :
+          </strong><br><br>
+          En supprimant votre profil, vous perdriez toutes les données qui y sont associées et ne pourraient plus accéder au réseau David Kenos.
+          <br>Vous pourrez toujours vous inscrire au réseau social David Kenos grâce à ce
+          <a href="https://localhost:8000/inscription" target="blank">
+            <strong>lien</strong>
+          </a>
+        </p>
       {{ include('user_profil/_delete_form.html.twig') }}
-    </div>
-
+      </div>
 
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-</section>
 
 <script src="{{ asset('js/script.js') }}"></script>
 {% endblock %}

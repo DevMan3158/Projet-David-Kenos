@@ -122,6 +122,7 @@
   text-transform: none;
 }
 #container_posts .posts .contenues .colorP {
+  display: block;
   color: #0BAA9F;
   font-size: 0.75rem;
   margin-bottom: 5px;

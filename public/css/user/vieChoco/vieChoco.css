@@ -296,7 +296,7 @@
   margin-top: 0 !important;
 }
 .container_general #container_posts {
-  margin: auto 20px;
+  margin: 0 20px;
   width: 55%;
 }
 .container_general .container_amis {

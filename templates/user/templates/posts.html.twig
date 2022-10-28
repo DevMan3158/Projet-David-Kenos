@@ -1,5 +1,4 @@
- <section id="container_posts">
- 
+
  {# On conditionne la route pour afficher le H1 sur les profils #}
 
     {% if app.request.get('_route') == 'app_profil' %}
@@ -75,7 +74,7 @@
 
                          
 
-                        <a  href="{{ path('app_post_likes', { 'id' : posts.id } ) }}" class="js-like"">
+                        <a  href="{{ path('app_post_likes', { 'id' : posts.id } ) }}" class="js-like">
                             {% if app.user and posts.isLikedByuser(app.user) %} 
                                 <i class="fa-solid fa-heart"></i>
                             {% else %}
@@ -174,10 +173,6 @@
     {% set user = app.request.get('id') %}
     
     {% include 'pagination.html.twig' %}
-
-</section>
-
-
 
 {% block javascripts %}
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>

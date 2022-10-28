@@ -278,7 +278,7 @@
   .container_command #container_general #container_btn .btn2:hover {
     color: #191E39;
   }
-  .activeHead {
+  header {
     margin-top: 0 !important;
   }
 }

@@ -36,6 +36,37 @@
 
 @media (max-width: 800px) {
 
+    .table{
+        width: 100%;
+        margin:30px 0;
+    }
+
+    tr{
+        box-shadow: 0px 0px 50px silver;
+    }
+
+    .table thead {
+        display: none;
+        }
+
+    .table tr{
+        display: block;
+        margin-bottom: 40px;
+        }
+        
+        .table td {
+        display: flex;
+        text-align: right;
+        justify-content: space-between;
+        }
+        
+        .table td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        margin-right: 20px;
+        }
+
     tbody tr td:last-of-type{
         width: unset !important;
     }

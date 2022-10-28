@@ -26,13 +26,13 @@
         <tbody>
         {% for post in posts %}
             <tr>
-                <td>{{ post.user.prenom}} {{ post.user.nom}}</td>
-                <td>{{ post.catpost.nom }}</td>
-                <td>{{ post.likes|length }} </td> 
-                <td>{{ post.contenu |length > 50 ? post.contenu |slice(0, 50) ~ '...' : post.contenu  }}</td>
-                <td><img title="Post" src="../{{ post.imagePost }}" alt="{{ post.imagePostAlt }}"></td>
-                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
+                <td data-label="Créateur du post">{{ post.user.prenom}} {{ post.user.nom}}</td>
+                <td data-label="Catégorie de post">{{ post.catpost.nom }}</td>
+                <td data-label="Likes">{{ post.likes|length }} </td> 
+                <td data-label="Contenu">{{ post.contenu |length > 50 ? post.contenu |slice(0, 50) ~ '...' : post.contenu  }}</td>
+                <td data-label="Post"><img title="Post" src="../{{ post.imagePost }}" alt="{{ post.imagePostAlt }}"></td>
+                <td data-label="Date">{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td data-label="Gestion">
                     <a href="{{ path('app_post_show', {'id': post.id}) }}"><i class="fa-solid fa-eye"></i></a>
                    <button><a href="{{ path('app_post_edit', {'id': post.id}) }}"><i class="fa-solid fa-pen-to-square"></i>Modifier</a><button>
 

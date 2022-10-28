@@ -1,7 +1,44 @@
+.flex_C_C {
+  display: flex;
+  flex-direction: column;
+}
+.flex_C {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.Boutton {
+  background-color: #1F2547;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: 0.4s;
+}
+.Boutton:hover {
+  color: #F2BF2C;
+}
+.BouttonCP {
+  color: #EFEFEF;
+  border-radius: 5px;
+  background-color: #29388D;
+  padding: 4px 35px;
+  border: solid 1px #29388D;
+  margin: 15px 0px 15px 0px;
+  transition: 0.3s;
+}
+.BouttonCP:hover {
+  scale: 1.05;
+}
 /* ---------- */
 /* Responsive */
 /* ---------- */
 /* Ordinateur */
+@media (max-width: 1600px) {
+  #containerBottom a {
+    padding: 12px 20px !important;
+  }
+}
 /* Tablette */
 @media (max-width: 1024px) {
   * {
@@ -10,7 +47,6 @@
   p {
     color: #141414;
     font-weight: 600;
-    font-size: clamp(0.3125rem, 0.8rem, 3rem);
   }
   #container_bandeau {
     justify-content: flex-start !important;
@@ -64,64 +100,38 @@
   body #containerTop {
     justify-content: space-around;
     padding: 15px;
-    height: 40vh;
+    height: 50vh;
   }
   body #containerTop h1 {
-    font-size: clamp(0.625rem, 1rem, 3rem);
     margin-top: 30px;
   }
   body #containerTop .btn {
-    width: 65%;
     padding: 10px 0px;
-    font-size: 0.8rem;
   }
   body #containerTop figure {
     align-items: center;
     width: 100px;
     height: 100px;
   }
-  body #containerTop #containerBottom {
-    padding: 10px;
-    height: 60vh;
-  }
-  body #containerTop #containerBottom ul {
-    align-items: center;
-  }
-  body #containerTop #containerBottom ul a {
-    padding: 10px 0px 10px 29px;
-    width: 70%;
-    font-size: 0.9rem;
-  }
-  body #containerTop #containerBottom .icon_mod {
-    flex-direction: row-reverse;
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-  body #containerTop #containerBottom .icon_mod i {
-    display: flex;
+  body #containerBottom {
     padding: 15px;
-    font-size: 1.9rem;
-    opacity: 0.58;
-    color: #ffffff;
+    height: 50vh;
   }
-  body #containerTop #containerBottom .icon_mod i:hover {
-    opacity: 0.8;
-    scale: 1.05;
+  body #containerBottom ul {
+    align-items: center;
+    width: auto;
   }
-  body #containerTop #containerBottom figure {
-    width: 80px !important;
+  body #containerBottom ul a {
+    padding: 10px 50px 10px 50px;
   }
-  body #containerTop #containerBottom figure img {
-    border-radius: 50%;
+  body #containerBottom figure {
+    display: none;
   }
   .activeHead {
     width: 100%;
   }
-  #container_btn {
-    margin-top: 50px;
-  }
 }
-/* Mobile */
+/*Version Mobile */
 @media (max-width: 656px) {
   #containerBottom ul a {
     padding: 1vh 20px !important;

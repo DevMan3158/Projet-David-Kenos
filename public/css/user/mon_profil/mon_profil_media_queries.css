@@ -74,6 +74,40 @@
     font-size: 1.2rem !important;
   }
 }
+@media (max-width: 1300px) {
+  #container_posts {
+    padding: 0;
+    margin: 10px 0px;
+    width: 100%;
+  }
+  #container_posts .posts {
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 15px;
+    margin: 16px 0px;
+  }
+  #container_posts .posts .contenues {
+    text-align: left;
+    width: -webkit-fill-available;
+    margin: 10px 0px;
+    width: 100% !important;
+  }
+  #container_posts .posts .contenues #contenues_img {
+    margin: 10px 0px;
+  }
+  #container_posts .posts .contenues .comments {
+    margin: 15px 0px 0px 0px;
+  }
+  #container_posts .posts .contenues .comments i {
+    font-size: small;
+  }
+  #container_posts .posts .contenues .comments a {
+    margin: 0px 20px 0px 0px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
 @media (max-width: 1200px) {
   .container_command {
     padding: 35px;
@@ -140,19 +174,15 @@
     margin-top: unset;
   }
   .container_command #container_general #container_carte {
-    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin: 25px 0px;
   }
   .container_command #container_general #container_carte .carte {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     padding: 20px 20px 20px 20px;
     width: 100%;
-    background-color: #ffffff;
     border-bottom: solid 2px #F2BF2C;
   }
   .container_command #container_general #container_carte .carte p > span {
@@ -160,12 +190,7 @@
     font-weight: 600;
   }
   .container_command #container_general #container_carte .carte .logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     margin: 10px 0px 10px 0px;
-    width: 100%;
   }
   .container_command #container_general #container_carte .carte .logo i {
     font-size: 1.2rem;
@@ -198,7 +223,6 @@
     margin: 10px 0px;
   }
   .container_command #container_general #container_posts .posts .contenues #contenues_img img {
-    width: 40%;
     margin: 5px 10px 5px 0px;
   }
   .container_command #container_general #container_posts .posts .contenues h3 {

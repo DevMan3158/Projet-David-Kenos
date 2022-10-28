@@ -51,6 +51,57 @@
     }
 }
 
+
+
+@media (max-width: 1300px) {
+
+/////////////////////CHARGE LE MODULE POST//////////////////////////
+
+    #container_posts {
+        padding: 0;
+        margin: 10px 0px;
+        width: 100%;
+
+
+
+        .posts {
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            padding: 15px;
+            margin: 16px 0px;
+
+
+            .contenues {
+                text-align: left;
+                width: -webkit-fill-available;
+                margin: 10px 0px;
+                width: 100% !important;
+
+                #contenues_img {
+                    margin: 10px 0px;
+
+
+                }
+
+                .comments {
+                    margin: 15px 0px 0px 0px;
+
+                    i {
+                        font-size: small;
+                    }
+
+                    a {
+                        margin: 0px 20px 0px 0px;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 1200px) {
 
     .container_command {
@@ -143,7 +194,6 @@
 
             /////////////////////CHARGE LE MODULE CARTE DESCRIPTIVE/////////////
             #container_carte {
-                display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 100%;
@@ -151,12 +201,9 @@
 
 
                 .carte {
-                    display: flex;
-                    flex-direction: column;
                     justify-content: center;
                     padding: 20px 20px 20px 20px;
                     width: 100%;
-                    background-color: @bgd_bgr_w;
                     border-bottom: solid 2px @bgd_btn3;
 
 
@@ -166,16 +213,9 @@
                     }
 
                     .logo {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: center;
                         margin: 10px 0px 10px 0px;
-                        width: 100%;
-
                         i {
                             font-size: 1.2rem;
-
                         }
                     }
                 }
@@ -212,7 +252,6 @@
                             margin: 10px 0px;
 
                             img {
-                                width: 40%;
                                 margin: 5px 10px 5px 0px;
                             }
                         }

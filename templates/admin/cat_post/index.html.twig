@@ -20,8 +20,8 @@
         <tbody>
         {% for cat_post in cat_posts %}
             <tr>
-                <td>{{ cat_post.nom }}</td>
-                <td>
+                <td data-label="Nom">{{ cat_post.nom }}</td>
+                <td data-label="Gestion">
                     <a href="{{ path('app_cat_post_show', {'id': cat_post.id}) }}"><i class="fa-solid fa-eye"></i></a>
                     <button>
                     <a href="{{ path('app_cat_post_edit', {'id': cat_post.id}) }}"><i class="fa-solid fa-pen-to-square"></i>

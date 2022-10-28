@@ -46,11 +46,12 @@
 header {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   position: fixed;
   width: 20%;
   height: 100vh;
-  background-color: white;
+  background-color: #1F2547;
 }
 header #containerTop {
   display: flex;
@@ -58,7 +59,7 @@ header #containerTop {
   justify-content: space-evenly;
   align-items: center;
   background-color: #1F2547;
-  height: 40vh;
+  margin: 25px 0px;
 }
 header #containerTop h1 {
   width: 100%;
@@ -66,7 +67,8 @@ header #containerTop h1 {
   letter-spacing: 1px;
   color: #ffffff;
   text-transform: uppercase;
-  font-size: clamp(1.2rem, calc(0.96rem + 0.9vw), 1.65rem);
+  font-size: clamp(1.2rem, calc(0.96rem + 0.9vw), 1.49rem);
+  margin: 35px 0px;
 }
 header #containerTop h1 > span {
   font-family: 'Playfair Display', serif;
@@ -99,7 +101,6 @@ header #containerBottom {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 60vh;
   flex-direction: column;
   font-weight: 200;
   color: #ffffff;
@@ -111,6 +112,7 @@ header #containerBottom ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 25px 0px;
 }
 header #containerBottom ul li:hover {
   background-color: #16394D;

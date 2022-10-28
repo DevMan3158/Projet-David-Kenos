@@ -10,18 +10,38 @@
 
 @media (max-width: 1600px) {
 
-    #containerBottom {
 
-            a {
-                padding: 12px 20px !important;
 
-            }
+    #containerTop {
+
+        margin: 15px 0px 15px 0px !important;
+
+        h1 {
+            margin: 15px 0px 15px 0px !important;
+            //margin-top: 30px;
+        }
+
     }
+
+    #containerBottom {
+        //padding: 15px;
+
+
+        ul {
+            margin: 0px 0px;
+
+        }
+
+    }
+
 }
 
 @media (max-width: 1200px) {}
 
 /* Tablette */
+
+
+
 
 @media (max-width: 1024px) {
     * {
@@ -102,11 +122,12 @@
         #containerTop {
             justify-content: space-around;
             padding: 15px;
-            height: 50vh;
+            margin: 0px 0px;
+           // height: 50vh;
 
             h1 {
-
-                margin-top: 30px;
+                margin: 60px 0px 10px 0px;
+                //margin-top: 30px;
             }
 
             .btn {
@@ -114,33 +135,35 @@
             }
 
             figure {
-                
+
                 align-items: center;
                 width: 100px;
                 height: 100px;
             }
-        
+
         }
 
-            #containerBottom {
-                padding: 15px;
-                height: 50vh;
+        #containerBottom {
+            padding: 35px;
+            
 
-                ul {
-                    align-items: center;
-                    width: auto;
-                    a {
-                        padding: 10px 50px 10px 50px;
+            ul {
+                margin: 0px 0px;
+                align-items: center;
+                width: auto;
 
-                    }
+                a {
+                    padding: 10px 50px 10px 50px;
 
-                }
-
-                figure {
-                    display: none;
                 }
 
             }
+
+            figure {
+                display: none;
+            }
+
+        }
     }
 
     .activeHead {
@@ -149,7 +172,33 @@
 
 }
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) and (orientation: landscape) {
+
+
+    header {
+        height: auto !important;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    #containerTop {
+        margin: 5px 0px 0px 0px !important;
+
+
+
+        h1 {
+            margin: 40px 0px 10px 0px !important;
+            //margin-top: 30px;
+        }
+
+
+    }
+
+
+
+}
 
 /*Version Mobile */
 

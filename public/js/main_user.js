@@ -98,17 +98,36 @@ allInput = document.querySelectorAll('.active');
 // Fonction AJAX pour les likes
 
 function onClickBtnLike(event){
+
+  // Id de lu like en question
+  let id = event.currentTarget.id
+
+  // La balise <a> du like en question
+  let elem = document.getElementById(id);
+
+  // On empeche le rechargement de la page
   event.preventDefault();
 
-  const url = this.href;
-  const spanCount = this.querySelector('span.js-likes');
-  const icone = this.querySelector('i');
-  const nbLikes = document.querySelector('span.js-nbLikes');
-  const jsText = this.querySelector('span.js-text');
+  // Le HREF de la balise <a> ( qui permets d'ajouter ou de supprimer le like en bdd )
+  const url = elem.href;
 
+  // Le nombre de like
+  const spanCount = document.querySelector(`#${id} span.js-likes`);
+
+  // L'icone like ( bleu ou gris )
+  const icone = document.querySelector(`#${id} i`);
+
+  // Le span J'aime ou J'aimes
+  const jsText = document.querySelector(`#${id} span.js-text`);
+
+
+  // La requete ajax
   axios.get(url).then(function(response){
+
+    // On modifie le nombre de like avec la reponse
       spanCount.textContent = response.data.likes;
 
+      // On remppli ou vide le coeur s'il est liké ou pas 
       if(icone.classList.contains('fa-solid')){
 
           icone.classList.replace('fa-solid', 'fa-regular');
@@ -119,7 +138,7 @@ function onClickBtnLike(event){
 
       };
 
-
+      // On rajoute un "s" s'il y a plusieurs likes :)
       if(spanCount.innerHTML > 1){
         jsText.innerHTML = "J'aimes";
       } else {
@@ -130,9 +149,9 @@ function onClickBtnLike(event){
   })
 }
 
-document.querySelectorAll('a.js-like').forEach(function(link){
-  link.addEventListener('click', onClickBtnLike)
-})
+//document.querySelectorAll('a.js-like').forEach(function(link){
+//  link.addEventListener('click', onClickBtnLike)
+//})
 
 // FILTRES AJAX
 

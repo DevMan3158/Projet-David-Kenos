@@ -32,7 +32,7 @@ header {
             letter-spacing: 1px;
             color: #ffffff;
             text-transform: uppercase;
-            font-size: (clamp(0.625rem, 2rem, 3rem));
+            font-size: @tH1;
         }
 
         h1>span {
@@ -44,7 +44,7 @@ header {
 
 
         .btn {
-            width: 85%;
+            width: @tBtn;
             background-color: @clr-btn1;
             padding: 15px 0px;
             border-radius: 5px;
@@ -75,7 +75,7 @@ header {
 
     #containerBottom {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
         height: 60vh;
         flex-direction: column;
@@ -99,12 +99,12 @@ header {
                 }
 
             a {
-                padding: 20px;
+                padding: 15px 20px;
                 width: 250px;
                 margin: auto;
                 font-weight: 200;
                 color: #ffffff;
-                font-size: 1rem;
+                font-size: @tA;
                 white-space: nowrap;
                 display: block;
 
@@ -115,34 +115,17 @@ header {
 
         }
 
-        #logo {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-
-            .icon_mod
-            {
-                display: flex;
-               flex-direction: row;
-                justify-content: center; 
-    
-   
-                i
-                {
-                    display: none;
-                }
-            }
-
             figure {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 110px;
+                //display: flex;
+                //align-items: center;
+                //justify-content: center;
+                //width: clamp(4.38rem, calc(3.5rem + 4.38vw), 8.75rem);
+                width: clamp(4.38rem, calc(3rem + 6.88vw), 9.25rem);
                 overflow: hidden;
 
                 
                 
             }
-        }
+        
     }
 }

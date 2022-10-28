@@ -4,24 +4,42 @@
 /* Ordinateur */
 /* Tablette */
 @media (max-width: 1024px) {
+  header {
+    z-index: 10;
+  }
+  #container_bandeau {
+    z-index: 15;
+    margin-bottom: 50px;
+  }
+  #Conteneur_Logo_Usr {
+    width: 90px !important;
+    height: 90px !important;
+    bottom: -45px !important;
+  }
+  .activeHead {
+    margin-top: 0 !important;
+  }
   .container_command {
     padding: 0 !important;
   }
-  h1 {
-    margin: 72px 0px 60px 0px;
+  .container_command h1 {
+    margin: 0px 0px 20px 0px;
     font-size: revert;
     text-align: center;
   }
-  .tab-container {
+  .container_command .tab-container {
     width: 100%;
   }
-  .tab-container .tab {
+  .container_command .tab-container .tab {
     background-color: #DFDFDF;
+    border-top-left-radius: 0px;
   }
-  .tab-container .tab a {
+  .container_command .tab-container .tab a {
     width: 100%;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
   }
-  .tab-container button {
+  .container_command .tab-container button {
     width: 90%;
   }
 }

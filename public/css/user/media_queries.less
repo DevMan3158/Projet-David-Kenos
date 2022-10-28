@@ -1,21 +1,25 @@
 @import '../variable.less';
 
-
 /* ---------- */
 /* Responsive */
 /* ---------- */
 
 /* Ordinateur */
 
-
 @media (max-width: 3860px) {}
 
-@media (max-width: 1600px) {}
+@media (max-width: 1600px) {
 
-@media (max-width: 1200px) {
+    #containerBottom {
 
+            a {
+                padding: 12px 20px !important;
 
+            }
+    }
 }
+
+@media (max-width: 1200px) {}
 
 /* Tablette */
 
@@ -27,24 +31,23 @@
     p {
         color: @clr-pol5;
         font-weight: 600;
-        font-size: clamp(0.3125rem, 0.8rem, 3rem);
     }
 
-    #container_bandeau{
+    #container_bandeau {
         justify-content: flex-start !important;
         height: 110px !important;
 
-        figure:nth-of-type(2){
+        figure:nth-of-type(2) {
             height: 100% !important;
         }
     }
 
-    .container_command{
+    .container_command {
         margin-left: unset !important;
         margin-top: 48px;
     }
 
-    //Header Mobile// 
+    /////Header Mobile//////
 
     #head {
 
@@ -60,8 +63,6 @@
             justify-content: space-between;
             align-items: center;
             height: min-content;
-            
-
 
             figure {
                 width: 50px;
@@ -80,8 +81,7 @@
 
     }
 
-
-    //Header bandeau
+    ////Header Bandeau////
 
     body {
         flex-direction: column;
@@ -89,7 +89,7 @@
         height: 100%;
         display: block;
 
-        header{
+        header {
             width: 0%;
             transition: 0.2s;
             overflow: hidden;
@@ -99,116 +99,65 @@
         }
 
 
+        #containerTop {
+            justify-content: space-around;
+            padding: 15px;
+            height: 50vh;
 
-            #containerTop {
-                justify-content: space-around;
-                padding: 15px;
-                height: 40vh;
+            h1 {
 
+                margin-top: 30px;
+            }
 
-                h1 {
+            .btn {
+                padding: 10px 0px;
+            }
 
-                    font-size: (clamp(0.625rem, 1rem, 3rem));
-                    margin-top: 30px;
-                }
-
-
-
-                .btn {
-                    width: 65%;
-                    padding: 10px 0px;
-                    font-size: 0.8rem;
-                }
-
-
-                figure {
-
-                    align-items: center;
-                    width: 100px;
-                    height: 100px;
-
-
-                }
-            
+            figure {
+                
+                align-items: center;
+                width: 100px;
+                height: 100px;
+            }
+        
+        }
 
             #containerBottom {
-                padding: 10px;
-                height: 60vh;
-
+                padding: 15px;
+                height: 50vh;
 
                 ul {
-
                     align-items: center;
-
-
-
-
+                    width: auto;
                     a {
-                        padding: 10px 0px 10px 29px;
-                        width: 70%;
-                        font-size: 0.9rem;
-
-                    }
-
-                }
-
-
-
-                .icon_mod {
-
-                    flex-direction: row-reverse;
-                    align-items: flex-end;
-                    justify-content: flex-end;
-
-                    i {
-                        display: flex;
-                        padding: 15px;
-                        font-size: 1.9rem;
-                        opacity: 0.58;
-                        color: #ffffff;
-
-                        &:hover {
-                            opacity: 0.8;
-                            scale: @sle;
-
-                        }
+                        padding: 10px 50px 10px 50px;
 
                     }
 
                 }
 
                 figure {
-                    width: 80px !important;
-
-                    img {
-                        border-radius: 50%;
-                    }
+                    display: none;
                 }
 
             }
-        }
     }
 
-    .activeHead{
+    .activeHead {
         width: 100%;
     }
 
-    #container_btn{
-        margin-top: 50px;
-    }
 }
-
 
 @media (max-width: 768px) {}
 
-/* Mobile */
+/*Version Mobile */
 
 @media (max-width: 656px) {
 
-    #containerBottom ul a{
+    #containerBottom ul a {
 
         padding: 1vh 20px !important;
-
     }
 
 }

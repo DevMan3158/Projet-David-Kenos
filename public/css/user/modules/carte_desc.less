@@ -5,29 +5,24 @@
 
 #container_carte {
 
-    display: flex;
-    flex-direction: column;
-    width: 28%;
-    //border: solid 2px rgb(255, 0, 0);
-
+    .flex_C_C();
+    width: 27%;
 
     .carte {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
+        .flex_C();
         background-color: @bgd_bgr_w;
         padding: 20px 35px 20px 35px;
-        width: 100%;
-        // border: solid 2px rgb(38, 0, 255);
+        
+        
 
         h1 {
             font-weight: 200;
             color: @clr-pol4;
             text-transform: uppercase;
             margin: 10px 0px 0px 0px;
-            width: inherit;
-            font-size: clamp(0.625rem, 2.4886rem, 3rem);
+            width: 100%;
+            text-align: left;
+            font-size: @tH1;
 
         }
 
@@ -56,17 +51,9 @@
             
         }
 
-        //à faire en mixin
+  
         .btn {
-            background-color: @bgd_bgr1;
-            font-weight: bold;
-            font-size: 1rem;
-            color: #ffffff;
-            transition: @trt;
-
-            &:hover {
-                color: (@bgd_btn3);
-            }
+            .Boutton();
         }
 
 

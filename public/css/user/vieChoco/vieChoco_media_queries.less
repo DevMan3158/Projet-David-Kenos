@@ -64,7 +64,67 @@
 
 /* Tablette */
 
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+
+/////////////////////CHARGE LE MODULE POST//////////////////////////
+
+    #container_posts {
+        padding: 0;
+        margin: 10px 0px;
+        width: 100%;
+
+        h1 {
+            margin: 0px 0px;
+        }
+
+        .posts {
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            padding: 15px !important;
+            margin: 16px 0px !important;
+
+            figure {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .contenues {
+                text-align: left !important;
+                width: -webkit-fill-available !important;
+                margin: 10px 0px !important;
+
+                #contenues_img {
+                    margin: 10px 0px !important;
+
+                    img {
+                        width: 40%;
+                        margin: 5px 10px 5px 0px ;
+                    }
+                }
+
+                h3 {
+                    font-size: 20px !important;
+                }
+
+                .comments {
+                    margin: 15px 0px 0px 0px !important;
+
+                    i {
+                        font-size: small;
+                    }
+
+                    a {
+                        margin: 0px 20px 0px 0px !important;
+                        font-size: 0.8rem !important;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+    
+}
 
 @media (max-width: 768px) {}
 

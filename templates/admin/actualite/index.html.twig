@@ -22,10 +22,10 @@
         <tbody>
         {% for actualite in actualites %}
             <tr>
-                <td>{{ actualite.contenu |length > 100 ? actualite.contenu |slice(0, 100) ~ '...' : actualite.contenu  }}</td>
-                <td><img title="Actualité" src="../../{{ actualite.imageActu }}" alt="{{ actualite.imageActu }}"></td>
-                <td>{{ actualite.cratedAt ? actualite.cratedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
+                <td data-label="Contenu">{{ actualite.contenu |length > 100 ? actualite.contenu |slice(0, 100) ~ '...' : actualite.contenu  }}</td>
+                <td data-label="Image"><img title="Actualité" src="../../{{ actualite.imageActu }}" alt="{{ actualite.imageActu }}"></td>
+                <td data-label="Date">{{ actualite.cratedAt ? actualite.cratedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td data-label="Gestion">
                   <a href="{{ path('app_actualite_show', {'id': actualite.id}) }}"><i class="fa-solid fa-eye"></i></a>
                     <button><a href="{{ path('app_actualite_edit', {'id': actualite.id}) }}"><i class="fa-solid fa-pen-to-square"></i>Modifier</a></button>
                     {{ include('admin/actualite/_delete_form.html.twig') }}

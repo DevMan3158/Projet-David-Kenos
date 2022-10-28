@@ -98,17 +98,36 @@ allInput = document.querySelectorAll('.active');
 // Fonction AJAX pour les likes
 
 function onClickBtnLike(event){
+
+  // Id de lu like en question
+  let id = event.currentTarget.id
+
+  // La balise <a> du like en question
+  let elem = document.getElementById(id);
+
+  // On empeche le rechargement de la page
   event.preventDefault();
 
-  const url = this.href;
-  const spanCount = this.querySelector('span.js-likes');
-  const icone = this.querySelector('i');
-  const nbLikes = document.querySelector('span.js-nbLikes');
-  const jsText = this.querySelector('span.js-text');
+  // Le HREF de la balise <a> ( qui permets d'ajouter ou de supprimer le like en bdd )
+  const url = elem.href;
 
+  // Le nombre de like
+  const spanCount = document.querySelector(`#${id} span.js-likes`);
+
+  // L'icone like ( bleu ou gris )
+  const icone = document.querySelector(`#${id} i`);
+
+  // Le span J'aime ou J'aimes
+  const jsText = document.querySelector(`#${id} span.js-text`);
+
+
+  // La requete ajax
   axios.get(url).then(function(response){
+
+    // On modifie le nombre de like avec la reponse
       spanCount.textContent = response.data.likes;
 
+      // On remppli ou vide le coeur s'il est liké ou pas 
       if(icone.classList.contains('fa-solid')){
 
           icone.classList.replace('fa-solid', 'fa-regular');
@@ -119,7 +138,7 @@ function onClickBtnLike(event){
 
       };
 
-
+      // On rajoute un "s" s'il y a plusieurs likes :)
       if(spanCount.innerHTML > 1){
         jsText.innerHTML = "J'aimes";
       } else {
@@ -130,9 +149,9 @@ function onClickBtnLike(event){
   })
 }
 
-document.querySelectorAll('a.js-like').forEach(function(link){
-  link.addEventListener('click', onClickBtnLike)
-})
+//document.querySelectorAll('a.js-like').forEach(function(link){
+//  link.addEventListener('click', onClickBtnLike)
+//})
 
 // FILTRES AJAX
 
@@ -215,25 +234,44 @@ function openHeader(){
   let header = document.querySelector('header');
   let deleteInBurger = document.querySelector('section.deleteInBurger');
   let burger = document.querySelector('i#userBurger');
+  let figure = document.querySelector('#containerTop figure');
+  let bandeau = document.querySelector('#container_bandeau')
 
   if(header.classList.contains("activeHead")){
 
     header.classList.remove('activeHead');
+    deleteInBurger.style.display = 'flex';
     burger.classList.replace('fa-xmark', 'fa-bars');
 
     if ( deleteInBurger.classList.contains("block")) {
-      deleteInBurger.style.display = 'block';
-      }
 
-    deleteInBurger.style.display = 'flex';
-    sectionTromb.style.display = 'flex';
+      deleteInBurger.style.display = 'block';
+
+    } else if ( bandeau !== null ){
+
+      setTimeout(() => {
+
+        figure.style.opacity = "1";
+  
+      }, 500)
+      
+    }
+    
+
+    
+
 
   } else {
 
     header.classList.add('activeHead');
-    burger.classList.replace('fa-bars', 'fa-xmark');
     deleteInBurger.style.display = 'none';
-    sectionTromb.style.display = 'none';
+    burger.classList.replace('fa-bars', 'fa-xmark');
+
+    if ( bandeau !== null ){
+
+    figure.style.opacity = "0";
+
+    }
 
   }
 }

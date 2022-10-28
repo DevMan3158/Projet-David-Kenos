@@ -74,7 +74,7 @@
 
                          
 
-                        <a  href="{{ path('app_post_likes', { 'id' : posts.id } ) }}" class="js-like">
+                        <a class="js-like" href="{{ path('app_post_likes', { 'id' : posts.id } ) }} " onClick="onClickBtnLike(event)" id="like{{posts.id}}">
                             {% if app.user and posts.isLikedByuser(app.user) %} 
                                 <i class="fa-solid fa-heart"></i>
                             {% else %}

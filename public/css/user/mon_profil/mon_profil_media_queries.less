@@ -10,6 +10,22 @@
 
 @media (max-width: 3860px) {}
 
+
+@media (max-width: 1600px) {
+    #container_carte {
+        margin: 25px 0px;
+
+        .carte {
+            padding: 15px 15px 15px 15px !important;
+            background-color: @bgd_bgr_w;
+  
+            .logo {
+                margin: 5px 0px 5px 0px !important;
+            }
+        }
+    }
+}
+
 @media (max-width: 1470px) {
 
     #container_carte {
@@ -171,45 +187,29 @@
                 margin: 10px 0px;
                 width: 100%;
 
-
                 h1 {
                     margin: 0px 0px;
-                    font-size: clamp(0.625rem, 1.1586rem, 3rem);
                 }
 
                 .posts {
                     flex-direction: column;
                     align-content: center;
                     justify-content: center;
-                    width: 100%;
-                    padding: 17px;
+                    padding: 15px;
                     margin: 16px 0px;
-                    filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
 
                     figure {
                         width: 60px;
                         height: 60px;
-
-                        img {
-                            border-radius: 50%;
-                        }
                     }
 
                     .contenues {
-                        display: flex;
-                        flex-direction: column;
                         text-align: left;
                         width: -webkit-fill-available;
                         margin: 10px 0px;
 
-
                         #contenues_img {
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: flex-start;
-                            flex-wrap: wrap;
                             margin: 10px 0px;
-
 
                             img {
                                 width: 40%;
@@ -217,49 +217,21 @@
                             }
                         }
 
-                        p>span {
-                            font-weight: 200;
-                        }
-
-
                         h3 {
-
-                            margin: 0px;
-                            text-align: left;
-                            font-weight: 200;
-                            text-transform: uppercase;
-                            letter-spacing: 2px;
                             font-size: 20px;
                         }
 
-                        h3>span {
-
-                            font-family: @fontP;
-                            font-weight: 200;
-                            font-style: italic;
-                            text-transform: none;
-                        }
-
-                        .colorP {
-                            font-size: 0.7rem;
-                            color: @clr-btn1;
-                            text-transform: none;
-                        }
-
                         .comments {
-
                             margin: 15px 0px 0px 0px;
 
                             i {
                                 font-size: small;
-                                color: #314090;
                             }
 
                             a {
                                 margin: 0px 20px 0px 0px;
                                 font-size: 0.8rem;
                                 font-weight: 600;
-                                color: #314090;
                             }
                         }
                     }
@@ -336,8 +308,32 @@
 
 @media (max-width: 656px) {
 
+
+    #container_carte {
+
+        .carte {
+            padding: 15px !important;
+
+            .logo {
+                margin: 6px 0px 6px 0px !important;
+
+                figure {
+                    width: 40px !important;
+                    height: 40px !important ;
+
+
+                    i {
+                        font-size: 1.2rem !important;
+
+                    }
+                }
+            }
+        }
+    }
+
+
     .etiquette {
-        font-size: 0.7rem !important;
+        font-size: 0.77rem !important;
     }
 
 }

@@ -30,10 +30,35 @@
 .BouttonCP:hover {
   scale: 1.05;
 }
+.ZoneDeTexte {
+  width: 100%;
+  height: 125px;
+  border: solid 1px rgba(0, 0, 0, 0);
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 15px;
+  resize: none;
+}
+.ZoneDeTexte:focus {
+  outline: 1px solid #14141444;
+  border-radius: 2px;
+}
 /* ---------- */
 /* Responsive */
 /* ---------- */
 /* Ordinateur */
+@media (max-width: 1600px) {
+  #container_carte {
+    margin: 25px 0px;
+  }
+  #container_carte .carte {
+    padding: 15px 15px 15px 15px !important;
+    background-color: #ffffff;
+  }
+  #container_carte .carte .logo {
+    margin: 5px 0px 5px 0px !important;
+  }
+}
 @media (max-width: 1470px) {
   #container_carte .carte {
     padding: 15px !important;
@@ -152,76 +177,43 @@
   }
   .container_command #container_general #container_posts h1 {
     margin: 0px 0px;
-    font-size: clamp(0.625rem, 1.1586rem, 3rem);
   }
   .container_command #container_general #container_posts .posts {
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    width: 100%;
-    padding: 17px;
+    padding: 15px;
     margin: 16px 0px;
-    filter: drop-shadow(3px 8px 5px rgba(0, 0, 0, 0.171));
   }
   .container_command #container_general #container_posts .posts figure {
     width: 60px;
     height: 60px;
   }
-  .container_command #container_general #container_posts .posts figure img {
-    border-radius: 50%;
-  }
   .container_command #container_general #container_posts .posts .contenues {
-    display: flex;
-    flex-direction: column;
     text-align: left;
     width: -webkit-fill-available;
     margin: 10px 0px;
   }
   .container_command #container_general #container_posts .posts .contenues #contenues_img {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
     margin: 10px 0px;
   }
   .container_command #container_general #container_posts .posts .contenues #contenues_img img {
     width: 40%;
     margin: 5px 10px 5px 0px;
   }
-  .container_command #container_general #container_posts .posts .contenues p > span {
-    font-weight: 200;
-  }
   .container_command #container_general #container_posts .posts .contenues h3 {
-    margin: 0px;
-    text-align: left;
-    font-weight: 200;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     font-size: 20px;
-  }
-  .container_command #container_general #container_posts .posts .contenues h3 > span {
-    font-family: 'Playfair Display', serif;
-    font-weight: 200;
-    font-style: italic;
-    text-transform: none;
-  }
-  .container_command #container_general #container_posts .posts .contenues .colorP {
-    font-size: 0.7rem;
-    color: #0BAA9F;
-    text-transform: none;
   }
   .container_command #container_general #container_posts .posts .contenues .comments {
     margin: 15px 0px 0px 0px;
   }
   .container_command #container_general #container_posts .posts .contenues .comments i {
     font-size: small;
-    color: #314090;
   }
   .container_command #container_general #container_posts .posts .contenues .comments a {
     margin: 0px 20px 0px 0px;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #314090;
   }
   .container_command #container_general #container_btn {
     display: flex;
@@ -273,7 +265,20 @@
 }
 /* Mobile */
 @media (max-width: 656px) {
+  #container_carte .carte {
+    padding: 15px !important;
+  }
+  #container_carte .carte .logo {
+    margin: 6px 0px 6px 0px !important;
+  }
+  #container_carte .carte .logo figure {
+    width: 40px !important;
+    height: 40px !important ;
+  }
+  #container_carte .carte .logo figure i {
+    font-size: 1.2rem !important;
+  }
   .etiquette {
-    font-size: 0.7rem !important;
+    font-size: 0.77rem !important;
   }
 }

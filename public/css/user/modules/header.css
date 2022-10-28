@@ -67,7 +67,7 @@ header #containerTop h1 {
   letter-spacing: 1px;
   color: #ffffff;
   text-transform: uppercase;
-  font-size: clamp(1.2rem, calc(0.96rem + 0.9vw), 1.65rem);
+  font-size: clamp(1.2rem, calc(0.96rem + 0.9vw), 1.49rem);
   margin: 35px 0px;
 }
 header #containerTop h1 > span {
@@ -128,6 +128,6 @@ header #containerBottom ul li a {
   display: block;
 }
 header #containerBottom figure {
-  width: clamp(4.38rem, calc(3rem + 6.88vw), 9.25rem);
+  width: clamp(4.38rem, calc(3rem + 6.88vw), 10.25rem);
   overflow: hidden;
 }

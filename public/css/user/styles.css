@@ -128,7 +128,7 @@ header #containerBottom ul li a {
   display: block;
 }
 header #containerBottom figure {
-  width: clamp(4.38rem, calc(3rem + 6.88vw), 9.25rem);
+  width: clamp(4.38rem, calc(3rem + 6.88vw), 10.25rem);
   overflow: hidden;
 }
 * {

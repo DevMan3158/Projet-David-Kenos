@@ -1,0 +1,28 @@
+/* ---------- */
+/* Responsive */
+/* ---------- */
+/* Ordinateur */
+/* Tablette */
+@media (max-width: 1024px) {
+  .container_command {
+    padding: 0 !important;
+  }
+  h1 {
+    margin: 72px 0px 60px 0px;
+    font-size: revert;
+    text-align: center;
+  }
+  .tab-container {
+    width: 100%;
+  }
+  .tab-container .tab {
+    background-color: #DFDFDF;
+  }
+  .tab-container .tab a {
+    width: 100%;
+  }
+  .tab-container button {
+    width: 90%;
+  }
+}
+/* Mobile */

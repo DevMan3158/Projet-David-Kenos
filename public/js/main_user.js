@@ -211,15 +211,15 @@ window.onload = () => {
 function openMenu(){
 
   let buttonId = event.currentTarget.id.replace('commenter', 'container_com_');
-  let postId = document.getElementById(buttonId);
+  let boxComId = document.getElementById(buttonId);
 
-  if (postId.classList.contains('activeComment') == false) {
+  if (boxComId.classList.contains('activeComment') == false) {
 
-    postId.classList.add("activeComment");
+    boxComId.classList.add("activeComment");
 
   } else {
 
-    postId.classList.remove("activeComment");
+    boxComId.classList.remove("activeComment");
 
   }
 

@@ -3,7 +3,7 @@
 namespace App\Controller\user;
 
 use App\Entity\User;
-use App\Form\EditUserType;
+use App\Form\user\EditUserType;
 use App\Service\FileUploader;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,6 +20,7 @@ class UserEditController extends AbstractController
         #[Route('user/{id}', name: 'app_user_profil_edit', methods: ['GET', 'POST'])]
         public function edit(UserPasswordHasherInterface $userPasswordHasher, FileUploader $fileUploader, Request $request, User $user, Int $id, UserRepository $userRepository): Response
         {
+            $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
             $userId = $this->getUser()->getId();
             if ($userId !== $id) {

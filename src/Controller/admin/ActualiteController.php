@@ -4,7 +4,7 @@ namespace App\Controller\admin;
 
 use DateTimeImmutable;
 use App\Entity\Actualite;
-use App\Form\ActualiteType;
+use App\Form\adminCrud\ActualiteType;
 use App\Entity\Chocolaterie;
 use App\Service\FileUploader;
 use App\Form\ChocolaterieType;

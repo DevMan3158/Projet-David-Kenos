@@ -3,7 +3,7 @@
 namespace App\Controller\admin;
 
 use App\Entity\User;
-use App\Form\UserType;
+use App\Form\adminCrud\UserType;
 use App\Repository\UserRepository;
 use App\Repository\ChocolaterieRepository;
 use Symfony\Component\HttpFoundation\Request;

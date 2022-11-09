@@ -5,9 +5,9 @@ namespace App\Controller\user;
 use App\Entity\Like;
 use App\Entity\Post;
 use App\Entity\User;
-use App\Form\PostType;
+use App\Form\user\PostType;
 use App\Entity\Commentaire;
-use App\Form\CommentaireType;
+use App\Form\user\CommentaireType;
 use App\Service\FileUploader;
 use App\Repository\LikeRepository;
 use App\Repository\PostRepository;
@@ -25,6 +25,7 @@ class MonProfilController extends AbstractController
     #[Route('utilisateur/profil/{id}', name: 'app_profil', methods:['GET', 'POST']) ]
     public function profil(FileUploader $fileUploader, Request $request, UserRepository $userRepo, CommentaireRepository $commentaireRepository ,PostRepository $post, int $id ): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         // Résolution bug ParamConverter, on redirige l'utilisateur s'il va sur la page d'un untilisateur innéxistant.
 

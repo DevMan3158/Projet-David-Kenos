@@ -4,7 +4,7 @@ namespace App\Controller\admin;
 
 use App\Entity\Like;
 use App\Entity\Post;
-use App\Form\PostType;
+use App\Form\adminCrud\PostType;
 
 use App\Entity\CatPost;
 use App\Repository\LikeRepository;

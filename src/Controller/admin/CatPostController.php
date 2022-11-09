@@ -3,7 +3,7 @@
 namespace App\Controller\admin;
 
 use App\Entity\CatPost;
-use App\Form\CatPostType;
+use App\Form\adminCrud\CatPostType;
 use App\Repository\CatPostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

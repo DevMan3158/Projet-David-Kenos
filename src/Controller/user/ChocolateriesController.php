@@ -15,6 +15,7 @@ class ChocolateriesController extends AbstractController
     #[Route('utilisateur/chocolateries/{id}', name: 'app_chocolateries')]
     public function index(ChocolaterieRepository $chocoRepo, Chocolaterie $chocoEntity): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         return $this->render('user/chocolateries/index.html.twig', [
             'controller_name' => 'ChocolateriesController',
             'chocolateries' => $chocoEntity,

@@ -12,6 +12,7 @@ class TrombinoscopeController extends AbstractController
     #[Route('/trombinoscope', name: 'app_trombinoscope')]
     public function index(UserRepository $userRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         if(!empty($_GET['pg'])){
             $currentPage = (int) strip_tags($_GET['pg']);

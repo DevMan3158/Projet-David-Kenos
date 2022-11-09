@@ -14,6 +14,7 @@ class ActualiteController extends AbstractController
     #[Route('/actualite', name: 'app_actualite')]
     public function index(ChocolaterieRepository $chocRepo, ActualiteRepository $actRepo): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
 
         if(!empty($_GET['pg'])){

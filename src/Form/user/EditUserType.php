@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\user;
 
 use App\Entity\User;
 use App\Entity\Chocolaterie;

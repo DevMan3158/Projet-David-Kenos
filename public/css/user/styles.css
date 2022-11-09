@@ -59,6 +59,7 @@ header #containerTop {
   justify-content: space-evenly;
   align-items: center;
   background-color: #1F2547;
+  height: 100%;
   margin: 25px 0px;
 }
 header #containerTop h1 {

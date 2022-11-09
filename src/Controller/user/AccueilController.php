@@ -13,6 +13,7 @@ class AccueilController extends AbstractController
     #[Route('/', name: 'app_accueil')]
     public function index(PostRepository $postRepo, ActualiteRepository $actRepo): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         return $this->render('user/accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
             'findAllPost' => $postRepo->findBy([], ['id' => 'DESC']),

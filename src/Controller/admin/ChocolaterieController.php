@@ -4,7 +4,7 @@ namespace App\Controller\admin;
 
 use App\Entity\Chocolaterie;
 use App\Service\FileUploader;
-use App\Form\ChocolaterieType;
+use App\Form\adminCrud\ChocolaterieType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ChocolaterieRepository;
 use Symfony\Component\HttpFoundation\Request;

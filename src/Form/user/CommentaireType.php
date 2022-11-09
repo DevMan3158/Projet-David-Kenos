@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\user;
 
 use App\Entity\Post;
 use App\Entity\User;

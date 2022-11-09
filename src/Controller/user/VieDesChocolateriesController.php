@@ -16,6 +16,7 @@ class VieDesChocolateriesController extends AbstractController
     #[Route('/viedeschocolateries', name: 'app_viedeschocolateries', methods:['GET'])]
     public function index(Request $request, PostRepository $postRepository, UserRepository $userRepository, CatPostRepository $catPost): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         // PAGINATION
 
